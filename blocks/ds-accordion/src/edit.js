@@ -11,7 +11,7 @@
   *
   * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
   */
- import { useBlockProps, RichText } from '@wordpress/block-editor';
+ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
  
  /**
   * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
@@ -55,13 +55,9 @@
 						 onChange={ onChangeTitle }
 						 placeholder="Accordion Title"
 						 />
-					 <RichText
-						 tagName="div"
-						 className="accordion-body"
-						 value={ body }
-						 onChange={ onChangeBody }
-						 placeholder="Accordion Body"
-						 />
+				<div class="accordion-body">
+					<InnerBlocks />
+				</div>
 			 </details>
 		 </cagov-accordion>
 	   </div>

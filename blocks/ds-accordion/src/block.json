@@ -15,17 +15,11 @@
           "type": "string",
           "source": "text",
 		  "selector": "cagov-accordion summary"
-        },
-        "body": {
-          "type": "string",
-          "source": "text",
-		  "selector": "cagov-accordion .accordion-body"
         }
       },
       "example": {
         "attributes": {
-          "title": "Accordion Title",
-          "body": "Accordion Body"
+          "title": "Accordion Title"
         }
       },
 	"textdomain": "cagov-design-system",
