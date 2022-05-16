@@ -9,11 +9,11 @@
  * @package CADesignSystemGutenbergBlocks
  */
 
-if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
+if ( ! class_exists( 'CA_Design_System_Gutenberg_Update' ) ) {
 	/**
 	 * CADesignSystemGutenbergBlocks Plugin Upgrader
 	 */
-	class CADesignSystemGutenbergBlocks_Plugin_Update {
+	class CA_Design_System_Gutenberg_Update {
 
 		/**
 		 * Member Variable
@@ -54,7 +54,7 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 		 *
 		 * @var string $repo Plugin repo location.
 		 */
-		protected $repo = 'https://api.github.com/repos/cagov/ca-design-system-gutenberg-blocks';
+		protected $repo = 'https://api.github.com/repos/CA-CODE-Works/design-system-wordpress-gutenberg';
 
 		/**
 		 * Member Variable
@@ -79,7 +79,8 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 
 			$this->args = array(
 				'headers' => array(
-					'Accept:'       => 'application/vnd.github.v3+json',
+					'User-Agent' => 'WP-' . $this->plugin_name,
+					'Accept:'    => 'application/vnd.github.v3+json',
 					'application/vnd.github.VERSION.raw',
 					'application/octet-stream',
 				),
@@ -93,7 +94,7 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 
 			add_filter( 'plugins_api', array( $this, 'cagov_design_system_gutenberg_blocks_update_plugins_changelog' ), 20, 3 );
 
-			// Define the alternative response for download_package which gets called during theme upgrade.
+			// Define the alternative response for download_package which gets called during plugin upgrade.
 			add_filter( 'upgrader_pre_download', array( $this, 'download_package' ), 10, 3 );
 
 			// Define the alternative response for upgrader_pre_install.
@@ -102,7 +103,7 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 		}
 
 		/**
-		 * Alternative theme download for the WordPress Updater
+		 * Alternative plugin download for the WordPress Updater
 		 *
 		 * @see https://github.com/WordPress/WordPress/blob/master/wp-admin/includes/class-wp-upgrader.php#L265
 		 *
@@ -114,11 +115,10 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 		 */
 		public function download_package( $reply, $package, $upgrader ) {
 			if ( isset( $upgrader->skin->plugin_info ) && $upgrader->skin->plugin_info['Name'] === $this->plugin_name ) {
-				$theme = wp_remote_retrieve_body( wp_remote_get( $package, array_merge( $this->args, array( 'timeout' => 60 ) ) ) );
-				// Now use the standard PHP file functions.
-				$fp = fopen( sprintf( '%1$s/%2$s.zip', plugin_dir_path( __DIR__ ), $this->slug ), 'w' );
-				fwrite( $fp, $theme );
-				fclose( $fp );
+				$plugin = wp_remote_retrieve_body( wp_remote_get( $package, array_merge( $this->args, array( 'timeout' => 60 ) ) ) );
+				global $wp_filesystem;
+				$filename = sprintf( '%1$s/%2$s.zip', plugin_dir_path( __DIR__ ), $this->slug );
+				$wp_filesystem->put_contents( $filename, $plugin );
 
 				return sprintf( '%1$s/%2$s.zip', plugin_dir_path( __DIR__ ), $this->slug );
 			}
@@ -141,7 +141,6 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 
 			$last_update = new stdClass();
 
-			// Example: https://api.github.com/repos/cagov/ca-design-system-gutenberg-blocks/releases/latest
 			$payload = wp_remote_get( sprintf( '%1$s/releases/latest', $this->repo ), $this->args );
 
 			if ( ! is_wp_error( $payload ) && wp_remote_retrieve_response_code( $payload ) === 200 ) {
@@ -157,17 +156,17 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 					$obj->package        = str_replace( 'zipball', 'zipball/refs/tags', $payload->zipball_url );
 					$obj->tested         = '5.4.1';
 
-					$theme_response = array( $this->plugin_file => $obj );
+					$plugin_response = array( $this->plugin_file => $obj );
 
-					$update_transient->response = array_merge( ! empty( $update_transient->response ) ? $update_transient->response : array(), $theme_response );
+					$update_transient->response = array_merge( ! empty( $update_transient->response ) ? $update_transient->response : array(), $plugin_response );
 
 					$last_update->checked  = $plugins;
-					$last_update->response = $theme_response;
+					$last_update->response = $plugin_response;
 				} else {
 					delete_site_transient( $this->transient_name );
 				}
 			}
-			
+
 			$last_update->last_checked = time();
 			set_site_transient( $this->transient_name, $last_update );
 
@@ -201,9 +200,9 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 
 		/**
 		 * Filters the response for the current WordPress.org Plugin Installation API request.
-		 * 
+		 *
 		 * @see https://developer.wordpress.org/reference/functions/plugins_api/
-		 * 
+		 *
 		 * @param  false|object|array $result The result object or array. Default false.
 		 * @param  string             $action The type of information being requested from the Plugin Installation API.
 		 * @param  object             $args Plugin API arguments.
@@ -277,7 +276,7 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 
 		/**
 		 * Plugin Details
-		 * 
+		 *
 		 * @see https://developer.wordpress.org/reference/functions/plugins_api/
 		 * @return array
 		 */
@@ -290,7 +289,7 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 					'Description' => 'Gutenberg blocks to be used in WordPress that are compatible with the California\'s design system',
 				),
 				'requires' => '5.4.1',
-				'tested' => '5.4.1',
+				'tested'   => '5.4.1',
 			);
 
 			return $view_details;
@@ -299,4 +298,4 @@ if ( ! class_exists( 'CADesignSystemGutenbergBlocks_Plugin_Update' ) ) {
 	}
 }
 
-new CADesignSystemGutenbergBlocks_Plugin_Update( plugin_basename( plugin_dir_path( __DIR__ ) ) );
+new CA_Design_System_Gutenberg_Update( plugin_basename( plugin_dir_path( __DIR__ ) ) );
