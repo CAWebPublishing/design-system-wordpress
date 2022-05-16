@@ -54,7 +54,7 @@ add_action( 'admin_init', 'cagov_ds_gutenberg_admin_init' );
  * @return void
  */
 function cagov_ds_gutenberg_admin_init() {
-	require_once CAGOV_DESIGN_SYSTEM_GUTENBERG . 'core/class-design-system-wordpress-gutenberg-update.php';
+	require_once CAGOV_DESIGN_SYSTEM_GUTENBERG . '/core/class-ca-design-system-gutenberg-update.php';
 }
 
 /**
@@ -68,7 +68,7 @@ function cagov_ds_gutenberg_admin_init() {
  */
 function cagov_ds_gutenberg_init() {
 	/* Include Design System Functionality */
-	foreach ( glob( __DIR__ . '/inc/*.php' ) as $file ) {
+	foreach ( glob( CAGOV_DESIGN_SYSTEM_GUTENBERG . '/inc/*.php' ) as $file ) {
 		require_once $file;
 	}
 
