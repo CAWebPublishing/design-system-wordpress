@@ -7,12 +7,12 @@
  * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into the WordPress.
  * Author: Office of Digital Innovation
  * Author URI: https://digital.ca.gov
- * Version: 1.3.1
+ * Version: 1.3.2
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
  * Requires at least: 5.8
- * 
+ *
  * @package  cagov-design-system
  * @author   Office of Digital Innovation <info@digital.ca.gov>
  * @license  https://opensource.org/licenses/MIT MIT
@@ -39,25 +39,38 @@ define( 'CAGOV_DESIGN_SYSTEM_GUTENBERG__DEBUG', true ); // Can associate with en
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_a_Typical_Request
  */
-global $wp_version;
 
-$cagov_ds_is_under_5_8 = version_compare( $wp_version, '5.8', '<' ) ? '' : '_all';
-
-add_action( 'init', 'cagov_ds_gutenberg_enqueue_block_editor_assets' );
-
-add_filter( "block_categories$cagov_ds_is_under_5_8", 'cagov_ds_gutenberg_categories', 10, 2 );
-add_filter( "allowed_block_types$cagov_ds_is_under_5_8", 'cagov_ds_gutenberg_allowed_block_types' );
-
-add_filter( 'script_loader_tag', 'cagov_ds_gutenberg_script_loader_tag', 10, 3 );
-
-
+add_action( 'init', 'cagov_ds_gutenberg_init' );
+add_action( 'admin_init', 'cagov_ds_gutenberg_admin_init' );
 
 /**
- * Include Gutenberg Block assets by getting the index file of each block build file.
+ * Design System Admin Init
  *
+ * Triggered before any other hook when a user accesses the admin area.
+ * Note, this does not just run on user-facing admin screens.
+ * It runs on admin-ajax.php and admin-post.php as well.
+ *
+ * @link https://developer.wordpress.org/reference/hooks/admin_init/
  * @return void
  */
-function cagov_ds_gutenberg_enqueue_block_editor_assets() {
+function cagov_ds_gutenberg_admin_init() {
+	require_once CAGOV_DESIGN_SYSTEM_GUTENBERG . 'core/class-design-system-wordpress-gutenberg-update.php';
+}
+
+/**
+ * Design System Initialization
+ *
+ * Fires after WordPress has finished loading but before any headers are sent.
+ * Include Gutenberg Block assets by getting the index file of each block build file.
+ *
+ * @link https://developer.wordpress.org/reference/hooks/init/
+ * @return void
+ */
+function cagov_ds_gutenberg_init() {
+	/* Include Design System Functionality */
+	foreach ( glob( __DIR__ . '/inc/*.php' ) as $file ) {
+		require_once $file;
+	}
 
 	// Register shared packages.
 	// @TODO check performance after a few components are re-mapped
@@ -85,107 +98,4 @@ function cagov_ds_gutenberg_enqueue_block_editor_assets() {
 		register_block_type( strtolower( CAGOV_DESIGN_SYSTEM_GUTENBERG . "/blocks/$name/build" ) );
 	}
 
-}
-
-/**
- * Register Gutenberg Blocks categories to the Block editor
- *
- * @link https://developer.wordpress.org/reference/hooks/block_categories_all/
- *
- * @param  array                   $categories Array of categories for block types.
- * @param  WP_Block_Editor_Context $post The current block editor context.
- * @return array
- */
-function cagov_ds_gutenberg_categories( $categories, $post ) {
-	return array_merge(
-		array(
-			array(
-				'slug'  => 'cagov-design-system',
-				'title' => 'CA Design System',
-			),
-		),
-		array(
-			array(
-				'slug'  => 'cagov-design-system-utilities',
-				'title' => 'CAGov Design System: Utilities',
-			),
-		),
-		$categories
-	);
-}
-
-/**
- * Load Minified Version of a file
- *
- * @param  string $f File to load.
- * @param  string $ext Extension of file, default css.
- *
- * @return string
- */
-function cagov_ds_gutenberg_get_min_file( $f, $ext = 'css' ) {
-	// if not debugging and a minified version exists load it.
-	if ( CAGOV_DESIGN_SYSTEM_GUTENBERG__DEBUG && file_exists( CAGOV_DESIGN_SYSTEM_GUTENBERG . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
-		return CAGOV_DESIGN_SYSTEM_GUTENBERG_URI . str_replace( ".$ext", ".min.$ext", $f );
-	} else {
-		return CAGOV_DESIGN_SYSTEM_GUTENBERG_URI . $f;
-	}
-}
-
-/**
- * Design System Allowed Block Types
- *
- * Removes all blocks or patterns from Gutenberg and returns Design System Blocks.
- *
- * @link https://developer.wordpress.org/reference/hooks/allowed_block_types_all/
- *
- * @param  bool|array $allowed_blocks Array of block type slugs, or boolean to enable/disable all. Default true (all registered block types supported).
- * @return array
- */
-function cagov_ds_gutenberg_allowed_block_types( $allowed_blocks ) {
-
-	// if not debugging, return all blocks.
-	if ( ! CAGOV_DESIGN_SYSTEM_GUTENBERG__DEBUG ) {
-		return $allowed_blocks;
-	}
-
-	remove_theme_support( 'core-block-patterns' );
-
-	// Core Components
-	$core = array(
-		'core/image',
-		'core/paragraph',
-		'core/button',
-		'core/table',
-		'core/heading',
-		'core/list',
-		'core/custom-html',
-		'core/classic',
-	);
-
-	// Dynamically get a list of the Design System blocks
-	$design_system = array_map( function($b){
-		return 'cagov-design-system/' . basename($b);
-	},
-	glob( CAGOV_DESIGN_SYSTEM_GUTENBERG . '/blocks/*')
-	);
-
-	// Return the desired components.
-	return array_merge($core, $design_system );
-}
-
-/**
- * Filters the HTML script tag of an enqueued script.
- *
- * @param  mixed $tag The <script> tag for the enqueued script.
- * @param  mixed $handle The script's registered handle.
- * @param  mixed $src The script's source URL.
- * @return string
- */
-function cagov_ds_gutenberg_script_loader_tag( $tag, $handle, $src ) {
-	// Register script as module.
-	if ( 'cagov-design-system-components-script' === $handle ) {
-		$tag = str_replace( 'src', 'type="module" src', $tag );
-	}
-
-	return $tag;
 }
