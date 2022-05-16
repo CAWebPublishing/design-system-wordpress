@@ -11,7 +11,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, InnerBlocks } from '@wordpress/block-editor';
 
 /**
  * The save function defines the way in which the different attributes should
@@ -33,7 +33,9 @@ export default function save(props) {
 		<cagov-accordion>
 			<details>
 				<summary>{title}</summary>
-				<div className="accordion-body">{body}</div>
+				<div className="accordion-body">
+					<InnerBlocks.Content />
+				</div>
 			</details>
 		</cagov-accordion>
 	  </div>
