@@ -7,7 +7,7 @@
  * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into the WordPress.
  * Author: Office of Digital Innovation
  * Author URI: https://digital.ca.gov
- * Version: 1.3.2
+ * Version: 1.3.3
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
