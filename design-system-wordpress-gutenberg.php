@@ -7,7 +7,7 @@
  * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into the WordPress.
  * Author: Office of Digital Innovation
  * Author URI: https://digital.ca.gov
- * Version: 1.3.2
+ * Version: 1.3.3
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
@@ -31,7 +31,7 @@ $cagov_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_u
 define( 'CAGOV_DESIGN_SYSTEM_GUTENBERG', __DIR__ );
 define( 'CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION', '1.2.0.3' );
 define( 'CAGOV_DESIGN_SYSTEM_GUTENBERG_URI', esc_url( str_replace( $cagov_doc_root, '', __DIR__ ) ) );
-define( 'CAGOV_DESIGN_SYSTEM_GUTENBERG__DEBUG', true ); // Can associate with env variable later.
+define( 'CAGOV_DESIGN_SYSTEM_GUTENBERG__DEBUG', false ); // Can associate with env variable later.
 
 /**
  * Plugin API/Action Reference
