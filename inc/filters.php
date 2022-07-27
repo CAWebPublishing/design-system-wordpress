@@ -95,7 +95,7 @@ function cagov_ds_gutenberg_allowed_block_types( $allowed_blocks ) {
 function cagov_ds_gutenberg_script_loader_tag( $tag, $handle, $src ) {
 	// Register script as module.
 	if ( 'cagov-design-system-components-script' === $handle ) {
-		$tag = str_replace( 'src', 'type="module" src', $tag );
+		$tag = str_replace( "type='text/javascript'", 'type="module"', $tag );
 	}
 
 	return $tag;

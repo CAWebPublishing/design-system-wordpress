@@ -86,11 +86,7 @@ function cagov_ds_gutenberg_init() {
 	);
 
 	// Register compiled Gutenberg Block bundles.
-	wp_register_script( 'cagov-design-system-gutenberg', cagov_ds_gutenberg_get_min_file( '/build/js/gutenberg.js', 'js' ), $deps, CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION, true );
-	wp_register_script( 'cagov-design-system-components-script', cagov_ds_gutenberg_get_min_file( '/build/js/cagov-design-system.js' ), array(), CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION, true );
-
-	wp_register_style( 'cagov-design-system-gutenberg', cagov_ds_gutenberg_get_min_file( '/build/css/gutenberg.css' ), array(), CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION );
-	wp_register_style( 'cagov-design-system-gutenberg-style', cagov_ds_gutenberg_get_min_file( '/build/css/cagov-design-system.css' ), array(), CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION );
+	// wp_enqueue_script( 'cagov-design-system-gutenberg', cagov_ds_gutenberg_get_min_file( '/build/js/gutenberg.js', 'js' ), $deps, CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION, true );
 
 	// Register all CA Design System Gutenberg Blocks.
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_GUTENBERG . '/blocks/*/' ) as $block ) {
@@ -99,3 +95,37 @@ function cagov_ds_gutenberg_init() {
 	}
 
 }
+
+/**
+ * Register Design System scripts/styles 
+ *
+ * Fires when scripts and styles are enqueued.
+ *
+ * @category add_action( 'wp_enqueue_scripts', 'cagov_ds_wp_enqueue_scripts' );
+ * @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+ *
+ * @return void
+ */
+function cagov_ds_wp_enqueue_scripts(){
+	// Register shared packages.
+	// @TODO check performance after a few components are re-mapped
+	// 'jquery', (DEPRECATING: Let's not use jQuery with React.).
+	$deps = array(
+		'wp-blocks',
+		'wp-element',
+		'wp-editor',
+		'wp-i18n',
+		'wp-block-editor',
+		'wp-rich-text',
+		'wp-components',
+	);
+
+	// Register compiled Gutenberg Block bundles.
+	wp_enqueue_script( 'cagov-design-system-components-script', cagov_ds_gutenberg_get_min_file( '/build/js/cagov-design-system.js', 'js' ), array(), CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION, true );
+
+	wp_enqueue_style( 'cagov-design-system-gutenberg', cagov_ds_gutenberg_get_min_file( '/build/css/gutenberg.css' ), array(), CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION );
+	wp_enqueue_style( 'cagov-design-system-gutenberg-style', cagov_ds_gutenberg_get_min_file( '/build/css/cagov-design-system.css' ), array(), CAGOV_DESIGN_SYSTEM_GUTENBERG__VERSION );
+
+}
+
+
