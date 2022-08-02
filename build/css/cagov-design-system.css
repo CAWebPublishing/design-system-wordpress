@@ -4,19 +4,24 @@ cagov-accordion details {
   margin-bottom: 0;
   min-height: var(--s-5, 3rem);
   margin-top: 0.5rem;
-  border: solid var(--border-1, 1px) var(--gray-200, #ededef) !important;
+  border: solid var(--border-1, 1px) var(--gray-200, #d4d4d7) !important;
 }
 
 cagov-accordion details summary {
   cursor: pointer;
   padding: var(--s-1, 0.5rem) var(--s-5, 3rem) var(--s-1, 0.5rem) var(--s-2, 1rem);
-  background-color: var(--gray-200, #ededef);
+  background-color: var(--gray-50, #fafafa);
   position: relative;
   line-height: var(--s-4, 2rem);
   margin: 0;
-  color: var(--primary-color, #064e66);
+  color: var(--primary-700, #165ac2);
   font-size: var(--font-size-2, 1.125rem);
   font-weight: bold;
+}
+
+cagov-accordion details summary:hover {
+  background-color: var(--gray-100, #fafafa);
+  color: var(--primary-900, #003688);
 }
 
 cagov-accordion details .accordion-body {
@@ -50,11 +55,12 @@ cagov-accordion:defined details summary {
 
 cagov-accordion:defined details summary:focus {
   outline-offset: -2px;
-  outline: solid 2px var(--highlight-color, #fbad23) !important;
+  outline: solid 2px var(--accent2-500, #ac8227) !important;
+  background-color: var(--gray-100, #fafafa);
 }
 
 cagov-accordion:defined details .cagov-open-indicator {
-  background-color: var(--primary-color, #064e66);
+  background-color: var(--primary-700, #165ac2);
   height: 3px;
   width: 15px;
   border-radius: var(--border-3, 3px);
@@ -65,7 +71,7 @@ cagov-accordion:defined details .cagov-open-indicator {
 
 cagov-accordion:defined details .cagov-open-indicator:before {
   display: block;
-  content: '';
+  content: "";
   position: absolute;
   top: -6px;
   left: 3px;
@@ -73,12 +79,73 @@ cagov-accordion:defined details .cagov-open-indicator:before {
   height: 15px;
   border-radius: var(--border-3, 3px);
   border: none;
-  box-shadow: 3px 0 0 0 var(--primary-color, #064e66);
+  box-shadow: 3px 0 0 0 var(--primary-700, #165ac2);
   background: none;
 }
 
 cagov-accordion:defined details[open] .cagov-open-indicator:before {
   display: none;
+}
+
+.no-deco {
+  text-decoration: none;
+}
+
+.cagov-card {
+  border: var(--border-1, 1px) solid var(--gray-300, #e1e0e3);
+  padding: var(--s-2, 1rem);
+  border-bottom: var(--border-5, 5px) solid var(--primary-700, #004abc);
+  border-radius: var(--radius-2, 4px);
+  min-width: 250px;
+  min-height: 50px;
+  margin-top: 0;
+  display: flex;
+}
+
+.cagov-card:hover {
+  background-color: var(--gray-100, #f9f9fa);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.cagov-card:focus {
+  outline: var(--accent2-500, #ac8226);
+}
+
+.cagov-card .card-text {
+  color: var(--primary-700, #004abc) !important;
+  font-size: var(--font-size-5, 1.625rem);
+  line-height: var(--font-lineheight-3, 1.5);
+  padding: 0;
+  padding-right: var(--s-2, 1rem);
+  margin: 0;
+}
+
+.cagov-card svg {
+  fill: var(--primary-700, #004abc);
+  min-width: var(--s-2, 1rem);
+  min-height: var(--s-2, 1rem);
+  max-width: var(--s-2, 1rem);
+  max-height: var(--s-2, 1rem);
+  margin-top: var(--s-1, 0.5rem);
+  margin-left: auto;
+}
+
+.cagov-grid,
+.cagov-grid .block-editor-block-list__layout {
+  display: grid;
+  grid-gap: var(--s-3, 1.5rem);
+}
+
+/* editor override */
+.cagov-grid .block-editor-block-list__block {
+  margin: 0;
+}
+
+@supports (width: calc(min(250px, 100%))) {
+  .cagov-grid,
+  .cagov-grid .block-editor-block-list__layout {
+    grid-template-columns: repeat(auto-fit, minmax(calc(min(250px, 100%)), 1fr));
+  }
 }
 
 /* sidebar layout */
@@ -229,67 +296,6 @@ cagov-accordion:defined details[open] .cagov-open-indicator:before {
 .cagov-hero-body-content .btn-primary {
   overflow-wrap: normal;
   white-space: nowrap;
-}
-
-.no-deco {
-  text-decoration: none;
-}
-
-.cagov-card {
-  border: var(--border-1, 1px) solid var(--gray-300, #e1e0e3);
-  padding: var(--s-2, 1rem);
-  border-bottom: var(--border-5, 5px) solid var(--primary-700, #004abc);
-  border-radius: var(--radius-2, 4px);
-  min-width: 250px;
-  min-height: 50px;
-  margin-top: 0;
-  display: flex;
-}
-
-.cagov-card:hover {
-  background-color: var(--gray-100, #f9f9fa);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-
-.cagov-card:focus {
-  outline: var(--accent2-500, #ac8226);
-}
-
-.cagov-card .card-text {
-  color: var(--primary-700, #004abc) !important;
-  font-size: var(--font-size-5, 1.625rem);
-  line-height: var(--font-lineheight-3, 1.5);
-  padding: 0;
-  padding-right: var(--s-2, 1rem);
-  margin: 0;
-}
-
-.cagov-card svg {
-  fill: var(--primary-700, #004abc);
-  min-width: var(--s-2, 1rem);
-  min-height: var(--s-2, 1rem);
-  max-width: var(--s-2, 1rem);
-  max-height: var(--s-2, 1rem);
-  margin-top: var(--s-1, 0.5rem);
-  margin-left: auto;
-}
-
-.cagov-grid,
-.cagov-grid .block-editor-block-list__layout {
-  display: grid;
-  grid-gap: var(--s-3, 1.5rem);
-}
-
-/* editor override */
-.cagov-grid .block-editor-block-list__block {
-  margin: 0;
-}
-
-@supports (width: calc(min(250px, 100%))) {
-  .cagov-grid,
-  .cagov-grid .block-editor-block-list__layout {
-    grid-template-columns: repeat(auto-fit, minmax(calc(min(250px, 100%)), 1fr));
-  }
 }
 
 /* Page alert */

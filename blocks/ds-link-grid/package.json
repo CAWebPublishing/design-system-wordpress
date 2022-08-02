@@ -18,9 +18,5 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^23.0.0"
-	},
-	"dependencies": {
-		"@cagov/ds-link-grid": "^2.1.1",
-		"cross-env": "^7.0.3"
 	}
 }

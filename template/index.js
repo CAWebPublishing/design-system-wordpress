@@ -14,11 +14,8 @@ module.exports = {
 			"html": true
 		},
 		customScripts: {
-			prebuild: "npm i cross-env",
-			postbuild: "cross-env-shell npm i @cagov/$npm_package_name"
 		},
 		npmDependencies: [
-			"@wordpress/icons"
 		]
     },
 };
