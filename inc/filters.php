@@ -33,8 +33,8 @@ function cagov_ds_gutenberg_categories( $categories, $post ) {
 		),
 		array(
 			array(
-				'slug'  => 'cagov-design-system-utilities',
-				'title' => 'CAGov Design System: Utilities',
+				'slug'  => 'cagov-data-viz',
+				'title' => 'CA Data Visualization',
 			),
 		),
 		$categories

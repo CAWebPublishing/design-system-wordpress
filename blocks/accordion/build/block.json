@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "cagov-design-system/accordion",
+  "version": "2.0.1",
+  "title": "Accordion",
+  "category": "cagov-design-system",
+  "icon": "format-aside",
+  "description": "Accordions are expandable sections of content. Each section contains a summary element, and more body text when opened.",
+  "supports": {
+    "html": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Accordion Title"
+    }
+  },
+  "textdomain": "cagov-design-system",
+  "editorScript": "cagov-design-system-gutenberg",
+  "editorStyle": "cagov-design-system-gutenberg",
+  "style": "cagov-design-system-gutenberg-style"
+}

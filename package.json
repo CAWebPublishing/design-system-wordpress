@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "lint": "semistandard",
-    "test": "cross-env-shell echo $npm_config_name && exit 1",
+    "test": "cross-env-shell echo $npm_config_block && exit 1",
     "start": "wp-scripts start",
+    "prebuild": "cross-env-shell gulp build-blocks --block=$npm_config_block",
     "build": "gulp build",
     "new-block": "cd blocks/ && cross-env-shell npx @wordpress/create-block $npm_config_name --template ../template/index.js && cd ../",
-    "prebuild": "gulp build-blocks",
     "preinstall": "gulp install-block-packages",
     "install": "npm i -g npm-check-updates",
     "postinstall": "npm config set gulp-cli --global && npm rebuild node-sass"

@@ -1,0 +1,27 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "cagov-design-system/page-alert",
+	"version": "2.0.1",
+	"title": "Page Alert",
+	"category": "cagov-design-system",
+	"icon": "format-aside",
+	"description": "Design System component description, pull from design system website or project assets from PM",
+	"supports": {
+		"html": true
+	},
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "info"
+
+		},
+		"message": {
+			"type": "string"
+		}
+	},
+	"textdomain": "cagov-design-system",
+	"editorScript": "cagov-design-system-gutenberg",
+	"editorStyle": "cagov-design-system-gutenberg",
+	"style": "cagov-design-system-gutenberg-style"
+}

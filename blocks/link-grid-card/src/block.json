@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "cagov-design-system/link-grid-card",
+	"version": "0.1.0",
+	"title": "Link Grid Card",
+	"category": "cagov-design-system",
+	"icon": "format-aside",
+	"description": "The link grid organizes links that function as calls to action (CTAs) or highlight topics.",
+	"supports": {
+		"html": true
+	},
+	"parent": ["cagov-design-system/link-grid"],
+	"attributes": {
+		"linkText":{
+			"type": "string"
+		},
+		"linkInfo":{
+			"type": "object"
+		}
+	},
+	"example": {
+		"attributes": {
+			"linkText": "Link Text"
+		}
+	},
+	"textdomain": "cagov-design-system",
+	"editorScript": "cagov-design-system-gutenberg",
+	"editorStyle": "cagov-design-system-gutenberg",
+	"style": "cagov-design-system-gutenberg-style"
+}

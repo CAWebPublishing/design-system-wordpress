@@ -12,14 +12,19 @@ module.exports = {
 	gutenbergEditorCSS: [ // Gutenberg Editor CSS
 		'blocks/*/build/index.css'
 	], 
+	gutenbergStyleCSS: [ // Gutenberg Editor CSS
+		'blocks/*/build/style-index.css'
+	], 
 	designSystemCSS: [ // Design System Components CSS
-		'node_modules/@cagov/*/src/index.scss'
+		'node_modules/@cagov/*/src/index.scss',
+		'assets/css/*'
 	], 
 	gutenbergEditorJS: [ // Gutenberg Editor JS
 		'blocks/*/build/index.js'
 	],  
 	designSystemJS: [ // Design Components JS
-		'node_modules/@cagov/*/dist/index.js'
+		'node_modules/@cagov/*/dist/index.js',
+		'assets/js/*'
 	]//,
 	//componentType: { // Attributes to get component type from package JS (coming after adding data to design system packages and updating on npm)
 	//	attribute: "componentType",

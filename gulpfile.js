@@ -3,7 +3,7 @@
  *
  * TODO: Customize your project in the wpgulp.js file.
  */
- const {gutenbergEditorCSS, designSystemCSS, gutenbergEditorJS, designSystemJS } = require('./wpgulp.config.js');
+ const {gutenbergEditorCSS, gutenbergStyleCSS, designSystemCSS, gutenbergEditorJS, designSystemJS } = require('./wpgulp.config.js');
 
 /**
  * Load Plugins.
@@ -33,8 +33,11 @@ var argv = require('yargs').argv;
 /**
  * Task to run tests with
  */
-task('test', async function(){
-	//console.log('info');
+ task('test', async function(){
+	if( undefined != argv.block ){
+		console.log(argv.block);
+		
+	}
 })
 
 /**
@@ -59,37 +62,30 @@ task('build', async function(){
 /**
  * Task to build all CAGov Design System Component Blocks
  */
-task('build-blocks', buildGutenbergBlocks );
-
-/**
- * Task to build individual block
- */
-task('build-block', async function(){
-	if( '%npm_config_name%' == argv.name || undefined == argv.name ){
-		return;
-	}
-
-	src(['./blocks/' + argv.name + '/'])
-        .pipe(tap (function(file){
-			try {
-				shell.task("cd " + file.path + " && npm run build")()
-			} catch (error) {
-				// Note - error messages will vary depending on browser
-				console.error(file.path + ' failed to compile');
-			}	
-        }))
-});
+task('build-blocks', async function(){
+	var block = '%npm_config_name%' == argv.block || undefined == argv.block || "" == argv.block ? '*' : argv.block;
+	
+	buildGutenbergBlocks(block);
+} );
 
 /**
  * Task to install all block npm packages
  */
 task('install-block-packages', installGutenbergBlocks);
 
+
+/**
+ * Task to run tests with
+ */
+ task('update-block-packages', async function(){
+	updateBlockPackages();
+})
+
 /**
  * Runs Gutenberg Block build script 
  */
- async function buildGutenbergBlocks(){
-    src(['./blocks/*/'])
+ async function buildGutenbergBlocks(block = '*'){
+    src(['./blocks/' + block + '/'])
         .pipe(tap (function(file){
 			try {
 				shell.task("cd " + file.path + " && npm run build")()
@@ -126,11 +122,11 @@ async function buildGutenberEditorCSS(min = true){
 	var fileName = 'gutenberg' + minified + '.css';
 
 	try {
-		del(['build/css/' + fileName]);
+		del(['css/' + fileName]);
 
 		// Gutenberg Block Editor CSS
 		if (gutenbergEditorCSS.length){
-			src(gutenbergEditorCSS.concat(designSystemCSS))
+			src(gutenbergEditorCSS)
 				.pipe(
 					sass({
 						outputStyle: buildOutputStyle,
@@ -138,16 +134,16 @@ async function buildGutenberEditorCSS(min = true){
 				)
 				.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 				.pipe(concat(fileName)) // compiled file
-				.pipe(dest('build/css/'))
+				.pipe(dest('css/'))
 				.pipe(tap(function (file) {
 					log('[ ✅ Gutenberg Block Editor ' + t + 'CSS ] ' + path.basename(file.path) + ' was created successfully.');
 				}))
 		}
 	
-		fs.access('build/css/' + fileName, fs.F_OK, (err) => {
+		fs.access('css/' + fileName, fs.F_OK, (err) => {
 			if (err) {
 				newFile(fileName, '')
-			        .pipe(dest('build/css/'));
+			        .pipe(dest('css/'));
 				return
 			}
 		  });
@@ -169,7 +165,7 @@ async function buildGutenberEditorJS(min = true){
 	var fileName = 'gutenberg' + minified + '.js';
 	
 	try {
-		del(['build/js/' + fileName]);
+		del(['js/' + fileName]);
 
 		// Gutenberg Block Editor JS
 		if (gutenbergEditorJS.length){
@@ -184,14 +180,14 @@ async function buildGutenberEditorJS(min = true){
 				js = js.pipe(uglify());
 			}
 	
-			js.pipe(dest('build/js/'))
+			js.pipe(dest('js/'))
 	
 		}
 	
-		fs.access('build/js/' + fileName, fs.F_OK, (err) => {
+		fs.access('js/' + fileName, fs.F_OK, (err) => {
 			if (err) {
 				newFile(fileName, '')
-			        .pipe(dest('build/js/'));
+			        .pipe(dest('js/'));
 				return
 			}
 		  });
@@ -213,11 +209,11 @@ async function buildDesignSystemCSS(min = true){
 	var fileName = 'cagov-design-system' + minified + '.css';
 
 	try {
-		del(['build/css/' + fileName]);
+		del(['css/' + fileName]);
 	
 		// Design System Front End CSS
 		if (designSystemCSS.length){
-			src(designSystemCSS)
+			src(designSystemCSS.concat(gutenbergStyleCSS))
 			.pipe(
 				sass({
 					outputStyle: buildOutputStyle,
@@ -225,16 +221,16 @@ async function buildDesignSystemCSS(min = true){
 			)
 			.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 			.pipe(concat(fileName)) // compiled file
-			.pipe(dest('build/css/'))
+			.pipe(dest('css/'))
 			.pipe(tap(function (file) {
 				log('[ ✅ Design System Frontend ' + t + 'CSS ] ' + path.basename(file.path) + ' was created successfully.');
 			}))
 		}
 	
-		fs.access('build/css/' + fileName, fs.F_OK, (err) => {
+		fs.access('css/' + fileName, fs.F_OK, (err) => {
 			if (err) {
 				newFile(fileName, '')
-			        .pipe(dest('build/css/'));
+			        .pipe(dest('css/'));
 				return
 			}
 		  })
@@ -256,7 +252,7 @@ async function buildDesignSystemJS(min = true){
 	var fileName = 'cagov-design-system' + minified + '.js';
 	
 	try {
-		del(['build/js/' + fileName]);
+		del(['js/' + fileName]);
 
 		// Design System Front End JS
 		if (designSystemJS.length){
@@ -268,17 +264,17 @@ async function buildDesignSystemJS(min = true){
 
 			js.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
 			.pipe(concat(fileName)) // compiled file
-			.pipe(dest('build/js/'))
+			.pipe(dest('js/'))
 			.pipe(tap(function (file) {
 				log('[ ✅ Design System Frontend ' + t + 'JS ] ' + path.basename(file.path) + ' was created successfully.');
 			}));		
 	
 		}
 	
-		fs.access('build/js/' + fileName, fs.F_OK, (err) => {
+		fs.access('js/' + fileName, fs.F_OK, (err) => {
 			if (err) {
 				newFile(fileName, '')
-			        .pipe(dest('build/js/'));
+			        .pipe(dest('js/'));
 				return
 			}
 		  })
@@ -286,4 +282,17 @@ async function buildDesignSystemJS(min = true){
 		// Note - error messages will vary depending on browser
 		console.error(fileName + ' failed to compile');
 	  }
+}
+
+async function updateBlockPackages(){
+	src(['./blocks/*/'])
+	.pipe(tap (function(file){
+		try {
+			shell.task("cd " + file.path + " && ncu -u && npm i")()
+		} catch (error) {
+			// Note - error messages will vary depending on browser
+			console.error(file.path + ' failed to compile');
+		}
+	}))
+
 }
