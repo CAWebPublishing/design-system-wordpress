@@ -1,3 +1,4 @@
+// Major reservoirs station that were recommended by CDEC.
 export const stationIds = [
     { label: 'Select a Station', value: '' },
     { label: 'Bullards Bar Reservoir', value: 'BUL' },

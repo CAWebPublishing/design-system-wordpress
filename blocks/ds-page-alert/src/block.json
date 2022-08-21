@@ -1,0 +1,26 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "caweb/ds-page-alert",
+	"version": "1.0.0",
+	"title": "Page Alert",
+	"category": "cagov",
+	"icon": "format-aside",
+	"description": "The  gives people important and sometimes time-sensitive information that they need to read, before anything else. It goes beneath the site navigation on any page.",
+	"attributes": {
+		"icon": {
+			"type": "string",
+			"default": "info"
+		},
+		"message": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": true
+	},
+	"textdomain": "ds-page-alert",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

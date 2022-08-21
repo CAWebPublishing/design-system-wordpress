@@ -1,7 +1,7 @@
 /**
  * Retrieves the translation of text.
  *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
 
@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps } from '@wordpress/block-editor';
 
@@ -21,25 +21,38 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
+/**
+ * This package includes a library of generic WordPress components to be used for creating 
+ * common UI elements shared between screens and features of the WordPress dashboard.
+ * 
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-components/
+ */
 import { SelectControl } from '@wordpress/components';
 
+/**
+ * Retrieve data from the CDEC Reservoir API
+ *
+ * @see https://cdec.water.ca.gov/resapp/service/res/conditions
+*/
 import { stationIds } from './stationIds';
+
 
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
-	let { 
-		setAttributes, 
+export default function Edit( props ) {
+	let {
+		setAttributes,
 		attributes: {stationId, actDate, pctAvg, pctCap, cap, avg, storage}  
 	} = props;
 
 	const blockProps = useBlockProps();
+
 	const svgBasinDepth = 135;
 
 	let today = new Date();
@@ -119,10 +132,10 @@ export default function Edit(props) {
 								<rect x="30" y="-15" width="90" height="150" rx="15" ry="15"></rect>
 								</clipPath>
 							</defs>
-							<path id="basin-capacity" d="M0,150 L15,0 h10 v125 a15,15 0 0 0 15,15 h70 a15,15 0 0 0 15,-15 v-125 h10 L150,150 z" class=""></path>
-							<rect id="basin-water" x="30" y={ Number.isInteger(waterLevelY) ? waterLevelY : 0 } width="90" height={ Number.isInteger(waterLevelY) ? 61 : 0 } clip-path="url(#rounded-water-bottom)"></rect>
-							<line id="historical-line" x1="0" y1={ Number.isInteger(historicalLineY) ? historicalLineY : 0 } x2="150" y2={ Number.isInteger(historicalLineY) ? historicalLineY : 0 } stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round"></line>
-						    <rect id="historical-line-hover-target" x="0" y={ Number.isInteger(historicalLineY) ? historicalLineY - 5 : -5 } width="150" height="10"></rect>
+							<path class="basin-capacity" d="M0,150 L15,0 h10 v125 a15,15 0 0 0 15,15 h70 a15,15 0 0 0 15,-15 v-125 h10 L150,150 z"></path>
+							<rect class="basin-water" x="30" y={ Number.isInteger(waterLevelY) ? waterLevelY : 0 } width="90" height={ Number.isInteger(waterLevelY) ? 61 : 0 } clip-path="url(#rounded-water-bottom)"></rect>
+							<line class="historical-line" x1="0" y1={ Number.isInteger(historicalLineY) ? historicalLineY : 0 } x2="150" y2={ Number.isInteger(historicalLineY) ? historicalLineY : 0 } stroke-width="3" stroke-dasharray="3 6" stroke-linecap="round"></line>
+						    <rect class="historical-line-hover-target" x="0" y={ Number.isInteger(historicalLineY) ? historicalLineY - 5 : -5 } width="150" height="10"></rect>
 						</svg>
 					</div>
 				</div>

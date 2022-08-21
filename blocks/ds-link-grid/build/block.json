@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "caweb/ds-link-grid",
+  "version": "1.0.0",
+  "title": "Link Grid",
+  "category": "cagov",
+  "icon": "format-aside",
+  "description": "The link grid organizes links that function as calls to action (CTAs) or highlight topics.",
+  "attributes": {},
+  "supports": {
+    "html": true
+  },
+  "textdomain": "ds-link-grid",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

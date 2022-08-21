@@ -1,15 +1,12 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "cagov-design-system/reservoir-levels",
-	"version": "0.1.0",
+	"name": "caweb/reservoir-levels",
+	"version": "1.0.0",
 	"title": "Reservoir Levels",
 	"category": "cagov-data-viz",
 	"icon": "format-aside",
 	"description": "This data visualization depicts current water storage level across major reservoirs, and compares that current level to historical average.",
-	"supports": {
-		"html": true
-	},
 	"attributes": {
         "stationId": {
         	"type": "string"
@@ -33,8 +30,11 @@
 			"type": "integer"
 		}
     },
-    "textdomain": "cagov-design-system",
-	"editorScript": "cagov-design-system-gutenberg",
-	"editorStyle": "cagov-design-system-gutenberg",
-	"style": "cagov-design-system-gutenberg-style"
+	"supports": {
+		"html": true
+	},
+	"textdomain": "reservoir-levels",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
 }
