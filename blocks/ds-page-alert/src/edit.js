@@ -1,7 +1,7 @@
 /**
  * Retrieves the translation of text.
  *
- * @see https://developer.wordpress.org/block-editor/packages/packages-i18n/
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-i18n/
  */
 import { __ } from '@wordpress/i18n';
 
@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
  * React hook that is used to mark the block wrapper element.
  * It provides all the necessary props like the class name.
  *
- * @see https://developer.wordpress.org/block-editor/packages/packages-block-editor/#useBlockProps
+ * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
@@ -25,30 +25,26 @@ import './editor.scss';
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
  *
- * @see https://developer.wordpress.org/block-editor/developers/block-api/block-edit-save/#edit
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit(props) {
-	let { 
+export default function Edit( props ) {
+	let {
 		setAttributes,
-		attributes: {
-		   icon,
-		   message
-	   }, 
-   } = props;
+		attributes: {icon, message},
+	} = props;
 
-   const blockProps = useBlockProps();
+	const blockProps = useBlockProps();
 
-   
-	 const onChangeMsg = ( newMsg ) => {
+	const onChangeMsg = ( newMsg ) => {
 		setAttributes( { message: newMsg } );
 	};
 
 	return (
 		<div {...blockProps}>
 			<cagov-page-alert
-				data-icon={icon}
+				data-icon={'ca-gov-icon-' + icon}
 				data-message={message}
 				class="cagov-page-alert"
 				>

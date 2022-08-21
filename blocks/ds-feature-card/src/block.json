@@ -1,47 +1,30 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "cagov-design-system/ds-feature-card",
-	"version": "1.0.6",
+	"name": "caweb/ds-feature-card",
+	"version": "1.0.0",
 	"title": "Feature Card",
-	"category": "cagov-design-system",
+	"category": "cagov",
 	"icon": "format-aside",
 	"description": "The feature card highlights an action you want people to take or important information on the homepage. It is the first thing a visitor sees.",
-	"supports": {
-		"html": true
-	},
 	"attributes": {
 		"title": {
-			"type": "string",
-			"source": "text",
-			"selector": "h1"
+			"type": "string"
 		},
 		"mediaID": {
 			"type": "number"
 		},
 		"mediaURL": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "src"
+			"type": "string"
 		},
 		"mediaAlt": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "alt"
+			"type": "string"
 		},
 		"mediaWidth": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "width"
+			"type": "string"
 		},
 		"mediaHeight": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "height"
+			"type": "string"
 		}
 	},
 	"example": {
@@ -55,8 +38,11 @@
 			"mediaHeight": "500"
 		}
 	},
-	"textdomain": "cagov-design-system",
-	"editorScript": "cagov-design-system-gutenberg",
-	"editorStyle": "cagov-design-system-gutenberg",
-	"style": "cagov-design-system-gutenberg-style"
+	"supports": {
+		"html": true
+	},
+	"textdomain": "ds-feature-card",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
 }
