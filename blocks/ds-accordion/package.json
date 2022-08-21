@@ -1,9 +1,10 @@
 {
 	"name": "ds-accordion",
-	"version": "0.1.0",
+	"version": "1.0.0",
 	"description": "Accordions are expandable sections of content. Each section contains a summary element, and more body text when opened.",
-	"author": "Office of Digital Innovation",
+	"author": "CAWebPublishing",
 	"license": "GPL-2.0-or-later",
+	"homepage": "https://github.com/CAWebPublishing/caweb-ds-accordion",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
@@ -12,14 +13,26 @@
 		"lint:js": "wp-scripts lint-js",
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
-		"prebuild": "npm i cross-env",
-		"postbuild": "cross-env-shell npm i @cagov/$npm_package_name"
+		"start": "wp-scripts start",
+		"postbuild": "gulp build",
+		"update-block": "cd .. && caweb update-block %npm_package_name%"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^22.5.0"
+		"@wordpress/scripts": "^23.7.2",
+		"caweb": "^1.0.11",
+		"fancy-log": "^2.0.0",
+		"gulp": "^4.0.2",
+		"gulp-cli": "^2.3.0",
+		"gulp-concat": "^2.6.1",
+		"gulp-file": "^0.4.0",
+		"gulp-line-ending-corrector": "^1.0.3",
+		"gulp-sass": "^5.1.0",
+		"gulp-tap": "^2.0.0",
+		"gulp-uglify-es": "^3.0.0",
+		"node-sass": "^7.0.1"
 	},
 	"dependencies": {
-		"@cagov/ds-accordion": "^2.0.1",
-		"cross-env": "^7.0.3"
+		"@cagov/ds-accordion": "^2.0.3",
+		"@wordpress/icons": "^9.6.0"
 	}
 }

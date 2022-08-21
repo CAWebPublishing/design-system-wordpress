@@ -1,31 +1,26 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 2,
-	"name": "cagov-design-system/ds-page-alert",
-	"version": "2.0.1",
+	"name": "caweb/ds-page-alert",
+	"version": "1.0.0",
 	"title": "Page Alert",
-	"category": "cagov-design-system",
+	"category": "cagov",
 	"icon": "format-aside",
-	"description": "Design System component description, pull from design system website or project assets from PM",
-	"supports": {
-		"html": true
-	},
+	"description": "The  gives people important and sometimes time-sensitive information that they need to read, before anything else. It goes beneath the site navigation on any page.",
 	"attributes": {
 		"icon": {
 			"type": "string",
-			"source": "attribute",
-			"selector": "cagov-page-alert",
-			"attribute": "data-icon"
+			"default": "info"
 		},
 		"message": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "cagov-page-alert",
-			"attribute": "data-message"
+			"type": "string"
 		}
 	},
-	"textdomain": "cagov-design-system",
-	"editorScript": "cagov-design-system-gutenberg",
-	"editorStyle": "cagov-design-system-gutenberg",
-	"style": "cagov-design-system-gutenberg-style"
+	"supports": {
+		"html": true
+	},
+	"textdomain": "ds-page-alert",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
 }

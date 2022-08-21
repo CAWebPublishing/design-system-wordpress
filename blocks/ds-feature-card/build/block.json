@@ -1,62 +1,48 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "cagov-design-system/ds-feature-card",
-	"version": "1.0.6",
-	"title": "Feature Card",
-	"category": "cagov-design-system",
-	"icon": "format-aside",
-	"description": "The feature card highlights an action you want people to take or important information on the homepage. It is the first thing a visitor sees.",
-	"supports": {
-		"html": true
-	},
-	"attributes": {
-		"title": {
-			"type": "string",
-			"source": "text",
-			"selector": "h1"
-		},
-		"mediaID": {
-			"type": "number"
-		},
-		"mediaURL": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "src"
-		},
-		"mediaAlt": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "alt"
-		},
-		"mediaWidth": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "width"
-		},
-		"mediaHeight": {
-			"type": "string",
-			"source": "attribute",
-			"selector": "img",
-			"attribute": "height"
-		}
-	},
-	"example": {
-		"attributes": {
-			"title": "Write title…",
-			"buttontext": "Register",
-			"buttonurl": "https://example.com",
-			"mediaURL": "http://www.fillmurray.com/750/500", 
-			"mediaAlt": "Image Description",
-			"mediaWidth": "750",
-			"mediaHeight": "500"
-		}
-	},
-	"textdomain": "cagov-design-system",
-	"editorScript": "cagov-design-system-gutenberg",
-	"editorStyle": "cagov-design-system-gutenberg",
-	"style": "cagov-design-system-gutenberg-style"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "caweb/ds-feature-card",
+  "version": "1.0.0",
+  "title": "Feature Card",
+  "category": "cagov",
+  "icon": "format-aside",
+  "description": "The feature card highlights an action you want people to take or important information on the homepage. It is the first thing a visitor sees.",
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "mediaID": {
+      "type": "number"
+    },
+    "mediaURL": {
+      "type": "string"
+    },
+    "mediaAlt": {
+      "type": "string"
+    },
+    "mediaWidth": {
+      "type": "string"
+    },
+    "mediaHeight": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "Write title…",
+      "buttontext": "Register",
+      "buttonurl": "https://example.com",
+      "mediaURL": "http://www.fillmurray.com/750/500",
+      "mediaAlt": "Image Description",
+      "mediaWidth": "750",
+      "mediaHeight": "500"
+    }
+  },
+  "supports": {
+    "html": true
+  },
+  "textdomain": "ds-feature-card",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }

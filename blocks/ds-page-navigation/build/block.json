@@ -1,24 +1,27 @@
 {
-	"$schema": "https://schemas.wp.org/trunk/block.json",
-	"apiVersion": 2,
-	"name": "cagov-design-system/ds-page-navigation",
-	"version": "2.1.0",
-	"title": "Page Navigation",
-	"category": "cagov-design-system",
-	"icon": "format-aside",
-	"description": "Page navigation lists and links to the level 2 headings of a webpage.",
-	"supports": {
-		"html": true
-	},
-	"attributes": {
-		"title":{
-			"type": "string",
-			"source": "text",
-			"selector": "div"
-		}
-	},
-	"textdomain": "cagov-design-system",
-	"editorScript": "cagov-design-system-gutenberg",
-	"editorStyle": "cagov-design-system-gutenberg",
-	"style": "cagov-design-system-gutenberg-style"
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "caweb/ds-page-navigation",
+  "version": "1.0.0",
+  "title": "Page Navigation",
+  "category": "cagov",
+  "icon": "format-aside",
+  "description": "Page navigation lists and links to the level 2 headings of a webpage.",
+  "attributes": {
+    "title": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "title": "On this page"
+    }
+  },
+  "supports": {
+    "html": true
+  },
+  "textdomain": "ds-page-navigation",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
 }
