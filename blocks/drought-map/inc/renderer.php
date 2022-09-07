@@ -40,20 +40,18 @@ if ( ! function_exists('caweb_drought_map_block_renderer') ){
 		
 		$output = sprintf('
 		<div class="cagov-drought-map">
-			<p class="map-label">Released %1$s. Updates automatically each Thursday.</p>
 			<div class="drought-map-container">
 				<div class="drought-map-image">
 						<div class="drought-map-legend">
-							%3$s
+							%1$s
 						</div>
 						<img src="https://droughtmonitor.unl.edu/data/svg/%2$s/%2$s_ca_none.svg" />
 				</div>
 				<div class="map-link"><a target="_blank" href="https://droughtmonitor.unl.edu/CurrentMap/StateDroughtMonitor.aspx?CA">View details on US Drought Monitor</a></div>
 			</div>
 		</div>',
-		$current_date->format('M d, Y'),
+		caweb_drought_map_spei(),
 		$current_date->format('Ymd'),
-		caweb_drought_map_spei()
 	);
 
 		return $output;

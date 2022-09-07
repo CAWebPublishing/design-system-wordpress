@@ -80,7 +80,6 @@ export default function Edit( props ) {
 
 	return (
 	<div class="cagov-drought-map">
-		<p class="map-label">Released { update_date }. Updates automatically each Thursday.</p>
 		<div class="drought-map-container">
 		<div class="drought-map-image">
 				<div class="drought-map-legend">
