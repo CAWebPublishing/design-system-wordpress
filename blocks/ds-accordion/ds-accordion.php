@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Ds Accordion
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-accordion
- * Description:       Ds Accordion Description
+ * Description:       Accordions are expandable sections of content. Each section contains a summary element, and more body text when opened.
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0

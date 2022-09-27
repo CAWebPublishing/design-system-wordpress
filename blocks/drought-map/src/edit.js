@@ -79,7 +79,7 @@ export default function Edit( props ) {
 	let update_date = formatDate(current_date, true);
 
 	return (
-	<div class="cagov-drought-map">
+	<div {...blockProps} class="cagov-drought-map">
 		<div class="drought-map-container">
 		<div class="drought-map-image">
 				<div class="drought-map-legend">

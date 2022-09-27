@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Reservoir Levels
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-reservoir-levels
- * Description:       Reservoir Levels Description
+ * Description:       This data visualization depicts current water storage level across major reservoirs, and compares that current level to historical average.
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0

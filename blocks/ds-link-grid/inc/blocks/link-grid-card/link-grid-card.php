@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Link Grid Card
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-link-grid-card
- * Description:       Link Grid Card Description
+ * Description:       The link grid organizes links that function as calls to action (CTAs) or highlight topics.
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0

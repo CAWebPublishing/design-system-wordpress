@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Ds Link Grid
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-link-grid
- * Description:       Ds Link Grid Description
+ * Description:       The link grid organizes links that function as calls to action (CTAs) or highlight topics. 
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0

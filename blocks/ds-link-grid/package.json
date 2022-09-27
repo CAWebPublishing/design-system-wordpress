@@ -19,7 +19,7 @@
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^23.7.2",
-		"caweb": "^1.0.11",
+		"caweb-cli": "^0.0.9",
 		"fancy-log": "^2.0.0",
 		"gulp": "^4.0.2",
 		"gulp-cli": "^2.3.0",

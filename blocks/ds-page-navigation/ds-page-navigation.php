@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Ds Page Navigation
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-page-navigation
- * Description:       Ds Page Navigation Description
+ * Description:       Page navigation lists and links to the level 2 headings of a webpage.
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0
