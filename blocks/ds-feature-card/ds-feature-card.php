@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Ds Feature Card
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-feature-card
- * Description:       Ds Feature Card Description
+ * Description:       The feature card highlights an action you want people to take or important information on the homepage.
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0

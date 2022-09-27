@@ -2,7 +2,7 @@
 /**
  * Plugin Name:       Ds Page Alert
  * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-page-alert
- * Description:       Ds Page Alert Description
+ * Description:       The page alert gives people important and sometimes time-sensitive information that they need to read, before anything else.
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0
