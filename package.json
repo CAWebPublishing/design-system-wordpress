@@ -1,19 +1,9 @@
 {
   "name": "design-system-wordpress-gutenberg",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Gutenberg Blocks integration for the California Design System",
   "main": "index.js",
-  "scripts": {
-    "lint": "semistandard",
-    "test": "cross-env-shell echo $npm_config_block && exit 1",
-    "start": "wp-scripts start",
-    "prebuild": "cross-env-shell gulp build-blocks --block=$npm_config_block",
-    "build": "gulp build",
-    "new-block": "cd blocks/ && cross-env-shell npx @wordpress/create-block $npm_config_name --template ../template/index.js && cd ../",
-    "preinstall": "gulp install-block-packages",
-    "install": "npm i -g npm-check-updates",
-    "postinstall": "npm config set gulp-cli --global && npm rebuild node-sass"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cagov/design-system-wordpress-gutenberg.git"
@@ -30,39 +20,5 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
-  },
-  "devDependencies": {
-    "del": "^6.0.0",
-    "fancy-log": "^2.0.0",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-file": "^0.4.0",
-    "gulp-html-beautify": "^1.0.1",
-    "gulp-line-ending-corrector": "^1.0.3",
-    "gulp-run-command": "^0.0.10",
-    "gulp-sass": "^5.1.0",
-    "gulp-shell": "^0.8.0",
-    "gulp-tap": "^2.0.0",
-    "gulp-uglify-es": "^3.0.0",
-    "gulp-watch": "^5.0.1",
-    "node-sass": "^7.0.1",
-    "npm-check-updates": "^12.5.9",
-    "semistandard": "^16.0.0",
-    "yargs": "^17.4.1"
-  },
-  "dependencies": {
-    "@cagov/ds-accordion": "^2.0.3",
-    "@cagov/ds-feature-card": "^1.0.7",
-    "@cagov/ds-link-grid": "^2.1.1",
-    "@cagov/ds-page-alert": "^2.0.2",
-    "@cagov/ds-page-navigation": "^2.1.3",
-    "@wordpress/block-editor": "^9.6.0",
-    "@wordpress/blocks": "^11.13.0",
-    "@wordpress/components": "^19.16.0",
-    "@wordpress/element": "^4.12.0",
-    "@wordpress/i18n": "^4.14.0",
-    "@wordpress/icons": "^9.5.0",
-    "cross-env": "^7.0.3"
   }
 }
