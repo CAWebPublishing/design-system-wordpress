@@ -83,7 +83,7 @@ export default function Edit( props ) {
 		<div class="drought-map-container">
 		<div class="drought-map-image">
 				<div class="drought-map-legend">
-					<svg width="200" height="252" viewBox="0 0 200 252" aria-hidden="true">
+					<svg viewBox="0 0 200 250" aria-hidden="true">
 					<text x="0" y="0" text-anchor="start" dominant-baseline="hanging" class="bold">12 month SPEI</text>
 					<text x="50" y="52" dominant-baseline="middle" text-anchor="start">Extremely wet</text>
 					<text x="50" y="82" dominant-baseline="middle" text-anchor="start">Severely wet</text>
