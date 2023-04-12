@@ -1,8 +1,7 @@
 {
   "name": "design-system-wordpress-gutenberg",
   "version": "1.2.1",
-  "description": "Gutenberg Blocks integration for the California Design System",
-  "main": "index.js",
+  "description": "Integrates the State of California Design System into WordPress.",
   "scripts": {},
   "repository": {
     "type": "git",
@@ -13,6 +12,7 @@
   ],
   "author": "Office of Digital Innovation",
   "license": "MIT",
+  "type": "module",
   "bugs": {
     "url": "https://github.com/cagov/design-system-wordpress-gutenberg/issues"
   },
@@ -20,5 +20,29 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "all"
+  },
+  "dependencies": {
+    "@cagov/ds-base-css": "^1.0.19",
+    "@cagov/ds-site-footer": "^2.0.0",
+    "@cagov/ds-site-header": "^2.0.0",
+    "@cagov/ds-site-navigation": "^3.0.0",
+    "@cagov/ds-skip-to-content": "^2.0.0",
+    "@cagov/ds-statewide-footer": "^2.0.0",
+    "@cagov/ds-statewide-header": "^2.0.0",
+    "del": "^7.0.0",
+    "fancy-log": "^2.0.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-html-beautify": "^1.0.1",
+    "gulp-line-ending-corrector": "^1.0.3",
+    "gulp-sass": "^5.1.0",
+    "gulp-shell": "^0.8.0",
+    "gulp-tap": "^2.0.0",
+    "gulp-uglify-es": "^3.0.0",
+    "gulp-watch": "^5.0.1",
+    "node-sass": "^8.0.0",
+    "npm-check-updates": "^16.10.7",
+    "yargs": "^17.7.1"
   }
 }
