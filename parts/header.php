@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // if the CAWeb theme is active.
-$cagov_design_system_is_caweb_active_theme = cagov_design_system_is_CAWeb_active_theme();
+$cagov_design_system_is_caweb_active_theme = cagov_design_system_is_caweb_active_theme();
 
 /* Branding */
 $cagov_design_system_logo          = ! empty( get_option( 'header_ca_branding', '' ) ) ? esc_url( get_option( 'header_ca_branding' ) ) : '';

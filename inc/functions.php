@@ -22,10 +22,20 @@ function cagov_design_system_get_min_file( $f, $ext = 'css' ) {
 	}
 }
 
-function cagov_design_system_is_CAWeb_active_theme() {
+/**
+ * Returns whether CAWeb is the active theme.
+ *
+ * @return bool
+ */
+function cagov_design_system_is_caweb_active_theme() {
 	return 'CAWeb' === wp_get_theme()->get( 'Name' );
 }
 
+/**
+ * Returns Design System State logo svg.
+ *
+ * @return string
+ */
 function cagov_design_system_state_logo() {
 	return '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="34px" height="34px" viewbox="0 0 44 34" style="enable-background:new 0 0 44 34;" xml:space="preserve">
 		<path class="ca" d="M27.4,14c0.1-0.4,0.4-1.5,0.9-3.2c0.1-0.5,0.4-1.3,0.9-2.7c0.5-1.4,0.9-2.5,1.2-3.3c-0.9,0.6-1.8,1.4-2.7,2.3
@@ -55,7 +65,6 @@ function cagov_design_system_state_logo() {
 	</svg>';
 }
 
-
 /**
  * Returns array of Design System Menu Types
  *
@@ -71,6 +80,7 @@ function cagov_design_system_nav_menu_types() {
 /**
  * Retrieve Design System Color Schemes
  *
+ * @param array $colors Array of Color Schemes supported by Design System.
  * @return array
  */
 function cagov_design_system_color_schemes( $colors = array() ) {
@@ -92,8 +102,6 @@ function cagov_design_system_tiny_mce_settings( $settings = array() ) {
 	$color      = get_option( 'ca_site_color_scheme', 'cagov' );
 	$editor_css = cagov_design_system_get_min_file( "css/cagov-design-system-$color.css" );
 
-	// cagov_design_system_get_min_file( 'css/admin.css' ),
-
 	$css = array(
 		includes_url( '/css/dashicons.min.css' ),
 		includes_url( '/js/tinymce/skins/wordpress/wp-content.css' ),
@@ -108,7 +116,7 @@ function cagov_design_system_tiny_mce_settings( $settings = array() ) {
 /**
  * Retrieve Color Schemes
  *
- * @param  array $color Retrieve information on a specific colorscheme.
+ * @param  array $colors Retrieve information on a specific colorscheme.
  *
  * @return array
  */

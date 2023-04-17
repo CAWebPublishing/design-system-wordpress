@@ -11,32 +11,32 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       drought-map
  *
- * @package           
+ * @package
  */
 
-if( ! defined('DroughtMap_DIR') ){
+if ( ! defined( 'DroughtMap_DIR' ) ) {
 	define( 'DroughtMap_DIR', __DIR__ );
 }
 
-if( ! defined('DroughtMap_URI') ){
+if ( ! defined( 'DroughtMap_URI' ) ) {
 	$cagov_design_system_drought_map_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
 	define( 'DroughtMap_URI', esc_url( str_replace( $cagov_design_system_drought_map_doc_root, '', __DIR__ ) ) );
 }
 
-if( ! defined('DroughtMap_DEBUG') ){
-	define('DroughtMap_DEBUG', false);
+if ( ! defined( 'DroughtMap_DEBUG' ) ) {
+	define( 'DroughtMap_DEBUG', false );
 }
 
 /**
- * Include cagov_design_system Core Functionality 
- */ 
+ * Include cagov_design_system Core Functionality
+ */
 foreach ( glob( DroughtMap_DIR . '/core/*.php' ) as $file ) {
 	require_once $file;
 }
 
 /**
- * Include Drought Map Functionality 
- */ 
+ * Include Drought Map Functionality
+ */
 foreach ( glob( DroughtMap_DIR . '/inc/*.php' ) as $file ) {
 	require_once $file;
 }
@@ -50,7 +50,7 @@ foreach ( glob( DroughtMap_DIR . '/inc/*.php' ) as $file ) {
 add_action( 'init', 'cagov_design_system_drought_map_init' );
 add_action( 'wp_enqueue_scripts', 'cagov_design_system_drought_map_wp_enqueue_scripts' );
 
-if( ! function_exists('cagov_design_system_drought_map_init') ){
+if ( ! function_exists( 'cagov_design_system_drought_map_init' ) ) {
 	/**
 	 * Drought Map Initialization
 	 *
@@ -59,8 +59,8 @@ if( ! function_exists('cagov_design_system_drought_map_init') ){
 	 *
 	 * @link https://developer.wordpress.org/reference/hooks/init/
 	 * @return void
-	*/
-	function cagov_design_system_drought_map_init() {	
+	 */
+	function cagov_design_system_drought_map_init() {
 		global $pagenow;
 
 		/**
@@ -71,11 +71,11 @@ if( ! function_exists('cagov_design_system_drought_map_init') ){
 		if ( ! in_array( $pagenow, array( 'wp-login.php', 'customize.php' ), true ) ) {
 			add_thickbox();
 		}
-			
+
 		// if editing a page/post register compiled Gutenberg Block bundles.
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php' ), true ) ) {
 
-			wp_enqueue_style( 'drought-map-drought-map', cagov_design_system_drought_map_get_min_file( '/css/drought-map.css' ), array());
+			wp_enqueue_style( 'drought-map-drought-map', cagov_design_system_drought_map_get_min_file( '/css/drought-map.css' ), array() );
 		}
 
 		$block_args = array(
@@ -93,17 +93,17 @@ if( ! function_exists('cagov_design_system_drought_map_init') ){
 	}
 }
 
-if( ! function_exists('cagov_design_system_drought_map_wp_enqueue_scripts') ){
+if ( ! function_exists( 'cagov_design_system_drought_map_wp_enqueue_scripts' ) ) {
 	/**
-	* Register Drought Map scripts/styles
-	*
-	* Fires when scripts and styles are enqueued.
-	*
-	* @category add_action( 'wp_enqueue_scripts', 'cagov_design_system_drought_map_wp_enqueue_scripts' );
-	* @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
-	*
-	* @return void
-	*/
+	 * Register Drought Map scripts/styles
+	 *
+	 * Fires when scripts and styles are enqueued.
+	 *
+	 * @category add_action( 'wp_enqueue_scripts', 'cagov_design_system_drought_map_wp_enqueue_scripts' );
+	 * @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+	 *
+	 * @return void
+	 */
 	function cagov_design_system_drought_map_wp_enqueue_scripts() {
 
 		// Register compiled Gutenberg Block bundles.

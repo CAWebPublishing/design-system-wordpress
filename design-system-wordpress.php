@@ -48,7 +48,11 @@ function cagov_design_system_plugins_loaded() {
 		require_once $file;
 	}
 
-	register_block_type( CAGOV_DESIGN_SYSTEM_DIR . '/blocks/test/build' );
+	// Add Gutenberg blocks.
+	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/blocks/*' ) as $file ) {
+		$h = basename( $file );
+		require_once sprintf( '%1$s/blocks/%2$s/%2$s.php', CAGOV_DESIGN_SYSTEM_DIR, $h );
+	}
 }
 
 
@@ -155,9 +159,4 @@ function cagov_design_system_wp_footer() {
 	require_once CAGOV_DESIGN_SYSTEM_DIR . '/parts/footer.php';
 
 }
-/*
-foreach ( glob( CAGOV_DESIGN_SYSTEM_GUTENBERG . '/blocks/*' ) as $file ) {
-	$h = basename($file);
-	require_once sprintf('%1$s/blocks/%2$s/%2$s.php', CAGOV_DESIGN_SYSTEM_GUTENBERG , $h);
-}
-*/
+
