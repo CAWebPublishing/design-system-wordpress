@@ -50,10 +50,10 @@ $cagov_design_system_is_caweb_plugin_active = is_plugin_active( 'caweb-admin/caw
 		</div>
 		<div class="container pt-0">
 			<!-- Copyright Statement -->
-			<p class="mr-auto me-auto">Copyright <span aria-hidden="true">&copy;</span> <script>document.write(new Date().getFullYear())</script> State of California</p>
+			<p class="m-md-r-a">Copyright <span aria-hidden="true">&copy;</span> <script>document.write(new Date().getFullYear())</script> State of California</p>
 
 			<?php if ( $cagov_design_system_is_caweb_plugin_active ) : ?>
-			<span>Powered by: CAWeb Publishing Service</span>
+			<p>Powered by: CAWeb Publishing Service</p>
 			<?php endif; ?>
 		</div>
 	</div>
