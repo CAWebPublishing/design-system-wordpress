@@ -59,7 +59,7 @@ if ( ! function_exists( 'cagov_design_system_ds_link_grid_init' ) ) {
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$version = get_plugin_data( __FILE__ )['Version '];
+		$version = get_plugin_data( __FILE__ )['Version'];
 
 		/**
 		* Enqueues the default ThickBox js and css. (if not on the login page or customizer page)
@@ -108,7 +108,7 @@ if ( ! function_exists( 'cagov_design_system_ds_link_grid_wp_enqueue_scripts' ) 
 			require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		}
 
-		$version = get_plugin_data( __FILE__ )['Version '];
+		$version = get_plugin_data( __FILE__ )['Version'];
 
 		// Register compiled Gutenberg Block bundles.
 		wp_enqueue_script( 'cagov-design-system-ds-link-grid', cagov_design_system_ds_link_grid_get_min_file( '/js/ds-link-grid.js', 'js' ), array(), $version, true );

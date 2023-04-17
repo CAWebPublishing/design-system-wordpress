@@ -51,8 +51,11 @@ function cagov_design_system_plugins_loaded() {
 
 	// Add Gutenberg blocks.
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/blocks/*' ) as $file ) {
-		$h = basename( $file );
-		require_once sprintf( '%1$s/blocks/%2$s/%2$s.php', CAGOV_DESIGN_SYSTEM_DIR, $h );
+		$block_slug = basename( $file );
+
+		if ( 'template' !== $block_slug ) {
+			require_once sprintf( '%1$s/blocks/%2$s/%2$s.php', CAGOV_DESIGN_SYSTEM_DIR, $block_slug );
+		}
 	}
 }
 
