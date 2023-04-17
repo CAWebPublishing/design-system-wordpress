@@ -1,7 +1,7 @@
 /**
  * Ds Page Navigation Gulp Configuration File
  *
- * @package ds-page-navigation
+ * @package cagov-design-system
  */
 
 module.exports = {

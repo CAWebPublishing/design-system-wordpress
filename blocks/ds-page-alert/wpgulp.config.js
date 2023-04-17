@@ -1,7 +1,7 @@
 /**
  * Ds Page Alert Gulp Configuration File
  *
- * @package ds-page-alert
+ * @package cagov-design-system
  */
 
 module.exports = {

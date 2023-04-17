@@ -1,7 +1,7 @@
 /**
  * Ds Feature Card Gulp Configuration File
  *
- * @package ds-feature-card
+ * @package cagov-design-system
  */
 
 module.exports = {

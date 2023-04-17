@@ -49,6 +49,7 @@
   },
   "scripts": {
     "build": "gulp build",
+    "create-block": "gulp create-block --force --block ",
     "update-block": "gulp update-block --block %npm_config_block% --force %npm_config_force%",
     "postupdate-block": "cd blocks/%npm_config_block% && npm run build"
   }

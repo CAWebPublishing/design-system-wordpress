@@ -27,6 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'CAGOV_DESIGN_SYSTEM_DIR', __DIR__ );
 define( 'CAGOV_DESIGN_SYSTEM_URL', plugin_dir_url( __FILE__ ) );
 define( 'CAGOV_DESIGN_SYSTEM_VERSION', '1.0.1' );
+define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
 

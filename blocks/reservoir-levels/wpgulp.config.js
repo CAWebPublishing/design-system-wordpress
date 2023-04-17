@@ -1,7 +1,7 @@
 /**
  * Reservoir Levels Gulp Configuration File
  *
- * @package reservoir-levels
+ * @package cagov-design-system
  */
 
 module.exports = {

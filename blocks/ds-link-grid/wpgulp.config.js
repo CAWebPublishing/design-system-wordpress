@@ -1,7 +1,7 @@
 /**
  * Ds Link Grid Gulp Configuration File
  *
- * @package ds-link-grid
+ * @package cagov-design-system
  */
 
 module.exports = {

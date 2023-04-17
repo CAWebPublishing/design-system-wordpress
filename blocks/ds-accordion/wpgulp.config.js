@@ -1,7 +1,7 @@
 /**
  * Ds Accordion Gulp Configuration File
  *
- * @package ds-accordion
+ * @package cagov-design-system
  */
 
 module.exports = {

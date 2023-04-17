@@ -1,7 +1,7 @@
 /**
  * Drought Map Gulp Configuration File
  *
- * @package drought-map
+ * @package cagov-design-system
  */
 
 module.exports = {

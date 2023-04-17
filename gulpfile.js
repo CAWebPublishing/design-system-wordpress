@@ -245,9 +245,9 @@ async function updateBlock(block){
 /**
  * Update Block DS Package
  */
-async function updateComponentPackage(block, blockPkg ){
+async function updateComponentPackage(block, blockPkg = {} ){
 	// get latest component version if package exists.
-	let latestPkgVersion = await execPromise(`cd blocks/${block}/ && npm view @cagov/${block} version`)
+	let latestPkgVersion = await execPromise(`npm view @cagov/${block} version`)
 	.then( ( { stdout } ) => {
 		return stdout.trim();
 	} )
@@ -255,15 +255,14 @@ async function updateComponentPackage(block, blockPkg ){
 		return false;
 	} );
 
-	
 	// if component package was found
 	if( latestPkgVersion ){
 		// get current cagov/block package
-		let currentPkgVersion = Object.keys(blockPkg.dependencies).includes(`@cagov/${block}`) ? 
+		let currentPkgVersion = undefined !== blockPkg.dependencies && Object.keys(blockPkg.dependencies).includes(`@cagov/${block}`) ? 
 			blockPkg.dependencies[`@cagov/${block}`].replace(/[^]/, '') : false;
 
 		// if force flag is passed force update to latest version
-		if( 'true' === argv.force ){
+		if( 'true' === argv.force || true === argv.force ){
 			currentPkgVersion = latestPkgVersion;
 
 		// interactive mode
@@ -341,6 +340,42 @@ task('frontend-js', async function () {
 	buildFrontendScripts(false);
 });
 
+task('create-block', async function(){
+	if( 'true' === argv.block ){
+		return;
+	}
+
+	if( fs.existsSync(`blocks/${argv.block}`)){
+		let shouldWeUpdate = realineSync.keyInYN(`blocks/${argv.block} already exists.\nWould you like to update the existing block?`);
+		
+		if( shouldWeUpdate ){
+			series(['update-block'])();
+		}
+	}else{
+		
+		await execPromise(`cd blocks/ && npx @wordpress/create-block ${argv.block} --template=./template/index.cjs `)
+			.then( ( { stdout } ) => {
+				console.log(stdout)
+			} )
+			.catch( ( error ) => {
+				console.log( `error: ${ error.message }` );
+			} );
+
+		// check for @cagov/block dependency
+		await updateComponentPackage(argv.block)
+
+		// build updated block
+		await execPromise(`cd blocks/${argv.block}/ && npm run build`)
+			.then( ( { stdout } ) => {
+				console.log(stdout)
+			} )
+			.catch( ( error ) => {
+				console.log( `error: ${ error.message }` );
+			} );
+			
+	}
+});
+
 task('update-block', async function(){
 
 	var blockSlug = argv.block;
@@ -363,8 +398,7 @@ task('update-block', async function(){
 				console.log( `error: ${ error.message }` );
 			} );
 	}
-})
-
+});
 
 /**
  * Task to build all Styles/Scripts

@@ -2,21 +2,21 @@
 /**
  * {{title}} Helper Functions
  *
- * @package {{textdomain}}
+ * @package cagov-design-system
  */
 
-if ( ! function_exists('{{namespace}}_{{slugSnakeCase}}_get_min_file') ){
+if ( ! function_exists( 'cagov_design_system_{{slugSnakeCase}}_get_min_file' ) ) {
 	/**
-	* Load Minified Version of a file
-	*
-	* @param  string $f File to load.
-	* @param  string $ext Extension of file, default css.
-	*
-	* @return string
-	*/
-	function {{namespace}}_{{slugSnakeCase}}_get_min_file( $f, $ext = 'css' ) {
+	 * Load Minified Version of a file
+	 *
+	 * @param  string $f File to load.
+	 * @param  string $ext Extension of file, default css.
+	 *
+	 * @return string
+	 */
+	function cagov_design_system_{{slugSnakeCase}}_get_min_file( $f, $ext = 'css' ) {
 		// if not debugging and a minified version exists load it.
-		if ( ! {{slugPascalCase}}_DEBUG && file_exists( {{slugPascalCase}}_DIR . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
+		if ( ! CAGOV_DESIGN_SYSTEM_DEBUG && file_exists( __DIR__ . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
 			return {{slugPascalCase}}_URI . str_replace( ".$ext", ".min.$ext", $f );
 		} else {
 			return {{slugPascalCase}}_URI . $f;
