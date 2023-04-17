@@ -29,7 +29,7 @@ import gulpsass from 'gulp-sass';
 import gulpuglify from 'gulp-uglify-es'; // Minifies JS files.
 
 // Utility related plugins.
-import { deleteAsync } from 'del'; // Delete plugin
+import { deleteAsync, deleteSync } from 'del'; // Delete plugin
 import yargs from 'yargs';
 import lineec from 'gulp-line-ending-corrector'; // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings).
 import concat from 'gulp-concat'; // Concatenates files.
@@ -415,3 +415,7 @@ task('build', async function () {
 	)()
 
 });
+
+task('clean', async function(){
+	await deleteSync(['blocks/*/node_modules/', 'blocks/*/vendor/'])
+})
