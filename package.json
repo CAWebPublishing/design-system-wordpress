@@ -2,7 +2,6 @@
   "name": "design-system-wordpress-gutenberg",
   "version": "1.2.1",
   "description": "Integrates the State of California Design System into WordPress.",
-  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cagov/design-system-wordpress-gutenberg.git"
@@ -29,12 +28,14 @@
     "@cagov/ds-skip-to-content": "^2.0.0",
     "@cagov/ds-statewide-footer": "^2.0.0",
     "@cagov/ds-statewide-header": "^2.0.0",
+    "@wordpress/create-block": "^4.15.0",
+    "change-case": "^4.1.2",
+    "copyfiles": "^2.4.1",
     "del": "^7.0.0",
     "fancy-log": "^2.0.0",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.3.0",
     "gulp-concat": "^2.6.1",
-    "gulp-html-beautify": "^1.0.1",
     "gulp-line-ending-corrector": "^1.0.3",
     "gulp-sass": "^5.1.0",
     "gulp-shell": "^0.8.0",
@@ -43,6 +44,12 @@
     "gulp-watch": "^5.0.1",
     "node-sass": "^8.0.0",
     "npm-check-updates": "^16.10.7",
+    "readline-sync": "^1.4.10",
     "yargs": "^17.7.1"
+  },
+  "scripts": {
+    "build": "gulp build",
+    "update-block": "gulp update-block --block %npm_config_block% --force %npm_config_force%",
+    "postupdate-block": "cd blocks/%npm_config_block% && npm run build"
   }
 }

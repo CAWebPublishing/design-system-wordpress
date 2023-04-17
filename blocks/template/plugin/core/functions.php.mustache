@@ -1,0 +1,25 @@
+<?php
+/**
+ * {{title}} Helper Functions
+ *
+ * @package {{textdomain}}
+ */
+
+if ( ! function_exists('{{namespace}}_{{slugSnakeCase}}_get_min_file') ){
+	/**
+	* Load Minified Version of a file
+	*
+	* @param  string $f File to load.
+	* @param  string $ext Extension of file, default css.
+	*
+	* @return string
+	*/
+	function {{namespace}}_{{slugSnakeCase}}_get_min_file( $f, $ext = 'css' ) {
+		// if not debugging and a minified version exists load it.
+		if ( ! {{slugPascalCase}}_DEBUG && file_exists( {{slugPascalCase}}_DIR . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
+			return {{slugPascalCase}}_URI . str_replace( ".$ext", ".min.$ext", $f );
+		} else {
+			return {{slugPascalCase}}_URI . $f;
+		}
+	}
+}

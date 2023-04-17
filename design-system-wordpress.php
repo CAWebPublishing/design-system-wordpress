@@ -1,22 +1,21 @@
 <?php
 /**
  * Plugin Name: ca.gov Design System Gutenberg Blocks
- *
- * @source https://github.com/cagov/design-system/
  * Plugin URI: https://github.com/cagov/design-system-wordpress-gutenberg
  * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into the WordPress.
- * Author: Office of Digital Innovation
+ * Author: CAWebPublishing
  * Author URI: https://digital.ca.gov
  * Version: 1.1.0
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
- * Requires at least: 5.8
+ * Requires at least: 6.2
  *
  * @package  cagov-design-system
- * @author   Office of Digital Innovation <info@digital.ca.gov>
+ * @source https://github.com/cagov/design-system/
+ * @author   CAWebPublishing
  * @license  https://opensource.org/licenses/MIT MIT
- * @link     https://github.com/cagov/design-system-wordpress-gutenberg#README
+ * @link     https://github.com/cagov/design-system-wordpress#README
  * @docs https://designsystem.webstandards.ca.gov
  * Domain Path: /languages
  */
@@ -48,6 +47,8 @@ function cagov_design_system_plugins_loaded() {
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/inc/*.php' ) as $file ) {
 		require_once $file;
 	}
+
+	register_block_type( CAGOV_DESIGN_SYSTEM_DIR . '/blocks/test/build' );
 }
 
 

@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:       Ds Page Alert
- * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-page-alert
- * Description:       The page alert gives people important and sometimes time-sensitive information that they need to read, before anything else.
+ * Plugin URI:        https://github.com/CA-CODE-Works/design-system-wordpress/blocks/ds-page-alert
+ * Description:       California Design System Ds Page Alert Component
  * Version:           1.0.0
  * Requires at least: 5.9
  * Requires PHP:      7.0
@@ -11,7 +11,7 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       ds-page-alert
  *
- * @package           caweb
+ * @package           
  */
 
 if( ! defined('DsPageAlert_DIR') ){
@@ -19,8 +19,8 @@ if( ! defined('DsPageAlert_DIR') ){
 }
 
 if( ! defined('DsPageAlert_URI') ){
-	$caweb_caweb_ds_page_alert_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
-	define( 'DsPageAlert_URI', esc_url( str_replace( $caweb_caweb_ds_page_alert_doc_root, '', __DIR__ ) ) );
+	$cagov_design_system_ds_page_alert_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
+	define( 'DsPageAlert_URI', esc_url( str_replace( $cagov_design_system_ds_page_alert_doc_root, '', __DIR__ ) ) );
 }
 
 if( ! defined('DsPageAlert_DEBUG') ){
@@ -28,7 +28,7 @@ if( ! defined('DsPageAlert_DEBUG') ){
 }
 
 /**
- * Include caweb Core Functionality 
+ * Include cagov_design_system Core Functionality 
  */ 
 foreach ( glob( DsPageAlert_DIR . '/core/*.php' ) as $file ) {
 	require_once $file;
@@ -47,10 +47,10 @@ foreach ( glob( DsPageAlert_DIR . '/inc/*.php' ) as $file ) {
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_a_Typical_Request
  */
-add_action( 'init', 'caweb_ds_page_alert_init' );
-add_action( 'wp_enqueue_scripts', 'caweb_ds_page_alert_wp_enqueue_scripts' );
+add_action( 'init', 'cagov_design_system_ds_page_alert_init' );
+add_action( 'wp_enqueue_scripts', 'cagov_design_system_ds_page_alert_wp_enqueue_scripts' );
 
-if( ! function_exists('caweb_ds_page_alert_init') ){
+if( ! function_exists('cagov_design_system_ds_page_alert_init') ){
 	/**
 	 * Ds Page Alert Initialization
 	 *
@@ -60,7 +60,7 @@ if( ! function_exists('caweb_ds_page_alert_init') ){
 	 * @link https://developer.wordpress.org/reference/hooks/init/
 	 * @return void
 	*/
-	function caweb_ds_page_alert_init() {	
+	function cagov_design_system_ds_page_alert_init() {	
 		global $pagenow;
 
 		/**
@@ -75,11 +75,11 @@ if( ! function_exists('caweb_ds_page_alert_init') ){
 		// if editing a page/post register compiled Gutenberg Block bundles.
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php' ), true ) ) {
 
-			wp_enqueue_style( 'caweb-ds-page-alert', caweb_ds_page_alert_get_min_file( '/css/ds-page-alert.css' ), array());
+			wp_enqueue_style( 'ds-page-alert-ds-page-alert', cagov_design_system_ds_page_alert_get_min_file( '/css/ds-page-alert.css' ), array());
 		}
 
 		$block_args = array(
-			'render_callback' => 'caweb_ds_page_alert_block_renderer',
+			'render_callback' => 'cagov_design_system_ds_page_alert_block_renderer',
 		);
 
 		/**
@@ -93,23 +93,23 @@ if( ! function_exists('caweb_ds_page_alert_init') ){
 	}
 }
 
-if( ! function_exists('caweb_ds_page_alert_wp_enqueue_scripts') ){
+if( ! function_exists('cagov_design_system_ds_page_alert_wp_enqueue_scripts') ){
 	/**
 	* Register Ds Page Alert scripts/styles
 	*
 	* Fires when scripts and styles are enqueued.
 	*
-	* @category add_action( 'wp_enqueue_scripts', 'caweb_ds_page_alert_wp_enqueue_scripts' );
+	* @category add_action( 'wp_enqueue_scripts', 'cagov_design_system_ds_page_alert_wp_enqueue_scripts' );
 	* @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
 	*
 	* @return void
 	*/
-	function caweb_ds_page_alert_wp_enqueue_scripts() {
+	function cagov_design_system_ds_page_alert_wp_enqueue_scripts() {
 
 		// Register compiled Gutenberg Block bundles.
-		wp_enqueue_script( 'caweb-ds-page-alert', caweb_ds_page_alert_get_min_file( '/js/ds-page-alert.js', 'js' ), array(), '', true );
+		wp_enqueue_script( 'ds-page-alert-ds-page-alert', cagov_design_system_ds_page_alert_get_min_file( '/js/ds-page-alert.js', 'js' ), array(), '', true );
 
-		wp_enqueue_style( 'caweb-ds-page-alert', caweb_ds_page_alert_get_min_file( '/css/ds-page-alert.css' ), array(), '' );
+		wp_enqueue_style( 'ds-page-alert-ds-page-alert', cagov_design_system_ds_page_alert_get_min_file( '/css/ds-page-alert.css' ), array(), '' );
 
 	}
 }

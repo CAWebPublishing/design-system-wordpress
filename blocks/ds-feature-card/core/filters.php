@@ -2,20 +2,20 @@
 /**
  * Ds Feature Card Filters
  *
- * @package caweb
+ * @package ds-feature-card
  */
 
 global $wp_version;
 
-$caweb_is_under_5_8 = version_compare( $wp_version, '5.8', '<' ) ? '' : '_all';
+$cagov_design_system_is_under_5_8 = version_compare( $wp_version, '5.8', '<' ) ? '' : '_all';
 
-add_filter( "block_categories$caweb_is_under_5_8", 'caweb_block_categories', 10, 2 );
-add_filter( 'script_loader_tag', 'caweb_ds_feature_card_script_loader_tag', 10, 3 );
-add_filter( "allowed_block_types$caweb_is_under_5_8", 'caweb_allowed_block_types' );
+add_filter( "block_categories$cagov_design_system_is_under_5_8", 'cagov_design_system_block_categories', 10, 2 );
+add_filter( 'script_loader_tag', 'cagov_design_system_ds_feature_card_script_loader_tag', 10, 3 );
+add_filter( "allowed_block_types$cagov_design_system_is_under_5_8", 'cagov_design_system_allowed_block_types' );
 
-if( ! function_exists('caweb_block_categories') ){
+if( ! function_exists('cagov_design_system_block_categories') ){
 	/**
-	* Register caweb Gutenberg Block categories to the Block editor
+	* Register ds-feature-card Gutenberg Block categories to the Block editor
 	*
 	* @link https://developer.wordpress.org/reference/hooks/block_categories_all/
 	*
@@ -23,17 +23,11 @@ if( ! function_exists('caweb_block_categories') ){
 	* @param  WP_Block_Editor_Context $post The current block editor context.
 	* @return array
 	*/
-	function caweb_block_categories( $categories, $post ) {
+	function cagov_design_system_block_categories( $categories, $post ) {
 		return array_merge(
 			array(
 				array(
-					'slug'  => 'caweb',
-					'title' => 'CAWeb',
-				)
-			),
-			array(
-				array(
-					'slug'  => 'cagov',
+					'slug'  => 'cagov-design-system',
 					'title' => 'CA Design System',
 				)
 			),
@@ -48,18 +42,18 @@ if( ! function_exists('caweb_block_categories') ){
 	}
 }
 
-if( ! function_exists('caweb_allowed_block_types') ){
+if( ! function_exists('cagov_design_system_allowed_block_types') ){
 	/**
-	* caweb Allowed Block Types
+	* ds-feature-card Allowed Block Types
 	*
-	* Removes all blocks or patterns from Gutenberg and returns caweb Blocks.
+	* Removes all blocks or patterns from Gutenberg and returns ds-feature-card Blocks.
 	*
 	* @link https://developer.wordpress.org/reference/hooks/allowed_block_types_all/
 	*
 	* @param  bool|array $allowed_blocks Array of block type slugs, or boolean to enable/disable all. Default true (all registered block types supported).
 	* @return array
 	*/
-	function caweb_allowed_block_types( $allowed_blocks ) {
+	function cagov_design_system_allowed_block_types( $allowed_blocks ) {
 
 		// if not debugging, return all blocks.
 		if ( ! DsFeatureCard_DEBUG ) {
@@ -80,8 +74,8 @@ if( ! function_exists('caweb_allowed_block_types') ){
 			'core/classic',
 		);
 
-		// Dynamically get a list of the caweb blocks.
-		$caweb = array();
+		// Dynamically get a list of the ds-feature-card blocks.
+		$cagov_design_system = array();
 		/*
 		array_map(
 			function( $b ) {
@@ -92,11 +86,11 @@ if( ! function_exists('caweb_allowed_block_types') ){
 		*/
 
 		// Return the desired components.
-		return array_merge( $core, $caweb);
+		return array_merge( $core, $cagov_design_system);
 	}
 }
 
-if( ! function_exists('caweb_ds_feature_card_script_loader_tag') ){
+if( ! function_exists('cagov_design_system_ds_feature_card_script_loader_tag') ){
 	/**
 	* Filters the HTML script tag of an enqueued script.
 	*
@@ -105,10 +99,10 @@ if( ! function_exists('caweb_ds_feature_card_script_loader_tag') ){
 	* @param  mixed $src The script's source URL.
 	* @return string
 	*/
-	function caweb_ds_feature_card_script_loader_tag( $tag, $handle, $src ) {
+	function cagov_design_system_ds_feature_card_script_loader_tag( $tag, $handle, $src ) {
 		// Register script as module.
-		if ( 'caweb-ds-feature-card' === $handle ) {
-			$tag = sprintf('<script type="module" id="caweb-ds-feature-card-js" src="%1$s"></script>', $src);
+		if ( 'cagov_design_system-ds-feature-card' === $handle ) {
+			$tag = sprintf('<script type="module" id="cagov_design_system-ds-feature-card-js" src="%1$s"></script>', $src);
 		}
 
 		return $tag;

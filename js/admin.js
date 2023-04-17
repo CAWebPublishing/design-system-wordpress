@@ -7,5 +7,5 @@ jQuery(document).ready(function($) {
       $('select[id$="ca_site_version"]').parent().parent().addClass('d-none');
     }
   
-  });
+});
   

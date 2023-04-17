@@ -2,10 +2,10 @@
 /**
  * Ds Page Navigation Helper Functions
  *
- * @package caweb
+ * @package ds-page-navigation
  */
 
-if ( ! function_exists('caweb_ds_page_navigation_get_min_file') ){
+if ( ! function_exists('cagov_design_system_ds_page_navigation_get_min_file') ){
 	/**
 	* Load Minified Version of a file
 	*
@@ -14,7 +14,7 @@ if ( ! function_exists('caweb_ds_page_navigation_get_min_file') ){
 	*
 	* @return string
 	*/
-	function caweb_ds_page_navigation_get_min_file( $f, $ext = 'css' ) {
+	function cagov_design_system_ds_page_navigation_get_min_file( $f, $ext = 'css' ) {
 		// if not debugging and a minified version exists load it.
 		if ( ! DsPageNavigation_DEBUG && file_exists( DsPageNavigation_DIR . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
 			return DsPageNavigation_URI . str_replace( ".$ext", ".min.$ext", $f );

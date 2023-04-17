@@ -1,0 +1,32 @@
+<?php
+/**
+ * {{title}} Dynamic Renderer Functions
+ *
+ * @package {{textdomain}}
+ */
+
+if ( ! function_exists('{{namespace}}_{{slugSnakeCase}}_block_renderer') ){
+	/**
+	* Dynamic Renderer for {{title}} Block
+	*
+	* @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
+	*
+	* @param array         $attributes Block attributes.
+	* @param string        $content    Block content.
+	* @param  WP_Block_Type $block Current Block Type.
+	* @return string Rendered block type output.
+	*/
+	function {{namespace}}_{{slugSnakeCase}}_block_renderer( $attributes, $content, $block ) {
+		/**
+		 * Declare variable variables out of the attributes
+		 *@see https://www.php.net/manual/en/language.variables.variable.php
+		*/
+		foreach ( $attributes as $attr => $val ) {
+			$$attr = $val;
+		}
+
+		$output = sprintf('<p>Render Block Output</p>');
+
+		return $output;
+	}
+}

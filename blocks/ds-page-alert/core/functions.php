@@ -2,10 +2,10 @@
 /**
  * Ds Page Alert Helper Functions
  *
- * @package caweb
+ * @package ds-page-alert
  */
 
-if ( ! function_exists('caweb_ds_page_alert_get_min_file') ){
+if ( ! function_exists('cagov_design_system_ds_page_alert_get_min_file') ){
 	/**
 	* Load Minified Version of a file
 	*
@@ -14,7 +14,7 @@ if ( ! function_exists('caweb_ds_page_alert_get_min_file') ){
 	*
 	* @return string
 	*/
-	function caweb_ds_page_alert_get_min_file( $f, $ext = 'css' ) {
+	function cagov_design_system_ds_page_alert_get_min_file( $f, $ext = 'css' ) {
 		// if not debugging and a minified version exists load it.
 		if ( ! DsPageAlert_DEBUG && file_exists( DsPageAlert_DIR . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
 			return DsPageAlert_URI . str_replace( ".$ext", ".min.$ext", $f );

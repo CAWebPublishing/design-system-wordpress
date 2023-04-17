@@ -1,138 +1,103 @@
 /**
  * External Dependencies
  */
-const {task, src, dest}  = require('gulp'); // Gulp of-course.
+const { task, src, dest } = require( 'gulp' ); // Gulp of-course.
 
 // CSS related plugins.
-const sass = require('gulp-sass')(require('node-sass')); // Gulp plugin for Sass compilation.
+const sass = require( 'gulp-sass' )( require( 'sass' ) ); // Gulp plugin for Sass compilation.
 
 // JS related plugins.
-const uglify = require('gulp-uglify-es').default; // Minifies JS files.
+const uglify = require( 'gulp-uglify-es' ).default; // Minifies JS files.
 
 // Utility related plugins.
-const lineec = require('gulp-line-ending-corrector'); // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings).
-const concat = require('gulp-concat'); // Concatenates files.
-var tap = require('gulp-tap');
-var log = require('fancy-log');
-var path = require('path');
-const fs = require('fs'); // File System
-const newFile = require('gulp-file'); // File System
+const del = require( 'del' ); // Delete plugin
+const lineec = require( 'gulp-line-ending-corrector' ); // Consistent Line Endings for non UNIX systems. Gulp Plugin for Line Ending Corrector (A utility that makes sure your files have consistent line endings).
+const concat = require( 'gulp-concat' ); // Concatenates files.
+var tap = require( 'gulp-tap' );
+var log = require( 'fancy-log' );
+var path = require( 'path' );
+const fs = require( 'fs' ); // File System
 
 /**
  * Internal Dependencies
  */
 const {
-    ReservoirLevelsCSS, 
-    ReservoirLevelsJS 
-} = require('./wpgulp.config.js');
-
+	ReservoirLevelsCSS,
+	ReservoirLevelsJS,
+} = require( './wpgulp.config.js' );
 
 /**
  * Task to build all Reservoir Levels CSS/JS
  */
-task('build', async function(){
+task( 'build', async function () {
+	del( [ 'js/*.js', 'css/*.css' ] );
+
 	// build unminified files.
-	buildReservoirLevelsCSS(false);
-	buildReservoirLevelsJS(false);
+	buildReservoirLevelsCSS( false );
+	buildReservoirLevelsJS( false );
 
 	// build minified files.
 	buildReservoirLevelsCSS();
 	buildReservoirLevelsJS();
-    
-
-});
+} );
 
 /**
  * Build Reservoir Levels CSS file
  */
-async function buildReservoirLevelsCSS(min = true){
+async function buildReservoirLevelsCSS( min = true ) {
 	var buildOutputStyle = min ? 'compressed' : 'expanded';
 	var minified = min ? '.min' : '';
-	var t = min ? ' Minified ' : '';
-	var fileName = 'reservoir-levels' + minified + '.css';
 
-	try {
-	
-		fs.access('css/' + fileName, fs.F_OK, (err) => {
-			if (! err) {
-				fs.unlink('css/' + fileName, (err =>{}))
-			}
-		})
-
-		// Reservoir Levels Front End CSS
-		if (ReservoirLevelsCSS.length){
-			src(ReservoirLevelsCSS)
+	// Reservoir Levels Front End CSS
+	if ( ReservoirLevelsCSS.length ) {
+		src( ReservoirLevelsCSS )
 			.pipe(
-				sass({
+				sass( {
 					outputStyle: buildOutputStyle,
-				})
+				} )
 			)
-			.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
-			.pipe(concat(fileName)) // compiled file
-			.pipe(dest('css/'))
-			.pipe(tap(function (file) {
-				log('[ ✅ ReservoirLevelsCSS Frontend ' + t + 'CSS ] ' + path.basename(file.path) + ' was created successfully.');
-			}))
-		}
-	
-		fs.access('css/' + fileName, fs.F_OK, (err) => {
-			if (err) {
-				newFile(fileName, '')
-			        .pipe(dest('css/'));
-				return
-			}
-		  })
-			
-	} catch (error) {
-		// Note - error messages will vary depending on browser
-		console.error(fileName + ' failed to compile');
+			.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+			.pipe( concat( `reservoir-levels${ minified }.css` ) ) // compiled file
+			.pipe(
+				tap( function ( file ) {
+					log(
+						'[ ✅ ReservoirLevelsCSS Frontend ' +
+							( min ? 'Minified CSS ] ' : 'CSS ] ' ) +
+							path.basename( file.path ) +
+							' was created successfully.'
+					);
+				} )
+			)
+			.pipe( dest( 'css/' ) );
 	}
-
-
 }
 
 /**
  * Build Reservoir Levels JS file
  */
-async function buildReservoirLevelsJS(min = true){
+async function buildReservoirLevelsJS( min = true ) {
 	var minified = min ? '.min' : '';
-	var t = min ? ' Minified ' : '';
-	var fileName = 'reservoir-levels' + minified + '.js';
-	
-	try {
 
-		fs.access('js/' + fileName, fs.F_OK, (err) => {
-			if (! err) {
-				fs.unlink('css/' + fileName, (err =>{}))
-			}
-		})
+	// Reservoir Levels Front End JS
+	if ( ReservoirLevelsJS.length ) {
+		let js = src( ReservoirLevelsJS );
 
-		// Reservoir Levels Front End JS
-		if (ReservoirLevelsJS.length){
-			let js = src(ReservoirLevelsJS);
-
-			if (min) {
-				js = js.pipe(uglify());
-			}
-
-			js.pipe(lineec()) // Consistent Line Endings for non UNIX systems.
-			.pipe(concat(fileName)) // compiled file
-			.pipe(dest('js/'))
-			.pipe(tap(function (file) {
-				log('[ ✅ Reservoir Levels Frontend ' + t + 'JS ] ' + path.basename(file.path) + ' was created successfully.');
-			}));		
-	
+		if ( min ) {
+			js = js.pipe( uglify() );
 		}
-	
-		fs.access('js/' + fileName, fs.F_OK, (err) => {
-			if (err) {
-				newFile(fileName, '')
-			        .pipe(dest('js/'));
-				return
-			}
-		  })
-	  } catch (error) {
-		// Note - error messages will vary depending on browser
-		console.error(fileName + ' failed to compile');
-	  }
+
+		js.pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
+			.pipe( concat( `reservoir-levels${ minified }.js` ) ) // compiled file
+			.pipe(
+				tap( function ( file ) {
+					log(
+						'[ ✅ Reservoir Levels Frontend ' +
+							( min ? 'Minified JS ] ' : 'JS ] ' ) +
+							path.basename( file.path ) +
+							' was created successfully.'
+					);
+				} )
+			)
+			.pipe( dest( 'js/' ) );
+	}
 }

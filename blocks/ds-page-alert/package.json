@@ -1,10 +1,10 @@
 {
 	"name": "ds-page-alert",
 	"version": "1.0.0",
-	"description": "The  gives people important and sometimes time-sensitive information that they need to read, before anything else. It goes beneath the site navigation on any page.",
+	"description": "California Design System Ds Page Alert Component",
 	"author": "CAWebPublishing",
 	"license": "GPL-2.0-or-later",
-	"homepage": "https://github.com/CAWebPublishing/caweb-ds-page-alert",
+	"homepage": "https://github.com/CA-CODE-Works/design-system-wordpress/blocks/ds-page-alert",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
@@ -14,12 +14,15 @@
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start",
-		"postbuild": "gulp build",
-		"update-block": "cd .. && caweb update-block %npm_package_name%"
+		"postbuild": "gulp build"
+	},
+	"dependencies": {
+		"@cagov/ds-page-alert": "^2.0.2",
+		"@wordpress/icons": "^9.22.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^23.7.2",
-		"caweb-cli": "^0.0.9",
+		"@wordpress/scripts": "^26.2.0",
+		"del": "^6.1.1",
 		"fancy-log": "^2.0.0",
 		"gulp": "^4.0.2",
 		"gulp-cli": "^2.3.0",
@@ -29,10 +32,6 @@
 		"gulp-sass": "^5.1.0",
 		"gulp-tap": "^2.0.0",
 		"gulp-uglify-es": "^3.0.0",
-		"node-sass": "^7.0.1"
-	},
-	"dependencies": {
-		"@cagov/ds-page-alert": "^2.0.2",
-		"@wordpress/icons": "^9.6.0"
+		"sass": "^1.62.0"
 	}
 }

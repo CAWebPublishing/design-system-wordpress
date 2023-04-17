@@ -181,7 +181,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 					<div class="expanded-menu-grid">
 						<div class="expanded-menu-col js-cagov-navoverlay-expandable">
 							<div class="expanded-menu-section">
-								<a>There is no Navigation Menu set</a> 
+								<a class="expanded-menu-section-header-link js-event-hm-menu">There is no Navigation Menu set</a> 
 							</div>
 						</div>
 					</div>
