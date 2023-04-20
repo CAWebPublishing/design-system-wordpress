@@ -45,7 +45,6 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 				$caweb_google_trans_enabled         = get_option( 'ca_google_trans_enabled', false );
 				$caweb_google_trans_page_new_window = get_option( 'ca_google_trans_page_new_window', true ) ? '_blank' : '_self';
 				$caweb_google_trans_icon            = get_option( 'ca_google_trans_icon', '' );
-				$caweb_geo_locator_enabled          = 'on' === get_option( 'ca_geo_locator_enabled', false ) || get_option( 'ca_geo_locator_enabled', false );
 
 				// Custom Utility.
 				for ( $caweb_i = 1; $caweb_i < 4; $caweb_i++ ) {
@@ -84,7 +83,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 				// Google Custom Translate.
 				if ( 'custom' === $caweb_google_trans_enabled && ! empty( $caweb_google_trans_page ) ) {
 					?>
-							<a id="caweb-gtrans-custom" target="<?php print esc_attr( $caweb_google_trans_page_new_window ); ?>" href="<?php print esc_url( $caweb_google_trans_page ); ?>">
+							<a id="caweb-gtrans-custom" class="no-underline" target="<?php print esc_attr( $caweb_google_trans_page_new_window ); ?>" href="<?php print esc_url( $caweb_google_trans_page ); ?>">
 						<?php if ( ! empty( $caweb_google_trans_icon ) ) : ?>
 								<span class="ca-gov-icon-<?php print esc_attr( $caweb_google_trans_icon ); ?>"></span>
 							<?php endif; ?>
