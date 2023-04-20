@@ -91,7 +91,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 						<?php
 				} elseif ( true === $caweb_google_trans_enabled || 'standard' === $caweb_google_trans_enabled ) {
 					?>
-						<div class="quarter standard-translate px-0 w-auto" id="google_translate_element"></div>
+						<div id="google_translate_element"></div>
 					<?php
 				}
 			}
