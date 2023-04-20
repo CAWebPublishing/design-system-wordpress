@@ -36,7 +36,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 			<div class="official-languages">
 
 			<?php
-			// if the CAWeb theme is active, add CAWeb Utility header.
+			// if the CAWeb theme is active, add CAWeb Utility header options.
 			if ( cagov_design_system_is_caweb_active_theme() ) {
 				$caweb_geo_locator_enabled          = 'on' === get_option( 'ca_geo_locator_enabled', false ) || get_option( 'ca_geo_locator_enabled', false );
 				$caweb_contact_us_link              = get_option( 'ca_contact_us_link', '' );
