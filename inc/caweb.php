@@ -19,6 +19,10 @@ add_filter( 'caweb_tiny_mce_settings', 'cagov_design_system_tiny_mce_settings' )
 add_filter( 'caweb_template_colors', 'cagov_design_system_template_colors' );
 add_filter( 'caweb_page_container_class', 'cagov_design_system_page_container_class' );
 add_filter( 'caweb_main_content_class', 'cagov_design_system_main_content_class' );
+add_filter( 'caweb_social_media_links', 'cagov_design_system_social_media_links' );
+
+// this can be removed once CAWeb removes Template Version 5.5.
+add_filter( 'caweb_social_media_links_exclusions', 'cagov_design_system_social_media_links_exclusions' );
 
 
 /**
@@ -68,3 +72,35 @@ function cagov_design_system_main_content_class( $class ) {
 	return 'main-content-ds';
 }
 
+/**
+ * Filter out CAWeb Social Media Links
+ *
+ * @param  array $social_links Array of CAWeb Social Media Links.
+ * @return array
+ */
+function cagov_design_system_social_media_links( $social_links = array() ) {
+	$cagov_social_links = array(
+		'Email'           => 'ca_social_email',
+		'Facebook'        => 'ca_social_facebook',
+		'Flickr'          => 'ca_social_flickr',
+		'Github'          => 'ca_social_github',
+		'Instagram'       => 'ca_social_instagram',
+		'LinkedIn'        => 'ca_social_linkedin',
+		'Twitter'         => 'ca_social_twitter',
+		'YouTube'         => 'ca_social_youtube',
+	);
+
+	return $cagov_social_links;
+}
+
+/**
+ * Filter out CAWeb Social Media Links that shouldn't be displayed
+ *
+ * @todo this can be removed once CAWeb removes Template Version 5.5.
+ *
+ * @param  array $social_links Array of CAWeb Social Media Links to exclude.
+ * @return array
+ */
+function cagov_design_system_social_media_links_exclusions( $social_links = array() ) {
+	return array();
+}
