@@ -142,7 +142,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 			</div>
 
 			<!-- search -->
-			<div class="search-container search-container--small grid-search">
+			<div class="search-container grid-search">
 				<form class="site-search" action="<?php print esc_url( site_url( 'serp' ) ); ?>">
 					<span class="sr-only" id="SearchInput">Custom Google Search</span>
 					<input type="text" id="q" name="q" aria-labelledby="SearchInput" placeholder="Search this website" class="search-textfield">
