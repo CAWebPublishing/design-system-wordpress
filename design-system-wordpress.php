@@ -33,7 +33,7 @@ define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
 
 add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 15 );
-add_action( 'wp_enqueue_scripts', 'cagov_design_system_wp_enqueue_scripts', 999999999 );
+add_action( 'wp_enqueue_scripts', 'cagov_design_system_wp_enqueue_scripts', 9999999999 );
 
 add_action( 'get_header', 'cagov_design_system_get_header' );
 add_action( 'get_footer', 'cagov_design_system_get_footer' );
@@ -72,20 +72,20 @@ function cagov_design_system_plugins_loaded() {
  * @return void
  */
 function cagov_design_system_wp_enqueue_scripts() {
+	wp_dequeue_script( 'cagov-colorscheme' );
+	wp_dequeue_script( 'cagov-template-core' );
+
 	$color = get_option( 'ca_site_color_scheme', 'cagov' );
 
-	$core_css_file = cagov_design_system_get_min_file( "css/cagov-design-system-$color.css" );
+	// CAgov design system colorscheme.
+	$core_color_file = cagov_design_system_get_min_file( "dist/$color.js", 'js' );
 
-	wp_dequeue_script( 'cagov-script' );
-	wp_dequeue_style( 'cagov-style' );
+	// CAgov design system core.
+	$core_file = cagov_design_system_get_min_file( 'dist/design-system.js', 'js' );
 
-	// CAgov design system core css.
-	wp_enqueue_style( 'cagov-design-system-core-style', $core_css_file, array(), CAGOV_DESIGN_SYSTEM_VERSION );
+	wp_register_script( 'cagov-design-system-colorscheme', $core_color_file, array( 'jquery' ), CAGOV_DESIGN_SYSTEM_VERSION, true );
 
-	// CAgov design system core css.
-	$frontend_js_file = cagov_design_system_get_min_file( 'js/cagov-design-system.js', 'js' );
-
-	wp_enqueue_script( 'cagov-design-system-core-script', $frontend_js_file, array(), CAGOV_DESIGN_SYSTEM_VERSION, true );
+	wp_enqueue_script( 'cagov-design-system', $core_file, array('cagov-design-system-colorscheme'), CAGOV_DESIGN_SYSTEM_VERSION, true );
 
 }
 
@@ -102,7 +102,7 @@ function cagov_design_system_admin_enqueue_scripts( $hook ) {
 	$pages = array( 'toplevel_page_caweb_options' );
 
 	if ( in_array( $hook, $pages, true ) ) {
-		$admin_js                          = cagov_design_system_get_min_file( 'js/admin.js', 'js' );
+		$admin_js                          = cagov_design_system_get_min_file( 'dist/admin.js', 'js' );
 		$cagov_design_system_localize_args = array();
 
 		/* Enqueue Scripts */

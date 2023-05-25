@@ -11,7 +11,6 @@
   ],
   "author": "Office of Digital Innovation",
   "license": "MIT",
-  "type": "module",
   "bugs": {
     "url": "https://github.com/cagov/design-system-wordpress-gutenberg/issues"
   },
@@ -20,37 +19,28 @@
     "singleQuote": true,
     "trailingComma": "all"
   },
-  "dependencies": {
-    "@cagov/ds-base-css": "^1.0.19",
+  "scripts": {
+    "build": "gulp build",
+    "create-block": "gulp create-block --force --block ",
+    "update-block": "gulp update-block --block %npm_config_block% --force %npm_config_force%",
+    "postupdate-block": "cd blocks/%npm_config_block% && npm run build"
+  },
+  "devDependencies": {
+    "@cagov/ds-link-icon": "^2.0.0",
     "@cagov/ds-site-footer": "^2.0.0",
     "@cagov/ds-site-header": "^2.0.0",
     "@cagov/ds-site-navigation": "^3.0.0",
     "@cagov/ds-skip-to-content": "^2.0.0",
     "@cagov/ds-statewide-footer": "^2.0.0",
     "@cagov/ds-statewide-header": "^2.0.0",
-    "@wordpress/create-block": "^4.15.0",
-    "change-case": "^4.1.2",
-    "copyfiles": "^2.4.1",
-    "del": "^7.0.0",
-    "fancy-log": "^2.0.0",
-    "gulp": "^4.0.2",
-    "gulp-cli": "^2.3.0",
-    "gulp-concat": "^2.6.1",
-    "gulp-line-ending-corrector": "^1.0.3",
-    "gulp-sass": "^5.1.0",
-    "gulp-shell": "^0.8.0",
-    "gulp-tap": "^2.0.0",
-    "gulp-uglify-es": "^3.0.0",
-    "gulp-watch": "^5.0.1",
-    "node-sass": "^8.0.0",
-    "npm-check-updates": "^16.10.7",
-    "readline-sync": "^1.4.10",
-    "yargs": "^17.7.1"
+    "css-loader": "^6.7.4",
+    "postcss-loader": "^7.3.0",
+    "sass": "^1.62.1",
+    "sass-loader": "^13.3.0",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.84.0"
   },
-  "scripts": {
-    "build": "gulp build",
-    "create-block": "gulp create-block --force --block ",
-    "update-block": "gulp update-block --block %npm_config_block% --force %npm_config_force%",
-    "postupdate-block": "cd blocks/%npm_config_block% && npm run build"
+  "dependencies": {
+    "@cagov/ds-base-css": "^1.0.19"
   }
 }
