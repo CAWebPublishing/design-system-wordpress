@@ -33,7 +33,6 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 						?>
 							<a 
 										href="<?php print esc_url( $cagov_design_system_item->url ); ?>" 
-										tabindex="-1"
 									<?php if ( ! empty( $cagov_design_system_item->target ) ) : ?>
 										target="<?php print esc_attr( $cagov_design_system_item->target ); ?>" 
 										<?php endif; ?>
