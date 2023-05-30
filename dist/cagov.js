@@ -1,4 +1,5 @@
 /******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
 /******/ 	// The require scope
 /******/ 	var __webpack_require__ = {};
 /******/ 	
@@ -33,54 +34,48 @@
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /**
@@ -352,27 +347,24 @@ window.customElements.define('cagov-site-navigation', CAGovSiteNavigation);
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
@@ -443,9 +435,8 @@ linkAnnotator();
 
 })();
 
-// This entry need to be wrapped in an IIFE because it need to be in strict mode.
+// This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
-"use strict";
 var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
@@ -454,11 +445,13 @@ __webpack_require__.r(__webpack_exports__);
 
 // This entry need to be wrapped in an IIFE because it need to be isolated against other entry modules.
 (() => {
+__webpack_require__.r(__webpack_exports__);
 /* Custom Javascript */
 jQuery(document).ready(function($) {
     "use strict";
   
     $('.search-container.search-container--small form input[name="q"]').removeAttr('tabindex');
+    $('.search-container.search-container--small form button[type="submit"]').removeAttr('tabindex');
 
 });
   
