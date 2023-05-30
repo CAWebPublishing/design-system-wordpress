@@ -2,6 +2,7 @@
   "name": "design-system-wordpress-gutenberg",
   "version": "1.2.1",
   "description": "Integrates the State of California Design System into WordPress.",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cagov/design-system-wordpress-gutenberg.git"
@@ -20,12 +21,13 @@
     "trailingComma": "all"
   },
   "scripts": {
-    "build": "gulp build",
+    "build": "webpack-cli build",
     "create-block": "gulp create-block --force --block ",
     "update-block": "gulp update-block --block %npm_config_block% --force %npm_config_force%",
-    "postupdate-block": "cd blocks/%npm_config_block% && npm run build"
+    "postupdatse-block": "cd blocks/%npm_config_block% && npm i && npm run build"
   },
   "devDependencies": {
+    "@cagov/ds-base-css": "^1.0.19",
     "@cagov/ds-link-icon": "^2.0.0",
     "@cagov/ds-site-footer": "^2.0.0",
     "@cagov/ds-site-header": "^2.0.0",
@@ -33,14 +35,17 @@
     "@cagov/ds-skip-to-content": "^2.0.0",
     "@cagov/ds-statewide-footer": "^2.0.0",
     "@cagov/ds-statewide-header": "^2.0.0",
+    "change-case": "^4.1.2",
     "css-loader": "^6.7.4",
+    "del": "^7.0.0",
+    "fs": "^0.0.1-security",
+    "gulp": "^4.0.2",
+    "mini-css-extract-plugin": "^2.7.6",
     "postcss-loader": "^7.3.0",
+    "readline-sync": "^1.4.10",
     "sass": "^1.62.1",
     "sass-loader": "^13.3.0",
     "style-loader": "^3.3.3",
     "webpack": "^5.84.0"
-  },
-  "dependencies": {
-    "@cagov/ds-base-css": "^1.0.19"
   }
 }

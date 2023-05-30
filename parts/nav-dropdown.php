@@ -77,6 +77,7 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 												<a 
 													class="expanded-menu-dropdown-link js-event-hm-menu" 
 													href="<?php print esc_url( $cagov_design_system_child_item->url ); ?>" 
+													tabindex="-1"
 													<?php if ( ! empty( $cagov_design_system_child_item->target ) ) : ?>
 													target="<?php print esc_attr( $cagov_design_system_child_item->target ); ?>" 
 													<?php endif; ?>

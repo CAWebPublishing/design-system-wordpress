@@ -21,7 +21,7 @@
 		"@wordpress/icons": "^9.22.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^26.2.0",
+		"@wordpress/scripts": "^26.5.0",
 		"del": "^6.1.1",
 		"fancy-log": "^2.0.0",
 		"gulp": "^4.0.2",

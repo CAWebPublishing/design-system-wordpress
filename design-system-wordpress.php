@@ -72,20 +72,20 @@ function cagov_design_system_plugins_loaded() {
  * @return void
  */
 function cagov_design_system_wp_enqueue_scripts() {
-	wp_dequeue_script( 'cagov-colorscheme' );
-	wp_dequeue_script( 'cagov-template-core' );
+	wp_dequeue_style( 'cagov-core-style' );
+	wp_dequeue_script( 'cagov-core-script' );
 
 	$color = get_option( 'ca_site_color_scheme', 'cagov' );
 
 	// CAgov design system colorscheme.
-	$core_color_file = cagov_design_system_get_min_file( "dist/$color.js", 'js' );
+	$core_color_file = cagov_design_system_get_min_file( "dist/$color.css");
+
+	wp_enqueue_style( 'cagov-design-system-colorscheme', $core_color_file, array(), CAGOV_DESIGN_SYSTEM_VERSION );
 
 	// CAgov design system core.
-	$core_file = cagov_design_system_get_min_file( 'dist/design-system.js', 'js' );
+	$core_file = cagov_design_system_get_min_file( "dist/$color.js", 'js' );
 
-	wp_register_script( 'cagov-design-system-colorscheme', $core_color_file, array( 'jquery' ), CAGOV_DESIGN_SYSTEM_VERSION, true );
-
-	wp_enqueue_script( 'cagov-design-system', $core_file, array('cagov-design-system-colorscheme'), CAGOV_DESIGN_SYSTEM_VERSION, true );
+	wp_enqueue_script( 'cagov-design-system', $core_file, array('jquery'), CAGOV_DESIGN_SYSTEM_VERSION, true );
 
 }
 

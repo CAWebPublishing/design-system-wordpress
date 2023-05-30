@@ -13,7 +13,7 @@ const blockSlugTitle = capitalCase( blockSlug );
 const customScripts = {
 	postbuild: 'gulp build'
 };
-console.log(process.argv)
+
 const npmDependencies = [ '@wordpress/icons@9.22.0' ];
 
 const npmDevDependencies = [
