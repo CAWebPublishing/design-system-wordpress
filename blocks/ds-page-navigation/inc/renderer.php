@@ -5,29 +5,20 @@
  * @package caweb
  */
 
-if ( ! function_exists('caweb_ds_page_navigation_block_renderer') ){
+if ( ! function_exists( 'cagov_design_system_ds_page_navigation_block_renderer' ) ) {
 	/**
-	* Dynamic Renderer for CAGov Design System Blocks
-	*
-	* @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
-	*
-	* @param array         $attributes Block attributes.
-	* @param string        $content    Block content.
-	* @param  WP_Block_Type $block Current Block Type.
-	* @return string Rendered block type output.
-	*/
-	function caweb_ds_page_navigation_block_renderer( $attributes, $content, $block ) {
-		/**
-		 * Declare variable variables out of the attributes
-		 *@see https://www.php.net/manual/en/language.variables.variable.php
-		*/
-		foreach ( $attributes as $attr => $val ) {
-			$$attr = $val;
-		}
+	 * Dynamic Renderer for CAGov Design System Blocks
+	 *
+	 * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
+	 *
+	 * @param array         $attributes Block attributes.
+	 * @param string        $content    Block content.
+	 * @param  WP_Block_Type $block Current Block Type.
+	 * @return string Rendered block type output.
+	 */
+	function cagov_design_system_ds_page_navigation_block_renderer( $attributes, $content, $block ) {
 
-		if(! isset($title)){
-			$title = 'On this page';
-		}
+		$title = isset( $attributes['title'] ) ? $attributes['title'] : 'On this page';
 
 		$output = sprintf(
 			'

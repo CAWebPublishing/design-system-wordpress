@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 // if the CAWeb theme is active.
-$cagov_design_system_is_caweb_active_theme = cagov_design_system_is_CAWeb_active_theme();
+$cagov_design_system_is_caweb_active_theme = cagov_design_system_is_caweb_active_theme();
 
 /* Branding */
 $cagov_design_system_logo          = ! empty( get_option( 'header_ca_branding', '' ) ) ? esc_url( get_option( 'header_ca_branding' ) ) : '';
@@ -36,7 +36,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 			<div class="official-languages">
 
 			<?php
-			// if the CAWeb theme is active, add CAWeb Utility header.
+			// if the CAWeb theme is active, add CAWeb Utility header options.
 			if ( cagov_design_system_is_caweb_active_theme() ) {
 				$caweb_geo_locator_enabled          = 'on' === get_option( 'ca_geo_locator_enabled', false ) || get_option( 'ca_geo_locator_enabled', false );
 				$caweb_contact_us_link              = get_option( 'ca_contact_us_link', '' );
@@ -45,7 +45,6 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 				$caweb_google_trans_enabled         = get_option( 'ca_google_trans_enabled', false );
 				$caweb_google_trans_page_new_window = get_option( 'ca_google_trans_page_new_window', true ) ? '_blank' : '_self';
 				$caweb_google_trans_icon            = get_option( 'ca_google_trans_icon', '' );
-				$caweb_geo_locator_enabled          = 'on' === get_option( 'ca_geo_locator_enabled', false ) || get_option( 'ca_geo_locator_enabled', false );
 
 				// Custom Utility.
 				for ( $caweb_i = 1; $caweb_i < 4; $caweb_i++ ) {
@@ -84,7 +83,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 				// Google Custom Translate.
 				if ( 'custom' === $caweb_google_trans_enabled && ! empty( $caweb_google_trans_page ) ) {
 					?>
-							<a id="caweb-gtrans-custom" target="<?php print esc_attr( $caweb_google_trans_page_new_window ); ?>" href="<?php print esc_url( $caweb_google_trans_page ); ?>">
+							<a id="caweb-gtrans-custom" class="no-underline" target="<?php print esc_attr( $caweb_google_trans_page_new_window ); ?>" href="<?php print esc_url( $caweb_google_trans_page ); ?>">
 						<?php if ( ! empty( $caweb_google_trans_icon ) ) : ?>
 								<span class="ca-gov-icon-<?php print esc_attr( $caweb_google_trans_icon ); ?>"></span>
 							<?php endif; ?>
@@ -92,7 +91,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 						<?php
 				} elseif ( true === $caweb_google_trans_enabled || 'standard' === $caweb_google_trans_enabled ) {
 					?>
-						<div class="quarter standard-translate px-0 w-auto" id="google_translate_element"></div>
+						<div id="google_translate_element"></div>
 					<?php
 				}
 			}
@@ -181,7 +180,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 					<div class="expanded-menu-grid">
 						<div class="expanded-menu-col js-cagov-navoverlay-expandable">
 							<div class="expanded-menu-section">
-								<a>There is no Navigation Menu set</a> 
+								<a class="expanded-menu-section-header-link js-event-hm-menu">There is no Navigation Menu set</a> 
 							</div>
 						</div>
 					</div>

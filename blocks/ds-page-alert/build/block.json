@@ -4,7 +4,7 @@
   "name": "caweb/ds-page-alert",
   "version": "1.0.0",
   "title": "Page Alert",
-  "category": "cagov",
+  "category": "cagov-design-system",
   "icon": "format-aside",
   "description": "The  gives people important and sometimes time-sensitive information that they need to read, before anything else. It goes beneath the site navigation on any page.",
   "attributes": {

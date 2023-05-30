@@ -5,40 +5,34 @@
  * @package caweb
  */
 
-if ( ! function_exists('caweb_drought_map_block_renderer') ){
+if ( ! function_exists( 'cagov_design_system_drought_map_block_renderer' ) ) {
 	/**
-	* Dynamic Renderer for Drought Map Block
-	*
-	* @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
-	*
-	* @param array         $attributes Block attributes.
-	* @param string        $content    Block content.
-	* @param  WP_Block_Type $block Current Block Type.
-	* @return string Rendered block type output.
-	*/
-	function caweb_drought_map_block_renderer( $attributes, $content, $block ) {
-		/**
-		 * Declare variable variables out of the attributes
-		 *@see https://www.php.net/manual/en/language.variables.variable.php
-		*/
-		foreach ( $attributes as $attr => $val ) {
-			$$attr = $val;
-		}
+	 * Dynamic Renderer for Drought Map Block
+	 *
+	 * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
+	 *
+	 * @param array         $attributes Block attributes.
+	 * @param string        $content    Block content.
+	 * @param  WP_Block_Type $block Current Block Type.
+	 * @return string Rendered block type output.
+	 */
+	function cagov_design_system_drought_map_block_renderer( $attributes, $content, $block ) {
 
 		$current_date = new DateTime();
 
-		// get current day
-		$current_day = $current_date->format('w') + 1;
-		
-		// data is updated on tuesday, 
+		// get current day.
+		$current_day = $current_date->format( 'w' ) + 1;
+
+		// data is updated on tuesday,
 		// subtract 3 from the current day to get how many days ago that was.
 		$days_ago = $current_day - 3;
 		// if current day is before thursday (5) add 7 to get last tuesdays data.
 		$days_ago += 5 >= $current_day ? 7 : 0;
-		
-		$current_date->modify(sprintf('-%1$ddays', $days_ago));
-		
-		$output = sprintf('
+
+		$current_date->modify( sprintf( '-%1$ddays', $days_ago ) );
+
+		$output = sprintf(
+			'
 		<div class="cagov-drought-map">
 			<div class="drought-map-container">
 				<div class="drought-map-image">
@@ -50,15 +44,20 @@ if ( ! function_exists('caweb_drought_map_block_renderer') ){
 				<div class="map-link"><a target="_blank" href="https://droughtmonitor.unl.edu/CurrentMap/StateDroughtMonitor.aspx?CA">View details on US Drought Monitor</a></div>
 			</div>
 		</div>',
-		caweb_drought_map_spei(),
-		$current_date->format('Ymd'),
-	);
+			cagov_design_system_drought_map_spei(),
+			$current_date->format( 'Ymd' ),
+		);
 
 		return $output;
 	}
 }
 
-function caweb_drought_map_spei(){
+/**
+ * Display Standardized Precipitation Evapotranspiration Index (SPEI)
+ *
+ * @return string
+ */
+function cagov_design_system_drought_map_spei() {
 	return '<svg viewBox="0 0 200 250" aria-hidden="true">
 	<text x="0" y="0" text-anchor="start" dominant-baseline="hanging" class="bold">12 month SPEI</text>
 	<text x="50" y="52" dominant-baseline="middle" text-anchor="start">Extremely wet</text>

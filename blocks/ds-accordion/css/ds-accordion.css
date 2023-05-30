@@ -1,97 +1,8 @@
-/* initial styles */
-cagov-accordion details {
-  border-radius: var(--radius-2, 5px) !important;
-  margin-bottom: 0;
-  min-height: var(--s-5, 3rem);
-  margin-top: 0.5rem;
-  border: solid var(--border-1, 1px) var(--gray-200, #d4d4d7) !important;
-}
-
-cagov-accordion details summary {
-  cursor: pointer;
-  padding: var(--s-1, 0.5rem) var(--s-5, 3rem) var(--s-1, 0.5rem) var(--s-2, 1rem);
-  background-color: var(--gray-50, #fafafa);
-  position: relative;
-  line-height: var(--s-4, 2rem);
-  margin: 0;
-  color: var(--primary-700, #165ac2);
-  font-size: var(--font-size-2, 1.125rem);
-  font-weight: bold;
-}
-
-cagov-accordion details summary:hover {
-  background-color: var(--gray-100, #fafafa);
-  color: var(--primary-900, #003688);
-}
-
-cagov-accordion details .accordion-body {
-  padding: var(--s-2, 1rem);
-}
-
-/* styles applied after custom element javascript runs */
-cagov-accordion:defined {
-  /* let it be open initially if details has open attribute */
-}
-
-cagov-accordion:defined details {
-  transition: height var(--animation-duration-2, 0.2s);
-  height: var(--s-5, 3rem);
-  overflow: hidden;
-}
-
-cagov-accordion:defined details[open] {
-  height: auto;
-}
-
-cagov-accordion:defined summary::-webkit-details-marker {
-  display: none;
-}
-
-cagov-accordion:defined details summary {
-  list-style: none;
-  /* hide default expansion triangle after js executes */
-  border-radius: var(--border-5, 5px) var(--border-5, 5px) 0 0;
-}
-
-cagov-accordion:defined details summary:focus {
-  outline-offset: -2px;
-  outline: solid 2px var(--accent2-500, #ac8227) !important;
-  background-color: var(--gray-100, #fafafa);
-}
-
-cagov-accordion:defined details .cagov-open-indicator {
-  background-color: var(--primary-700, #165ac2);
-  height: 3px;
-  width: 15px;
-  border-radius: var(--border-3, 3px);
-  position: absolute;
-  right: var(--s-2, 1rem);
-  top: 1.4rem;
-}
-
-cagov-accordion:defined details .cagov-open-indicator:before {
-  display: block;
-  content: "";
-  position: absolute;
-  top: -6px;
-  left: 3px;
-  width: 3px;
-  height: 15px;
-  border-radius: var(--border-3, 3px);
-  border: none;
-  box-shadow: 3px 0 0 0 var(--primary-700, #165ac2);
-  background: none;
-}
-
-cagov-accordion:defined details[open] .cagov-open-indicator:before {
-  display: none;
-}
-
 .popover-content {
   position: absolute;
   display: flex;
   flex-direction: column-reverse;
-  row-gap: .5rem;
+  row-gap: 0.5rem;
   left: -10000px;
   top: auto;
   width: 1px;
@@ -100,7 +11,7 @@ cagov-accordion:defined details[open] .cagov-open-indicator:before {
   padding: 1rem;
   z-index: 100;
   outline: 0;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   overflow: visible;
   pointer-events: none;
   --shadow-color: 220 3% 15%;
@@ -118,7 +29,7 @@ cagov-accordion:defined details[open] .cagov-open-indicator:before {
 }
 
 .popover-content::before {
-  content: '';
+  content: "";
   position: absolute;
   width: 1rem;
   height: 1rem;
@@ -145,11 +56,10 @@ cagov-accordion:defined details[open] .cagov-open-indicator:before {
     transform: translate(-50%, 0);
   }
 }
-
 .popover-legend {
   display: flex;
   flex-direction: row;
-  gap: .75rem;
+  gap: 0.75rem;
   align-items: flex-start;
 }
 
@@ -167,5 +77,5 @@ cagov-accordion:defined details[open] .cagov-open-indicator:before {
 }
 
 .popover-stat {
-  margin: 0 0 .5rem 0;
+  margin: 0 0 0.5rem 0;
 }

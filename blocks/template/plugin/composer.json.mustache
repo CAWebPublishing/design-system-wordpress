@@ -1,0 +1,23 @@
+{
+    "name": "cagov/design-system-wordpress",
+    "description": "Packages to help enforce WordPress Coding Standards",
+    "scripts": {
+        "post-install-cmd": [
+            "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs,vendor/phpcompatibility/phpcompatibility-wp,vendor/phpcompatibility/php-compatibility "
+        ]
+    },
+    "require": {
+        "caweb/phpdoc": "dev-master",
+        "friendsofphp/php-cs-fixer": "^3.0.0",
+        "phpcompatibility/phpcompatibility-wp": "*",
+        "wp-coding-standards/wpcs": "^2.3.0",
+        "roave/security-advisories": "dev-master",
+        "phpdocumentor/shim": "^3.1"
+    },
+    "config": {
+        "allow-plugins": {
+            "phpdocumentor/shim": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    }
+}

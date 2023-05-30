@@ -1,43 +1,35 @@
 <?php
 /**
  * Plugin Name:       Ds Page Navigation
- * Plugin URI:        https://github.com/CAWebPublishing/caweb-ds-page-navigation
- * Description:       Page navigation lists and links to the level 2 headings of a webpage.
- * Version:           1.0.0
- * Requires at least: 5.9
- * Requires PHP:      7.0
+ * Plugin URI:        https://github.com/CA-CODE-Works/design-system-wordpress/blocks/ds-page-navigation
+ * Description:       California Design System Ds Page Navigation Component
+ * Version:           1.1.0
+ * Requires at least: 6.2
+ * Requires PHP:      8.1
  * Author:            CAWebPublishing
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       ds-page-navigation
  *
- * @package           caweb
+ * @package           cagov-design-system
  */
 
-if( ! defined('DsPageNavigation_DIR') ){
-	define( 'DsPageNavigation_DIR', __DIR__ );
+if ( ! defined('DsPageNavigation_URI') ){
+	$cagov_design_system_ds_page_navigation_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
+	define( 'DsPageNavigation_URI', esc_url( str_replace( $cagov_design_system_ds_page_navigation_doc_root, '', __DIR__ ) ) );
 }
 
-if( ! defined('DsPageNavigation_URI') ){
-	$caweb_caweb_ds_page_navigation_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
-	define( 'DsPageNavigation_URI', esc_url( str_replace( $caweb_caweb_ds_page_navigation_doc_root, '', __DIR__ ) ) );
+if ( ! defined( 'CAGOV_DESIGN_SYSTEM_DEBUG' ) ) {
+	define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 }
 
-if( ! defined('DsPageNavigation_DEBUG') ){
-	define('DsPageNavigation_DEBUG', false);
-}
-
-/**
- * Include caweb Core Functionality 
- */ 
-foreach ( glob( DsPageNavigation_DIR . '/core/*.php' ) as $file ) {
+// Include Ds Page Navigation Core Functionality.
+foreach ( glob( __DIR__ . '/core/*.php' ) as $file ) {
 	require_once $file;
 }
 
-/**
- * Include Ds Page Navigation Functionality 
- */ 
-foreach ( glob( DsPageNavigation_DIR . '/inc/*.php' ) as $file ) {
+// Include Ds Page Navigation Functionality.
+foreach ( glob( __DIR__ . '/inc/*.php' ) as $file ) {
 	require_once $file;
 }
 
@@ -47,10 +39,10 @@ foreach ( glob( DsPageNavigation_DIR . '/inc/*.php' ) as $file ) {
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_a_Typical_Request
  */
-add_action( 'init', 'caweb_ds_page_navigation_init' );
-add_action( 'wp_enqueue_scripts', 'caweb_ds_page_navigation_wp_enqueue_scripts' );
+add_action( 'init', 'cagov_design_system_ds_page_navigation_init' );
+add_action( 'wp_enqueue_scripts', 'cagov_design_system_ds_page_navigation_wp_enqueue_scripts' );
 
-if( ! function_exists('caweb_ds_page_navigation_init') ){
+if ( ! function_exists( 'cagov_design_system_ds_page_navigation_init' ) ) {
 	/**
 	 * Ds Page Navigation Initialization
 	 *
@@ -59,9 +51,15 @@ if( ! function_exists('caweb_ds_page_navigation_init') ){
 	 *
 	 * @link https://developer.wordpress.org/reference/hooks/init/
 	 * @return void
-	*/
-	function caweb_ds_page_navigation_init() {	
+	 */
+	function cagov_design_system_ds_page_navigation_init() {
 		global $pagenow;
+
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$version = get_plugin_data( __FILE__ )['Version'];
 
 		/**
 		* Enqueues the default ThickBox js and css. (if not on the login page or customizer page)
@@ -71,15 +69,15 @@ if( ! function_exists('caweb_ds_page_navigation_init') ){
 		if ( ! in_array( $pagenow, array( 'wp-login.php', 'customize.php' ), true ) ) {
 			add_thickbox();
 		}
-			
+
 		// if editing a page/post register compiled Gutenberg Block bundles.
 		if ( in_array( $pagenow, array( 'post.php', 'post-new.php' ), true ) ) {
 
-			wp_enqueue_style( 'caweb-ds-page-navigation', caweb_ds_page_navigation_get_min_file( '/css/ds-page-navigation.css' ), array());
+			wp_enqueue_style( 'cagov-design-system-ds-page-navigation', cagov_design_system_ds_page_navigation_get_min_file( '/css/ds-page-navigation.css' ), array(), $version );
 		}
 
 		$block_args = array(
-			'render_callback' => 'caweb_ds_page_navigation_block_renderer',
+			'render_callback' => 'cagov_design_system_ds_page_navigation_block_renderer',
 		);
 
 		/**
@@ -89,27 +87,33 @@ if( ! function_exists('caweb_ds_page_navigation_init') ){
 		 *
 		 * @see https://developer.wordpress.org/reference/functions/register_block_type/
 		*/
-		register_block_type( DsPageNavigation_DIR . '/build', $block_args );
+		register_block_type( __DIR__ . '/build', $block_args );
 	}
 }
 
-if( ! function_exists('caweb_ds_page_navigation_wp_enqueue_scripts') ){
+if ( ! function_exists( 'cagov_design_system_ds_page_navigation_wp_enqueue_scripts' ) ) {
 	/**
-	* Register Ds Page Navigation scripts/styles
-	*
-	* Fires when scripts and styles are enqueued.
-	*
-	* @category add_action( 'wp_enqueue_scripts', 'caweb_ds_page_navigation_wp_enqueue_scripts' );
-	* @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
-	*
-	* @return void
-	*/
-	function caweb_ds_page_navigation_wp_enqueue_scripts() {
+	 * Register Ds Page Navigation scripts/styles
+	 *
+	 * Fires when scripts and styles are enqueued.
+	 *
+	 * @category add_action( 'wp_enqueue_scripts', 'cagov_design_system_ds_page_navigation_wp_enqueue_scripts' );
+	 * @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+	 *
+	 * @return void
+	 */
+	function cagov_design_system_ds_page_navigation_wp_enqueue_scripts() {
+
+		if ( ! function_exists( 'get_plugin_data' ) ) {
+			require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		}
+
+		$version = get_plugin_data( __FILE__ )['Version'];
 
 		// Register compiled Gutenberg Block bundles.
-		wp_enqueue_script( 'caweb-ds-page-navigation', caweb_ds_page_navigation_get_min_file( '/js/ds-page-navigation.js', 'js' ), array(), '', true );
+		wp_enqueue_script( 'cagov-design-system-ds-page-navigation', cagov_design_system_ds_page_navigation_get_min_file( '/js/ds-page-navigation.js', 'js' ), array(), $version, true );
 
-		wp_enqueue_style( 'caweb-ds-page-navigation', caweb_ds_page_navigation_get_min_file( '/css/ds-page-navigation.css' ), array(), '' );
+		wp_enqueue_style( 'cagov-design-system-ds-page-navigation', cagov_design_system_ds_page_navigation_get_min_file( '/css/ds-page-navigation.css' ), array(), $version );
 
 	}
 }

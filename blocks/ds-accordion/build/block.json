@@ -4,7 +4,7 @@
   "name": "caweb/ds-accordion",
   "version": "1.0.0",
   "title": "Accordion",
-  "category": "cagov",
+  "category": "cagov-design-system",
   "icon": "format-aside",
   "description": "Accordions are expandable sections of content. Each section contains a summary element, and more body text when opened.",
   "supports": {

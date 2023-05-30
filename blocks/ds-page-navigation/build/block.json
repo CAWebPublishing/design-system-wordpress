@@ -4,7 +4,7 @@
   "name": "caweb/ds-page-navigation",
   "version": "1.0.0",
   "title": "Page Navigation",
-  "category": "cagov",
+  "category": "cagov-design-system",
   "icon": "format-aside",
   "description": "Page navigation lists and links to the level 2 headings of a webpage.",
   "attributes": {
