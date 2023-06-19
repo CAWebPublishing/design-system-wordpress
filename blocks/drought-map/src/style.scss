@@ -1,0 +1,26 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+ .drought-map-image{
+    position: relative;
+ }
+
+ .drought-map-legend {
+    position: absolute;
+    bottom: 0;
+    width: 45%;
+    height: 45%;
+
+    svg {
+        height: 100%;
+    }
+    text {
+        font-size: .9rem;
+    }
+    text.bold {
+        font-weight: 700;
+    }
+ }

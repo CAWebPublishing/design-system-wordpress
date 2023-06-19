@@ -4,25 +4,25 @@
  *
  * @see https://cdec.water.ca.gov/resapp/
  *
- * @package caweb
+ * @package cagov-design-system
  */
 
-if( ! function_exists('caweb_cdec_reservoir_conditions_api')){
+if ( ! function_exists( 'cagov_design_system_cdec_reservoir_conditions_api' ) ) {
 	/**
-	* Retrieve data from the CDEC Reservoir API
-	*
-	* @see https://cdec.water.ca.gov/resapp/service/res/conditions
-	* @param  string $station_id Major reservoirs station that were recommended by CDEC.
-	* @return string
-	*/
-	function caweb_cdec_reservoir_conditions_api( $station_id = '' ) {
+	 * Retrieve data from the CDEC Reservoir API
+	 *
+	 * @see https://cdec.water.ca.gov/resapp/service/res/conditions
+	 * @param  string $station_id Major reservoirs station that were recommended by CDEC.
+	 * @return string
+	 */
+	function cagov_design_system_cdec_reservoir_conditions_api( $station_id = '' ) {
 		$result = 'No Results';
 
 		if ( empty( $station_id ) ) {
 			return $result;
 		}
 
-		$date   = gmdate( 'Y-m-d' );
+		$date = gmdate( 'Y-m-d' );
 
 		$url = "https://cdec.water.ca.gov/resapp/service/res/conditions?date=$date&stationIds=$station_id";
 

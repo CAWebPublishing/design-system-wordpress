@@ -1,0 +1,14 @@
+body.design-system{
+	cagov-site-navigation {
+		.expanded-menu-section-header-arrow-svg{
+			fill: var(--primary-700);
+		}
+	}
+	
+	&.page-template-searchpage{
+		.section .container {
+			max-width: 1280px;
+			width: 100%;
+		}
+	}
+}

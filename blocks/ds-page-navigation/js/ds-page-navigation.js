@@ -95,6 +95,7 @@ class CAGovPageNavigation extends window.HTMLElement {
       headers.forEach((tag) => {
         const tagId = tag.getAttribute('id');
         const tagName = tag.getAttribute('name');
+        const tabIndex = tag.getAttribute('tabindex') || '-1';
 
         const title = tag.innerHTML;
 
@@ -134,6 +135,7 @@ class CAGovPageNavigation extends window.HTMLElement {
 
         tag.setAttribute('id', anchor);
         tag.setAttribute('name', anchor);
+        tag.setAttribute('tabindex', tabIndex);
       });
       return `<ul>${output}</ul>`;
     }
@@ -144,6 +146,7 @@ class CAGovPageNavigation extends window.HTMLElement {
 window.customElements.define('cagov-page-navigation', CAGovPageNavigation);
 
 jQuery( document ).ready( function ( $ ) {
+	// eslint-disable-line
 	$( document ).on( 'mouseover', '.popover', function ( ele ) {
 		togglePopover( ele.currentTarget.id );
 	} );
@@ -153,20 +156,20 @@ jQuery( document ).ready( function ( $ ) {
 	} );
 
 	function togglePopover( id, popin = true ) {
-		if ( undefined != id ) {
-			var current = $( '#' + id );
-			var popver = $( '#' + id + '-popover' );
+		if ( undefined !== id ) {
+			const current = $( '#' + id );
+			const popver = $( '#' + id + '-popover' );
 
 			if ( popin ) {
 				current.addClass( 'highlighted' );
 
-				if ( undefined != popver ) {
+				if ( undefined !== popver ) {
 					$( popver ).addClass( 'popover-revealed' );
 				}
 			} else {
 				current.removeClass( 'highlighted' );
 
-				if ( undefined != popver ) {
+				if ( undefined !== popver ) {
 					$( popver ).removeClass( 'popover-revealed' );
 				}
 			}

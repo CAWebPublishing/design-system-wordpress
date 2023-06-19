@@ -1,10 +1,10 @@
 {
 	"name": "ds-page-navigation",
-	"version": "1.0.0",
-	"description": "Page navigation lists and links to the level 2 headings of a webpage.",
+	"version": "1.1.0",
+	"description": "California Design System Ds Page Navigation Component",
 	"author": "CAWebPublishing",
 	"license": "GPL-2.0-or-later",
-	"homepage": "https://github.com/CAWebPublishing/caweb-ds-page-navigation",
+	"homepage": "https://github.com/CA-CODE-Works/design-system-wordpress/blocks/ds-page-navigation",
 	"main": "build/index.js",
 	"scripts": {
 		"build": "wp-scripts build",
@@ -14,16 +14,15 @@
 		"packages-update": "wp-scripts packages-update",
 		"plugin-zip": "wp-scripts plugin-zip",
 		"start": "wp-scripts start",
-		"postbuild": "gulp build",
-		"update-block": "cd .. && caweb update-block %npm_package_name%"
+		"postbuild": "gulp build"
 	},
 	"dependencies": {
-		"@cagov/ds-page-navigation": "^2.2.0",
-		"@wordpress/icons": "^9.6.0"
+		"@cagov/ds-page-navigation": "^2.2.1",
+		"@wordpress/icons": "^9.22.0"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^23.7.2",
-		"caweb": "^1.0.11",
+		"@wordpress/scripts": "^26.5.0",
+		"del": "^6.1.1",
 		"fancy-log": "^2.0.0",
 		"gulp": "^4.0.2",
 		"gulp-cli": "^2.3.0",
@@ -33,6 +32,6 @@
 		"gulp-sass": "^5.1.0",
 		"gulp-tap": "^2.0.0",
 		"gulp-uglify-es": "^3.0.0",
-		"node-sass": "^7.0.1"
+		"sass": "^1.62.0"
 	}
 }

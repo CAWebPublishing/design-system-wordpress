@@ -4,7 +4,7 @@
   "name": "caweb/ds-link-grid",
   "version": "1.0.0",
   "title": "Link Grid",
-  "category": "cagov",
+  "category": "cagov-design-system",
   "icon": "format-aside",
   "description": "The link grid organizes links that function as calls to action (CTAs) or highlight topics.",
   "attributes": {},

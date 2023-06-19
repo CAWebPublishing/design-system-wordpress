@@ -5,51 +5,55 @@
  * @package caweb
  */
 
-if ( ! function_exists('caweb_reservoir_levels_block_renderer') ){
+if ( ! function_exists( 'cagov_design_system_reservoir_levels_block_renderer' ) ) {
 	/**
-	* Dynamic Renderer for CAGov Design System Blocks
-	*
-	* @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
-	*
-	* @param array         $attributes Block attributes.
-	* @param string        $content    Block content.
-	* @param  WP_Block_Type $block Current Block Type.
-	* @return string Rendered block type output.
-	*/
-	function caweb_reservoir_levels_block_renderer( $attributes, $content, $block ) {
+	 * Dynamic Renderer for CAGov Design System Blocks
+	 *
+	 * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
+	 *
+	 * @param array         $attributes Block attributes.
+	 * @param string        $content    Block content.
+	 * @param  WP_Block_Type $block Current Block Type.
+	 * @return string Rendered block type output.
+	 */
+	function cagov_design_system_reservoir_levels_block_renderer( $attributes, $content, $block ) {
 		/**
 		 * Declare variable variables out of the attributes
+		 *
 		 *@see https://www.php.net/manual/en/language.variables.variable.php
 		*/
 		foreach ( $attributes as $attr => $val ) {
 			$$attr = $val;
 		}
 
-		if ( empty( $stationId ) ) {
+		if ( empty( $attributes['stationId'] ) ) {
 			return;
 		}
 
-		$result = caweb_cdec_reservoir_conditions_api( $stationId );
+		$station_id = $attributes['stationId'];
+
+		$result = cagov_design_system_cdec_reservoir_conditions_api( $station_id );
 
 		foreach ( $result as $attr => $val ) {
 			$$attr = $val;
 		}
 
+		$svg_basin_depth = 135;
+		$pct_cap         = $result['pctCap'];
+		$pct_avg         = $result['pctAvg'];
 
-		$svgBasinDepth = 135;
+		$water_level = round( $svg_basin_depth - ( $svg_basin_depth * $pct_cap / 100 ) );
 
-		$waterLevel = round( $svgBasinDepth - ( $svgBasinDepth * $pctCap / 100 ) );
-	
-		$waterLevelY      = is_numeric( $waterLevel ) ? $waterLevel : 0;
-		$waterLevelHeight = is_numeric( $waterLevel ) ? 61 : 0;
-	
-		$historicalLineY = round( $svgBasinDepth - ( $svgBasinDepth * $pctAvg / 100 ) );
-		$historicalLineY = is_numeric( $historicalLineY ) ? $historicalLineY : 0;
-	
-		$historicalLineHoverY = $historicalLineY - 5;
-	
+		$water_level_y      = is_numeric( $water_level ) ? $water_level : 0;
+		$water_level_height = is_numeric( $water_level ) ? 61 : 0;
+
+		$historical_line_y = round( $svg_basin_depth - ( $svg_basin_depth * $pct_avg / 100 ) );
+		$historical_line_y = is_numeric( $historical_line_y ) ? $historical_line_y : 0;
+
+		$historical_line_hover_y = $historical_line_y - 5;
+
 		$unique = uniqid( '' );
-	
+
 		$capacity_popover = sprintf(
 			'
 		<div tabindex="0" id="basin-capacity-%1$s-popover" class="popover-content" style="--x:94.66666666666667%%; --y:50%%; --x-offset-m:65%%;">
@@ -64,7 +68,7 @@ if ( ! function_exists('caweb_reservoir_levels_block_renderer') ){
 			$unique,
 			$cap
 		);
-	
+
 		$storage_popover = sprintf(
 			'
 		<div tabindex="0" id="basin-water-%1$s-popover" class="popover-content" style="--x:81.33333333333333%%; --y:70%%; --x-offset-m:65%%;">
@@ -79,7 +83,7 @@ if ( ! function_exists('caweb_reservoir_levels_block_renderer') ){
 			$unique,
 			$storage
 		);
-	
+
 		$average_popover = sprintf(
 			'
 		<div tabindex="0" id="historical-line-hover-target-%1$s-popover" class="popover-content" style="--x:94.66666666666667%%; --y:28%%; --x-offset-m:65%%;">
@@ -94,7 +98,7 @@ if ( ! function_exists('caweb_reservoir_levels_block_renderer') ){
 			$unique,
 			$avg
 		);
-	
+
 		$output = sprintf(
 			'
 		<div>
@@ -128,12 +132,12 @@ if ( ! function_exists('caweb_reservoir_levels_block_renderer') ){
 				</div>
 			</drought-reservoir-levels>
 		</div>',
-			absint( $pctAvg ),
+			absint( $pct_avg ),
 			$unique,
-			$waterLevelY,
-			$waterLevelHeight,
-			$historicalLineY,
-			$historicalLineHoverY,
+			$water_level_y,
+			$water_level_height,
+			$historical_line_y,
+			$historical_line_hover_y,
 			$capacity_popover,
 			$storage_popover,
 			$average_popover
