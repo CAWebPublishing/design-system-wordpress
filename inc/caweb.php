@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 // CAWeb theme option overrides.
 add_action( 'option_ca_default_navigation_menu', 'cagov_design_system_ca_default_navigation_menu' );
 add_action( 'option_ca_site_color_scheme', 'cagov_design_system_ca_site_color_scheme' );
+add_action( 'caweb_search_form', 'cagov_design_system_search_form', 9);
 
 // CAWeb theme filters.
 add_filter( 'caweb_nav_menu_types', 'cagov_design_system_nav_menu_types' );
@@ -148,4 +149,13 @@ function cagov_design_system_body_class( $wp_classes, $extra_classes ) {
 
 	/* Return filtered wp class */
 	return array_merge( $wp_classes, (array) $whitelist );
+}
+
+/**
+ * Removes the Search Form from the Serp Page.
+ *
+ * @return void
+ */
+function cagov_design_system_search_form(){
+	remove_action('caweb_search_form', 'caweb_search_form');
 }
