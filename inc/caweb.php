@@ -62,7 +62,9 @@ function cagov_design_system_ca_site_color_scheme( $val ) {
  * @return string
  */
 function cagov_design_system_page_container_class( $class ) {
-	return 'page-container-ds';
+	$class = str_replace('page-container ', '', $class);
+	$class = "page-container-ds $class";
+	return $class;
 }
 
 /**
@@ -72,7 +74,9 @@ function cagov_design_system_page_container_class( $class ) {
  * @return string
  */
 function cagov_design_system_main_content_class( $class ) {
-	return 'main-content-ds';
+	$class = str_replace('main-content ', '', $class );
+	$class = "main-content-ds $class";
+	return $class;
 }
 
 /**
