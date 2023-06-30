@@ -22,7 +22,7 @@ add_filter( 'caweb_page_container_class', 'cagov_design_system_page_container_cl
 add_filter( 'caweb_main_content_class', 'cagov_design_system_main_content_class' );
 add_filter( 'caweb_social_media_links', 'cagov_design_system_social_media_links' );
 
-add_filter( 'body_class', 'cagov_design_system_body_class', 20, 2 );
+add_filter( 'body_class', 'cagov_design_system_body_class', 25, 2 );
 
 // this can be removed once CAWeb removes Template Version 5.5.
 add_filter( 'caweb_social_media_links_exclusions', 'cagov_design_system_social_media_links_exclusions' );
@@ -62,7 +62,9 @@ function cagov_design_system_ca_site_color_scheme( $val ) {
  * @return string
  */
 function cagov_design_system_page_container_class( $class ) {
-	return 'page-container-ds';
+	$class = str_replace('page-container ', '', $class);
+	$class = "page-container-ds $class";
+	return $class;
 }
 
 /**
@@ -72,7 +74,9 @@ function cagov_design_system_page_container_class( $class ) {
  * @return string
  */
 function cagov_design_system_main_content_class( $class ) {
-	return 'main-content-ds';
+	$class = str_replace('main-content ', '', $class );
+	$class = "main-content-ds $class";
+	return $class;
 }
 
 /**
@@ -127,21 +131,10 @@ function cagov_design_system_body_class( $wp_classes, $extra_classes ) {
 		'et_primary_nav_dropdown_animation_fade',
 		'et_fixed_nav',
 		'et_show_nav',
-		'et_right_sidebar',
-		'5.5',
-		'6.0'
+		'et_right_sidebar'
 	);
 
 	/* List of extra classes that need to be added to the body */
-	if ( isset( $post->ID ) ) {
-		$sidebar_enabled = ! is_page();
-
-		$whitelist = array(
-			( caweb_is_divi_used() ? 'divi-built' : '' ),
-			( 'on' === get_post_meta( $post->ID, 'ca_custom_post_title_display', true ) ? 'title-displayed' : '' ),
-			( ! caweb_is_divi_used() && is_active_sidebar( 'sidebar-1' ) && $sidebar_enabled ? 'sidebar-displayed' : '' ),
-		);
-	}
 	$whitelist[] = 'design-system';
 
 	/* Remove any classes in the blacklist from the wp_classes */
