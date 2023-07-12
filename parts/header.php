@@ -33,7 +33,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 					</a>
 				<p class="official-tag"><span class="desktop-only">Official website of the&nbsp;</span>State of California</p>
 			</div> <!-- official-logo -->
-			<div class="official-languages">
+			<div class="official-languages align-items-center">
 
 			<?php
 			// if the CAWeb theme is active, add CAWeb Utility header options.
@@ -162,6 +162,9 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 			</div>
 		</div>
 	</div>
+	
+	<!-- Location Bar -->
+	<div id="locationSettings" class="location-settings section section-standout collapse collapsed"></div>
 
 	<?php
 	if ( has_nav_menu( 'header-menu' ) ) {

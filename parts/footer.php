@@ -70,7 +70,7 @@ $cagov_design_system_is_caweb_plugin_active = is_plugin_active( 'caweb-admin/caw
 					if ( ! $caweb_opened ) {
 						$caweb_opened = true;
 						?>
-							<div class="d-flex align-items-end">
+							<div class="footer-social-links">
 						<?php
 					}
 

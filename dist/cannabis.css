@@ -7524,3 +7524,11 @@ body.design-system.page-template-searchpage .section .container {
   max-width: 1280px;
   width: 100%;
 }
+body.design-system #google_translate_element .skiptranslate.goog-te-gadget {
+  max-height: initial;
+  margin-bottom: 0;
+  color: inherit;
+}
+body.design-system #google_translate_element .skiptranslate.goog-te-gadget span {
+  color: inherit;
+}
