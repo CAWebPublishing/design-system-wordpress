@@ -131,7 +131,8 @@ function cagov_design_system_body_class( $wp_classes, $extra_classes ) {
 		'et_primary_nav_dropdown_animation_fade',
 		'et_fixed_nav',
 		'et_show_nav',
-		'et_right_sidebar'
+		'et_right_sidebar',
+		'sticky_nav'
 	);
 
 	/* List of extra classes that need to be added to the body */
