@@ -9,7 +9,7 @@ const fs = require('fs'); // File System
 
 let entries = {
   "admin": [
-    './src/scripts/admin/',
+    './src/scripts/admin/caweb',
   ]
 };
 
