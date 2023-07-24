@@ -27,6 +27,7 @@
     "postupdatse-block": "cd blocks/%npm_config_block% && npm i && npm run build"
   },
   "devDependencies": {
+    "@cagov/ds-back-to-top": "^2.0.2",
     "@cagov/ds-base-css": "^1.0.19",
     "@cagov/ds-link-icon": "^2.0.0",
     "@cagov/ds-site-footer": "^2.0.0",

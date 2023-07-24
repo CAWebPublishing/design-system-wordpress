@@ -22,7 +22,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 
 
 <header id="header" class="global-header">
-	<div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
+	<div id="skip-to-content"><a href="#main-content">Skip to content</a></div>
 
 	<!-- Utility Header -->
 	<div class="official-header">
