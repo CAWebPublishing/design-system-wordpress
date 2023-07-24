@@ -2,10 +2,10 @@
 /**
  * Plugin Name: ca.gov Design System
  * Plugin URI: https://github.com/cagov/design-system-wordpress
- * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into the WordPress.
+ * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into WordPress.
  * Author: CAWebPublishing
  * Author URI: https://digital.ca.gov
- * Version: 1.1.1
+ * Version: 1.1.2
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
@@ -32,7 +32,7 @@ define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
 
-add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 15 );
+add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 16 );
 add_action( 'wp_enqueue_scripts', 'cagov_design_system_wp_enqueue_scripts', 9999999999 );
 
 add_action( 'get_header', 'cagov_design_system_get_header' );
@@ -93,7 +93,7 @@ function cagov_design_system_wp_enqueue_scripts() {
  * Admin Enqueue Scripts and Styles
  *
  * @link https://developer.wordpress.org/reference/hooks/admin_enqueue_scripts/
- * @wp_action add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 15 );
+ * @wp_action add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 16 );
  * @param  string $hook The current admin page.
  *
  * @return void
@@ -103,7 +103,9 @@ function cagov_design_system_admin_enqueue_scripts( $hook ) {
 
 	if ( in_array( $hook, $pages, true ) ) {
 		$admin_js                          = cagov_design_system_get_min_file( 'dist/admin.js', 'js' );
-		$cagov_design_system_localize_args = array();
+		$cagov_design_system_localize_args = array(
+			'social_links' => cagov_design_system_social_media_links()
+		);
 
 		/* Enqueue Scripts */
 		wp_enqueue_script( 'jquery' );

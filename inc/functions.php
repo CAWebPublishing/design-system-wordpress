@@ -91,6 +91,28 @@ function cagov_design_system_color_schemes( $colors = array() ) {
 	);
 }
 
+
+/**
+ * Retrieve Design System Social Media Links
+ *
+ * @param  array $social_links Array of Social Media Links.
+ * @return array
+ */
+function cagov_design_system_social_media_links( $social_links = array() ) {
+	$cagov_social_links = array(
+		'Email'           => 'ca_social_email',
+		'Facebook'        => 'ca_social_facebook',
+		'Flickr'          => 'ca_social_flickr',
+		'Github'          => 'ca_social_github',
+		'Instagram'       => 'ca_social_instagram',
+		'LinkedIn'        => 'ca_social_linkedin',
+		'Twitter'         => 'ca_social_twitter',
+		'YouTube'         => 'ca_social_youtube',
+	);
+
+	return $cagov_social_links;
+}
+
 /**
  * TinyMCE Settings
  *
