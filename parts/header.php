@@ -38,47 +38,10 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 			<?php
 			// if the CAWeb theme is active, add CAWeb Utility header options.
 			if ( cagov_design_system_is_caweb_active_theme() ) {
-				$caweb_geo_locator_enabled          = 'on' === get_option( 'ca_geo_locator_enabled', false ) || get_option( 'ca_geo_locator_enabled', false );
-				$caweb_contact_us_link              = get_option( 'ca_contact_us_link', '' );
-				$caweb_contact_us_link              = get_option( 'ca_contact_us_link', '' );
 				$caweb_google_trans_page            = get_option( 'ca_google_trans_page', '' );
 				$caweb_google_trans_enabled         = get_option( 'ca_google_trans_enabled', false );
 				$caweb_google_trans_page_new_window = get_option( 'ca_google_trans_page_new_window', true ) ? '_blank' : '_self';
 				$caweb_google_trans_icon            = get_option( 'ca_google_trans_icon', '' );
-
-				// Custom Utility.
-				for ( $caweb_i = 1; $caweb_i < 4; $caweb_i++ ) {
-					$caweb_url     = get_option( "ca_utility_link_$caweb_i" );
-					$caweb_text    = get_option( "ca_utility_link_${caweb_i}_name" );
-					$caweb_target  = get_option( "ca_utility_link_${caweb_i}_new_window" ) ? '_blank' : '_self';
-					$caweb_enabled = get_option( "ca_utility_link_${caweb_i}_enable", false ) && ! empty( $caweb_url ) && ! empty( $caweb_text );
-
-					if ( $caweb_enabled ) {
-						?>
-							<a 
-								href="<?php print esc_url( $caweb_url ); ?>" 
-								class="utility-custom-<?php print esc_attr( $caweb_i ); ?>"
-								target="<?php print esc_attr( $caweb_target ); ?>"
-
-								><?php print esc_html( $caweb_text ); ?></a>
-							<?php
-
-					}
-				}
-
-				// Geolocation.
-				if ( $caweb_geo_locator_enabled ) {
-					?>
-							<button type="button" class="btn btn-xs btn-primary collapsed" onclick="showAddLocation()" aria-expanded="false"><span class="ca-gov-icon-compass" aria-hidden="true"></span> <span class="located-city-name">Set Location</span></button>	
-					<?php
-				}
-
-				// Contact Us.
-				if ( ! empty( $caweb_contact_us_link ) ) {
-					?>
-							<a class="utility-contact-us" href="<?php print esc_url( $caweb_contact_us_link ); ?>">Contact Us</a>
-						<?php
-				}
 
 				// Google Custom Translate.
 				if ( 'custom' === $caweb_google_trans_enabled && ! empty( $caweb_google_trans_page ) ) {
