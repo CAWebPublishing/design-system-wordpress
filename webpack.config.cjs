@@ -26,6 +26,7 @@ fs.readdirSync('./node_modules/@cagov/ds-base-css/dist/themes/').filter(file => 
     '@cagov/ds-statewide-footer',
     '@cagov/ds-site-footer',
     '@cagov/ds-link-icon',
+    '@cagov/ds-back-to-top',
     './src/styles/frontend.scss',
     './src/scripts/custom.js',
   ]
