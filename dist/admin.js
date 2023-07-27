@@ -26,9 +26,13 @@ jQuery(document).ready(function($) {
 	correct_options();
 
   function correct_options(){
-    // Hide State Template Version option.
+    // Change State Template Version option.
     if( $('select[id$="ca_site_version"]').length ){
-      $('select[id$="ca_site_version"]').parent().parent().addClass('d-none');
+      // Hide Template Version
+      $('select[id$="ca_site_version"]').addClass('d-none');
+
+      // Add Design System Option as read only.
+      $('select[id$="ca_site_version"]').parent().append('<input type="text" readonly value="Design System is Active" />')
     }
 
     // Hide Menu Home Link option.
@@ -44,6 +48,13 @@ jQuery(document).ready(function($) {
     // Hide Show Search on Front Page option.
     if( $('label[for="ca_frontpage_search_enabled"]').length ){
       $('label[for="ca_frontpage_search_enabled"]').parent().parent().addClass('d-none');
+    }
+
+    // Utility Header Options.
+    if( $('#utility-header-settings').length ){
+      $('#utility-header-settings').addClass('d-none');
+      $('#utility-header-settings').prev().addClass('d-none');
+
     }
 
     // iteration over Social Media Links
