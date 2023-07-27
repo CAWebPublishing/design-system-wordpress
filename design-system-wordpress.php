@@ -38,8 +38,6 @@ add_action( 'wp_enqueue_scripts', 'cagov_design_system_wp_enqueue_scripts', 9999
 add_action( 'get_header', 'cagov_design_system_get_header' );
 add_action( 'get_footer', 'cagov_design_system_get_footer' );
 
-add_action( 'admin_notices', 'cagov_design_system_is_active_admin_notice');
-
 /**
  * Fires once activated plugins have loaded.
  *
@@ -166,25 +164,4 @@ function cagov_design_system_wp_body_open() {
 function cagov_design_system_wp_footer() {
 	require_once CAGOV_DESIGN_SYSTEM_DIR . '/parts/footer.php';
 
-}
-
-/**
- * Display Admin Notice allowing users to know that Design System is active.
- * 
- * @return void
- */
-function cagov_design_system_is_active_admin_notice(){
-	global $pagenow;
-	$page = isset( $_GET['page'] ) ? $_GET['page'] : '';
-	$is_caweb_options = 'caweb_options' === $page;
-
-	if( 'admin.php' !== $pagenow || ! $is_caweb_options){
-		return;
-	}
-
-	?>
-    <div class="notice notice-info is-dismissible">
-        <p>ca.gov Design System plugin is active.</p>
-    </div>
-    <?php
 }

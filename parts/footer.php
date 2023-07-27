@@ -24,7 +24,6 @@ $cagov_design_system_is_caweb_plugin_active = is_plugin_active( 'caweb-admin/caw
 ?>
 <!-- Footer -->
 <footer class="hidden-print">
-	<cagov-back-to-top data-hide-after="7000" data-label="Back to top"></cagov-back-to-top>
 	<div class="bg-light-grey">
 		<div class="container">
 			<a href="https://ca.gov" class="cagov-logo" title="ca.gov" target="_blank" rel="noopener">
@@ -60,4 +59,5 @@ $cagov_design_system_is_caweb_plugin_active = is_plugin_active( 'caweb-admin/caw
 			<?php endif; ?>
 		</div>
 	</div>
+	<cagov-back-to-top data-hide-after="7000" data-label="Back to top"></cagov-back-to-top>
 </footer>
