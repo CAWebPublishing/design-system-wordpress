@@ -24,7 +24,7 @@
     "build": "webpack-cli build",
     "create-block": "gulp create-block --force --block ",
     "update-block": "gulp update-block --block %npm_config_block% --force %npm_config_force%",
-    "postupdatse-block": "cd blocks/%npm_config_block% && npm i && npm run build"
+    "postupdate-block": "cd blocks/%npm_config_block% && npm i && npm run build"
   },
   "devDependencies": {
     "@cagov/ds-back-to-top": "^2.0.2",
@@ -32,7 +32,7 @@
     "@cagov/ds-link-icon": "^2.0.0",
     "@cagov/ds-site-footer": "^2.0.0",
     "@cagov/ds-site-header": "^2.0.0",
-    "@cagov/ds-site-navigation": "^3.0.0",
+    "@cagov/ds-site-navigation": "^3.0.3",
     "@cagov/ds-skip-to-content": "^2.0.0",
     "@cagov/ds-statewide-footer": "^2.0.0",
     "@cagov/ds-statewide-header": "^2.0.0",

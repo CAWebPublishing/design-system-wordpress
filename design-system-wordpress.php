@@ -5,7 +5,7 @@
  * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into WordPress.
  * Author: CAWebPublishing
  * Author URI: https://digital.ca.gov
- * Version: 1.1.3
+ * Version: 1.1.4
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
@@ -27,7 +27,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 define( 'CAGOV_DESIGN_SYSTEM_DIR', __DIR__ );
 define( 'CAGOV_DESIGN_SYSTEM_URL', plugin_dir_url( __FILE__ ) );
-define( 'CAGOV_DESIGN_SYSTEM_VERSION', '1.0.1' );
 define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
@@ -71,6 +70,8 @@ function cagov_design_system_plugins_loaded() {
  * @return void
  */
 function cagov_design_system_wp_enqueue_scripts() {
+	$version   = get_plugin_data( __FILE__ )['Version'];
+	
 	wp_dequeue_style( 'cagov-core-style' );
 	wp_dequeue_script( 'cagov-core-script' );
 
@@ -79,12 +80,12 @@ function cagov_design_system_wp_enqueue_scripts() {
 	// CAgov design system colorscheme.
 	$core_color_file = cagov_design_system_get_min_file( "dist/$color.css");
 
-	wp_enqueue_style( 'cagov-design-system-colorscheme', $core_color_file, array(), CAGOV_DESIGN_SYSTEM_VERSION );
+	wp_enqueue_style( 'cagov-design-system-colorscheme', $core_color_file, array(), $version );
 
 	// CAgov design system core.
 	$core_file = cagov_design_system_get_min_file( "dist/$color.js", 'js' );
 
-	wp_enqueue_script( 'cagov-design-system', $core_file, array('jquery'), CAGOV_DESIGN_SYSTEM_VERSION, true );
+	wp_enqueue_script( 'cagov-design-system', $core_file, array('jquery'), $version, true );
 
 }
 

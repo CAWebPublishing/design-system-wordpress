@@ -101,6 +101,8 @@ function mobileView() {
 }
 class CAGovSiteNavigation extends window.HTMLElement {
   connectedCallback() {
+    // this.mobileSearchClicked = false;
+    this.priorWidth = window.innerWidth;
     document
       .querySelector('.cagov-nav.open-menu')
       .addEventListener('click', this.toggleMainMenu.bind(this));
@@ -124,6 +126,10 @@ class CAGovSiteNavigation extends window.HTMLElement {
         .setAttribute('aria-hidden', 'true');
       if (mobileView()) {
         mobileSearchBtn.addEventListener('click', () => {
+          // this.mobileSearchClicked = true;
+          // setTimeout(() =>{
+          //   this.mobileSearchClicked = false;
+          // }, 3000);
           document
             .querySelector('.search-container--small')
             .classList.toggle('hidden-search');
@@ -166,6 +172,16 @@ class CAGovSiteNavigation extends window.HTMLElement {
 
     // reset mobile search on resize
     window.addEventListener('resize', () => {
+      // Issue #977: on Android phones, the resize event is fired when the address bar is shown/hidden
+      // so we need to prevent hiding the search-bar when this occurs, otherwise, Android
+      // users cannot perform a search.
+      if (this.priorWidth === window.innerWidth) {
+        // width has not changed, don't reset elements
+        // this fixes an issue on Android phones, which generate
+        // extra resize events when the search bar is shown/hidden
+        return;
+      }
+      this.priorWidth = window.innerWidth;
       document
         .querySelector('.search-container--small')
         .classList.add('hidden-search');
@@ -307,7 +323,7 @@ class CAGovSiteNavigation extends window.HTMLElement {
       }
       const menuComponent = this;
       menu.addEventListener('click', function addingClickListener(event) {
-        if (event.target.nodeName !== 'A') {
+        if (event.target.nodeName !== 'A' && event.target.nodeName !== 'FONT') {
           event.preventDefault();
         }
         const expandedEl = this.querySelector('.expanded-menu-section');
