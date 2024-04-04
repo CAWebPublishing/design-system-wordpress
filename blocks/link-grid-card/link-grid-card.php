@@ -28,11 +28,6 @@ foreach ( glob( __DIR__ . '/core/*.php' ) as $file ) {
 	require_once $file;
 }
 
-// Include Link Grid Card Functionality.
-foreach ( glob( __DIR__ . '/inc/*.php' ) as $file ) {
-	require_once $file;
-}
-
 /**
  * Plugin API/Action Reference
  * Actions Run During a Typical Request
@@ -40,7 +35,6 @@ foreach ( glob( __DIR__ . '/inc/*.php' ) as $file ) {
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_a_Typical_Request
  */
 add_action( 'init', 'cagov_design_system_link_grid_card_init' );
-add_action( 'wp_enqueue_scripts', 'cagov_design_system_link_grid_card_wp_enqueue_scripts' );
 
 if ( ! function_exists( 'cagov_design_system_link_grid_card_init' ) ) {
 	/**
@@ -55,12 +49,6 @@ if ( ! function_exists( 'cagov_design_system_link_grid_card_init' ) ) {
 	function cagov_design_system_link_grid_card_init() {
 		global $pagenow;
 
-		if ( ! function_exists( 'get_plugin_data' ) ) {
-			require_once ABSPATH . 'wp-admin/includes/plugin.php';
-		}
-
-		$version = get_plugin_data( __FILE__ )['Version'];
-
 		/**
 		* Enqueues the default ThickBox js and css. (if not on the login page or customizer page)
 		*
@@ -70,16 +58,6 @@ if ( ! function_exists( 'cagov_design_system_link_grid_card_init' ) ) {
 			add_thickbox();
 		}
 
-		// if editing a page/post register compiled Gutenberg Block bundles.
-		if ( in_array( $pagenow, array( 'post.php', 'post-new.php' ), true ) ) {
-
-			wp_enqueue_style( 'cagov-design-system-link-grid-card', cagov_design_system_link_grid_card_get_min_file( '/css/link-grid-card.css' ), array(), $version );
-		}
-
-		$block_args = array(
-			'render_callback' => 'cagov_design_system_link_grid_card_block_renderer',
-		);
-
 		/**
 		 * Registers the block using the metadata loaded from the `block.json` file.
 		 * Behind the scenes, it registers also all assets so they can be enqueued
@@ -87,33 +65,7 @@ if ( ! function_exists( 'cagov_design_system_link_grid_card_init' ) ) {
 		 *
 		 * @see https://developer.wordpress.org/reference/functions/register_block_type/
 		*/
-		register_block_type( __DIR__ . '/build', $block_args );
+		register_block_type( __DIR__ . '/build' );
 	}
 }
 
-if ( ! function_exists( 'cagov_design_system_link_grid_card_wp_enqueue_scripts' ) ) {
-	/**
-	 * Register Link Grid Card scripts/styles
-	 *
-	 * Fires when scripts and styles are enqueued.
-	 *
-	 * @category add_action( 'wp_enqueue_scripts', 'cagov_design_system_link_grid_card_wp_enqueue_scripts' );
-	 * @link https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
-	 *
-	 * @return void
-	 */
-	function cagov_design_system_link_grid_card_wp_enqueue_scripts() {
-
-		if ( ! function_exists( 'get_plugin_data' ) ) {
-			require_once ABSPATH . 'wp-admin/includes/plugin.php';
-		}
-
-		$version = get_plugin_data( __FILE__ )['Version'];
-
-		// Register compiled Gutenberg Block bundles.
-		wp_enqueue_script( 'cagov-design-system-link-grid-card', cagov_design_system_link_grid_card_get_min_file( '/js/link-grid-card.js', 'js' ), array(), $version, true );
-
-		wp_enqueue_style( 'cagov-design-system-link-grid-card', cagov_design_system_link_grid_card_get_min_file( '/css/link-grid-card.css' ), array(), $version );
-
-	}
-}

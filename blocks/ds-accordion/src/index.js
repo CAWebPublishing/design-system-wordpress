@@ -23,6 +23,11 @@ import save from './save';
 import metadata from './block.json';
 
 /**
+ * Import @cagov package
+ */
+import '@cagov/ds-accordion/dist/index.js';
+
+/**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/

@@ -72,9 +72,9 @@ export default function Edit( props ) {
  
 	 return (
 		 <div {...blockProps}>
-			<div class="cagov-with-sidebar cagov-with-sidebar-left cagov-featured-section cagov-bkgrd-gry cagov-block">
+			<div className="cagov-with-sidebar cagov-with-sidebar-left cagov-featured-section cagov-bkgrd-gry cagov-block">
 				<div>
-					<div class="cagov-stack cagov-p-2 cagov-featured-sidebar">
+					<div className="cagov-stack cagov-p-2 cagov-featured-sidebar">
 						<RichText
 							tagName="h1"
 							placeholder={__('Write title…', 'cagov-design-system')}
@@ -82,7 +82,7 @@ export default function Edit( props ) {
 							onChange={onChangeTitle}
 						/>
 	
-						<div class="cagov-feature-card-body-content">
+						<div className="cagov-feature-card-body-content">
 							<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
 						</div>
 					</div>
@@ -99,7 +99,7 @@ export default function Edit( props ) {
 								<div>
 									{mediaID && (
 										<img
-											class="cagov-featured-image"
+											className="cagov-featured-image"
 											src={mediaURL}
 											alt={mediaAlt}
 											width={mediaWidth}

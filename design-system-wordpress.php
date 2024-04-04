@@ -5,7 +5,7 @@
  * Description: Integrates the <a href="https://designsystem.webstandards.ca.gov">State of California Design System</a> into WordPress.
  * Author: CAWebPublishing
  * Author URI: https://digital.ca.gov
- * Version: 1.1.4
+ * Version: 1.1.5
  * License: MIT
  * License URI: https://opensource.org/licenses/MIT
  * Text Domain: cagov-design-system
@@ -44,7 +44,7 @@ add_action( 'get_footer', 'cagov_design_system_get_footer' );
  */
 function cagov_design_system_plugins_loaded() {
 	/* Include Functionality */
-	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/inc/*.php' ) as $file ) {
+	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/core/*.php' ) as $file ) {
 		require_once $file;
 	}
 
@@ -78,12 +78,12 @@ function cagov_design_system_wp_enqueue_scripts() {
 	$color = get_option( 'ca_site_color_scheme', 'cagov' );
 
 	// CAgov design system colorscheme.
-	$core_color_file = cagov_design_system_get_min_file( "dist/$color.css");
+	$core_color_file = cagov_design_system_get_min_file( "build/$color.css");
 
 	wp_enqueue_style( 'cagov-design-system-colorscheme', $core_color_file, array(), $version );
 
 	// CAgov design system core.
-	$core_file = cagov_design_system_get_min_file( "dist/$color.js", 'js' );
+	$core_file = cagov_design_system_get_min_file( "build/$color.js", 'js' );
 
 	wp_enqueue_script( 'cagov-design-system', $core_file, array('jquery'), $version, true );
 

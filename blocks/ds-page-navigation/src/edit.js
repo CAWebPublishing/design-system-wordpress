@@ -43,7 +43,7 @@ export default function Edit( props ) {
 
 	return (
 		<div {...blockProps}>
-			<sidebar>
+			<aside>
 			<cagov-page-navigation>
 				<nav aria-labelledby="page-navigation-label">
 					<RichText
@@ -58,7 +58,7 @@ export default function Edit( props ) {
 					</ul>
 				</nav>
 				</cagov-page-navigation>
-			</sidebar>
+			</aside>
 		</div>
 	);
 }
