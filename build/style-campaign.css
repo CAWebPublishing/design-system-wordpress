@@ -1,0 +1,166 @@
+/** Run-in List CSS **/
+.run-in,
+.run-in li {
+  padding: 0;
+  background: none;
+  display: inline;
+  margin-right: 1rem;
+}
+.run-in li::after {
+  content: "";
+}
+.run-in li:last-child::after {
+  content: "";
+}
+
+/** BEGIN Footer: main footer and utility footer w/ social sharer, back to top, site help, and powered by CAWeb Publishing Service links. **/
+footer {
+  background-color: var(--go-brand-tahoe-blue);
+  color: var(--text-white);
+  font-size: 0.9rem;
+  font-weight: 200;
+  padding: 3.5rem 2rem 2rem var(--footer-footer-left-spacing, 96px);
+
+  & figure {
+    display: inline-flex;
+  }
+
+  & svg {
+    float: right;
+    overflow: visible;
+    height: 20rem;
+    margin-top: -3.35rem;
+    padding-left: -12.5rem;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+  }
+
+  & figcaption {
+    margin: 1.5rem 3.5rem 1rem 1rem;
+    width: -moz-max-content;
+    width: max-content;
+
+    & small {
+      font-size: 0.9rem;
+    }
+
+    & p {
+      font-size: 1.25rem;
+    }
+  }
+
+  & #container {
+    display: flex;
+  }
+
+  & #container section {
+    z-index: 10;
+  }
+
+  & section {
+    width: -webkit-fill-available;
+    width: -moz-available;
+    padding-left: 15rem;
+  }
+
+  & div#utility-container {
+    display: flex;
+    width: 90vw;
+  }
+
+  & div#utility-container > * {
+    width: 50%;
+    padding: 1rem;
+  }
+
+  & div#utility-footer {
+    display: grid;
+    padding: 3vh 0 2.2vh;
+  }
+
+  #publishing a {
+    color: #ccc;
+  }
+
+  #publishing a:hover {
+    color: var(--action-primary);
+  }
+
+  & div#social-sharing {
+    display: inline;
+    padding: 1rem auto auto;
+
+    & > a:hover {
+      color: var(--action-primary);
+    }
+  }
+
+  & h3 {
+    font-size: var(--st);
+    margin-bottom: 1rem;
+  }
+
+  & ul {
+    list-style: none;
+    padding-inline-start: 0;
+  }
+  & ul li {
+    /*font-size: .8rem;*/
+    margin-bottom: 1.5rem;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  & ul > li a {
+    text-decoration: none;
+    color: var(--text-white);
+  }
+  & ul > li a:hover {
+    /*text-decoration: underline;*/
+    color: var(--action-primary);
+    /*font-weight: 600;*/
+  }
+
+  & hr {
+    height: 2px;
+    width: 90vw;
+    background-image: linear-gradient(90deg, white, transparent);
+    border: 0;
+    margin-bottom: 1rem;
+  }
+
+  .run-in,
+  .run-in li {
+    margin-right: 1rem;
+  }
+
+  /** PHONE ONLY **/
+  @media (max-width: 599px) {
+    margin: auto;
+    padding: 1rem;
+
+    #container {
+      display: block;
+    }
+
+    section {
+      padding: 1rem;
+    }
+
+    svg {
+      display: none;
+    }
+
+    hr {
+      margin-bottom: 0.75rem;
+    }
+
+    section.utility-footer ul li {
+      margin-bottom: 0.15rem;
+      line-height: 1.5rem;
+    }
+
+    div #utility-footer a {
+      margin-right: 0.1rem;
+    }
+  }
+}
+

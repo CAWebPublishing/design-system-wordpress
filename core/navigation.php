@@ -27,12 +27,13 @@ function cagov_design_system_nav_menu( $nav_menu, $args ) {
 
 	/* Menu Construction */
 	if ( ! empty( $args->menu ) && isset( $args->theme_location, $args->style ) ) {
+		$mode = get_option('cagov_design_system_mode', 'default');
 		$nav = $args->style;
 
 		if ( 'header-menu' === $args->theme_location ) {
-			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/nav-$args->style.php";
+			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-$args->style.php";
 		} elseif ( 'footer-menu' === $args->theme_location ) {
-			require_once CAGOV_DESIGN_SYSTEM_DIR . '/parts/nav-footer.php';
+			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-footer.php";
 		}
 	}
 

@@ -71,11 +71,12 @@ function cagov_design_system_plugins_loaded() {
  */
 function cagov_design_system_wp_enqueue_scripts() {
 	$version   = get_plugin_data( __FILE__ )['Version'];
+	$mode = get_option('cagov_design_system_mode', 'default');
 	
 	wp_dequeue_style( 'cagov-core-style' );
 	wp_dequeue_script( 'cagov-core-script' );
 
-	$color = get_option( 'ca_site_color_scheme', 'cagov' );
+	$color = 'default' === $mode ? get_option( 'ca_site_color_scheme', 'cagov' ) : 'campaign';
 
 	// CAgov design system colorscheme.
 	$core_color_file = cagov_design_system_get_min_file( "build/$color.css");
@@ -102,9 +103,11 @@ function cagov_design_system_admin_enqueue_scripts( $hook ) {
 	$pages = array( 'toplevel_page_caweb_options' );
 
 	if ( in_array( $hook, $pages, true ) ) {
-		$admin_js                          = cagov_design_system_get_min_file( 'dist/admin.js', 'js' );
+		$admin_js                          = cagov_design_system_get_min_file( 'build/admin.js', 'js' );
+		
 		$cagov_design_system_localize_args = array(
-			'social_links' => cagov_design_system_social_media_links()
+			'mode' => get_option('cagov_design_system_mode', 'default' ),
+			'modes' => array('Default', 'Campaign')
 		);
 
 		/* Enqueue Scripts */
@@ -153,7 +156,9 @@ function cagov_design_system_get_footer() {
  * @return void
  */
 function cagov_design_system_wp_body_open() {
-	require_once CAGOV_DESIGN_SYSTEM_DIR . '/parts/header.php';
+	$mode = get_option('cagov_design_system_mode', 'default');
+	
+	require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/header.php";
 }
 
 /**
@@ -163,6 +168,7 @@ function cagov_design_system_wp_body_open() {
  * @return void
  */
 function cagov_design_system_wp_footer() {
-	require_once CAGOV_DESIGN_SYSTEM_DIR . '/parts/footer.php';
+	$mode = get_option('cagov_design_system_mode', 'default');
 
+	require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/footer.php";
 }

@@ -8,6 +8,10 @@ const fs = require('fs'); // File System
 let entries = {
   "admin": [
     './src/scripts/admin/caweb',
+  ],
+  "campaign": [
+    '@cagovweb/go-site-base-css',
+    '@cagovweb/go-site-footer'
   ]
 };
 

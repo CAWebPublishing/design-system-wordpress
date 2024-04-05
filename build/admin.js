@@ -2,18 +2,37 @@
 var __webpack_exports__ = {};
 /* CAWeb Options Javascript */
 jQuery(document).ready(function ($) {
-  let social_links = cagov_design_system_admin_args.social_links;
-
+  let currentMode = cagov_design_system_admin_args.mode || 'default';
+  console.log(cagov_design_system_admin_args);
   // Correct CAWeb Options. 
   correct_options();
   function correct_options() {
-    // Change State Template Version option.
+    // Change State Template Version option to Design System Mode option.
     if ($('select[id$="ca_site_version"]').length) {
-      // Hide Template Version
-      $('select[id$="ca_site_version"]').addClass('d-none');
+      // remove the onChange event handler.
+      $('select[id$="ca_site_version"]').off('change');
 
-      // Add Design System Option as read only.
-      $('select[id$="ca_site_version"]').parent().append('<input type="text" readonly value="Design System is Active" />');
+      // Update label.
+      let lbl = $('select[id$="ca_site_version"]').prev().prev();
+      $(lbl).attr('for', 'cagov_design_system_mode');
+      $(lbl).children()[0].innerHTML = 'Design System Mode';
+
+      // Update descriptive text.
+      $('select[id$="ca_site_version"]').prev().html('Select a Design System Mode.');
+
+      // Clear Template Version
+      $('select[id$="ca_site_version"]').empty();
+
+      // Add Design System Mode options.
+      cagov_design_system_admin_args.modes.forEach(mode => {
+        let o = document.createElement('OPTION');
+        o.value = mode.toLowerCase();
+        o.innerHTML = mode;
+        o.selected = currentMode === mode.toLowerCase();
+        $('select[id$="ca_site_version"]').append(o);
+      });
+      $('select[id$="ca_site_version"]').attr('name', 'cagov_design_system_mode');
+      $('select[id$="ca_site_version"]').attr('id', 'cagov_design_system_mode');
     }
 
     // Hide Menu Home Link option.
