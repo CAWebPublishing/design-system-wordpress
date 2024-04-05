@@ -19,6 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 
 $cagov_design_system_is_caweb_plugin_active = is_plugin_active( 'caweb-admin/caweb-admin.php' ) || is_plugin_active_for_network( 'caweb-admin/caweb-admin.php' );
+$mode = get_option('cagov_design_system_mode', 'default');
 
 
 ?>
@@ -47,7 +48,7 @@ $cagov_design_system_is_caweb_plugin_active = is_plugin_active( 'caweb-admin/caw
 				?>
 			</div>
 
-			<?php require_once CAGOV_DESIGN_SYSTEM_DIR . '/parts/socialshare.php'; ?>
+			<?php require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/socialshare.php"; ?>
 
 		</div>
 		<div class="container pt-0">

@@ -83,6 +83,10 @@ function cagov_design_system_wp_enqueue_scripts() {
 
 	wp_enqueue_style( 'cagov-design-system-colorscheme', $core_color_file, array(), $version );
 
+	if( 'campaign' === $mode ){
+		wp_enqueue_style( 'cagov-design-system-campaign', cagov_design_system_get_min_file( "build/style-$color.css"), array(), $version );
+	}
+
 	// CAgov design system core.
 	$core_file = cagov_design_system_get_min_file( "build/$color.js", 'js' );
 

@@ -2,7 +2,6 @@
 jQuery(document).ready(function($) {
   let currentMode = cagov_design_system_admin_args.mode || 'default';
 
-  console.log( cagov_design_system_admin_args )
   // Correct CAWeb Options. 
 	correct_options();
 
@@ -37,6 +36,23 @@ jQuery(document).ready(function($) {
 
       $('select[id$="ca_site_version"]').attr('name', 'cagov_design_system_mode');
       $('select[id$="ca_site_version"]').attr('id', 'cagov_design_system_mode');
+
+      $('select[id$="cagov_design_system_mode"]').on('change', function(){
+        if( 'default' === this.value ){
+          // show colorscheme options
+          $('#ca_site_color_scheme').parent().removeClass('d-none')
+        }else{
+          
+          // hide colorscheme options
+          $('#ca_site_color_scheme').parent().addClass('d-none')
+        }
+      })
+
+    }
+
+    // hide colorscheme options if in campaign mode.
+    if( 'campaign' === currentMode ){
+      $('#ca_site_color_scheme').parent().addClass('d-none')
     }
 
     // Hide Menu Home Link option.
