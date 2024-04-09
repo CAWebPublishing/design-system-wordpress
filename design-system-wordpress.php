@@ -131,7 +131,9 @@ function cagov_design_system_admin_enqueue_scripts( $hook ) {
 		$version   = get_plugin_data( __FILE__ )['Version'];
 		$admin_js                          = cagov_design_system_get_min_file( 'build/admin.js', 'js' );
 		
-		$cagov_design_system_localize_args = array();
+		$cagov_design_system_localize_args = array(
+			'nav_menu_types' => cagov_design_system_nav_menu_types( 'all' )
+		);
 
 		/* Enqueue Scripts */
 		wp_enqueue_script( 'jquery' );

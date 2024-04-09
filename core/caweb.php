@@ -35,7 +35,7 @@ add_filter( 'body_class', 'cagov_design_system_body_class', 25, 2 );
  * @return mixed
  */
 function cagov_design_system_ca_default_navigation_menu( $val ) {
-	return array_key_exists( $val, cagov_design_system_nav_menu_types() ) ? $val : 'dropdown';
+	return array_key_exists( $val, cagov_design_system_nav_menu_types() ) ? $val : 'singlelevel';
 }
 
 /**
