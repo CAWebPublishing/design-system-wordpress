@@ -1,17 +1,17 @@
 /**
- * 
- * @see https://getbootstrap.com/docs/5.3/getting-started/webpack/#import-bootstrap
- * @see https://www.toptal.com/react/webpack-react-tutorial-pt-1
+ * Webpack Configurations the for WordPress Design System Plugin
  */
 const fs = require('fs'); // File System
 
 let entries = {
   "admin": [
-    './src/scripts/admin/caweb',
+    './src/scripts/admin',
   ],
   "campaign": [
     '@cagovweb/go-site-base-css',
-    '@cagovweb/go-site-footer'
+    '@cagovweb/go-site-footer',
+    '@cagovweb/go-site-footer/images/gov-seal-v2.svg',
+    '@cagovweb/go-site-header',
   ]
 };
 
@@ -20,7 +20,7 @@ fs.readdirSync('./node_modules/@cagov/ds-base-css/dist/themes/').filter(file => 
 
   entries[`${scheme}`] = [
     `@cagov/ds-base-css/dist/themes/${color}`,
-    './src/index.js'
+    './src/default.js'
   ]
 
 })

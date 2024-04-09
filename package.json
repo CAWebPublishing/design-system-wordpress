@@ -26,18 +26,20 @@
     "update-block": "cd blocks && caweb update-block "
   },
   "devDependencies": {
-    "@cagov/ds-back-to-top": "^2.0.2",
-    "@cagov/ds-base-css": "^1.0.19",
-    "@cagov/ds-link-icon": "^2.0.0",
-    "@cagov/ds-site-footer": "^2.0.0",
-    "@cagov/ds-site-header": "^2.0.0",
-    "@cagov/ds-site-navigation": "^3.0.3",
-    "@cagov/ds-skip-to-content": "^2.0.0",
-    "@cagov/ds-statewide-footer": "^2.0.0",
-    "@cagov/ds-statewide-header": "^2.0.0",
+    "@cagov/ds-back-to-top": "^2.0.3",
+    "@cagov/ds-base-css": "^1.0.20",
+    "@cagov/ds-link-icon": "^2.0.1",
+    "@cagov/ds-site-footer": "^2.0.1",
+    "@cagov/ds-site-header": "^2.0.1",
+    "@cagov/ds-site-navigation": "^3.0.4",
+    "@cagov/ds-skip-to-content": "^2.0.1",
+    "@cagov/ds-statewide-footer": "^2.0.1",
+    "@cagov/ds-statewide-header": "^2.0.1",
     "@cagovweb/go-site-base-css": "^0.0.1-beta1",
-    "@cagovweb/go-site-footer": "^0.0.1-beta1",
-    "@caweb/cli": "^1.3.14",
-    "change-case": "^4.1.2"
+    "@cagovweb/go-site-footer": "^0.0.1-beta4",
+    "@caweb/cli": "^1.3.16"
+  },
+  "dependencies": {
+    "@cagovweb/go-site-header": "^0.0.1-beta1"
   }
 }

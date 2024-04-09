@@ -135,7 +135,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 		wp_nav_menu(
 			array(
 				'theme_location'               => 'header-menu',
-				'style'                        => get_option( 'ca_default_navigation_menu', 'singlelevel' ),
+				'caweb_nav_type'                        => get_option( 'ca_default_navigation_menu', 'singlelevel' ),
 			)
 		);
 	} else {

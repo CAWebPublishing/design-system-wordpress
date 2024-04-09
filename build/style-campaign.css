@@ -1,36 +1,25 @@
-/** Run-in List CSS **/
-.run-in,
-.run-in li {
-  padding: 0;
-  background: none;
-  display: inline;
-  margin-right: 1rem;
-}
-.run-in li::after {
-  content: "";
-}
-.run-in li:last-child::after {
-  content: "";
-}
+@charset "utf-8";
 
-/** BEGIN Footer: main footer and utility footer w/ social sharer, back to top, site help, and powered by CAWeb Publishing Service links. **/
+/** GO Footer: main footer and utility footer w/ social sharer, back to top, site help, and powered by CAWeb Publishing Service links. **/
 footer {
   background-color: var(--go-brand-tahoe-blue);
   color: var(--text-white);
   font-size: 0.9rem;
   font-weight: 200;
-  padding: 3.5rem 2rem 2rem var(--footer-footer-left-spacing, 96px);
+  padding: 3.5rem 2rem 2rem var(--Footer-Footer-left-spacing, 96px);
 
   & figure {
     display: inline-flex;
   }
 
   & svg {
-    float: right;
-    overflow: visible;
-    height: 20rem;
+    position: absolute;
+    right: 0;
+    overflow: unset;
+    height: 21rem;
     margin-top: -3.35rem;
-    padding-left: -12.5rem;
+    margin-bottom: -5rem;
+    padding-left: 12.5rem;
     filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
   }
 
@@ -38,35 +27,32 @@ footer {
     margin: 1.5rem 3.5rem 1rem 1rem;
     width: -moz-max-content;
     width: max-content;
-
     & small {
       font-size: 0.9rem;
     }
-
     & p {
       font-size: 1.25rem;
     }
   }
 
-  & #container {
+  & container {
     display: flex;
-  }
-
-  & #container section {
-    z-index: 10;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: 2.25rem;
   }
 
   & section {
     width: -webkit-fill-available;
     width: -moz-available;
-    padding-left: 15rem;
+    padding-left: 6rem;
   }
 
   & div#utility-container {
     display: flex;
+    position: relative;
     width: 90vw;
   }
-
   & div#utility-container > * {
     width: 50%;
     padding: 1rem;
@@ -75,23 +61,35 @@ footer {
   & div#utility-footer {
     display: grid;
     padding: 3vh 0 2.2vh;
-  }
-
-  #publishing a {
-    color: #ccc;
-  }
-
-  #publishing a:hover {
-    color: var(--action-primary);
+    width: 80vw;
   }
 
   & div#social-sharing {
     display: inline;
-    padding: 1rem auto auto;
+    width: 10vw;
 
+    & a {
+      align-content: flex-end;
+    }
     & > a:hover {
       color: var(--action-primary);
     }
+  }
+
+  & div#publishing > a {
+    color: var(--text-white);
+    font-size: 0.8rem;
+    text-decoration: none;
+    margin-top: 0.5rem;
+    margin-right: 2rem;
+  }
+
+  & div#publishing > a:hover {
+    color: var(--action-primary);
+  }
+
+  & div#publishing > p {
+    display: inline;
   }
 
   & h3 {
@@ -105,7 +103,7 @@ footer {
   }
   & ul li {
     /*font-size: .8rem;*/
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     width: -moz-max-content;
     width: max-content;
   }
@@ -127,6 +125,21 @@ footer {
     margin-bottom: 1rem;
   }
 
+  /** Run-in List CSS **/
+  .run-in,
+  .run-in li {
+    padding: 0;
+    background: none;
+    display: inline;
+    margin-right: 1rem;
+  }
+  .run-in li::after {
+    content: "";
+  }
+  .run-in li:last-child::after {
+    content: "";
+  }
+
   .run-in,
   .run-in li {
     margin-right: 1rem;
@@ -137,30 +150,112 @@ footer {
     margin: auto;
     padding: 1rem;
 
-    #container {
-      display: block;
+    container {
+      flex-direction: column;
     }
-
     section {
       padding: 1rem;
     }
-
     svg {
       display: none;
     }
-
     hr {
       margin-bottom: 0.75rem;
     }
-
-    section.utility-footer ul li {
-      margin-bottom: 0.15rem;
-      line-height: 1.5rem;
+    div#utility-container {
+      display: block;
+      width: auto;
     }
-
-    div #utility-footer a {
+    div#utility-footer a {
       margin-right: 0.1rem;
     }
+    div#social-sharing {
+      width: auto;
+      padding-left: 0;
+    }
+  }
+
+  /** TABLET PORTRAIT UP **/
+  @media (min-width: 600px) {
+  }
+
+  /** TABLET LANDSCAPE UP **/
+  @media (min-width: 900px) {
+  }
+
+  /** DESKTOP UP **/
+  @media (min-width: 1200px) {
+  }
+
+  /** TABLET BIG-DESKTOP UP **/
+  @media (min-width: 1800px) {
+  }
+}
+
+@charset "utf-8";
+
+/* GO header component: i.e., global top navigation */
+header {
+  display: flex;
+  background-color: var(--grey-background);
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: var(--tahoe-blue);
+  padding: 1rem 1.75rem;
+  height: 4.5rem;
+
+  & figure {
+    margin: 0.25rem;
+    margin-right: 4rem;
+  }
+
+  & p {
+    display: block;
+  }
+
+  & nav {
+    width: 78vw;
+  }
+
+  & nav ul {
+    display: flex;
+    margin: 0.15rem auto;
+  }
+
+  & nav li {
+    list-style: none;
+    display: inline;
+    align-self: baseline;
+  }
+
+  & nav li > a {
+    color: var(--go-brand-tahoe-blue);
+    text-decoration: none;
+    font-weight: 700;
+    margin-right: 2.5rem;
+  }
+
+  & nav span {
+    width: 51%;
+    margin-top: 0.25rem;
+    padding-top: 0.15rem;
+    display: block;
+    background-color: #fec335;
+  }
+
+  & #translate {
+    font-size: 0.9rem;
+    margin: 0.85rem 4rem;
+    text-decoration: none;
+  }
+
+  & #translate:hover {
+    text-decoration: underline;
+  }
+
+  & #caGov {
+    margin: auto;
   }
 }
 

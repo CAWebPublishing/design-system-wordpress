@@ -29,6 +29,20 @@ define( 'CAGOV_DESIGN_SYSTEM_DIR', __DIR__ );
 define( 'CAGOV_DESIGN_SYSTEM_URL', plugin_dir_url( __FILE__ ) );
 define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 
+// Define blocks by mode.
+define( 'CAGOV_DESIGN_SYSTEM_DEFAULT_BLOCKS', array(
+	'ds-accordion',
+	'ds-feature-card',
+	'ds-link-grid',
+	'link-grid-card',
+	'ds-ds-page-alert',
+	'ds-page-navigation'
+) );
+
+define( 'CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS', array(
+	'cdt-ds-cards',
+) );
+
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
 
 add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 16 );
@@ -37,12 +51,15 @@ add_action( 'wp_enqueue_scripts', 'cagov_design_system_wp_enqueue_scripts', 9999
 add_action( 'get_header', 'cagov_design_system_get_header' );
 add_action( 'get_footer', 'cagov_design_system_get_footer' );
 
+
 /**
  * Fires once activated plugins have loaded.
  *
  * @return void
  */
 function cagov_design_system_plugins_loaded() {
+	$mode = get_option('cagov_design_system_mode', 'default');
+
 	/* Include Functionality */
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/core/*.php' ) as $file ) {
 		require_once $file;
@@ -51,10 +68,14 @@ function cagov_design_system_plugins_loaded() {
 	// Add Gutenberg blocks.
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/blocks/*' ) as $file ) {
 		$block_slug = basename( $file );
+		
+		// only add blocks for the corresponding mode
+		$allowed_blocks = 'default' === $mode ? CAGOV_DESIGN_SYSTEM_DEFAULT_BLOCKS : CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS;
 
-		if ( 'template' !== $block_slug ) {
+		if(  in_array( $block_slug, $allowed_blocks, true ) ){
 			require_once sprintf( '%1$s/blocks/%2$s/%2$s.php', CAGOV_DESIGN_SYSTEM_DIR, $block_slug );
 		}
+
 	}
 }
 
@@ -107,17 +128,15 @@ function cagov_design_system_admin_enqueue_scripts( $hook ) {
 	$pages = array( 'toplevel_page_caweb_options' );
 
 	if ( in_array( $hook, $pages, true ) ) {
+		$version   = get_plugin_data( __FILE__ )['Version'];
 		$admin_js                          = cagov_design_system_get_min_file( 'build/admin.js', 'js' );
 		
-		$cagov_design_system_localize_args = array(
-			'mode' => get_option('cagov_design_system_mode', 'default' ),
-			'modes' => array('Default', 'Campaign')
-		);
+		$cagov_design_system_localize_args = array();
 
 		/* Enqueue Scripts */
 		wp_enqueue_script( 'jquery' );
 
-		wp_register_script( 'cagov-design-system-admin-scripts', $admin_js, array( 'jquery' ), '1.0.0', true );
+		wp_register_script( 'cagov-design-system-admin-scripts', $admin_js, array( 'jquery' ), $version, true );
 
 		wp_localize_script( 'cagov-design-system-admin-scripts', 'cagov_design_system_admin_args', $cagov_design_system_localize_args );
 

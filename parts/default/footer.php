@@ -37,7 +37,7 @@ $mode = get_option('cagov_design_system_mode', 'default');
 					wp_nav_menu(
 						array(
 							'theme_location' => 'footer-menu',
-							'style'          => 'footer',
+							'caweb_nav_type'          => 'footer',
 						)
 					);
 				} else {

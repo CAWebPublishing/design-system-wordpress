@@ -12,6 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 // CAWeb theme option overrides.
 add_action( 'option_ca_default_navigation_menu', 'cagov_design_system_ca_default_navigation_menu' );
 add_action( 'option_ca_site_color_scheme', 'cagov_design_system_ca_site_color_scheme' );
+add_action( 'pre_update_option_ca_fav_ico', 'cagov_design_system_update_options', 10, 3 );
+add_action( 'caweb_options_general_custom_fields', 'cagov_design_system_options');
 add_action( 'caweb_search_form', 'cagov_design_system_search_form', 9);
 
 // CAWeb theme filters.
@@ -116,4 +118,49 @@ function cagov_design_system_body_class( $wp_classes, $extra_classes ) {
  */
 function cagov_design_system_search_form(){
 	remove_action('caweb_search_form', 'caweb_search_form');
+}
+
+/**
+ * Design System Administration Menu Setup
+ * 
+ * @link https://developer.wordpress.org/reference/hooks/pre_update_site_option_option/
+ *
+ * @param  mixed $value New value of the network option.
+ * @param  mixed $old_value Old value of the network option.
+ * @param  mixed $option Option name.
+ * 
+ * @return void
+ */
+function cagov_design_system_update_options( $value, $old_value, $option ){
+	// if saving.
+	if ( isset( $_POST['caweb_submit'], $_POST['caweb_theme_options_nonce'] ) &&
+	wp_verify_nonce( sanitize_key( $_POST['caweb_theme_options_nonce'] ), 'caweb_theme_options' ) ) {
+		$mode = isset( $_POST['cagov_design_system_mode'] ) ? $_POST['cagov_design_system_mode'] : 'default';
+		
+		update_option('cagov_design_system_mode', $mode );
+	}
+
+	return $value;
+
+}
+
+/**
+ * Adds Custom Fields to the CAWeb Options 
+ *
+ * @return void
+ */
+function cagov_design_system_options(){
+	$mode = get_option('cagov_design_system_mode', 'default' );
+	?>
+	<div class="row">
+		<div class="mb-3 col-sm-5">
+			<label for="cagov_design_system_mode" class="d-block mb-0"><strong>Design System Mode</strong></label>
+			<small class="mb-2 text-muted d-block">Select a Design System Mode.</small>
+			<select id="cagov_design_system_mode" name="cagov_design_system_mode" class="w-50 form-control">
+				<option value="default"<?php print 'default' === $mode ? ' selected' : '' ?>>Default</option>
+				<option value="campaign"<?php print 'campaign' === $mode ? ' selected' : '' ?>>Campaign</option>
+			</select>
+		</div>
+	</div>
+	<?php
 }

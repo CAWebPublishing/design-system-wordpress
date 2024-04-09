@@ -24,14 +24,13 @@ add_filter( 'wp_nav_menu', 'cagov_design_system_nav_menu', 10, 2 );
  * @return void
  */
 function cagov_design_system_nav_menu( $nav_menu, $args ) {
-
 	/* Menu Construction */
-	if ( ! empty( $args->menu ) && isset( $args->theme_location, $args->style ) ) {
+	if ( ! empty( $args->menu ) && isset( $args->theme_location, $args->caweb_nav_type ) ) {
 		$mode = get_option('cagov_design_system_mode', 'default');
-		$nav = $args->style;
+		$nav = isset( $args->caweb_nav_type ) ? $args->caweb_nav_type : 'singlelevel';
 
 		if ( 'header-menu' === $args->theme_location ) {
-			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-$args->style.php";
+			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-$nav.php";
 		} elseif ( 'footer-menu' === $args->theme_location ) {
 			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-footer.php";
 		}

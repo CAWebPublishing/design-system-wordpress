@@ -14,13 +14,7 @@
  $title = isset( $attributes['title'] ) ? $attributes['title'] : 'On this page';
 
  ?>
-<div>
-	<aside>
-		<cagov-page-navigation>
-			<nav aria-labelledby="page-navigation-label">
-				<div class="label"><?php print $title ?></div>
-				<ul><?php print $content ?></ul>
-			</nav>
-		</cagov-page-navigation>
-	</aside>
-</div>
+ <aside>
+	<cagov-page-navigation data-selector=".page-container-ds" data-type="wordpress" data-label="<?php print $title; ?>">
+	</cagov-page-navigation>
+</aside>

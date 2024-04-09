@@ -25,7 +25,7 @@ import metadata from './block.json';
 /**
  * Import @cagov package
  */
-import '@cagov/ds-accordion/dist/index.js';
+import '@cagov/ds-accordion';
 
 /**
  * Every block starts by registering a new block type definition.

@@ -1,29 +1,29 @@
 <?php
 /**
- * Plugin Name:       Page Navigation Links
- * Plugin URI:        https://github.com/CA-CODE-Works/design-system-wordpress/blocks/page-navigation-links
- * Description:       California Design System Page Navigation Links Component
- * Version:           1.1.0
+ * Plugin Name:       Cdt Ds Cards
+ * Plugin URI:        https://github.com/CAWebPublishing/cdt-ds-cards
+ * Description:       Cdt Ds Cards Gutenberg Block
+ * Version:           1.3.0
  * Requires at least: 6.2
  * Requires PHP:      8.1
  * Author:            CAWebPublishing
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       page-navigation-links
+ * Text Domain:       cdt-ds-cards
  *
  * @package           cagov-design-system
  */
 
-if ( ! defined('PageNavigationLinks_URI') ){
-	$cagov_design_system_page_navigation_links_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
-	define( 'PageNavigationLinks_URI', esc_url( str_replace( $cagov_design_system_page_navigation_links_doc_root, '', __DIR__ ) ) );
+if ( ! defined('CdtDsCards_URI') ){
+	$cagov_design_system_cdt_ds_cards_doc_root = isset( $_SERVER['DOCUMENT_ROOT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['DOCUMENT_ROOT'] ) ) : '';
+	define( 'CdtDsCards_URI', esc_url( str_replace( $cagov_design_system_cdt_ds_cards_doc_root, '', __DIR__ ) ) );
 }
 
 if ( ! defined( 'CAGOV_DESIGN_SYSTEM_DEBUG' ) ) {
 	define( 'CAGOV_DESIGN_SYSTEM_DEBUG', false );
 }
 
-// Include Page Navigation Links Core Functionality.
+// Include Cdt Ds Cards Core Functionality.
 foreach ( glob( __DIR__ . '/core/*.php' ) as $file ) {
 	require_once $file;
 }
@@ -34,11 +34,11 @@ foreach ( glob( __DIR__ . '/core/*.php' ) as $file ) {
  *
  * @link https://codex.wordpress.org/Plugin_API/Action_Reference#Actions_Run_During_a_Typical_Request
  */
-add_action( 'init', 'cagov_design_system_page_navigation_links_init' );
+add_action( 'init', 'cagov_design_system_cdt_ds_cards_init' );
 
-if ( ! function_exists( 'cagov_design_system_page_navigation_links_init' ) ) {
+if ( ! function_exists( 'cagov_design_system_cdt_ds_cards_init' ) ) {
 	/**
-	 * Page Navigation Links Initialization
+	 * Cdt Ds Cards Initialization
 	 *
 	 * Fires after WordPress has finished loading but before any headers are sent.
 	 * Include Gutenberg Block assets by getting the index file of each block build file.
@@ -46,7 +46,7 @@ if ( ! function_exists( 'cagov_design_system_page_navigation_links_init' ) ) {
 	 * @link https://developer.wordpress.org/reference/hooks/init/
 	 * @return void
 	 */
-	function cagov_design_system_page_navigation_links_init() {
+	function cagov_design_system_cdt_ds_cards_init() {
 		global $pagenow;
 
 		/**

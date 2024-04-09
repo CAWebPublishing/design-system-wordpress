@@ -1,11 +1,11 @@
 <?php
 /**
- * Page Navigation Links Helper Functions
+ * Test Helper Functions
  *
  * @package cagov-design-system
  */
 
-if ( ! function_exists( 'cagov_design_system_page_navigation_links_get_min_file' ) ) {
+if ( ! function_exists( 'cagov_design_system_test_get_min_file' ) ) {
 	/**
 	 * Load Minified Version of a file
 	 *
@@ -14,12 +14,12 @@ if ( ! function_exists( 'cagov_design_system_page_navigation_links_get_min_file'
 	 *
 	 * @return string
 	 */
-	function cagov_design_system_page_navigation_links_get_min_file( $f, $ext = 'css' ) {
+	function cagov_design_system_test_get_min_file( $f, $ext = 'css' ) {
 		// if not debugging and a minified version exists load it.
 		if ( ! CAGOV_DESIGN_SYSTEM_DEBUG && file_exists( __DIR__ . str_replace( ".$ext", ".min.$ext", $f ) ) ) {
-			return PageNavigationLinks_URI . str_replace( ".$ext", ".min.$ext", $f );
+			return Test_URI . str_replace( ".$ext", ".min.$ext", $f );
 		} else {
-			return PageNavigationLinks_URI . $f;
+			return Test_URI . $f;
 		}
 	}
 }

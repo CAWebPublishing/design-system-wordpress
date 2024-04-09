@@ -1,0 +1,32 @@
+/**
+ * The following styles get applied both on the front of your site
+ * and in the editor.
+ *
+ * Replace them with your own styles or remove the file completely.
+ */
+ :root {
+    /* greys */
+    --grey: #ccc;
+  
+    /* Tokens */
+    --radius: 1rem;
+
+    /* Change this for overall font size */
+    --font-size: 1rem;
+
+    /* Font characteristics */
+    --ratio: 1.24;
+    --s0: calc(var(--font-size) - 0.3rem) + 0.2vw;
+
+      /* h6 */
+    --h6: calc(var(--s0) * var(--ratio));
+    --h5: calc(var(--h6) * var(--ratio));
+    --h4: calc(var(--h5) * var(--ratio));
+    --h3: calc(var(--h4) * var(--ratio));
+    --h2: calc(var(--h3) * var(--ratio));
+    --h1: calc(var(--h2) * var(--ratio) * var(--ratio));
+ }
+/**
+ * Import @cagovweb package
+ */
+@import '@cagovweb/go-site-card'

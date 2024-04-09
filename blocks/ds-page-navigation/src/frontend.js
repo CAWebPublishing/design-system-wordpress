@@ -3,3 +3,8 @@
  *
  * Add your own scripts.
  */
+
+/**
+ * Import @cagov package
+ */
+import '@cagov/ds-page-navigation';
