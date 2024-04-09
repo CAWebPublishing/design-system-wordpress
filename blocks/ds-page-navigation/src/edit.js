@@ -42,10 +42,8 @@ export default function Edit( props ) {
 	};
 
 	return (
-		<div {...blockProps}>
-			<sidebar>
-			<cagov-page-navigation>
-				<nav aria-labelledby="page-navigation-label">
+		<aside>
+			<cagov-page-navigation data-selector=".page-container-ds" data-type="wordpress">
 					<RichText
 						tagName="div"
 						placeholder={__('On this page', 'cagov-design-system')}
@@ -53,12 +51,7 @@ export default function Edit( props ) {
 						className={'label'}
 						onChange={onChangeTitle}
 					/>
-					<ul>
-						<InnerBlocks allowedBlocks={[ "caweb/page-navigation-links"]} />
-					</ul>
-				</nav>
-				</cagov-page-navigation>
-			</sidebar>
-		</div>
+			</cagov-page-navigation>
+		</aside>
 	);
 }

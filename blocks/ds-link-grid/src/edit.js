@@ -37,7 +37,7 @@ export default function Edit( props ) {
 
 	return (
 		<div {...blockProps}>
-			<div class="cagov-grid">
+			<div className="cagov-grid">
 				<InnerBlocks  allowedBlocks={ALLOWED_BLOCKS}/>
 			</div>
 		</div>

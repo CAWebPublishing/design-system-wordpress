@@ -46,7 +46,6 @@ export default function Edit( props ) {
 			<cagov-page-alert
 				data-icon={'ca-gov-icon-' + icon}
 				data-message={message}
-				class="cagov-page-alert"
 				>
 				<RichText
 					tagName="span"

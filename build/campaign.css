@@ -1,0 +1,145 @@
+/* stylelint-disable-next-line selector-max-universal */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+:root {
+  /* colors */
+  --brand-primary: #00618d;
+  --brand-secondary: #13394b;
+  --background-light: #d5d4c6;
+  --background-dark: #13394b;
+  --action-primary: #00618d;
+  --action-hover: #278fc0;
+  --action-active: #13394b;
+  --go-brand-golden-state-yellow: #fdbc5b;
+  --go-brand-tahoe-blue: #20367c;
+  --go-brand-radial-gradient: radial-gradient(
+    103.56% 84.2% at 9.9% 25.98%,
+    #20367c 0%,
+    #385ed6 100%
+  );
+  --text-white: #fff;
+
+  /* greys */
+  --grey: #ccc;
+  --grey-text: #323232;
+  --grey-background: #eee;
+
+  /* Tokens */
+  --gutter-gap: 1.674vw;
+  --flow-space: 1rem;
+  --radius: 1rem;
+  --shadow: 0.2rem 0.2rem 0.5rem 0 rgba(0 0 0 / 25%);
+  --shadow-focus: 0.1rem 0.1rem 0.25rem 0 rgba(0 0 0 / 10%);
+  --shadow-active: 0.2rem 0.2rem 0.5rem 0 rgba(0 0 0 / 60%);
+
+  /* Change this for overall font size */
+  --font-size: 1rem;
+
+  /* Font characteristics */
+
+  --ratio: 1.24;
+  --s0: calc(var(--font-size) - 0.3rem) + 0.2vw;
+
+  /* Typography calculations, please do not change */
+
+  /* Small-text to allow for more control */
+  --st: calc(var(--s0) * var(--ratio));
+
+  /* The font size of standard paragraph text */
+  --base: calc(var(--st) * var(--ratio));
+
+  /* ()Lead-text to allow for more control */
+  --lt: calc(var(--base) * var(--ratio));
+
+  /* h6 */
+  --h6: calc(var(--s0) * var(--ratio));
+  --h5: calc(var(--h6) * var(--ratio));
+  --h4: calc(var(--h5) * var(--ratio));
+  --h3: calc(var(--h4) * var(--ratio));
+  --h2: calc(var(--h3) * var(--ratio));
+  --h1: calc(var(--h2) * var(--ratio) * var(--ratio));
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Sets rule for lead text */
+h1 {
+  font-weight: 600;
+  font-size: var(--h1);
+  line-height: 1.619;
+
+  + p {
+    font-size: calc(var(--lt) - 0.02rem);
+    line-height: 1.5;
+  }
+}
+
+h2 {
+  font-weight: 600;
+  font-size: var(--h2);
+  line-height: 1.619;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: var(--h3);
+  line-height: 1.619;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: var(--h4);
+  line-height: 1.619;
+}
+
+h5 {
+  font-weight: 500;
+  font-size: var(--h5);
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+/* Focus Styles | thanks Stephanie Eckles */
+
+:is(a, button, input, textarea, summary) {
+  --outline-size: max(2px, 0.08rem);
+  --outline-style: solid;
+  --outline-color: currentcolor;
+
+  &:focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  &:focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles here */
+}
+
