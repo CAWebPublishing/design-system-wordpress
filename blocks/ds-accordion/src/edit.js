@@ -51,7 +51,7 @@ export default function Edit(props) {
 						onChange={ onChangeTitle }
 						placeholder="Accordion Title"
 						/>
-			   <div class="accordion-body">
+			   <div className="accordion-body">
 				   <InnerBlocks />
 			   </div>
 			</details>

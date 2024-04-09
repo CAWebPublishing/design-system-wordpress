@@ -69,6 +69,11 @@ if ( ! class_exists( 'CA_Design_System_Gutenberg_Update' ) ) {
 		 * @param string $plugin_slug Plugin slug name.
 		 */
 		public function __construct( $plugin_slug ) {
+			// Include the plugin.php file so we have access to the get_plugin_data() function.
+			if ( ! function_exists( 'get_plugin_data' ) ) {
+				include_once ABSPATH . '/wp-admin/includes/plugin.php';
+			}
+
 			$plugin_data = get_plugin_data( sprintf( '%1$s/%2$s/%2$s.php', WP_PLUGIN_DIR, $plugin_slug ) );
 
 			// Set the class public variables.

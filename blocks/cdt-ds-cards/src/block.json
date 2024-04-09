@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "caweb/cdt-ds-cards",
+	"version": "1.3.0",
+	"title": "Cards",
+	"category": "cagov-design-system",
+	"icon": "format-aside",
+	"description": "Cdt Ds Cards Gutenberg Block",
+	"example": {
+		"attributes": {
+			"title": "Card title…"
+		}
+	},
+	"attributes": {
+		"title": {
+			"type": "string"
+		},
+		"orientation": {
+			"type": "string",
+			"default": "top"
+		},
+		"interactive": {
+			"type": "boolean",
+			"default": false
+		},
+		"mediaID": {
+			"type": "number"
+		},
+		"mediaURL": {
+			"type": "string"
+		},
+		"mediaAlt": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"html": true
+	},
+	"textdomain": "cdt-ds-cards",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./frontend.js",
+	"render": "file:./render.php"
+}

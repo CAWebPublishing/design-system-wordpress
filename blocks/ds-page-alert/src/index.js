@@ -24,6 +24,11 @@ import save from './save';
 import metadata from './block.json';
 
 /**
+ * Import @cagov package
+ */
+import '@cagov/ds-page-alert'
+
+/**
  * Every block starts by registering a new block type definition.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
