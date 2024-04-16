@@ -33,16 +33,20 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 				$cagov_design_system_item_meta = get_post_meta( $cagov_design_system_item->ID );
 			?>
 				<li>
-				<a 
-					href="<?php print esc_url( $cagov_design_system_item->url ); ?>" 
-				<?php if ( ! empty( $cagov_design_system_item->target ) ) : ?>
-					target="<?php print esc_attr( $cagov_design_system_item->target ); ?>" 
-				<?php endif; ?>
-				<?php if ( ! empty( $cagov_design_system_item->xfn ) ) : ?>
-					rel="<?php print esc_attr( $cagov_design_system_item->xfn ); ?>"
-				<?php endif; ?>
+					<a 
+						href="<?php print esc_url( $cagov_design_system_item->url ); ?>" 
+					<?php if ( ! empty( $cagov_design_system_item->target ) ) : ?>
+						target="<?php print esc_attr( $cagov_design_system_item->target ); ?>" 
+					<?php endif; ?>
+					<?php if ( ! empty( $cagov_design_system_item->xfn ) ) : ?>
+						rel="<?php print esc_attr( $cagov_design_system_item->xfn ); ?>"
+					<?php endif; ?>
 					><?php print esc_html( $cagov_design_system_item->title ); ?></a>
-				</li>						
+					<?php if( in_array( 'current-menu-item', $cagov_design_system_item->classes, true ) ||
+						in_array( 'current-page-ancestor', $cagov_design_system_item->classes, true ) ): ?>
+						<span></span>
+					<?php endif; ?>
+				</li>		
 			<?php
 			}
 		}

@@ -8,10 +8,13 @@ let entries = {
     './src/scripts/admin',
   ],
   "campaign": [
-    '@cagovweb/go-site-base-css',
-    '@cagovweb/go-site-footer',
+    '@cagovweb/go-site-base-css/dist/variables.css',
+    '@cagovweb/go-site-base-css/dist/typography.css',
+    '@cagovweb/go-site-base-css/dist/fonts.css',
+    '@cagovweb/go-site-base-css/dist/page.css',
+    '@cagovweb/go-site-footer/dist/style.css',
     '@cagovweb/go-site-footer/images/gov-seal-v2.svg',
-    '@cagovweb/go-site-header',
+    '@cagovweb/go-site-header/dist/style.css',
   ]
 };
 
