@@ -13,7 +13,7 @@ let entries = {
     '@cagovweb/go-site-base-css/dist/fonts.css',
     '@cagovweb/go-site-base-css/dist/page.css',
     '@cagovweb/go-site-footer/dist/style.css',
-    '@cagovweb/go-site-footer/images/gov-seal-v2.svg',
+    '@cagovweb/go-site-footer/images/gov-seal.svg',
     '@cagovweb/go-site-header/dist/style.css',
   ]
 };

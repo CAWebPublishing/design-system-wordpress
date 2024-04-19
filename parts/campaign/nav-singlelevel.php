@@ -21,10 +21,19 @@ $cagov_design_system_menu_items = wp_get_nav_menu_items( $menu->term_id, array( 
 
 _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 
+/* Search */
+$cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
+
+/* Translate */
+$cagov_design_system_google_trans_enabled = get_option( 'ca_google_trans_enabled', false );
+$cagov_design_system_google_trans_page = get_option( 'ca_google_trans_page', '' );
+$cagov_design_system_google_trans_text = get_option( 'ca_google_trans_text', '' );
+$cagov_design_system_google_trans_page_new_window = get_option( 'ca_google_trans_page_new_window', '' );
+$cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' );
+
 ?>
 <!-- Singlelevel navigation -->
-<nav>
-  <ul>
+  <ul class="navlinks">
   <?php
 		foreach ( $cagov_design_system_menu_items as $cagov_design_system_item ) {
 
@@ -42,8 +51,7 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 						rel="<?php print esc_attr( $cagov_design_system_item->xfn ); ?>"
 					<?php endif; ?>
 					><?php print esc_html( $cagov_design_system_item->title ); ?></a>
-					<?php if( in_array( 'current-menu-item', $cagov_design_system_item->classes, true ) ||
-						in_array( 'current-page-ancestor', $cagov_design_system_item->classes, true ) ): ?>
+					<?php if( in_array( 'current-menu-item', $cagov_design_system_item->classes, true ) ) : ?>
 						<span></span>
 					<?php endif; ?>
 				</li>		
@@ -51,5 +59,29 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 			}
 		}
 		?>
+		<li>
+			<!-- Search -->
+			<button class="search-svg"></button>
+		</li>
+
+		<?php if ( 'custom' === $cagov_design_system_google_trans_enabled && ! empty( $cagov_design_system_google_trans_page ) ) : ?>
+		<li>
+			<a 
+				id="caweb-gtrans-custom" 
+				target="<?php print esc_attr( $cagov_design_system_google_trans_page_new_window ); ?>" 
+				href="<?php print esc_url( $cagov_design_system_google_trans_page ); ?>" 
+				aria-label="Google Custom Translate">
+				<?php if ( ! empty( $cagov_design_system_google_trans_icon ) ) : ?>
+					<span class="ca-gov-icon-<?php print esc_attr( $cagov_design_system_google_trans_icon ); ?>"></span>
+				<?php endif; ?>
+				<?php if ( ! empty( $cagov_design_system_google_trans_text ) ) : ?>
+					<span><?php print esc_html( $cagov_design_system_google_trans_text ); ?></span>
+				<?php endif; ?>
+			</a>
+		</li>
+		<?php endif; ?>
+
+		<?php if ( true === $cagov_design_system_google_trans_enabled || 'standard' === $cagov_design_system_google_trans_enabled ) : ?>
+			<div class="standard-translate" id="google_translate_element"></div>
+		<?php endif; ?>
   </ul>
-</nav>

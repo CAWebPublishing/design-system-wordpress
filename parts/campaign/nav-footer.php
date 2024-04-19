@@ -23,29 +23,31 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 
 ?>
 <!-- Footer navigation -->
-<ul class="run-in">
-				<?php
-				foreach ( $cagov_design_system_menu_items as $cagov_design_system_item ) {
+<nav role="navigation" aria-describedby="utility-links">
+	<ul>
+					<?php
+					foreach ( $cagov_design_system_menu_items as $cagov_design_system_item ) {
 
-					// If a top level nav item, menu_item_parent = 0.
-					if ( ! $cagov_design_system_item->menu_item_parent ) {
-						$cagov_design_system_item_meta = get_post_meta( $cagov_design_system_item->ID );
-						?>
-						<li>
-							<a 
-										href="<?php print esc_url( $cagov_design_system_item->url ); ?>" 
-									<?php if ( ! empty( $cagov_design_system_item->target ) ) : ?>
-										target="<?php print esc_attr( $cagov_design_system_item->target ); ?>" 
-										<?php endif; ?>
-									<?php if ( ! empty( $cagov_design_system_item->xfn ) ) : ?>
-										rel="<?php print esc_attr( $cagov_design_system_item->xfn ); ?>"
-										<?php endif; ?>
-									><?php print esc_html( $cagov_design_system_item->title ); ?></a>
-						</li>
-						<?php
+						// If a top level nav item, menu_item_parent = 0.
+						if ( ! $cagov_design_system_item->menu_item_parent ) {
+							$cagov_design_system_item_meta = get_post_meta( $cagov_design_system_item->ID );
+							?>
+							<li>
+								<a 
+											href="<?php print esc_url( $cagov_design_system_item->url ); ?>" 
+										<?php if ( ! empty( $cagov_design_system_item->target ) ) : ?>
+											target="<?php print esc_attr( $cagov_design_system_item->target ); ?>" 
+											<?php endif; ?>
+										<?php if ( ! empty( $cagov_design_system_item->xfn ) ) : ?>
+											rel="<?php print esc_attr( $cagov_design_system_item->xfn ); ?>"
+											<?php endif; ?>
+										><?php print esc_html( $cagov_design_system_item->title ); ?></a>
+							</li>
+							<?php
+						}
 					}
-				}
 
 
-				?>
-</ul>
+					?>
+	</ul>
+</nav>

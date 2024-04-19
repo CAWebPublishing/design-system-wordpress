@@ -48,7 +48,7 @@ __webpack_require__.r(__webpack_exports__);
 /* 9 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/gov-seal-v2.svg";
+module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
 
 /***/ }),
 /* 10 */

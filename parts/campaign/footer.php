@@ -24,17 +24,16 @@ $mode = get_option('cagov_design_system_mode', 'default');
 
 ?>
 <!-- Footer -->
-<footer>
-  <div class="main-row">
-    <section id="gov-seal">
-      <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>/build/fonts/gov-seal-v2.svg" alt="Governor's Seal" />
-    </section>
+<footer role="contentinfo">
+  <section class="footer-primary">
+  <div>
+      <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>/build/fonts/gov-seal.svg" alt="Governor's Seal" />
   </div>
-  <hr />
-  <div class="utility-row">
-    <section id="utility" aria-description="utility links">
-      <?php
+  </section>
+  <section>
+  <?php
 				if ( has_nav_menu( 'footer-menu' ) ) {
+          
 					wp_nav_menu(
 						array(
 							'theme_location' => 'footer-menu',
@@ -46,16 +45,15 @@ $mode = get_option('cagov_design_system_mode', 'default');
 					<a>There is no Navigation Menu set</a>
 					<?php
 				}
+        
+		    require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/socialshare.php";
+
 				?>
-    </section>
-    <section id="socials" aria-description="social media links">
-		<?php require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/socialshare.php"; ?>
-    </section>
-    <section id="publishing" aria-desctiption="website publishing information">
+  </section>
+  <section id="publishing" aria-desctiption="website publishing information">
       <?php if ( $cagov_design_system_is_caweb_plugin_active ) : ?>
         <a href="https://caweb.cdt.ca.gov" title="CAWeb Publishing Service" target="_blank">Powered by: CAWeb Publishing Service</a>
       <?php endif; ?>
       <p>&#169; Copyright <script>document.write(new Date().getFullYear())</script></p>
-    </section>
-  </div>
+  </section>
 </footer>
