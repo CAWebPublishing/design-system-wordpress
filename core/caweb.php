@@ -26,22 +26,6 @@ add_filter( 'caweb_social_media_links', 'cagov_design_system_social_media_links'
 add_filter( 'body_class', 'cagov_design_system_body_class', 25, 2 );
 
 /**
- * Ensures the CAWeb Theme colorscheme is supported by the Design System.
- *
- * @link https://developer.wordpress.org/reference/hooks/option_option/
- * @param  mixed $val Value of the option. If stored serialized, it will be unserialized prior to being returned.
- * @return mixed
- */
-function cagov_design_system_ca_site_color_scheme( $val ) {
-	foreach ( cagov_design_system_template_colors() as $color => $data ) {
-		if ( str_replace( ' ', '', $color ) === $val ) {
-			return $val;
-		}
-	}
-	return 'cagov';
-}
-
-/**
  * Classes for the page-container
  *
  * @param string $class Class for the page-container.
@@ -124,18 +108,13 @@ function cagov_design_system_update_options(){
 			$_POST['ca_default_navigation_menu'] : 'singlelevel';
 
 		$template_colors = cagov_design_system_template_colors();
-		$color_selection = isset( $_POST['ca_site_color_scheme'] )  ? $_POST['ca_site_color_scheme'] : 'cagov';
-		
-		foreach ( $template_colors as $color => $data ) {
-			if ( str_replace( ' ', '', $color ) === $color_selection ) {
-				return $color_selection;
-			}
-		}
+		$color_selection = isset( $_POST['ca_site_color_scheme'] )  && isset( $template_colors[ $_POST['ca_site_color_scheme'] ] ) ? 
+			$_POST['ca_site_color_scheme'] : 'cagov';
 		
 		
 		update_option('cagov_design_system_mode', $mode );
 		update_option('ca_default_navigation_menu', $nav_selection );
-		update_option('ca_site_color_scheme', $nav_selection );
+		update_option('ca_site_color_scheme', $color_selection );
 	}
 }
 
