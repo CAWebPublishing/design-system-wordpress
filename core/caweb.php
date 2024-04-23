@@ -104,7 +104,7 @@ function cagov_design_system_update_options(){
 		$mode = isset( $_POST['cagov_design_system_mode'] ) ? $_POST['cagov_design_system_mode'] : 'default';
 
 		$nav_menu_types = cagov_design_system_nav_menu_types();
-		$nav_selection = isset( $_POST['ca_default_navigation_menu'] ) && array_key_exists( $_POST['ca_default_navigation_menu'], $nav_menu_types ) ?
+		$nav_selection = isset( $_POST['ca_default_navigation_menu'] ) && isset( $nav_menu_types[$mode][$_POST['ca_default_navigation_menu']] ) ?
 			$_POST['ca_default_navigation_menu'] : 'singlelevel';
 
 		$template_colors = cagov_design_system_template_colors();
