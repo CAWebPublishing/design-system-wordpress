@@ -68,13 +68,23 @@ function cagov_design_system_state_logo() {
 /**
  * Returns array of Design System Menu Types
  *
+ * @param  string $mode Which navigation mode to return.
  * @return array
  */
-function cagov_design_system_nav_menu_types() {
-	return array(
-		'dropdown'     => 'Drop Down',
-		'singlelevel'  => 'Single Level',
+function cagov_design_system_nav_menu_types( $mode = 'all' ) {
+	$mode = null === $mode || is_array( $mode ) ? get_option('cagov_design_system_mode', 'default') : $mode;
+
+	$navigations = array(
+		'default' => array(
+			'dropdown'     => 'Drop Down',
+			'singlelevel'  => 'Single Level',
+		),
+		'campaign' => array(
+			'singlelevel'  => 'Single Level',
+		)
 	);
+
+	return 'all' !== $mode && isset( $navigations[$mode] ) ? $navigations[$mode] : $navigations;
 }
 
 /**

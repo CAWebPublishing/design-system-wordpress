@@ -9,10 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
+add_action( 'caweb_save_options', 'cagov_design_system_update_options' );
+
 // CAWeb theme option overrides.
-add_action( 'option_ca_default_navigation_menu', 'cagov_design_system_ca_default_navigation_menu' );
-add_action( 'option_ca_site_color_scheme', 'cagov_design_system_ca_site_color_scheme' );
-add_action( 'pre_update_option_ca_fav_ico', 'cagov_design_system_update_options', 10, 3 );
 add_action( 'caweb_options_general_custom_fields', 'cagov_design_system_options');
 add_action( 'caweb_search_form', 'cagov_design_system_search_form', 9);
 
@@ -25,34 +24,6 @@ add_filter( 'caweb_main_content_class', 'cagov_design_system_main_content_class'
 add_filter( 'caweb_social_media_links', 'cagov_design_system_social_media_links' );
 
 add_filter( 'body_class', 'cagov_design_system_body_class', 25, 2 );
-
-
-/**
- * Ensures the CAWeb Theme navigation menu is supported by the Design System.
- *
- * @link https://developer.wordpress.org/reference/hooks/option_option/
- * @param  mixed $val Value of the option. If stored serialized, it will be unserialized prior to being returned.
- * @return mixed
- */
-function cagov_design_system_ca_default_navigation_menu( $val ) {
-	return array_key_exists( $val, cagov_design_system_nav_menu_types() ) ? $val : 'dropdown';
-}
-
-/**
- * Ensures the CAWeb Theme colorscheme is supported by the Design System.
- *
- * @link https://developer.wordpress.org/reference/hooks/option_option/
- * @param  mixed $val Value of the option. If stored serialized, it will be unserialized prior to being returned.
- * @return mixed
- */
-function cagov_design_system_ca_site_color_scheme( $val ) {
-	foreach ( cagov_design_system_template_colors() as $color => $data ) {
-		if ( str_replace( ' ', '', $color ) === $val ) {
-			return $val;
-		}
-	}
-	return 'cagov';
-}
 
 /**
  * Classes for the page-container
@@ -121,27 +92,30 @@ function cagov_design_system_search_form(){
 }
 
 /**
- * Design System Administration Menu Setup
- * 
- * @link https://developer.wordpress.org/reference/hooks/pre_update_site_option_option/
- *
- * @param  mixed $value New value of the network option.
- * @param  mixed $old_value Old value of the network option.
- * @param  mixed $option Option name.
+ * Design System Administration Update Options.
  * 
  * @return void
  */
-function cagov_design_system_update_options( $value, $old_value, $option ){
+function cagov_design_system_update_options(){
+
 	// if saving.
 	if ( isset( $_POST['caweb_submit'], $_POST['caweb_theme_options_nonce'] ) &&
 	wp_verify_nonce( sanitize_key( $_POST['caweb_theme_options_nonce'] ), 'caweb_theme_options' ) ) {
 		$mode = isset( $_POST['cagov_design_system_mode'] ) ? $_POST['cagov_design_system_mode'] : 'default';
+
+		$nav_menu_types = cagov_design_system_nav_menu_types();
+		$nav_selection = isset( $_POST['ca_default_navigation_menu'] ) && isset( $nav_menu_types[$mode][$_POST['ca_default_navigation_menu']] ) ?
+			$_POST['ca_default_navigation_menu'] : 'singlelevel';
+
+		$template_colors = cagov_design_system_template_colors();
+		$color_selection = isset( $_POST['ca_site_color_scheme'] )  && isset( $template_colors[ $_POST['ca_site_color_scheme'] ] ) ? 
+			$_POST['ca_site_color_scheme'] : 'cagov';
+		
 		
 		update_option('cagov_design_system_mode', $mode );
+		update_option('ca_default_navigation_menu', $nav_selection );
+		update_option('ca_site_color_scheme', $color_selection );
 	}
-
-	return $value;
-
 }
 
 /**
