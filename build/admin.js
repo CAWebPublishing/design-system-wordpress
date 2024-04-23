@@ -61,11 +61,6 @@ jQuery(document).ready(function ($) {
 jQuery(document).ready(function ($) {
   let cawebColorSchemePicker = $('#ca_site_color_scheme');
 
-  // hide State Template version option.
-  if ($('select[id$="ca_site_version"]').length) {
-    $('select[id$="ca_site_version"]').parent().parent().addClass('d-none');
-  }
-
   // hide colorscheme options if in campaign mode.
   $('select[id$="cagov_design_system_mode"]').on('change', function () {
     // if the CAWeb Colorscheme Picker option doesn't exist don't do anything.
@@ -80,40 +75,28 @@ jQuery(document).ready(function ($) {
       cawebColorSchemePicker.parent().addClass('d-none');
     }
   });
+});
 
-  // Hide Menu Home Link option.
-  if ($('label[for="ca_home_nav_link"]').length) {
-    $('label[for="ca_home_nav_link"]').parent().parent().addClass('d-none');
-  }
+/***/ }),
+/* 3 */
+/***/ (() => {
 
-  // Hide Menu Sticky Navigation option.
-  if ($('label[for="ca_sticky_navigation"]').length) {
-    $('label[for="ca_sticky_navigation"]').parent().parent().addClass('d-none');
-  }
-
-  // Hide Show Search on Front Page option.
-  if ($('label[for="ca_frontpage_search_enabled"]').length) {
-    $('label[for="ca_frontpage_search_enabled"]').parent().parent().addClass('d-none');
-  }
-
-  // Utility Header Options.
-  if ($('#utility-header-settings').length) {
-    $('#utility-header-settings').addClass('d-none');
-    $('#utility-header-settings').prev().addClass('d-none');
-  }
-
-  // iteration over Social Media Links
-  if ($('div[id^="ca_social_"][id$="-settings"]').length) {
-    $('div[id^="ca_social_"][id$="-settings"]').each(function (index) {
-      var optionName = this.id.substring(0, this.id.indexOf('-'));
-      // Make sure options are visible.
-      $(this).removeClass('d-none');
-      $(this).prev().removeClass('d-none');
-
-      // Hide Social Media Link Header options.
-      $(`#${optionName}_header`).parent().parent().addClass('d-none');
-    });
-  }
+jQuery(document).ready(function ($) {
+  // Correct menu types when design system mode is changed.
+  $('select[id$="cagov_design_system_mode"]').on('change', function () {
+    let menuSelector = $('select[id$="ca_default_navigation_menu"]');
+    let currentMenu = menuSelector.val();
+    menuSelector.empty();
+    for (const [t, l] of Object.entries(cagov_design_system_admin_args.nav_menu_types[this.value])) {
+      let o = document.createElement('OPTION');
+      o.value = t;
+      o.text = l;
+      if (t === currentMenu) {
+        o.selected = true;
+      }
+      menuSelector.append(o);
+    }
+  });
 });
 
 /***/ })
@@ -194,10 +177,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _options_hidden_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_options_hidden_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _options_mode_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
 /* harmony import */ var _options_mode_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_options_mode_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _options_menus_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3);
+/* harmony import */ var _options_menus_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_options_menus_js__WEBPACK_IMPORTED_MODULE_2__);
 // CAWeb Options not supported by the Design System are hidden.
 
 
 // CAWeb Options Template Version / Design System Mode Selector
+
+
+// CAWeb /Design System Menu Types 
 
 })();
 

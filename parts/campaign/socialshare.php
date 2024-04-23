@@ -17,7 +17,8 @@ $cagov_design_system_social_links = '';
 
 if ( ! empty( $cagov_design_system_social_media ) ):
 ?>
-	<div class="footer-social-links">
+<nav role="navigation" aria-describedby="social media links">
+	<ul class="flex">
 <?php foreach ( $cagov_design_system_social_media as $cagov_design_system_share => $cagov_design_system_option ) : 
 		$cagov_design_system_share_email  = 'ca_social_email' === $cagov_design_system_option ? true : false;
 		$cagov_design_system_mail_subject = rawurlencode( sprintf( '%1$s | %2$s', get_the_title(), get_bloginfo( 'name' ) ) );
@@ -33,6 +34,7 @@ if ( ! empty( $cagov_design_system_social_media ) ):
 			$cagov_design_system_icon                 = str_replace( '_', '-', substr( $cagov_design_system_option, 10 ) );
 			$cagov_design_system_social_target        = get_option( "${cagov_design_system_option}_new_window", true ) ? '_blank' : '_self';
 ?>
+		<li>
 			<a 
 				class="no-underline font-size-3 p-y-1 m-a-1 m-l-0 m-y-0"
 				href="<?php print esc_url( $cagov_design_system_social_url ); ?>" 
@@ -44,8 +46,10 @@ if ( ! empty( $cagov_design_system_social_media ) ):
 				<?php endif; ?>
 				<span class="sr-only"><?php print esc_attr( $cagov_design_system_share ); ?></span>
 			</a>
+			</li>
 	<?php endif; ?>
 	<?php endforeach; ?>
-	</div>
+	</ul>
+</nav>
 <?php endif; ?>
 
