@@ -23,7 +23,7 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 
 ?>
 <!-- Footer navigation -->
-<nav role="navigation" aria-describedby="utility-links">
+<nav role="navigation" aria-labelledby="utility-links">
 	<ul>
 					<?php
 					foreach ( $cagov_design_system_menu_items as $cagov_design_system_item ) {

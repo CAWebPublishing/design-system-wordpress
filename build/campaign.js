@@ -46,17 +46,128 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 9 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
+__webpack_require__.r(__webpack_exports__);
+window.addEventListener("load", () => {
+    const doc = document.documentElement;
+  
+    let prevScroll = window.scrollY || doc.scrollTop;
+    let curScroll;
+    let direction = 0;
+    let prevDirection = 0;
+    let scrollNum = 40;
+
+    const mainheader = document.querySelector("header");
+    const navToggle = document.querySelector('header .nav-toggle');
+
+
+    if (!mainheader) return;
+  
+    /* mobile header / hiding default header on scroll */
+    if( scrollNum < prevScroll ){
+      mainheader.classList.add('mobile');
+    }
+
+    window.addEventListener("scroll", () => {
+      /*
+       ** Find the direction of scroll
+       ** 0 - initial, 1 - up, 2 - down
+       */
+  
+      curScroll = window.scrollY || doc.scrollTop;
+      if (curScroll > prevScroll) {
+        //scrolled up
+        direction = 2;
+      } else if (curScroll < prevScroll) {
+        //scrolled down
+        direction = 1;
+      }
+  
+      if (direction !== prevDirection) {
+        // Toggle Header
+        if (direction === 2 && curScroll > scrollNum) {
+  
+          mainheader.classList.add('mobile');
+          prevDirection = direction;
+        } else if (direction === 1 && curScroll < scrollNum) {
+          mainheader.classList.remove('mobile');
+          prevDirection = direction;
+        }
+      }
+  
+      prevScroll = curScroll;
+    });
+
+    /* we also add the mobile class if screen is smaller than 992px */
+    window.addEventListener("resize", () => {
+      if( window.innerWidth < 992 ){
+        mainheader.classList.add('mobile');
+      }else{
+        mainheader.classList.remove('mobile');
+      }
+    })
+
+    if( navToggle ){
+      navToggle.addEventListener('click', function() {
+        this.ariaExpanded = this.ariaExpanded !== 'true';
+      });
+    }
+  });
 
 /***/ }),
 /* 10 */
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+window.addEventListener("load", () => {
+    const searchSVG = document.querySelector("header .search-svg");
+    const searchInput = document.querySelector("header #search-box")
+
+    if (!searchInput) return;
+
+    searchSVG.addEventListener('click', () => {
+      searchInput.classList.toggle('focus-search-box');
+    })
+  });
+
+/***/ }),
+/* 11 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+/* 12 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
+
+/***/ }),
+/* 13 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
+
+/***/ }),
+/* 14 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
+
+/***/ }),
+/* 15 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-tictok.svg";
+
+/***/ }),
+/* 16 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 
 /***/ })
 /******/ 	]);
@@ -207,7 +318,13 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(7)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(8)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(9)))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [0], () => (__webpack_require__(10)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(10)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(11)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(12)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(13)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(14)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(15)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [0], () => (__webpack_require__(16)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
