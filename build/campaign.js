@@ -60,6 +60,7 @@ window.addEventListener("load", () => {
 
     const mainheader = document.querySelector("header");
     const navToggle = document.querySelector('header .nav-toggle');
+    const navigation = document.querySelector('header .navigation');
 
 
     if (!mainheader) return;
@@ -111,6 +112,12 @@ window.addEventListener("load", () => {
     if( navToggle ){
       navToggle.addEventListener('click', function() {
         this.ariaExpanded = this.ariaExpanded !== 'true';
+
+        if( 'true' === this.ariaExpanded ){
+          navigation.style.display = 'block';
+        }else{
+          navigation.style.display = 'none';
+        }
       });
     }
   });

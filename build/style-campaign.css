@@ -143,16 +143,41 @@ header {
     position: fixed;
     background: transparent;
     box-shadow: none;
+    flex: 1;
 
     .mobile {
       display: block;
     }
 
-    .logo,
-    .navigation {
+    .logo{
       display: none;
     }
 
+    .navigation {
+      position: absolute;
+      top: 70px;
+      display: none;
+      
+      nav {
+        display: block;
+        ul {
+          display: block;
+
+          li {
+            border: 2px solid black;
+            padding: 30px;
+
+            &.search {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+
+    .cagov {
+      width: 3rem;
+    }
   }
   /* End of Header Mobile View Styles */
     
