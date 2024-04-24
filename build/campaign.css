@@ -1,7 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Public+Sans:wght@100;200;300;400;500;600;700&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400..700&display=swap);
 :root {
   /** Palate colors **/
   --brand-primary: #20367c;
@@ -25,7 +22,7 @@
   --main-dark: #242424;
   --navigation-submenu-light: #dbdbdb;
   --navigation-submenu-dark: #6b6b6b;
-  --utility-dark: #111;
+  --utility-dark: #111111;
   --text-dark: #323232;
   --text-white: #fff;
   --hyperlink-light: #0057ad;
@@ -34,9 +31,9 @@
   --hyperlink-activated-dark: #f692b9;
 
   /** Greys **/
-  --grey: #ccc;
+  --grey: #cccccc;
   --grey-text: #323232;
-  --grey-background: #eee;
+  --grey-background: #eeeeee;
 
   /** Tokens **/
   --gutter-gap: 1.674vw;
@@ -45,9 +42,21 @@
   --shadow: 0.2rem 0.2rem 0.5em 0 rgba(0, 0, 0, 0.25);
   --shadow-focus: 0.1rem 0.1rem 0.25em 0 rgba(0, 0, 0, 0.1);
   --shadow-active: 0.2rem 0.2rem 0.5em 0 rgba(0, 0, 0, 0.6);
+  --background-light: #d5d4c6;
+  --background-dark: #13394b;
+  --action-hover: #278fc0;
+  --action-active: #13394b;
+  --go-brand-golden-state-yellow: #fdbc5b;
+  --go-brand-tahoe-blue: #20367c;
+  --go-brand-radial-gradient: radial-gradient(
+    103.56% 84.2% at 9.9% 25.98%,
+    #20367c 0%,
+    #385ed6 100%
+  );
 
   /* Change this for overall font size */
   --fontSize: 1rem;
+  --font-size: 1rem;
 
   /* Font characteristics */
   --ratio: 1.24;
@@ -69,38 +78,18 @@
   --h3: calc(var(--h4) * var(--ratio));
   --h2: calc(var(--h3) * var(--ratio));
   --h1: calc(var(--h2) * var(--ratio) * var(--ratio));
-
-  /* colors */
-  --background-light: #d5d4c6;
-  --background-dark: #13394b;
-  --action-hover: #278fc0;
-  --action-active: #13394b;
-  --go-brand-golden-state-yellow: #fdbc5b;
-  --go-brand-tahoe-blue: #20367c;
-  --go-brand-radial-gradient: radial-gradient(
-    103.56% 84.2% at 9.9% 25.98%,
-    #20367c 0%,
-    #385ed6 100%
-  );
-
-  /* Change this for overall font size */
-  --font-size: 1rem;
 }
 
-p {
-  line-height: 1.6;
+/**** Sets rule for lead text ****/
+h1 + p {
+  font-size: calc(var(--lt) - 0.02rem);
+  line-height: 1.5;
 }
 
-/* Sets rule for lead text */
 h1 {
   font-weight: 600;
   font-size: var(--h1);
   line-height: 1.619;
-
-  + p {
-    font-size: calc(var(--lt) - 0.02rem);
-    line-height: 1.5;
-  }
 }
 
 h2 {
@@ -130,19 +119,56 @@ li + li {
   margin-top: 0.5rem;
 }
 
-/** BEGIN Fonts **/
+p {
+  line-height: 1.6;
+}
+
+
 
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
-/* Focus Styles | thanks Stephanie Eckles */
+nav ul {
+  list-style: none;
+  padding: 0;
 
+  & li {
+    margin-block-start: calc(var(--flow-space) + 0.25rem);
+  }
+}
+
+/** BEGIN Main body **/
+body {
+  min-height: 100vh;
+  font-size: clamp(1rem, var(--base), 5rem);
+  flex-direction: column;
+  color: var(--grey-text);
+
+  /* the last font listed is the one used */
+  font-family: "Noto Sans", "Roboto", "Inter", sans-serif;
+  letter-spacing: 0.02rem;
+  line-height: 1rem;
+  font-weight: 400;
+}
+
+/* Global margin */
+main * + * {
+  margin-block-start: var(--flow-space);
+}
+
+blockquote {
+  border-left: rgba(0, 0, 0, 0.12) 2px solid;
+  margin-left: 0;
+  padding-left: calc(2ch + 0.5rem);
+}
+
+/* Focus Styles | thanks Stephanie Eckles */
 :is(a, button, input, textarea, summary) {
-  --outline-size: max(2px, 0.08rem);
+  --outline-size: max(2px, 0.08em);
   --outline-style: solid;
-  --outline-color: currentcolor;
+  --outline-color: currentColor;
 
   &:focus {
     outline: var(--outline-size) var(--outline-style) var(--outline-color);
@@ -174,18 +200,36 @@ li + li {
 
 /** END Accessibility backward compatibility **/
 
-@media (prefers-reduced-motion) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+/** Run-in List CSS **/
+.run-in,
+.run-in li {
+  padding: 0;
+  background: none;
+  display: inline;
+  margin-right: 1rem;
+}
+.run-in li::after {
+  content: "";
 }
 
-@media (prefers-color-scheme: dark) {
-  /* Add dark mode styles here */
+.run-in li:last-child::after {
+  content: "";
+}
+
+/** TABLET PORTRAIT UP **/
+@media (min-width: 600px) {
+}
+/** TABLET LANDSCAPE UP **/
+@media (min-width: 900px) {
+}
+/** DESKTOP UP **/
+@media (min-width: 1200px) {
+}
+/** TABLET BIG-DESKTOP UP **/
+@media (min-width: 1800px) {
+}
+
+article > header ~ * {
+  margin-top: 0.15rem;
 }
 
