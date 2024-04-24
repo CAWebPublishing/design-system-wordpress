@@ -93,6 +93,7 @@ window.addEventListener("load", () => {
           prevDirection = direction;
         } else if (direction === 1 && curScroll < scrollNum) {
           mainheader.classList.remove('mobile');
+          navigation.style.display = 'flex';
           prevDirection = direction;
         }
       }
