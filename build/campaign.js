@@ -86,6 +86,8 @@ window.addEventListener("load", () => {
       }
   
       if (direction !== prevDirection) {
+        navToggle.ariaExpanded = 'false'
+
         // Toggle Header
         if (direction === 2 && curScroll > scrollNum) {
   
@@ -95,6 +97,7 @@ window.addEventListener("load", () => {
         } else if (direction === 1 && curScroll < scrollNum) {
           mainheader.classList.remove('mobile');
           navigation.style.display = 'flex';
+
           prevDirection = direction;
         }
       }
