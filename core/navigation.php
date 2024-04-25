@@ -33,6 +33,8 @@ function cagov_design_system_nav_menu( $nav_menu, $args ) {
 			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-$nav.php";
 		} elseif ( 'footer-menu' === $args->theme_location ) {
 			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/$mode/nav-footer.php";
+		}elseif( 'footer-menu-utility' === $args->theme_location && 'campaign' === $mode ){
+			require_once CAGOV_DESIGN_SYSTEM_DIR . "/parts/campaign/nav-$nav.php";
 		}
 	}
 

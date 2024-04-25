@@ -112,8 +112,9 @@ header {
 
   /* CA.gov Styles */
   .cagov {
-    width: 3rem;
     align-self: center;
+    cursor: pointer;
+    width: 3rem;
 
     .ca-gov-svg {
       height: 3rem;

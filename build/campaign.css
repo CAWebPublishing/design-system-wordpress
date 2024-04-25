@@ -153,11 +153,6 @@ body {
   font-weight: 400;
 }
 
-/* Global margin */
-main * + * {
-  margin-block-start: var(--flow-space);
-}
-
 blockquote {
   border-left: rgba(0, 0, 0, 0.12) 2px solid;
   margin-left: 0;
