@@ -77,7 +77,6 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
 	<!-- BEGIN CAgov Offical  -->
 	<div class="cagov">
 		<a
-			href="https://ca.gov"
 			id="caGov"
 			class="ca-gov-svg"
 			title="CA.gov home page"
@@ -85,5 +84,43 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
 			tabindex="0">
 		</a>
 	</div>
+	<div id="ca_gov_sidebar">
+    <p>Official website of the State of California</p>
+    <p>CA.gov</p>
+    <p>Resources for California</p>
+    <hr />
+    <div id="key_services">
+      <ul>
+        <li>Key services</li>
+        <li><a href="#">Food stamps</a></li>
+        <li><a href="#">Traffic tickets</a></li>
+        <li><a href="#">Business licenses</a></li>
+        <li><a href="#">Birth certificates</a></li>
+        <li><a href="#">Vehicle registration</a></li>
+        <li>More services +</li>
+      </ul>
+    </div>
+    <hr />
+    <div id="more_services">
+      <ul>
+        <li>Popular topics</li>
+        <li><a href="#">Climate Action</a></li>
+        <li><a href="#">Social programs</a></li>
+        <li><a href="#">Benefits</a></li>
+        <li><a href="#">Benefits</a></li>
+        <li><a href="#">Benefits</a></li>
+      </ul>
+    </div>
+    <div id="popular_topics">
+      <ul>
+        <li>Popular topics</li>
+        <li><a href="#">Climate Action</a></li>
+        <li><a href="#">Social programs</a></li>
+        <li><a href="#">Benefits</a></li>
+        <li><a href="#">Benefits</a></li>
+        <li><a href="#">Benefits</a></li>
+      </ul>
+    </div>
+  </div>
 	<!-- END CAgov Offical -->
 </header>
