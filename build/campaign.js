@@ -4,7 +4,14 @@
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */,
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
 /* 4 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -38,14 +45,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 8 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 9 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -61,6 +60,7 @@ window.addEventListener("load", () => {
   const mainheader = document.querySelector("header");
   const navToggle = document.querySelector("header .nav-toggle");
   const navigation = document.querySelector("header .navigation");
+  const sidebar = document.getElementById("ca_gov_sidebar");
 
   if (!mainheader) return;
 
@@ -91,17 +91,30 @@ window.addEventListener("load", () => {
       if (direction === 2 && curScroll > scrollNum) {
         mainheader.classList.add("mobile");
         navigation.style.display = "none";
+        mainheader.style.background = "transparent";
+        sidebar.classList.add("sidebar-mobile");
         prevDirection = direction;
       } else if (direction === 1 && curScroll < scrollNum) {
-        mainheader.classList.remove("mobile");
-        navigation.style.display = "block";
-
+        if (window.innerWidth > 992) {
+          mainheader.classList.remove("mobile");
+          navigation.style.display = "block";
+          mainheader.style.background = "var(--grey-background, #eee)";
+        }
+        sidebar.classList.remove("sidebar-mobile");
         prevDirection = direction;
       }
     }
-
     prevScroll = curScroll;
   });
+
+  // Set proper header and nav style on load
+  if (window.innerWidth < 992) {
+    mainheader.classList.add("mobile");
+    navigation.classList.add("navigation-mobile");
+  } else {
+    mainheader.classList.remove("mobile");
+    navigation.classList.remove("navigation-mobile");
+  }
 
   /* we also add the mobile class if screen is smaller than 992px */
   window.addEventListener("resize", () => {
@@ -120,8 +133,17 @@ window.addEventListener("load", () => {
 
       if ("true" === this.ariaExpanded) {
         navigation.style.display = "block";
+        if (window.innerWidth > 992) {
+          mainheader.style.background = "var(--grey-background, #eee)";
+          mainheader.style.boxShadow =
+            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+        }
       } else {
         navigation.style.display = "none";
+        if (window.innerWidth > 992) {
+          mainheader.style.background = "transparent";
+          mainheader.style.boxShadow = "none";
+        }
       }
     });
   }
@@ -129,7 +151,7 @@ window.addEventListener("load", () => {
 
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -145,7 +167,7 @@ window.addEventListener("load", () => {
   });
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -155,16 +177,22 @@ window.addEventListener("load", () => {
 
   if (!sidebar || !sidebarToggle) return;
 
-  sidebarToggle.addEventListener('click', () => {
+  sidebarToggle.addEventListener("click", () => {
+    if (sidebarToggle.classList.contains("ca-gov-svg")) {
+      sidebarToggle.classList.add("ca-gov-close-icon");
+      sidebarToggle.classList.remove("ca-gov-svg");
+    } else {
+      sidebarToggle.classList.remove("ca-gov-close-icon");
+      sidebarToggle.classList.add("ca-gov-svg");
+    }
     sidebar.style.display =
-    sidebar.style.display !== "block"
-      ? "block"
-      : "none";
-  })
+      sidebar.style.display !== "block" ? "block" : "none";
+  });
 });
 
+
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -172,34 +200,40 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
 
 /***/ }),
+/* 15 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
+
+/***/ }),
 /* 16 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-tictok.svg";
+module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 
 /***/ }),
 /* 17 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
+module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
 
 /***/ })
 /******/ 	]);
@@ -344,6 +378,7 @@ module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(3)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(4)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(5)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(6)))

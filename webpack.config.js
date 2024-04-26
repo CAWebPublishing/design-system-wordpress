@@ -20,8 +20,9 @@ let entries = {
     '@cagovweb/go-site-footer/images/gov-seal.svg',
     '@cagovweb/go-site-footer/images/share-facebook.svg',
     '@cagovweb/go-site-footer/images/share-instagram.svg',
-    '@cagovweb/go-site-footer/images/share-tictok.svg',
-    '@cagovweb/go-site-footer/images/share-twitter-X.svg'
+    '@cagovweb/go-site-footer/images/share-tiktok.svg',
+    '@cagovweb/go-site-footer/images/share-twitter-X.svg',
+    '@cagovweb/go-site-footer/images/share-youtube.svg'
   ]
 };
 
