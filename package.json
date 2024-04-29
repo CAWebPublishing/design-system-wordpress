@@ -35,7 +35,7 @@
     "@cagov/ds-skip-to-content": "^2.0.1",
     "@cagov/ds-statewide-footer": "^2.0.1",
     "@cagov/ds-statewide-header": "^2.0.1",
-    "@cagovweb/go-site-base-css": "^0.0.1-beta5",
+    "@cagovweb/go-site-base-css": "^0.0.1-beta6",
     "@cagovweb/go-site-footer": "^0.0.1-beta9",
     "@cagovweb/go-site-header": "^0.0.1-beta9",
     "@caweb/cli": "^1.3.16"
