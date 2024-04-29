@@ -33,6 +33,7 @@ $cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' 
 
 ?>
 <!-- Singlelevel navigation -->
+<nav>
   <ul class="navlinks">
   <?php
 		foreach ( $cagov_design_system_menu_items as $cagov_design_system_item ) {
@@ -47,25 +48,31 @@ $cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' 
 					<?php if ( ! empty( $cagov_design_system_item->target ) ) : ?>
 						target="<?php print esc_attr( $cagov_design_system_item->target ); ?>" 
 					<?php endif; ?>
+					<?php if( in_array( 'current-menu-item', $cagov_design_system_item->classes, true ) ) : ?>
+						class="active"
+					<?php endif; ?>
 					<?php if ( ! empty( $cagov_design_system_item->xfn ) ) : ?>
 						rel="<?php print esc_attr( $cagov_design_system_item->xfn ); ?>"
 					<?php endif; ?>
 					><?php print esc_html( $cagov_design_system_item->title ); ?></a>
-					<?php if( in_array( 'current-menu-item', $cagov_design_system_item->classes, true ) ) : ?>
-						<span></span>
-					<?php endif; ?>
 				</li>		
 			<?php
 			}
 		}
 		?>
-		<li>
+		<li class="search">
 			<!-- Search -->
-			<button class="search-svg"></button>
+			<form class="search-container" action="<?php print esc_url( site_url( 'serp' ) ); ?>" id="search-form" autocomplete="off">
+				<input id="search-box" type="text" class="search-box" name="q">
+				<label for="search-box" class="search-svg">
+					<span class="sr-only">Search</span>
+				</label>
+				<input type="submit" id="search-submit">
+			</form>
 		</li>
 
 		<?php if ( 'custom' === $cagov_design_system_google_trans_enabled && ! empty( $cagov_design_system_google_trans_page ) ) : ?>
-		<li>
+		<li class="google-translate">
 			<a 
 				id="caweb-gtrans-custom" 
 				target="<?php print esc_attr( $cagov_design_system_google_trans_page_new_window ); ?>" 
@@ -82,6 +89,9 @@ $cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' 
 		<?php endif; ?>
 
 		<?php if ( true === $cagov_design_system_google_trans_enabled || 'standard' === $cagov_design_system_google_trans_enabled ) : ?>
+		<li class="google-translate">
 			<div class="standard-translate" id="google_translate_element"></div>
+		</li>
 		<?php endif; ?>
   </ul>
+</nav>

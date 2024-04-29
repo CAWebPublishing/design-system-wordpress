@@ -36,13 +36,12 @@ if ( ! empty( $cagov_design_system_social_media ) ):
 ?>
 		<li>
 			<a 
-				class="no-underline font-size-3 p-y-1 m-a-1 m-l-0 m-y-0"
 				href="<?php print esc_url( $cagov_design_system_social_url ); ?>" 
 				title="<?php print esc_attr( $cagov_design_system_social_title ); ?>"
 				target="<?php print esc_attr( $cagov_design_system_social_target ); ?>"
 			>
 			<?php if ( ! empty( $cagov_design_system_option ) ) : ?>
-					<span class="ca-gov-icon-<?php print esc_attr( $cagov_design_system_icon ); ?>"></span>
+					<img src="<?php printf('%1$s/build/fonts/share-%2$s.svg', CAGOV_DESIGN_SYSTEM_URL, 'twitter' === $cagov_design_system_icon ? "$cagov_design_system_icon-X" : $cagov_design_system_icon ) ?>" />
 				<?php endif; ?>
 				<span class="sr-only"><?php print esc_attr( $cagov_design_system_share ); ?></span>
 			</a>
@@ -52,4 +51,3 @@ if ( ! empty( $cagov_design_system_social_media ) ):
 	</ul>
 </nav>
 <?php endif; ?>
-
