@@ -45,6 +45,8 @@ define( 'CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS', array(
 
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
 
+add_action( 'init', 'cagov_design_system_init' );
+
 add_action( 'admin_enqueue_scripts', 'cagov_design_system_admin_enqueue_scripts', 16 );
 add_action( 'wp_enqueue_scripts', 'cagov_design_system_wp_enqueue_scripts', 9999999999 );
 
@@ -79,6 +81,33 @@ function cagov_design_system_plugins_loaded() {
 	}
 }
 
+/**
+ * Design System Init
+ *
+ * @wp_action add_action( 'init', 'cagov_design_system_init' );
+ * @link https://codex.wordpress.org/Plugin_API/Action_Reference/admin_init
+ * @return void
+ */
+function cagov_design_system_init(){
+	$mode = get_option('cagov_design_system_mode', 'default');
+
+	$nav_menus = array(
+		'header-menu' => 'Header Menu',
+		'footer-menu' => 'Footer Menu'
+	);
+
+	// campaign specific features.
+	if( 'campaign' === $mode ){
+		$nav_menus['footer-menu-utility'] = 'Footer Menu Utility';
+	}
+
+	/**
+	 * Register navigation menu locations
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/register_nav_menus/
+	 */
+	register_nav_menus( $nav_menus );
+}
 
 /**
  * Register scripts/styles with priority of 999999999
