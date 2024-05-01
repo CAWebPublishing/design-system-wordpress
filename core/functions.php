@@ -116,6 +116,7 @@ function cagov_design_system_social_media_links( $social_links = array() ) {
 		'Github'          => 'ca_social_github',
 		'Instagram'       => 'ca_social_instagram',
 		'LinkedIn'        => 'ca_social_linkedin',
+		'TikTok'        => 'ca_social_tiktok',
 		'X'         => 'ca_social_twitter',
 		'YouTube'         => 'ca_social_youtube',
 	);

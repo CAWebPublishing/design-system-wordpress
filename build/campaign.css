@@ -149,13 +149,8 @@ body {
   /* the last font listed is the one used */
   font-family: "Noto Sans", "Roboto", "Inter", sans-serif;
   letter-spacing: 0.02rem;
-  line-height: 1rem;
+  line-height: 1.5rem;
   font-weight: 400;
-}
-
-/* Global margin */
-main * + * {
-  margin-block-start: var(--flow-space);
 }
 
 blockquote {

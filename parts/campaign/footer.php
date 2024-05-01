@@ -29,6 +29,22 @@ $mode = get_option('cagov_design_system_mode', 'default');
   <div>
       <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>/build/fonts/gov-seal.svg" alt="Governor's Seal" />
   </div>
+  <?php
+	if ( has_nav_menu( 'footer-menu-utility' ) ) :
+		?>
+		<div>
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'footer-menu-utility',
+				'caweb_nav_type'          => 'footer-utility',
+			)
+		);
+		?>
+		</div>
+		<?php
+	endif;
+  ?>
   </section>
   <section>
   <?php
