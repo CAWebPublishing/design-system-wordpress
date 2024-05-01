@@ -4,7 +4,14 @@
 /* 0 */,
 /* 1 */,
 /* 2 */,
-/* 3 */,
+/* 3 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
 /* 4 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -38,85 +45,113 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 /* 8 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 9 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 window.addEventListener("load", () => {
-    const doc = document.documentElement;
-  
-    let prevScroll = window.scrollY || doc.scrollTop;
-    let curScroll;
-    let direction = 0;
-    let prevDirection = 0;
-    let scrollNum = 40;
+  const doc = document.documentElement;
 
-    const mainheader = document.querySelector("header");
-    const navToggle = document.querySelector('header .nav-toggle');
+  let prevScroll = window.scrollY || doc.scrollTop;
+  let curScroll;
+  let direction = 0;
+  let prevDirection = 0;
+  let scrollNum = 40;
 
+  const mainheader = document.querySelector("header");
+  const navToggle = document.querySelector("header .nav-toggle");
+  const navigation = document.querySelector("header .navigation");
+  const sidebar = document.getElementById("ca_gov_sidebar");
 
-    if (!mainheader) return;
-  
-    /* mobile header / hiding default header on scroll */
-    if( scrollNum < prevScroll ){
-      mainheader.classList.add('mobile');
+  if (!mainheader) return;
+
+  /* mobile header / hiding default header on scroll */
+  if (scrollNum < prevScroll) {
+    mainheader.classList.add("mobile");
+  }
+
+  window.addEventListener("scroll", () => {
+    /*
+     ** Find the direction of scroll
+     ** 0 - initial, 1 - up, 2 - down
+     */
+
+    curScroll = window.scrollY || doc.scrollTop;
+    if (curScroll > prevScroll) {
+      //scrolled up
+      direction = 2;
+    } else if (curScroll < prevScroll) {
+      //scrolled down
+      direction = 1;
     }
 
-    window.addEventListener("scroll", () => {
-      /*
-       ** Find the direction of scroll
-       ** 0 - initial, 1 - up, 2 - down
-       */
-  
-      curScroll = window.scrollY || doc.scrollTop;
-      if (curScroll > prevScroll) {
-        //scrolled up
-        direction = 2;
-      } else if (curScroll < prevScroll) {
-        //scrolled down
-        direction = 1;
-      }
-  
-      if (direction !== prevDirection) {
-        // Toggle Header
-        if (direction === 2 && curScroll > scrollNum) {
-  
-          mainheader.classList.add('mobile');
-          prevDirection = direction;
-        } else if (direction === 1 && curScroll < scrollNum) {
-          mainheader.classList.remove('mobile');
-          prevDirection = direction;
+    if (direction !== prevDirection) {
+      navToggle.ariaExpanded = "false";
+
+      // Toggle Header
+      if (direction === 2 && curScroll > scrollNum) {
+        mainheader.classList.add("mobile");
+        navigation.style.display = "none";
+        mainheader.style.background = "transparent";
+        sidebar.classList.add("sidebar-mobile");
+        prevDirection = direction;
+      } else if (direction === 1 && curScroll < scrollNum) {
+        if (window.innerWidth > 992) {
+          mainheader.classList.remove("mobile");
+          navigation.style.display = "block";
+          mainheader.style.background = "var(--grey-background, #eee)";
         }
+        sidebar.classList.remove("sidebar-mobile");
+        prevDirection = direction;
       }
-  
-      prevScroll = curScroll;
-    });
+    }
+    prevScroll = curScroll;
+  });
 
-    /* we also add the mobile class if screen is smaller than 992px */
-    window.addEventListener("resize", () => {
-      if( window.innerWidth < 992 ){
-        mainheader.classList.add('mobile');
-      }else{
-        mainheader.classList.remove('mobile');
-      }
-    })
+  // Set proper header and nav style on load
+  if (window.innerWidth < 992) {
+    mainheader.classList.add("mobile");
+    navigation.classList.add("navigation-mobile");
+  } else {
+    mainheader.classList.remove("mobile");
+    navigation.classList.remove("navigation-mobile");
+  }
 
-    if( navToggle ){
-      navToggle.addEventListener('click', function() {
-        this.ariaExpanded = this.ariaExpanded !== 'true';
-      });
+  /* we also add the mobile class if screen is smaller than 992px */
+  window.addEventListener("resize", () => {
+    if (window.innerWidth < 992) {
+      mainheader.classList.add("mobile");
+      navigation.classList.add("navigation-mobile");
+    } else {
+      mainheader.classList.remove("mobile");
+      navigation.classList.remove("navigation-mobile");
     }
   });
 
+  if (navToggle) {
+    navToggle.addEventListener("click", function () {
+      this.ariaExpanded = this.ariaExpanded !== "true";
+
+      if ("true" === this.ariaExpanded) {
+        navigation.style.display = "block";
+        if (window.innerWidth > 992) {
+          mainheader.style.background = "var(--grey-background, #eee)";
+          mainheader.style.boxShadow =
+            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+        }
+      } else {
+        navigation.style.display = "none";
+        if (window.innerWidth > 992) {
+          mainheader.style.background = "transparent";
+          mainheader.style.boxShadow = "none";
+        }
+      }
+    });
+  }
+});
+
+
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -130,6 +165,31 @@ window.addEventListener("load", () => {
       searchInput.classList.toggle('focus-search-box');
     })
   });
+
+/***/ }),
+/* 10 */
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+window.addEventListener("load", () => {
+  const sidebarToggle = document.querySelector("header #caGov");
+  const sidebar = document.getElementById("ca_gov_sidebar");
+
+  if (!sidebar || !sidebarToggle) return;
+
+  sidebarToggle.addEventListener("click", () => {
+    if (sidebarToggle.classList.contains("ca-gov-svg")) {
+      sidebarToggle.classList.add("ca-gov-close-icon");
+      sidebarToggle.classList.remove("ca-gov-svg");
+    } else {
+      sidebarToggle.classList.remove("ca-gov-close-icon");
+      sidebarToggle.classList.add("ca-gov-svg");
+    }
+    sidebar.style.display =
+      sidebar.style.display !== "block" ? "block" : "none";
+  });
+});
+
 
 /***/ }),
 /* 11 */
@@ -161,13 +221,19 @@ module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
 /* 15 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-tictok.svg";
+module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
 
 /***/ }),
 /* 16 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
+
+/***/ }),
+/* 17 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
 
 /***/ })
 /******/ 	]);
@@ -312,6 +378,7 @@ module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(3)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(4)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(5)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(6)))
@@ -324,7 +391,8 @@ module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(13)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(14)))
 /******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(15)))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [0], () => (__webpack_require__(16)))
+/******/ 	__webpack_require__.O(undefined, [0], () => (__webpack_require__(16)))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, [0], () => (__webpack_require__(17)))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
