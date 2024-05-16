@@ -72,6 +72,38 @@ window.addEventListener("load", () => {
 
   if (!mainheader) return;
 
+  // Escape key event listener
+  document.addEventListener("keydown", e => {
+    if (
+      navigation.classList.contains("navigation-mobile") &&
+      !navigation.classList.contains("hidden")
+    ) {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        document.body.style.overflow = "auto";
+        navigation.classList.add("hidden");
+        navToggle.ariaExpanded = "false";
+      }
+    }
+  });
+
+  // Close menu on focusout (tabbing out) event
+  headerNav.addEventListener("focusout", e => {
+    if (
+      navigation.classList.contains("navigation-mobile") &&
+      !navigation.classList.contains("hidden")
+    ) {
+      const child = /** @type {Node} **/ (e.relatedTarget);
+      const parent = /** @type {Node} **/ (e.currentTarget);
+
+      if (child && !parent.contains(child)) {
+        document.body.style.overflow = "auto";
+        navigation.classList.add("hidden");
+        navToggle.ariaExpanded = "false";
+      }
+    }
+  });
+
   /* compacted header / hiding default header on scroll */
   if (scrollNum < prevScroll && window.innerWidth > 1080) {
     mainheader.classList.add(
@@ -81,11 +113,11 @@ window.addEventListener("load", () => {
     );
     caGovToggle.classList.add("hidden");
 
-    if( logo ){
+    if (logo) {
       logo.classList.add("hidden");
     }
 
-    if( navigation ){
+    if (navigation) {
       navigation.classList.add("hidden");
     }
   }
@@ -93,13 +125,13 @@ window.addEventListener("load", () => {
   // Set proper header and nav style on load
   if (window.innerWidth < 1080) {
     mainheader.classList.add("mobile", "gray-bg");
-    if( navigation ){
+    if (navigation) {
       navigation.classList.add("hidden");
     }
   } else {
     mainheader.classList.remove("mobile", "gray-bg");
 
-    if (scrollNum > prevScroll && navigation ) {
+    if (scrollNum > prevScroll && navigation) {
       navigation.classList.remove("hidden");
     }
   }
@@ -112,8 +144,8 @@ window.addEventListener("load", () => {
 
     curScroll = window.scrollY || doc.scrollTop;
     // remove/add function
-    let logoFunc = 'add';
-    let navFunc = 'add';
+    let logoFunc = "add";
+    let navFunc = "add";
 
     if (curScroll > prevScroll) {
       //scrolled up
@@ -130,10 +162,8 @@ window.addEventListener("load", () => {
         if (direction === 2 && curScroll > scrollNum) {
           mainheader.classList.remove("gray-bg");
           mainheader.classList.add("transparent-bg", "remove-box-shadow");
-          if ("true" === navToggle.ariaExpanded) {
-          }
 
-          logoFunc = 'add'
+          logoFunc = "add";
           caGovToggle.classList.add("hidden");
 
           // scrolling up
@@ -141,7 +171,7 @@ window.addEventListener("load", () => {
           mainheader.classList.add("gray-bg");
           mainheader.classList.remove("transparent-bg", "remove-box-shadow");
 
-          logoFunc = 'remove';
+          logoFunc = "remove";
           caGovToggle.classList.remove("hidden");
         }
       } else {
@@ -151,65 +181,85 @@ window.addEventListener("load", () => {
         if (direction === 2 && curScroll > scrollNum) {
           // Hide nav, logo, caGovToggle on scroll down
           caGovToggle.classList.add("hidden");
-          mainheader.classList.add("transparent-bg", "remove-box-shadow", "compacted");
+          mainheader.classList.add(
+            "transparent-bg",
+            "remove-box-shadow",
+            "compacted"
+          );
           sidebar.classList.add("sidebar-mobile");
 
-          logoFunc = 'add';
+          logoFunc = "add";
           prevDirection = direction;
           // scrolling up
         } else if (direction === 1 && curScroll < scrollNum) {
           if (window.innerWidth > 1080) {
+            // Desktop width
+            // Set hamburger menu icon to closed state
+            navToggle.ariaExpanded = "false";
             caGovToggle.classList.remove("hidden");
-            mainheader.classList.remove("transparent-bg", "remove-box-shadow", "compacted");
+            mainheader.classList.remove(
+              "transparent-bg",
+              "remove-box-shadow",
+              "compacted"
+            );
 
-            navFunc = 'remove';
+            navFunc = "remove";
           }
           sidebar.classList.remove("sidebar-mobile");
-          logoFunc = 'remove';
+          logoFunc = "remove";
           prevDirection = direction;
         }
-
-
       }
 
       // if logo exists
-      if( logo ){
-        logo.classList[logoFunc]('hidden')
+      if (logo) {
+        logo.classList[logoFunc]("hidden");
       }
 
       // if navigation exists
-      if( navigation ){
-        navigation.classList[navFunc]('hidden')
+      if (navigation) {
+        navigation.classList[navFunc]("hidden");
       }
     }
     prevScroll = curScroll;
+
+    if (direction === 1 && window.innerWidth > 1080) {
+      if (!mainheader.classList.contains("transparent-bg")) {
+        if (logo) {
+          logo.classList.remove("hidden");
+        }
+        if (navigation) {
+          navigation.classList.remove("hidden");
+        }
+      }
+    }
   });
 
   /* we also add the mobile class if screen is smaller than 1080px */
   window.addEventListener("resize", () => {
     // remove/add function
-    let searchFunc = 'remove';
+    let searchFunc = "remove";
 
     //  mobile only
     if (window.innerWidth < 1080) {
       mainheader.classList.add("mobile");
 
-      searchFunc = 'add';
+      searchFunc = "add";
 
-      if( navigation ){
+      if (navigation) {
         navigation.classList.add("navigation-mobile", "hidden");
       }
       // desktop only
     } else if (window.innerWidth > 1080) {
       mainheader.classList.remove("mobile");
 
-      searchFunc = 'remove';
+      searchFunc = "remove";
 
-      if( navSearch ){
+      if (navSearch) {
         headerNav.append(navSearch);
       }
-      
-      if( navigation ){
+
+      if (navigation) {
         navigation.classList.remove("navigation-mobile");
       }
 
@@ -219,21 +269,21 @@ window.addEventListener("load", () => {
 
       if (scrollNum < prevScroll) {
         mainheader.classList.remove("gray-bg");
-      } else if ( navigation ){
-       navigation.classList.remove('hidden')
+      } else if (navigation) {
+        navigation.classList.remove("hidden");
       }
     }
 
-    if( searchBox ){
-      searchBox.classList[searchFunc]('focus-search-box');
+    if (searchBox) {
+      searchBox.classList[searchFunc]("focus-search-box");
     }
   });
 
   if (navToggle) {
     navToggle.addEventListener("click", function () {
       // remove/add function
-      let logoFunc = 'remove';
-      let navFunc = 'remove';
+      let logoFunc = "remove";
+      let navFunc = "remove";
 
       // Hide cagov sidebar and show correct icon
       sidebar.style.display = "none";
@@ -247,31 +297,34 @@ window.addEventListener("load", () => {
         mainheader.classList.remove("transparent-bg", "remove-box-shadow");
         caGovToggle.classList.remove("hidden");
 
-        logoFunc = 'remove';
-        navFunc = 'remove';
+        logoFunc = "remove";
+        navFunc = "remove";
 
         // Mobile only
         if (window.innerWidth < 1080) {
-          if( navigation ){
+          document.body.style.overflow = "hidden";
+
+          if (navigation) {
             navigation.classList.add("navigation-mobile");
           }
-          if( searchBox ){
+          if (searchBox) {
             searchBox.classList.add("focus-search-box");
           }
 
-          if( navSearch ) {
+          if (navSearch) {
             headerNav.prepend(navSearch);
           }
         }
       } else {
-        navFunc = 'add';
+        document.body.style.overflow = "auto";
+        navFunc = "add";
 
         // Desktop Only
         if (window.innerWidth > 1080) {
           mainheader.classList.add("transparent-bg", "remove-box-shadow");
           caGovToggle.classList.add("hidden");
 
-          logoFunc = 'add';
+          logoFunc = "add";
         }
 
         // Mobile only
@@ -280,13 +333,13 @@ window.addEventListener("load", () => {
       }
 
       // if logo exists
-      if ( logo ){
-        logo.classList[logoFunc]('hidden')
+      if (logo) {
+        logo.classList[logoFunc]("hidden");
       }
 
       // if navigation exists
-      if( navigation ){
-        navigation.classList[navFunc]('hidden')
+      if (navigation) {
+        navigation.classList[navFunc]("hidden");
       }
     });
   }
@@ -337,20 +390,41 @@ window.addEventListener("load", () => {
 
   if (!sidebar || !sidebarToggle) return;
 
-  sidebarToggle.addEventListener("keydown", (e) => {
-      if(   13 === e.keyCode  ){
-        openMenu
-      }
+  sidebarToggle.addEventListener("keydown", e => {
+    if (13 === e.keyCode) {
+      toggleCaGovMenu;
+    }
 
-      if( 32 === e.keyCode ){
-        openMenu
-      }
+    if (32 === e.keyCode) {
+      toggleCaGovMenu;
+    }
   });
 
-  sidebarToggle.addEventListener("click", openMenu );
+  // Escape key event listener
+  document.addEventListener("keydown", e => {
+    if (sidebar.style.display === "block") {
+      if (e.key === "Escape") {
+        e.stopPropagation();
+        toggleCaGovMenu();
+      }
+    }
+  });
 
+  // Close menu on focusout (tabbing out) event
+  sidebar.addEventListener("focusout", e => {
+    const child = /** @type {Node} **/ (e.relatedTarget);
+    const parent = /** @type {Node} **/ (e.currentTarget);
 
-  function openMenu(){
+    if (!child || (child && !parent.contains(child))) {
+      toggleCaGovMenu();
+    }
+  });
+
+  sidebarToggle.addEventListener("click", toggleCaGovMenu);
+
+  function toggleCaGovMenu() {
+    document.body.style.overflow = "hidden";
+
     if (window.innerWidth < 1080) {
       // Hide ham-bear-ger menu and toggle icon back to closed on mobile size
       leftMobileButton.ariaExpanded = "false";
@@ -368,7 +442,11 @@ window.addEventListener("load", () => {
     }
 
     sidebar.style.display =
-    sidebar.style.display !== "block" ? "block" : "none";
+      sidebar.style.display !== "block" ? "block" : "none";
+
+    if (sidebar.style.display === "none") {
+      document.body.style.overflow = "auto";
+    }
   }
 
   moreServicesToggle.addEventListener("click", () => {

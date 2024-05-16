@@ -181,17 +181,21 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
   </div>
   <div id="ca_gov_sidebar">
     <p>Official website of the State of California</p>
-    <p>CA.gov</p>
+    <p><a href="https://www.ca.gov/">CA.gov</a></p>
     <p>Resources for California</p>
     <hr />
     <div class="ca-gov-services-container">
       <ul>
         <li>Key services</li>
         <li>
-          <a href="https://myvaccinerecord.cdph.ca.gov/"
-            >Digital vaccine record</a
+          <a href="https://www.coveredca.com/">Health insurance or Medi-Cal</a>
+        </li>
+        <li>
+          <a href="https://www.cdtfa.ca.gov/services/#Register-Renewals"
+            >Business licenses</a
           >
         </li>
+        <li><a href="https://benefitscal.com/">Food & social assistance</a></li>
         <li><a href="https://calcareers.ca.gov/">Find a CA state job</a></li>
         <li>
           <a
@@ -199,25 +203,25 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
             >Vehicle registration</a
           >
         </li>
-        <li>
-          <a href="https://www.cdtfa.ca.gov/services/#Register-Renewals"
-            >Business licenses</a
-          >
+
+        <li id="more_services_toggle" class="pointer-cursor">
+          <button>More +</button>
         </li>
-        <li>
-          <a href="https://www.coveredca.com/">Health insurance or Medi-Cal</a>
-        </li>
-        <li id="more_services_toggle" class="pointer-cursor"><button>More +</button></li>
       </ul>
     </div>
     <div id="more_services_container" class="ca-gov-services-container hidden">
       <ul>
         <li>
+          <a href="https://myvaccinerecord.cdph.ca.gov/"
+            >Digital vaccine record</a
+          >
+        </li>
+        <li>
           <a href="https://www.ca.gov/service/?item=traffic-tickets"
             >Traffic tickets</a
           >
         </li>
-        <li><a href="https://benefitscal.com/">Food & social assistance</a></li>
+
         <li>
           <a
             href="https://www.cdph.ca.gov/Programs/CHSI/Pages/Vital-Records-Obtaining-Certified-Copies-of-Birth-Records.aspx"
@@ -239,7 +243,9 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
             </a>
           </button>
         </li>
-        <li id="less_services_toggle" class="pointer-cursor"><button>Less -</button></li>
+        <li id="less_services_toggle" class="pointer-cursor">
+          <button>Less -</button>
+        </li>
       </ul>
     </div>
     <hr />
@@ -247,9 +253,12 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
       <ul>
         <li>Popular topics</li>
         <li><a href="https://abortion.ca.gov/">Abortion</a></li>
-        <li><a href="https://climateaction.ca.gov/">Climate Action</a></li>
         <li><a href="https://build.ca.gov/">Building California</a></li>
+        <li><a href="https://climateaction.ca.gov/">Climate Action</a></li>
         <li><a href="https://www.caloes.ca.gov/gunsafety/">Gun Safety</a></li>
+        <li>
+          <a href="https://mentalhealth.ca.gov/">Mental health care for all</a>
+        </li>
         <li>
           <a
             href="https://www.cdph.ca.gov/Programs/CCDPHP/opioids/Pages/landingpage.aspx"
