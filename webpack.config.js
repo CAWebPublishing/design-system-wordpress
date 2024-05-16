@@ -17,7 +17,7 @@ let entries = {
     '@cagovweb/go-site-header/dist/search.js',
     '@cagovweb/go-site-header/dist/ca-gov-toggle.js',
     '@cagovweb/go-site-footer/dist/style.css',
-    '@cagovweb/go-site-footer/images/gov-seal.svg',
+    '@cagovweb/go-site-footer/images/gov-seal.png',
     '@cagovweb/go-site-footer/images/share-facebook.svg',
     '@cagovweb/go-site-footer/images/share-instagram.svg',
     '@cagovweb/go-site-footer/images/share-tiktok.svg',

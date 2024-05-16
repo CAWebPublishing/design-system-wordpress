@@ -61,12 +61,47 @@ window.addEventListener("load", () => {
   const navToggle = document.querySelector("header .nav-toggle");
   const navigation = document.querySelector("header .navigation");
   const sidebar = document.getElementById("ca_gov_sidebar");
+  const caGovToggle = document.querySelector(".cagov");
+  const caGovLogo = document.getElementById("caGov");
+  const caGovSvg = document.querySelector(".cagov-animated");
+  const logo = document.querySelector(".logo");
+  const headerNav = navigation.querySelector("ul.navlinks");
+  const navSearch = navigation.querySelector("li.search");
+  const googleTranslate = navigation.querySelector("li.google-translate");
+  const searchBox = document.getElementById("search-box");
 
   if (!mainheader) return;
 
-  /* mobile header / hiding default header on scroll */
-  if (scrollNum < prevScroll) {
-    mainheader.classList.add("mobile");
+  /* compacted header / hiding default header on scroll */
+  if (scrollNum < prevScroll && window.innerWidth > 1080) {
+    mainheader.classList.add(
+      "compacted",
+      "transparent-bg",
+      "remove-box-shadow"
+    );
+    caGovToggle.classList.add("hidden");
+
+    if( logo ){
+      logo.classList.add("hidden");
+    }
+
+    if( navigation ){
+      navigation.classList.add("hidden");
+    }
+  }
+
+  // Set proper header and nav style on load
+  if (window.innerWidth < 1080) {
+    mainheader.classList.add("mobile", "gray-bg");
+    if( navigation ){
+      navigation.classList.add("hidden");
+    }
+  } else {
+    mainheader.classList.remove("mobile", "gray-bg");
+
+    if (scrollNum > prevScroll && navigation ) {
+      navigation.classList.remove("hidden");
+    }
   }
 
   window.addEventListener("scroll", () => {
@@ -76,6 +111,10 @@ window.addEventListener("load", () => {
      */
 
     curScroll = window.scrollY || doc.scrollTop;
+    // remove/add function
+    let logoFunc = 'add';
+    let navFunc = 'add';
+
     if (curScroll > prevScroll) {
       //scrolled up
       direction = 2;
@@ -85,65 +124,169 @@ window.addEventListener("load", () => {
     }
 
     if (direction !== prevDirection) {
-      navToggle.ariaExpanded = "false";
+      // Mobile Only
+      if (window.innerWidth < 1080) {
+        // scrolling down
+        if (direction === 2 && curScroll > scrollNum) {
+          mainheader.classList.remove("gray-bg");
+          mainheader.classList.add("transparent-bg", "remove-box-shadow");
+          if ("true" === navToggle.ariaExpanded) {
+          }
 
-      // Toggle Header
-      if (direction === 2 && curScroll > scrollNum) {
-        mainheader.classList.add("mobile");
-        navigation.style.display = "none";
-        mainheader.style.background = "transparent";
-        sidebar.classList.add("sidebar-mobile");
-        prevDirection = direction;
-      } else if (direction === 1 && curScroll < scrollNum) {
-        if (window.innerWidth > 992) {
-          mainheader.classList.remove("mobile");
-          navigation.style.display = "block";
-          mainheader.style.background = "var(--grey-background, #eee)";
+          logoFunc = 'add'
+          caGovToggle.classList.add("hidden");
+
+          // scrolling up
+        } else if (direction === 1 && curScroll < scrollNum) {
+          mainheader.classList.add("gray-bg");
+          mainheader.classList.remove("transparent-bg", "remove-box-shadow");
+
+          logoFunc = 'remove';
+          caGovToggle.classList.remove("hidden");
         }
-        sidebar.classList.remove("sidebar-mobile");
-        prevDirection = direction;
+      } else {
+        // Desktop Only
+        // Toggle Header
+        // scrolling down
+        if (direction === 2 && curScroll > scrollNum) {
+          // Hide nav, logo, caGovToggle on scroll down
+          caGovToggle.classList.add("hidden");
+          mainheader.classList.add("transparent-bg", "remove-box-shadow", "compacted");
+          sidebar.classList.add("sidebar-mobile");
+
+          logoFunc = 'add';
+          prevDirection = direction;
+          // scrolling up
+        } else if (direction === 1 && curScroll < scrollNum) {
+          if (window.innerWidth > 1080) {
+            caGovToggle.classList.remove("hidden");
+            mainheader.classList.remove("transparent-bg", "remove-box-shadow", "compacted");
+
+            navFunc = 'remove';
+          }
+          sidebar.classList.remove("sidebar-mobile");
+          logoFunc = 'remove';
+          prevDirection = direction;
+        }
+
+
+      }
+
+      // if logo exists
+      if( logo ){
+        logo.classList[logoFunc]('hidden')
+      }
+
+      // if navigation exists
+      if( navigation ){
+        navigation.classList[navFunc]('hidden')
       }
     }
     prevScroll = curScroll;
   });
 
-  // Set proper header and nav style on load
-  if (window.innerWidth < 992) {
-    mainheader.classList.add("mobile");
-    navigation.classList.add("navigation-mobile");
-  } else {
-    mainheader.classList.remove("mobile");
-    navigation.classList.remove("navigation-mobile");
-  }
-
-  /* we also add the mobile class if screen is smaller than 992px */
+  /* we also add the mobile class if screen is smaller than 1080px */
   window.addEventListener("resize", () => {
-    if (window.innerWidth < 992) {
+    // remove/add function
+    let searchFunc = 'remove';
+
+    //  mobile only
+    if (window.innerWidth < 1080) {
       mainheader.classList.add("mobile");
-      navigation.classList.add("navigation-mobile");
-    } else {
+
+      searchFunc = 'add';
+
+      if( navigation ){
+        navigation.classList.add("navigation-mobile", "hidden");
+      }
+      // desktop only
+    } else if (window.innerWidth > 1080) {
       mainheader.classList.remove("mobile");
-      navigation.classList.remove("navigation-mobile");
+
+      searchFunc = 'remove';
+
+      if( navSearch ){
+        headerNav.append(navSearch);
+      }
+      
+      if( navigation ){
+        navigation.classList.remove("navigation-mobile");
+      }
+
+      if (googleTranslate) {
+        headerNav.append(googleTranslate);
+      }
+
+      if (scrollNum < prevScroll) {
+        mainheader.classList.remove("gray-bg");
+      } else if ( navigation ){
+       navigation.classList.remove('hidden')
+      }
+    }
+
+    if( searchBox ){
+      searchBox.classList[searchFunc]('focus-search-box');
     }
   });
 
   if (navToggle) {
     navToggle.addEventListener("click", function () {
+      // remove/add function
+      let logoFunc = 'remove';
+      let navFunc = 'remove';
+
+      // Hide cagov sidebar and show correct icon
+      sidebar.style.display = "none";
+      caGovLogo.classList.remove("ca-gov-close-icon");
+      caGovLogo.classList.add("ca-gov-svg");
+      caGovSvg.style.display = "block";
+
       this.ariaExpanded = this.ariaExpanded !== "true";
 
       if ("true" === this.ariaExpanded) {
-        navigation.style.display = "block";
-        if (window.innerWidth > 992) {
-          mainheader.style.background = "var(--grey-background, #eee)";
-          mainheader.style.boxShadow =
-            "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
+        mainheader.classList.remove("transparent-bg", "remove-box-shadow");
+        caGovToggle.classList.remove("hidden");
+
+        logoFunc = 'remove';
+        navFunc = 'remove';
+
+        // Mobile only
+        if (window.innerWidth < 1080) {
+          if( navigation ){
+            navigation.classList.add("navigation-mobile");
+          }
+          if( searchBox ){
+            searchBox.classList.add("focus-search-box");
+          }
+
+          if( navSearch ) {
+            headerNav.prepend(navSearch);
+          }
         }
       } else {
-        navigation.style.display = "none";
-        if (window.innerWidth > 992) {
-          mainheader.style.background = "transparent";
-          mainheader.style.boxShadow = "none";
+        navFunc = 'add';
+
+        // Desktop Only
+        if (window.innerWidth > 1080) {
+          mainheader.classList.add("transparent-bg", "remove-box-shadow");
+          caGovToggle.classList.add("hidden");
+
+          logoFunc = 'add';
         }
+
+        // Mobile only
+        if (window.innerWidth < 1080) {
+        }
+      }
+
+      // if logo exists
+      if ( logo ){
+        logo.classList[logoFunc]('hidden')
+      }
+
+      // if navigation exists
+      if( navigation ){
+        navigation.classList[navFunc]('hidden')
       }
     });
   }
@@ -156,15 +299,24 @@ window.addEventListener("load", () => {
 
 __webpack_require__.r(__webpack_exports__);
 window.addEventListener("load", () => {
-    const searchSVG = document.querySelector("header .search-svg");
-    const searchInput = document.querySelector("header #search-box")
+  const searchSVG = document.querySelector("header .search-svg");
+  const searchInput = document.querySelector("header #search-box");
 
-    if (!searchInput) return;
+  if (!searchInput) return;
 
-    searchSVG.addEventListener('click', () => {
-      searchInput.classList.toggle('focus-search-box');
-    })
+  searchSVG.addEventListener("click", () => {
+    searchInput.classList.toggle("focus-search-box");
   });
+
+  searchInput.addEventListener("focus", () => {
+    searchInput.classList.add("focus-search-box");
+  });
+
+  searchInput.addEventListener("focusout", () => {
+    searchInput.classList.remove("focus-search-box");
+  });
+});
+
 
 /***/ }),
 /* 10 */
@@ -174,19 +326,63 @@ __webpack_require__.r(__webpack_exports__);
 window.addEventListener("load", () => {
   const sidebarToggle = document.querySelector("header #caGov");
   const sidebar = document.getElementById("ca_gov_sidebar");
+  const moreServicesToggle = document.getElementById("more_services_toggle");
+  const lessServicesToggle = document.getElementById("less_services_toggle");
+  const moreServicesContainer = document.getElementById(
+    "more_services_container"
+  );
+  const animatedCaGovIcon = document.querySelector("svg.cagov-animated");
+  const leftMobileButton = document.querySelector(".nav-toggle");
+  const navigationMobile = document.querySelector(".navigation");
 
   if (!sidebar || !sidebarToggle) return;
 
-  sidebarToggle.addEventListener("click", () => {
+  sidebarToggle.addEventListener("keydown", (e) => {
+      if(   13 === e.keyCode  ){
+        openMenu
+      }
+
+      if( 32 === e.keyCode ){
+        openMenu
+      }
+  });
+
+  sidebarToggle.addEventListener("click", openMenu );
+
+
+  function openMenu(){
+    if (window.innerWidth < 1080) {
+      // Hide ham-bear-ger menu and toggle icon back to closed on mobile size
+      leftMobileButton.ariaExpanded = "false";
+      navigationMobile.classList.add("hidden");
+    }
+
     if (sidebarToggle.classList.contains("ca-gov-svg")) {
       sidebarToggle.classList.add("ca-gov-close-icon");
       sidebarToggle.classList.remove("ca-gov-svg");
+      animatedCaGovIcon.style.display = "none";
     } else {
       sidebarToggle.classList.remove("ca-gov-close-icon");
       sidebarToggle.classList.add("ca-gov-svg");
+      animatedCaGovIcon.style.display = "block";
     }
+
     sidebar.style.display =
-      sidebar.style.display !== "block" ? "block" : "none";
+    sidebar.style.display !== "block" ? "block" : "none";
+  }
+
+  moreServicesToggle.addEventListener("click", () => {
+    if (moreServicesContainer.classList.contains("hidden")) {
+      moreServicesContainer.classList.remove("hidden");
+      moreServicesToggle.classList.add("hidden");
+    } else {
+      moreServicesContainer.classList.add("hidden");
+    }
+  });
+
+  lessServicesToggle.addEventListener("click", () => {
+    moreServicesContainer.classList.add("hidden");
+    moreServicesToggle.classList.remove("hidden");
   });
 });
 
@@ -203,7 +399,7 @@ __webpack_require__.r(__webpack_exports__);
 /* 12 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
+module.exports = __webpack_require__.p + "images/gov-seal.png";
 
 /***/ }),
 /* 13 */
