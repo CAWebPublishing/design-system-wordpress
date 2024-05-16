@@ -23,6 +23,7 @@ _wp_menu_item_classes_by_context( $cagov_design_system_menu_items );
 
 /* Search */
 $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
+$cagov_design_system_keyword      = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
 
 /* Translate */
 $cagov_design_system_google_trans_enabled = get_option( 'ca_google_trans_enabled', false );
@@ -62,8 +63,8 @@ $cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' 
 		?>
 		<li class="search">
 			<!-- Search -->
-			<form class="search-container" action="<?php print esc_url( site_url( 'serp' ) ); ?>" id="search-form" autocomplete="off">
-				<input id="search-box" type="text" class="search-box" name="q">
+			<form class="search-container"  id="search-form" autocomplete="off" action="<?php print esc_url( site_url( 'serp' ) ); ?>">
+				<input id="search-box" type="text" class="search-box" name="q" value="<?php print esc_attr( $cagov_design_system_keyword ); ?>">
 				<label for="search-box" class="search-svg">
 					<span class="sr-only">Search</span>
 				</label>

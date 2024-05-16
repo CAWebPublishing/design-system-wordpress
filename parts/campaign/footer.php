@@ -27,7 +27,7 @@ $mode = get_option('cagov_design_system_mode', 'default');
 <footer role="contentinfo">
   <section class="footer-primary">
   <div>
-      <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>/build/fonts/gov-seal.svg" alt="Governor's Seal" />
+      <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>build/images/gov-seal.png" alt="Governor's Seal" />
   </div>
   <?php
 	if ( has_nav_menu( 'footer-menu-utility' ) ) :
@@ -68,7 +68,7 @@ $mode = get_option('cagov_design_system_mode', 'default');
   </section>
   <section id="publishing" aria-desctiption="website publishing information">
       <?php if ( $cagov_design_system_is_caweb_plugin_active ) : ?>
-        <a href="https://caweb.cdt.ca.gov" title="CAWeb Publishing Service" target="_blank">Powered by: CAWeb Publishing Service</a>
+        <p>Powered by: CAWeb Publishing Service</p>
       <?php endif; ?>
       <p>&#169; Copyright <script>document.write(new Date().getFullYear())</script></p>
   </section>
