@@ -16,10 +16,10 @@
         "start": "wp-scripts start"
     },
     "dependencies": {
-        "@cagovweb/go-site-card": "^0.0.1-beta2",
-        "@wordpress/icons": "^9.45.0"
+        "@cagovweb/go-site-card": "^0.0.6",
+        "@wordpress/icons": "^9.49.0"
     },
     "devDependencies": {
-        "@wordpress/scripts": "^27.6.0"
+        "@wordpress/scripts": "^27.9.0"
     }
 }
