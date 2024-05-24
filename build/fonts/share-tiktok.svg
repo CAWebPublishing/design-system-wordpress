@@ -1,5 +1,18 @@
-<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="share-email">
-<path id="Exclude" fill-rule="evenodd" clip-rule="evenodd" d="M7 2.99988C4.79086 2.99988 3 4.79074 3 6.99988V27.9999C3 30.209 4.79086 31.9999 7 31.9999H28C30.2091 31.9999 32 30.209 32 27.9999V6.99988C32 4.79074 30.2091 2.99988 28 2.99988H7ZM22.4444 21.8499V13.8698C23.9662 15.0775 25.8979 15.7999 28 15.7999V12.4999C24.9318 12.4999 22.4444 10.0374 22.4444 6.99988H19.1111V21.8499C19.1111 23.9762 17.37 25.6999 15.2222 25.6999C13.0744 25.6999 11.3333 23.9762 11.3333 21.8499C11.3333 19.7236 13.0744 17.9999 15.2222 17.9999C15.8187 17.9999 16.3838 18.1328 16.8889 18.3704V14.8912C16.3539 14.7661 15.7959 14.6999 15.2222 14.6999C11.2335 14.6999 8 17.901 8 21.8499C8 25.7988 11.2335 28.9999 15.2222 28.9999C19.211 28.9999 22.4444 25.7988 22.4444 21.8499Z" fill="#DBDBDB"/>
-</g>
-</svg>
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+import * as React from "react";
+var SvgShareTiktok = function SvgShareTiktok(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 35,
+    height: 35,
+    fill: "none"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#DBDBDB",
+    fillRule: "evenodd",
+    d: "M7 3a4 4 0 0 0-4 4v21a4 4 0 0 0 4 4h21a4 4 0 0 0 4-4V7a4 4 0 0 0-4-4zm15.444 18.85v-7.98A8.9 8.9 0 0 0 28 15.8v-3.3c-3.068 0-5.556-2.463-5.556-5.5h-3.333v14.85c0 2.126-1.741 3.85-3.889 3.85s-3.889-1.724-3.889-3.85S13.074 18 15.223 18c.596 0 1.16.133 1.666.37v-3.479a7.3 7.3 0 0 0-1.667-.191C11.234 14.7 8 17.9 8 21.85S11.233 29 15.222 29s7.222-3.201 7.222-7.15",
+    clipRule: "evenodd"
+  })));
+};
+export { SvgShareTiktok as ReactComponent };
+export default "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAzNSAzNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGcgaWQ9InNoYXJlLWVtYWlsIj4KPHBhdGggaWQ9IkV4Y2x1ZGUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNyAyLjk5OTg4QzQuNzkwODYgMi45OTk4OCAzIDQuNzkwNzQgMyA2Ljk5OTg4VjI3Ljk5OTlDMyAzMC4yMDkgNC43OTA4NiAzMS45OTk5IDcgMzEuOTk5OUgyOEMzMC4yMDkxIDMxLjk5OTkgMzIgMzAuMjA5IDMyIDI3Ljk5OTlWNi45OTk4OEMzMiA0Ljc5MDc0IDMwLjIwOTEgMi45OTk4OCAyOCAyLjk5OTg4SDdaTTIyLjQ0NDQgMjEuODQ5OVYxMy44Njk4QzIzLjk2NjIgMTUuMDc3NSAyNS44OTc5IDE1Ljc5OTkgMjggMTUuNzk5OVYxMi40OTk5QzI0LjkzMTggMTIuNDk5OSAyMi40NDQ0IDEwLjAzNzQgMjIuNDQ0NCA2Ljk5OTg4SDE5LjExMTFWMjEuODQ5OUMxOS4xMTExIDIzLjk3NjIgMTcuMzcgMjUuNjk5OSAxNS4yMjIyIDI1LjY5OTlDMTMuMDc0NCAyNS42OTk5IDExLjMzMzMgMjMuOTc2MiAxMS4zMzMzIDIxLjg0OTlDMTEuMzMzMyAxOS43MjM2IDEzLjA3NDQgMTcuOTk5OSAxNS4yMjIyIDE3Ljk5OTlDMTUuODE4NyAxNy45OTk5IDE2LjM4MzggMTguMTMyOCAxNi44ODg5IDE4LjM3MDRWMTQuODkxMkMxNi4zNTM5IDE0Ljc2NjEgMTUuNzk1OSAxNC42OTk5IDE1LjIyMjIgMTQuNjk5OUMxMS4yMzM1IDE0LjY5OTkgOCAxNy45MDEgOCAyMS44NDk5QzggMjUuNzk4OCAxMS4yMzM1IDI4Ljk5OTkgMTUuMjIyMiAyOC45OTk5QzE5LjIxMSAyOC45OTk5IDIyLjQ0NDQgMjUuNzk4OCAyMi40NDQ0IDIxLjg0OTlaIiBmaWxsPSIjREJEQkRCIi8+CjwvZz4KPC9zdmc+Cg==";

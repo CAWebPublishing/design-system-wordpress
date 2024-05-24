@@ -64,8 +64,8 @@ $cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' 
 		<li class="search">
 			<!-- Search -->
 			<form class="search-container"  id="search-form" autocomplete="off" action="<?php print esc_url( site_url( 'serp' ) ); ?>">
-				<input id="search-box" type="text" class="search-box" name="q" value="<?php print esc_attr( $cagov_design_system_keyword ); ?>">
-				<label for="search-box" class="search-svg">
+				<input id="search-box" type="text" class="search-box search-svg" name="q" value="<?php print esc_attr( $cagov_design_system_keyword ); ?>">
+				<label for="search-box">
 					<span class="sr-only">Search</span>
 				</label>
 				<input type="submit" id="search-submit">
