@@ -1,3 +1,18 @@
-<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M6.35271 3.51855H28.7308C30.5829 3.51855 32.085 4.98856 32.085 6.80418V28.7142C32.085 30.5283 30.5829 31.9998 28.7308 31.9998H6.35271C4.49917 31.9998 3 30.5283 3 28.7142V6.80418C3 4.98856 4.49917 3.51855 6.35271 3.51855ZM15.1591 19.031L7.0512 7.99981H13.3001L18.6155 15.2317L25.1941 7.99981H27.0303L19.436 16.3481L28 27.9998H21.7511L15.9795 20.1475L8.83628 27.9998H7L15.1591 19.031ZM12.6224 9.37614H9.75158L22.4284 26.6233H25.2992L12.6224 9.37614Z" fill="#DBDBDB"/>
-</svg>
+var _path;
+function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+import * as React from "react";
+var SvgShareTwitterX = function SvgShareTwitterX(props) {
+  return /*#__PURE__*/React.createElement("svg", _extends({
+    xmlns: "http://www.w3.org/2000/svg",
+    width: 35,
+    height: 35,
+    fill: "none"
+  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
+    fill: "#DBDBDB",
+    fillRule: "evenodd",
+    d: "M6.353 3.519H28.73c1.852 0 3.354 1.47 3.354 3.285v21.91c0 1.814-1.502 3.286-3.354 3.286H6.353C4.499 32 3 30.528 3 28.714V6.804C3 4.99 4.5 3.52 6.353 3.52m8.806 15.512L7.051 8h6.25l5.315 7.232L25.194 8h1.836l-7.594 8.348L28 28h-6.249l-5.772-7.852L8.837 28H7zm-2.537-9.655h-2.87l12.676 17.247H25.3z",
+    clipRule: "evenodd"
+  })));
+};
+export { SvgShareTwitterX as ReactComponent };
+export default "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAzNSAzNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNi4zNTI3MSAzLjUxODU1SDI4LjczMDhDMzAuNTgyOSAzLjUxODU1IDMyLjA4NSA0Ljk4ODU2IDMyLjA4NSA2LjgwNDE4VjI4LjcxNDJDMzIuMDg1IDMwLjUyODMgMzAuNTgyOSAzMS45OTk4IDI4LjczMDggMzEuOTk5OEg2LjM1MjcxQzQuNDk5MTcgMzEuOTk5OCAzIDMwLjUyODMgMyAyOC43MTQyVjYuODA0MThDMyA0Ljk4ODU2IDQuNDk5MTcgMy41MTg1NSA2LjM1MjcxIDMuNTE4NTVaTTE1LjE1OTEgMTkuMDMxTDcuMDUxMiA3Ljk5OTgxSDEzLjMwMDFMMTguNjE1NSAxNS4yMzE3TDI1LjE5NDEgNy45OTk4MUgyNy4wMzAzTDE5LjQzNiAxNi4zNDgxTDI4IDI3Ljk5OThIMjEuNzUxMUwxNS45Nzk1IDIwLjE0NzVMOC44MzYyOCAyNy45OTk4SDdMMTUuMTU5MSAxOS4wMzFaTTEyLjYyMjQgOS4zNzYxNEg5Ljc1MTU4TDIyLjQyODQgMjYuNjIzM0gyNS4yOTkyTDEyLjYyMjQgOS4zNzYxNFoiIGZpbGw9IiNEQkRCREIiLz4NCjwvc3ZnPg0K";
