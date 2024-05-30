@@ -20,21 +20,6 @@ let entries = {
     '@cagovweb/go-site-footer/build/fonts/share-tiktok.svg',
     '@cagovweb/go-site-footer/build/fonts/share-twitter-X.svg',
     '@cagovweb/go-site-footer/build/fonts/share-youtube.svg'
-    /*'@cagovweb/go-site-base-css/dist/variables.scss',
-    '@cagovweb/go-site-base-css/dist/typography.scss',
-    '@cagovweb/go-site-base-css/dist/fonts.scss',
-    '@cagovweb/go-site-base-css/dist/page.scss',
-    '@cagovweb/go-site-header/dist/style.scss',
-    '@cagovweb/go-site-header/dist/mobile.js',
-    '@cagovweb/go-site-header/dist/search.js',
-    '@cagovweb/go-site-header/dist/ca-gov-toggle.js',
-    '@cagovweb/go-site-footer/dist/style.scss',
-    '@cagovweb/go-site-footer/images/gov-seal.png',
-    '@cagovweb/go-site-footer/images/share-facebook.svg',
-    '@cagovweb/go-site-footer/images/share-instagram.svg',
-    '@cagovweb/go-site-footer/images/share-tiktok.svg',
-    '@cagovweb/go-site-footer/images/share-twitter-X.svg',
-    '@cagovweb/go-site-footer/images/share-youtube.svg'*/
   ]
 };
 

@@ -605,7 +605,7 @@ header.mobile .navigation-mobile nav ul li.search {
 }
 header.mobile .navigation-mobile nav ul li.google-translate {
   margin-block-start: 5rem;
-  /* position: absolute; */
+  margin-block-end: 5rem;
 }
 header.mobile .navigation-mobile nav ul li.google-translate a {
   font-size: 1rem;

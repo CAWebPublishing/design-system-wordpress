@@ -128,29 +128,24 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_189__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_184__) => {
 
-__nested_webpack_require_189__.r(__nested_webpack_exports__);
+__nested_webpack_require_184__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const sidebarToggle = document.querySelector("header #caGov");
   const caGovMenu = document.getElementById("ca_gov_sidebar");
   const sidebar = document.querySelector(".sidebar-container");
   const moreServicesToggle = document.getElementById("more_services_toggle");
   const lessServicesToggle = document.getElementById("less_services_toggle");
-  const moreServicesContainer = document.getElementById(
-    "more_services_container"
-  );
+  const moreServicesContainer = document.getElementById("more_services_container");
   const animatedCaGovIcon = document.querySelector("svg.cagov-animated");
   const leftMobileButton = document.querySelector(".nav-toggle");
   const navigationMobile = document.querySelector(".navigation");
-
   if (!sidebar || !sidebarToggle) return;
-
   sidebarToggle.addEventListener("keydown", e => {
     if (13 === e.keyCode) {
       toggleCaGovMenu;
     }
-
     if (32 === e.keyCode) {
       toggleCaGovMenu;
     }
@@ -168,9 +163,8 @@ window.addEventListener("load", () => {
 
   // Close menu on focusout (tabbing out) event
   caGovMenu.addEventListener("focusout", e => {
-    const child = /** @type {Node} **/ (e.relatedTarget);
-    const parent = /** @type {Node} **/ (e.currentTarget);
-
+    const child = /** @type {Node} **/e.relatedTarget;
+    const parent = /** @type {Node} **/e.currentTarget;
     if (child && !parent.contains(child)) {
       closeCaGovMenu();
     }
@@ -185,7 +179,6 @@ window.addEventListener("load", () => {
       closeCaGovMenu();
     }
   });
-
   const closeCaGovMenu = () => {
     sidebarToggle.classList.add("ca-gov-svg");
     sidebarToggle.classList.remove("ca-gov-close-icon");
@@ -197,13 +190,11 @@ window.addEventListener("load", () => {
   // Toggle CAGov menu display
   function toggleCaGovMenu() {
     document.body.style.overflow = "hidden";
-
     if (window.innerWidth < 1080) {
       // Hide ham-bear-ger menu and toggle icon back to closed on mobile size
       leftMobileButton.ariaExpanded = "false";
       navigationMobile.classList.add("hidden");
     }
-
     if (sidebarToggle.classList.contains("ca-gov-svg")) {
       sidebarToggle.classList.add("ca-gov-close-icon");
       sidebarToggle.classList.remove("ca-gov-svg");
@@ -213,15 +204,11 @@ window.addEventListener("load", () => {
       sidebarToggle.classList.add("ca-gov-svg");
       animatedCaGovIcon.style.display = "block";
     }
-
-    sidebar.style.display =
-      sidebar.style.display !== "block" ? "block" : "none";
-
+    sidebar.style.display = sidebar.style.display !== "block" ? "block" : "none";
     if (sidebar.style.display === "none") {
       document.body.style.overflow = "auto";
     }
   }
-
   moreServicesToggle.addEventListener("click", () => {
     if (moreServicesContainer.classList.contains("hidden")) {
       moreServicesContainer.classList.remove("hidden");
@@ -230,28 +217,24 @@ window.addEventListener("load", () => {
       moreServicesContainer.classList.add("hidden");
     }
   });
-
   lessServicesToggle.addEventListener("click", () => {
     moreServicesContainer.classList.add("hidden");
     moreServicesToggle.classList.remove("hidden");
   });
 });
 
-
 /***/ }),
 /* 2 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3841__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3692__) => {
 
-__nested_webpack_require_3841__.r(__nested_webpack_exports__);
+__nested_webpack_require_3692__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const doc = document.documentElement;
-
   let prevScroll = window.scrollY || doc.scrollTop;
   let curScroll;
   let direction = 0;
   let prevDirection = 0;
   const scrollNum = 40;
-
   const mainheader = document.querySelector("header");
   const navToggle = document.querySelector("header .nav-toggle");
   const navigation = document.querySelector("header .navigation");
@@ -264,15 +247,11 @@ window.addEventListener("load", () => {
   const navSearch = navigation.querySelector("li.search");
   const googleTranslate = navigation.querySelector("li.google-translate");
   const searchBox = document.getElementById("search-box");
-
   if (!mainheader) return;
 
   // Escape key event listener
   document.addEventListener("keydown", e => {
-    if (
-      navigation.classList.contains("navigation-mobile") &&
-      !navigation.classList.contains("hidden")
-    ) {
+    if (navigation.classList.contains("navigation-mobile") && !navigation.classList.contains("hidden")) {
       if (e.key === "Escape") {
         e.stopPropagation();
         document.body.style.overflow = "auto";
@@ -281,59 +260,43 @@ window.addEventListener("load", () => {
       }
 
       // only if navToggle is focused and nav is open and tab key is pressed and shift is not pressed
-      if ( document.activeElement === navToggle && 
-          "true" === navToggle.ariaExpanded && 
-          e.key === "Tab" &&
-          e.shiftKey !== true
-        ) {
-          
-          setTimeout(function(){ 
-            // focus on the first element in the navigation
-            navigation.querySelectorAll("input,a")[0].focus();
-           }, 0)
+      if (document.activeElement === navToggle && "true" === navToggle.ariaExpanded && e.key === "Tab" && e.shiftKey !== true) {
+        setTimeout(function () {
+          // focus on the first element in the navigation
+          navigation.querySelectorAll("input,a")[0].focus();
+        }, 0);
       }
     }
   });
 
   // Close menu on focusout (tabbing out) event
   headerNav.addEventListener("focusout", e => {
-    if (
-      navigation.classList.contains("navigation-mobile") &&
-      !navigation.classList.contains("hidden")
-    ) {
-      const child = /** @type {Node} **/ (e.relatedTarget);
-      const parent = /** @type {Node} **/ (e.currentTarget);
-
-      if (child && !parent.contains(child) && "INPUT" !== child.nodeName ) {
+    if (navigation.classList.contains("navigation-mobile") && !navigation.classList.contains("hidden")) {
+      const child = /** @type {Node} **/e.relatedTarget;
+      const parent = /** @type {Node} **/e.currentTarget;
+      if (child && !parent.contains(child) && "INPUT" !== child.nodeName) {
         // if tabbing out of the navigation and into the logo
-        if( "a" === child.localName ){
+        if ("a" === child.localName) {
           navToggle.focus();
         }
 
         // if tabbing out of the navigation and into the cagov sidebar
-        if( "button" === child.localName ){
+        if ("button" === child.localName) {
           document.body.style.overflow = "auto";
           navigation.classList.add("hidden");
           navToggle.ariaExpanded = "false";
         }
-          
       }
     }
   });
 
   /* compacted header / hiding default header on scroll */
   if (scrollNum < prevScroll && window.innerWidth > 1080) {
-    mainheader.classList.add(
-      "compacted",
-      "transparent-bg",
-      "remove-box-shadow"
-    );
+    mainheader.classList.add("compacted", "transparent-bg", "remove-box-shadow");
     caGovToggle.classList.add("hidden");
-
     if (logo) {
       logo.classList.add("hidden");
     }
-
     if (navigation) {
       navigation.classList.add("hidden");
     }
@@ -347,12 +310,10 @@ window.addEventListener("load", () => {
     }
   } else {
     mainheader.classList.remove("mobile", "gray-bg");
-
     if (scrollNum > prevScroll && navigation) {
       navigation.classList.remove("hidden");
     }
   }
-
   window.addEventListener("scroll", () => {
     /*
      ** Find the direction of scroll
@@ -363,7 +324,6 @@ window.addEventListener("load", () => {
     // remove/add function
     let logoFunc = "add";
     let navFunc = "add";
-
     if (curScroll > prevScroll) {
       //scrolled up
       direction = 2;
@@ -371,7 +331,6 @@ window.addEventListener("load", () => {
       //scrolled down
       direction = 1;
     }
-
     if (direction !== prevDirection) {
       // Mobile Only
       if (window.innerWidth < 1080) {
@@ -379,7 +338,6 @@ window.addEventListener("load", () => {
         if (direction === 2 && curScroll > scrollNum) {
           mainheader.classList.remove("gray-bg");
           mainheader.classList.add("transparent-bg", "remove-box-shadow");
-
           logoFunc = "add";
           caGovToggle.classList.add("hidden");
 
@@ -387,7 +345,6 @@ window.addEventListener("load", () => {
         } else if (direction === 1 && curScroll < scrollNum) {
           mainheader.classList.add("gray-bg");
           mainheader.classList.remove("transparent-bg", "remove-box-shadow");
-
           logoFunc = "remove";
           caGovToggle.classList.remove("hidden");
         }
@@ -398,14 +355,8 @@ window.addEventListener("load", () => {
         if (direction === 2 && curScroll > scrollNum) {
           // Hide nav, logo, caGovToggle on scroll down
           caGovToggle.classList.add("hidden");
-          mainheader.classList.add(
-            "transparent-bg",
-            "remove-box-shadow",
-            "compacted"
-          );
-
+          mainheader.classList.add("transparent-bg", "remove-box-shadow", "compacted");
           sidebar.classList.add("sidebar-mobile");
-
           logoFunc = "add";
           prevDirection = direction;
           // scrolling up
@@ -415,12 +366,7 @@ window.addEventListener("load", () => {
             // Set hamburger menu icon to closed state
             navToggle.ariaExpanded = "false";
             caGovToggle.classList.remove("hidden");
-            mainheader.classList.remove(
-              "transparent-bg",
-              "remove-box-shadow",
-              "compacted"
-            );
-
+            mainheader.classList.remove("transparent-bg", "remove-box-shadow", "compacted");
             navFunc = "remove";
           }
           sidebar.classList.remove("sidebar-mobile");
@@ -440,7 +386,6 @@ window.addEventListener("load", () => {
       }
     }
     prevScroll = curScroll;
-
     if (direction === 1 && window.innerWidth > 1080) {
       if (!mainheader.classList.contains("transparent-bg")) {
         if (logo) {
@@ -463,7 +408,6 @@ window.addEventListener("load", () => {
       }
     } else {
       mainheader.classList.remove("mobile", "gray-bg");
-
       if (scrollNum > prevScroll && navigation) {
         navigation.classList.remove("hidden");
       }
@@ -475,18 +419,14 @@ window.addEventListener("load", () => {
     //  mobile only
     if (window.innerWidth < 1080) {
       mainheader.classList.add("mobile");
-
       searchFunc = "add";
-
       if (navigation) {
         // navigation.classList.add("navigation-mobile", "hidden");
         navigation.classList.add("navigation-mobile");
       }
-
       if (searchBox) {
         searchBox.classList.add("focus-search-box");
       }
-
       if (navSearch) {
         headerNav.prepend(navSearch);
       }
@@ -494,33 +434,26 @@ window.addEventListener("load", () => {
       // desktop only
     } else if (window.innerWidth > 1080) {
       mainheader.classList.remove("mobile");
-
       searchFunc = "remove";
-
       if (navSearch) {
         headerNav.append(navSearch);
       }
-
       if (navigation) {
         navigation.classList.remove("navigation-mobile");
       }
-
       if (googleTranslate) {
         headerNav.append(googleTranslate);
       }
-
       if (scrollNum < prevScroll) {
         mainheader.classList.remove("gray-bg");
       } else if (navigation) {
         navigation.classList.remove("hidden");
       }
     }
-
     if (searchBox) {
       searchBox.classList[searchFunc]("focus-search-box");
     }
   });
-
   if (navToggle) {
     navToggle.addEventListener("click", function () {
       // remove/add function
@@ -532,27 +465,22 @@ window.addEventListener("load", () => {
       caGovLogo.classList.remove("ca-gov-close-icon");
       caGovLogo.classList.add("ca-gov-svg");
       caGovSvg.style.display = "block";
-
       this.ariaExpanded = this.ariaExpanded !== "true";
-
       if ("true" === this.ariaExpanded) {
         mainheader.classList.remove("transparent-bg", "remove-box-shadow");
         caGovToggle.classList.remove("hidden");
-
         logoFunc = "remove";
         navFunc = "remove";
 
         // Mobile only
         if (window.innerWidth < 1080) {
           document.body.style.overflow = "hidden";
-
           if (navigation) {
             navigation.classList.add("navigation-mobile");
           }
           if (searchBox) {
             searchBox.classList.add("focus-search-box");
           }
-
           if (navSearch) {
             headerNav.prepend(navSearch);
           }
@@ -565,18 +493,15 @@ window.addEventListener("load", () => {
         if (window.innerWidth > 1080) {
           mainheader.classList.add("transparent-bg", "remove-box-shadow");
           caGovToggle.classList.add("hidden");
-
           logoFunc = "add";
         }
 
         // Mobile only & at top of screen
         if (window.innerWidth < 1080 && curScroll > scrollNum) {
           logoFunc = "add";
-
           mainheader.classList.remove("gray-bg");
           mainheader.classList.add("transparent-bg", "remove-box-shadow");
           caGovToggle.classList.add("hidden");
-
           if (logo) {
             logo.classList[logoFunc]("hidden");
           }
@@ -596,28 +521,27 @@ window.addEventListener("load", () => {
   }
 });
 
-
 /***/ }),
 /* 3 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_14327__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_13543__) => {
 
-__nested_webpack_require_14327__.r(__nested_webpack_exports__);
+__nested_webpack_require_13543__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const searchSVG = document.querySelector("header .search-svg");
   const searchInput = document.querySelector("header #search-box");
-
   if (!searchInput) return;
-
   searchSVG.addEventListener("click", () => {
     if (window.innerWidth > 1080) {
-      searchInput.classList.toggle("focus-search-box");
+      if (!searchInput.classList.contains("focus-search-box")) {
+        searchInput.classList.add("focus-search-box");
+      }
     }
   });
-
   searchInput.addEventListener("focus", () => {
-    searchInput.classList.add("focus-search-box");
+    if (window.innerWidth > 1080) {
+      searchInput.classList.add("focus-search-box");
+    }
   });
-
   searchInput.addEventListener("focusout", () => {
     if (window.innerWidth > 1080) {
       searchInput.classList.remove("focus-search-box");
@@ -625,20 +549,19 @@ window.addEventListener("load", () => {
   });
 });
 
-
 /***/ }),
 /* 4 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_15121__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_14419__) => {
 
-__nested_webpack_require_15121__.r(__nested_webpack_exports__);
+__nested_webpack_require_14419__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
 /***/ }),
 /* 5 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_15302__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_14592__) => {
 
-module.exports = __nested_webpack_require_15302__.p + "fonts/gov-branding.svg";
+module.exports = __nested_webpack_require_14592__.p + "fonts/gov-branding.svg";
 
 /***/ })
 /******/ 	]);
@@ -647,7 +570,7 @@ module.exports = __nested_webpack_require_15302__.p + "fonts/gov-branding.svg";
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_15636__(moduleId) {
+/******/ 	function __nested_webpack_require_14915__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -661,7 +584,7 @@ module.exports = __nested_webpack_require_15302__.p + "fonts/gov-branding.svg";
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_15636__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14915__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -671,7 +594,7 @@ module.exports = __nested_webpack_require_15302__.p + "fonts/gov-branding.svg";
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_15636__.r = (exports) => {
+/******/ 		__nested_webpack_require_14915__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -681,19 +604,19 @@ module.exports = __nested_webpack_require_15302__.p + "fonts/gov-branding.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_15636__.p = "./";
+/******/ 		__nested_webpack_require_14915__.p = "./";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-__nested_webpack_require_15636__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_15636__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_15636__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_15636__(3);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_15636__(4);
-/* harmony import */ var _images_gov_branding_svg__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_15636__(5);
+__nested_webpack_require_14915__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14915__(1);
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14915__(2);
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_14915__(3);
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_14915__(4);
+/* harmony import */ var _images_gov_branding_svg__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_14915__(5);
 // Scripts
 
 
@@ -703,7 +626,6 @@ __nested_webpack_require_15636__.r(__nested_webpack_exports__);
 
 
 // Assets
-
 
 })();
 
