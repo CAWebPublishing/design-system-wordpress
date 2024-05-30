@@ -128,9 +128,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	var __webpack_modules__ = ([
 /* 0 */,
 /* 1 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_184__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_189__) => {
 
-__nested_webpack_require_184__.r(__nested_webpack_exports__);
+__nested_webpack_require_189__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const sidebarToggle = document.querySelector("header #caGov");
   const caGovMenu = document.getElementById("ca_gov_sidebar");
@@ -240,9 +240,9 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 2 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3829__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3841__) => {
 
-__nested_webpack_require_3829__.r(__nested_webpack_exports__);
+__nested_webpack_require_3841__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const doc = document.documentElement;
 
@@ -599,9 +599,9 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 3 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_14308__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_14327__) => {
 
-__nested_webpack_require_14308__.r(__nested_webpack_exports__);
+__nested_webpack_require_14327__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const searchSVG = document.querySelector("header .search-svg");
   const searchInput = document.querySelector("header #search-box");
@@ -628,17 +628,17 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 4 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_15095__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_15121__) => {
 
-__nested_webpack_require_15095__.r(__nested_webpack_exports__);
+__nested_webpack_require_15121__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
 /***/ }),
 /* 5 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_15268__) => {
+/***/ ((module, __unused_webpack_exports, __nested_webpack_require_15302__) => {
 
-module.exports = __nested_webpack_require_15268__.p + "fonts/gov-branding.svg";
+module.exports = __nested_webpack_require_15302__.p + "fonts/gov-branding.svg";
 
 /***/ })
 /******/ 	]);
@@ -647,7 +647,7 @@ module.exports = __nested_webpack_require_15268__.p + "fonts/gov-branding.svg";
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_15591__(moduleId) {
+/******/ 	function __nested_webpack_require_15636__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -661,7 +661,7 @@ module.exports = __nested_webpack_require_15268__.p + "fonts/gov-branding.svg";
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_15591__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_15636__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -671,7 +671,7 @@ module.exports = __nested_webpack_require_15268__.p + "fonts/gov-branding.svg";
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_15591__.r = (exports) => {
+/******/ 		__nested_webpack_require_15636__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -681,19 +681,19 @@ module.exports = __nested_webpack_require_15268__.p + "fonts/gov-branding.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__nested_webpack_require_15591__.p = "./";
+/******/ 		__nested_webpack_require_15636__.p = "./";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-__nested_webpack_require_15591__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_15591__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_15591__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_15591__(3);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_15591__(4);
-/* harmony import */ var _images_gov_branding_svg__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_15591__(5);
+__nested_webpack_require_15636__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_15636__(1);
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_15636__(2);
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_15636__(3);
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_15636__(4);
+/* harmony import */ var _images_gov_branding_svg__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_15636__(5);
 // Scripts
 
 
