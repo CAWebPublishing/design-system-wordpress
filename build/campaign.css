@@ -276,6 +276,7 @@ p {
 
 /* End of Move to Global */
 header {
+  align-items: center;
   container-type: inline-size;
   container-name: header;
   display: flex;
@@ -325,7 +326,7 @@ header .navigation {
 }
 header .navigation nav {
   display: flex;
-  height: 100%;
+  /* height: 100%; */
 }
 header .navigation nav ul {
   display: flex;
@@ -336,6 +337,7 @@ header .navigation nav ul li {
   margin: 0;
   padding-right: 3rem;
   align-self: center;
+  margin-inline-end: clamp(0.5rem, 3vw, 1.25rem);
   /* Anchor links */
 }
 header .navigation nav ul li a {
@@ -357,6 +359,19 @@ header nav li.search {
 header nav li.search .search-container input[type="submit"] {
   display: none;
 }
+
+/* CSS specific to iOS devices */
+@supports (-webkit-touch-callout: none) {
+  header.mobile .navigation-mobile nav {
+    height: 70vh !important;
+  }
+}
+
+/* Prevent zoom-in on Safari when clicking in search box */
+header .navigation-mobile #search-box.focus-search-box {
+  font-size: 16px !important;
+}
+
 header.mobile nav li.search .search-container .search-svg {
   position: unset;
   height: 32px;
@@ -511,6 +526,9 @@ header #ca_gov_sidebar div.ca-gov-services-container > ul > li > a {
   font-weight: 600;
   text-decoration: none;
 }
+header #ca_gov_sidebar div.ca-gov-services-container > ul > li > a.color-white {
+  color: #fff;
+}
 header #ca_gov_sidebar div.ca-gov-services-container > ul > li > button {
   color: var(--go-brand-tahoe-blue, #20367c);
   cursor: pointer;
@@ -563,6 +581,10 @@ header.mobile {
 header.mobile .mobile {
   display: block;
 }
+header.mobile div.logo {
+  margin-right: 0;
+  padding-inline-start: 4rem;
+}
 header.mobile .logo figure,
 header.mobile .logo img {
   height: 5vh;
@@ -594,18 +616,21 @@ header.mobile .navigation-mobile nav {
   overflow-y: auto;
 }
 header.mobile .navigation-mobile nav ul {
-  display: block;
+  display: flex;
+  flex-direction: column;
 }
-header.mobile .navigation-mobile nav ul li {
-  /* border: 2px solid black; */
+header.mobile .navigation-mobile nav ul li:not(.search) {
+  align-self: flex-start;
   padding: 30px;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 header.mobile .navigation-mobile nav ul li.search {
   text-align: center;
 }
 header.mobile .navigation-mobile nav ul li.google-translate {
   margin-block-start: 5rem;
-  /* position: absolute; */
+  margin-block-end: 5rem;
 }
 header.mobile .navigation-mobile nav ul li.google-translate a {
   font-size: 1rem;
