@@ -16,7 +16,7 @@
         "start": "wp-scripts start"
     },
     "dependencies": {
-        "@cagov/ds-page-navigation": "^2.2.2",
+        "@cagov/ds-page-navigation": "^2.2.3",
         "@wordpress/icons": "^9.45.0"
     },
     "devDependencies": {
