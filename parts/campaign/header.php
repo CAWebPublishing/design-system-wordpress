@@ -91,7 +91,8 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
         aria-describedby="resources"
         class="ca-gov-svg"
         id="caGov"
-        tabindex="0">
+        tabindex="0"
+        title="Resources for California">
         <svg
           width="22vw"
           height="22vw"
@@ -243,11 +244,11 @@ $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_n
             >
           </li>
           <li>
-            <button>
-              <a href="https://www.ca.gov/services/">
-                View all CA.gov services
-              </a>
-            </button>
+            <a
+              href="https://www.ca.gov/services/"
+              class="button-style-blue color-white">
+              View all CA.gov services
+            </a>
           </li>
           <li id="less_services_toggle" class="pointer-cursor">
             <button>Less -</button>

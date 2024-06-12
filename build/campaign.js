@@ -422,7 +422,9 @@ window.addEventListener("load", () => {
     } else {
       // Desktop Only
       // Any scroll on desktop displays hamburger menu only
-      hideDesktopHeader();
+      if (!sidebar?.style.display || sidebar?.style.display === "none") {
+        hideDesktopHeader();
+      }
 
       // Show at top of the page
       if (curScroll === 0) {
@@ -478,9 +480,9 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 3 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_12762__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_12846__) => {
 
-__nested_webpack_require_12762__.r(__nested_webpack_exports__);
+__nested_webpack_require_12846__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const searchSVG = document.querySelector("header .search-svg");
   const searchInput = document.querySelector("header #search-box");
@@ -508,17 +510,11 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 4 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_13688__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_13772__) => {
 
-__nested_webpack_require_13688__.r(__nested_webpack_exports__);
+__nested_webpack_require_13772__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
-
-/***/ }),
-/* 5 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_13861__) => {
-
-module.exports = __nested_webpack_require_13861__.p + "fonts/gov-branding.svg";
 
 /***/ })
 /******/ 	]);
@@ -527,7 +523,7 @@ module.exports = __nested_webpack_require_13861__.p + "fonts/gov-branding.svg";
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_14184__(moduleId) {
+/******/ 	function __nested_webpack_require_14113__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -541,7 +537,7 @@ module.exports = __nested_webpack_require_13861__.p + "fonts/gov-branding.svg";
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14184__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14113__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -551,7 +547,7 @@ module.exports = __nested_webpack_require_13861__.p + "fonts/gov-branding.svg";
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_14184__.r = (exports) => {
+/******/ 		__nested_webpack_require_14113__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -559,30 +555,21 @@ module.exports = __nested_webpack_require_13861__.p + "fonts/gov-branding.svg";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		__nested_webpack_require_14184__.p = "./";
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-__nested_webpack_require_14184__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14184__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14184__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_14184__(3);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_14184__(4);
-/* harmony import */ var _images_gov_branding_svg__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_14184__(5);
+__nested_webpack_require_14113__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14113__(1);
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14113__(2);
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_14113__(3);
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_14113__(4);
 // Scripts
 
 
 
 
 // Styles
-
-
-// Assets
 
 })();
 
@@ -613,42 +600,6 @@ __nested_webpack_require_172__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
-/***/ }),
-/* 2 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_345__) => {
-
-module.exports = __nested_webpack_require_345__.p + "images/gov-seal.png";
-
-/***/ }),
-/* 3 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_497__) => {
-
-module.exports = __nested_webpack_require_497__.p + "fonts/share-facebook.svg";
-
-/***/ }),
-/* 4 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_654__) => {
-
-module.exports = __nested_webpack_require_654__.p + "fonts/share-instagram.svg";
-
-/***/ }),
-/* 5 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_812__) => {
-
-module.exports = __nested_webpack_require_812__.p + "fonts/share-tiktok.svg";
-
-/***/ }),
-/* 6 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_967__) => {
-
-module.exports = __nested_webpack_require_967__.p + "fonts/share-twitter-X.svg";
-
-/***/ }),
-/* 7 */
-/***/ ((module, __unused_webpack_exports, __nested_webpack_require_1125__) => {
-
-module.exports = __nested_webpack_require_1125__.p + "fonts/share-youtube.svg";
-
 /***/ })
 /******/ 	]);
 /************************************************************************/
@@ -656,7 +607,7 @@ module.exports = __nested_webpack_require_1125__.p + "fonts/share-youtube.svg";
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_1449__(moduleId) {
+/******/ 	function __nested_webpack_require_513__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -670,7 +621,7 @@ module.exports = __nested_webpack_require_1125__.p + "fonts/share-youtube.svg";
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_1449__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_513__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -680,7 +631,7 @@ module.exports = __nested_webpack_require_1125__.p + "fonts/share-youtube.svg";
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_1449__.r = (exports) => {
+/******/ 		__nested_webpack_require_513__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -688,32 +639,13 @@ module.exports = __nested_webpack_require_1125__.p + "fonts/share-youtube.svg";
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/publicPath */
-/******/ 	(() => {
-/******/ 		__nested_webpack_require_1449__.p = "./";
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-__nested_webpack_require_1449__.r(__nested_webpack_exports__);
-/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1449__(1);
-/* harmony import */ var _images_gov_seal_png__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1449__(2);
-/* harmony import */ var _images_share_facebook_svg__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_1449__(3);
-/* harmony import */ var _images_share_instagram_svg__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_1449__(4);
-/* harmony import */ var _images_share_tiktok_svg__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_1449__(5);
-/* harmony import */ var _images_share_twitter_X_svg__WEBPACK_IMPORTED_MODULE_5__ = __nested_webpack_require_1449__(6);
-/* harmony import */ var _images_share_youtube_svg__WEBPACK_IMPORTED_MODULE_6__ = __nested_webpack_require_1449__(7);
+__nested_webpack_require_513__.r(__nested_webpack_exports__);
+/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_513__(1);
 // Styles
-
-
-// Assets
-
-
-
-
-
 
 })();
 

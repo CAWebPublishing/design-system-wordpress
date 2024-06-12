@@ -14,12 +14,12 @@ let entries = {
     '@cagovweb/go-site-header/build/index.js',
     '@cagovweb/go-site-footer/build/index.css',
     '@cagovweb/go-site-footer/build/index.js',
-    '@cagovweb/go-site-footer/build/images/gov-seal.png',
-    '@cagovweb/go-site-footer/build/fonts/share-facebook.svg',
-    '@cagovweb/go-site-footer/build/fonts/share-instagram.svg',
-    '@cagovweb/go-site-footer/build/fonts/share-tiktok.svg',
-    '@cagovweb/go-site-footer/build/fonts/share-twitter-X.svg',
-    '@cagovweb/go-site-footer/build/fonts/share-youtube.svg'
+    '@cagovweb/go-site-footer/src/images/gov-seal.png',
+    '@cagovweb/go-site-footer/src/images/share-facebook.svg',
+    '@cagovweb/go-site-footer/src/images/share-instagram.svg',
+    '@cagovweb/go-site-footer/src/images/share-tiktok.svg',
+    '@cagovweb/go-site-footer/src/images/share-twitter-X.svg',
+    '@cagovweb/go-site-footer/src/images/share-youtube.svg'
   ]
 };
 
