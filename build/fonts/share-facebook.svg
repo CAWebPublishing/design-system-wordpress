@@ -1,16 +1,3 @@
-var _path;
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-import * as React from "react";
-var SvgShareFacebook = function SvgShareFacebook(props) {
-  return /*#__PURE__*/React.createElement("svg", _extends({
-    xmlns: "http://www.w3.org/2000/svg",
-    width: 35,
-    height: 35,
-    fill: "none"
-  }, props), _path || (_path = /*#__PURE__*/React.createElement("path", {
-    fill: "#DBDBDB",
-    d: "M29.287 3.003H6.049c-1.925 0-3.48 1.527-3.48 3.41v22.752c0 1.883 1.555 3.411 3.48 3.411H17.08V20.778h-4.06v-4.703h4.06v-3.47c0-4.026 2.459-6.218 6.05-6.218 1.72 0 3.2.132 3.63.184v4.209h-2.489c-1.954 0-2.332.929-2.332 2.29v3.005h4.657l-.602 4.703H21.94v11.798h7.347c1.924 0 3.482-1.528 3.482-3.41V6.413c-.001-1.884-1.56-3.411-3.484-3.411"
-  })));
-};
-export { SvgShareFacebook as ReactComponent };
-export default "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzUiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAzNSAzNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0yOS4yODY1IDMuMDAyNjlINi4wNDk0QzQuMTI0NCAzLjAwMjY5IDIuNTY4MzYgNC41Mjk1NiAyLjU2ODM2IDYuNDEzNzNWMjkuMTY1MkMyLjU2ODM2IDMxLjA0NzkgNC4xMjQ0IDMyLjU3NjIgNi4wNDk0IDMyLjU3NjJIMTcuMDgwMlYyMC43NzgzSDEzLjAyMDJWMTYuMDc1MkgxNy4wODAyVjEyLjYwNThDMTcuMDgwMiA4LjU3OTM1IDE5LjUzOSA2LjM4NzQ4IDIzLjEyOTQgNi4zODc0OEMyNC44NTAyIDYuMzg3NDggMjYuMzMwNCA2LjUxODczIDI2Ljc2MDcgNi41NzEyM1YxMC43OEgyNC4yNzEzQzIyLjMxNzEgMTAuNzggMjEuOTM5NCAxMS43MDg5IDIxLjkzOTQgMTMuMDY5NlYxNi4wNzUySDI2LjU5NTlMMjUuOTkzNiAyMC43NzgzSDIxLjk0MDlWMzIuNTc2MkgyOS4yODc5QzMxLjIxMTUgMzIuNTc2MiAzMi43NzA0IDMxLjA0NzkgMzIuNzcwNCAyOS4xNjUyVjYuNDEzNzNDMzIuNzY5IDQuNTI5NTYgMzEuMjEgMy4wMDI2OSAyOS4yODY1IDMuMDAyNjlaIiBmaWxsPSIjREJEQkRCIi8+DQo8L3N2Zz4NCg==";
+<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M29.2865 3.00269H6.0494C4.1244 3.00269 2.56836 4.52956 2.56836 6.41373V29.1652C2.56836 31.0479 4.1244 32.5762 6.0494 32.5762H17.0802V20.7783H13.0202V16.0752H17.0802V12.6058C17.0802 8.57935 19.539 6.38748 23.1294 6.38748C24.8502 6.38748 26.3304 6.51873 26.7607 6.57123V10.78H24.2713C22.3171 10.78 21.9394 11.7089 21.9394 13.0696V16.0752H26.5959L25.9936 20.7783H21.9409V32.5762H29.2879C31.2115 32.5762 32.7704 31.0479 32.7704 29.1652V6.41373C32.769 4.52956 31.21 3.00269 29.2865 3.00269Z" fill="#DBDBDB"/>
+</svg>
