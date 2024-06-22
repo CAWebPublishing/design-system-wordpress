@@ -72,4 +72,7 @@ $mode = get_option('cagov_design_system_mode', 'default');
       <?php endif; ?>
       <p>&#169; Copyright <script>document.write(new Date().getFullYear())</script></p>
   </section>
+  <button class="return-top">
+	<span class="sr-only">Back to top</span>
+  </button>
 </footer>
