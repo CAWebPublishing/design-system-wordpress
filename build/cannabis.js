@@ -1,23 +1,94 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */,
-/* 4 */,
-/* 5 */,
-/* 6 */,
-/* 7 */,
-/* 8 */,
-/* 9 */,
-/* 10 */,
-/* 11 */,
-/* 12 */,
-/* 13 */,
-/* 14 */,
-/* 15 */,
-/* 16 */,
-/* 17 */
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 26:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   linkAnnotator: () => (/* binding */ linkAnnotator),
+/* harmony export */   placePdfIcons: () => (/* binding */ placePdfIcons)
+/* harmony export */ });
+var styles = "/* PDF Icon */\n.pdf-link-icon {\n  display: inline-block;\n  outline: 1px solid;\n  outline-offset: -2px;\n  padding: 0;\n  position: relative;\n  left: 1px;\n  top: -3px;\n  line-height: 0.9rem;\n  text-decoration: none;\n}\n.pdf-link-icon svg path {\n  fill: var(--primary-700, #004abc);\n}\n\n/* External link icon */\n.external-link-icon {\n  display: inline-block;\n  padding: 0;\n  position: relative;\n  left: 3px;\n  margin-right: 2px;\n  top: 1px;\n  text-decoration: none;\n  width: 0.8em;\n}\n.external-link-icon svg path {\n  fill: var(--primary-700, #004abc);\n}\n\nmain a:hover .external-link-icon svg path,\n.site-footer a:hover .external-link-icon svg path,\n.agency-footer a:hover .external-link-icon svg path {\n  fill: var(--primary-900, #003484);\n}\n\nfooter a .external-link-icon svg path {\n  fill: var(--black, #000);\n}\n\n/* External link icon exceptions */\n.cagov-card .external-link-icon,\n.wp-block-button__link .external-link-icon,\n.footer-social-links a .external-link-icon,\nimg ~ .external-link-icon,\nsvg ~ .external-link-icon,\n.pdf-link-icon ~ .external-link-icon {\n  display: none;\n}\n\n.sr-only {\n  height: unset !important;\n  text-indent: -10000px;\n  width: unset !important;\n  clip: rect(0, 0, 0, 0) !important;\n  border: 0 !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  padding: 0 !important;\n  position: absolute !important;\n  white-space: nowrap !important;\n}\n\n/*# sourceMappingURL=index.css.map */\n";
+
+/* PDF ICON */
+
+if (!document.querySelector('#cagov-link-icon-styles')) {
+  const style = document.createElement('style');
+  style.id = 'cagov-link-icon-styles';
+  style.textContent = styles;
+  document.querySelector('head').appendChild(style);
+}
+
+function placePdfIcons() {
+  // pdf-icon component svg icon
+  const pdf =
+    '<span class="pdf-link-icon" aria-hidden="true"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="25.1px" height="13.6px" viewBox="0 0 25.1 13.6" style="enable-background:new 0 0 25.1 13.6;" xml:space="preserve"><path d="M11.7,9.9h1.5c1.7,0,3.1-1.4,3.1-3.1s-1.4-3.1-3.1-3.1h-1.5c-0.3,0-0.6,0.3-0.6,0.6v4.9c0,0.2,0.1,0.3,0.2,0.4C11.4,9.9,11.6,9.9,11.7,9.9L11.7,9.9z M12.3,5h0.9c1,0,1.8,0.8,1.8,1.8s-0.8,1.8-1.8,1.8h-0.9V5z"/><path d="M17.8,9.9c0.2,0,0.3-0.1,0.4-0.2c0.1-0.1,0.2-0.3,0.2-0.4V7.5h1.2c0.3,0,0.6-0.3,0.6-0.6c0-0.3-0.3-0.6-0.6-0.6h-1.2V5h2.1c0.3,0,0.6-0.3,0.6-0.6c0-0.3-0.3-0.6-0.6-0.6h-2.8c-0.3,0-0.6,0.3-0.6,0.6v4.9c0,0.2,0.1,0.3,0.2,0.4C17.5,9.9,17.7,9.9,17.8,9.9L17.8,9.9z"/><path d="M6.2,9.9c0.2,0,0.3-0.1,0.4-0.2c0.1-0.1,0.2-0.3,0.2-0.4V8.1H8c1.2,0,2.1-1,2.1-2.1c0-1.2-1-2.1-2.1-2.1H6.2c-0.3,0-0.6,0.3-0.6,0.6v4.9c0,0.2,0.1,0.3,0.2,0.4C5.9,9.9,6,9.9,6.2,9.9L6.2,9.9z M9,6c0,0.3-0.1,0.5-0.2,0.7C8.5,6.8,8.3,6.9,8,6.9H6.8V5H8c0.2,0,0.5,0.1,0.7,0.2C8.9,5.5,9,5.7,9,6L9,6z"/></svg></span><span class="sr-only"> (this is a pdf file)</span>';
+
+  // selector is looking for links with pdf extension in the href
+  const pdfLink = document.querySelectorAll("a[href*='.pdf']");
+  for (let i = 0; i < pdfLink.length; i += 1) {
+    pdfLink[i].innerHTML += pdf; // += concatenates to pdf links
+    // Fixing search results PDF links
+    if (pdfLink[i].innerHTML.indexOf('*PDF (this is a pdf file)*') !== -1) {
+      pdfLink[i].innerHTML += pdf.replace(/PDF (this is a pdf file)]/g, ''); // += concatenates to pdf links
+    }
+  }
+}
+placePdfIcons();
+
+/* EXTERNAL LINK ICON */
+function linkAnnotator() {
+  const ext =
+    '<span class="external-link-icon" aria-hidden="true"><svg version="1.1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><path d="M1.4,13.3c0-1.9,0-3.8,0-5.7c0-2.3,1.3-3.6,3.7-3.7c2,0,3.9,0,5.9,0c0.9,0,1.4,0.4,1.4,1.1c0,0.7-0.5,1.1-1.5,1.1 c-2,0-3.9,0-5.9,0c-1.1,0-1.4,0.3-1.4,1.5c0,3.8,0,7.6,0,11.3c0,1.1,0.4,1.5,1.5,1.5c3.8,0,7.6,0,11.3,0c1.1,0,1.4-0.3,1.4-1.5 c0-1.9,0-3.9,0-5.8c0-1,0.4-1.5,1.1-1.5c0.7,0,1.1,0.5,1.1,1.5c0,2,0,4,0,6.1c0,2-1.4,3.4-3.4,3.4c-4,0-7.9,0-11.9,0 c-2.1,0-3.4-1.4-3.4-3.4C1.4,17.2,1.4,15.2,1.4,13.3L1.4,13.3z"/><path d="M19.6,2.8c-1.3,0-2.5,0-3.6,0c-0.9,0-1.4-0.4-1.4-1.1c0.1-0.8,0.6-1.1,1.3-1.1c2.1,0,4.2,0,6.2,0c0.8,0,1.2,0.5,1.2,1.3 c0,2,0,4.1,0,6.2c0,0.9-0.4,1.4-1.1,1.4c-0.7,0-1.1-0.5-1.1-1.4c0-1.1,0-2.3,0-3.6c-0.3,0.3-0.6,0.5-0.8,0.7c-3,3-6,6-8.9,8.9 c-0.2,0.2-0.3,0.3-0.5,0.5c-0.5,0.5-1.1,0.5-1.6,0c-0.5-0.5-0.4-1,0-1.5c0.1-0.2,0.3-0.3,0.5-0.5c3-3,6-6,8.9-8.9 C19,3.4,19.2,3.2,19.6,2.8L19.6,2.8z"/></svg></span>';
+
+  // Check if link is external function
+  function linkIsExternal(linkElement) {
+    return window.location.host.indexOf(linkElement.host) > -1;
+  }
+
+  // Looping thru all links inside of the main content body, agency footer and statewide footer
+  const externalLink = document.querySelectorAll(
+    'main a, .agency-footer a, .site-footer a, footer a',
+  );
+  externalLink.forEach((element) => {
+    const anchorLink = element.href.indexOf('#') === 0;
+    const localHost = element.href.indexOf('localhost') > -1;
+    const localEmail = element.href.indexOf('@') > -1;
+    const linkElement = element;
+    if (
+      linkIsExternal(linkElement) === false &&
+      !anchorLink &&
+      !localEmail &&
+      !localHost
+    ) {
+      linkElement.innerHTML += ext; // += concatenates to external links
+    }
+  });
+}
+
+linkAnnotator();
+
+
+
+
+/***/ }),
+
+/***/ 29:
+/***/ (() => {
+
+/* Custom Javascript */
+jQuery(document).ready(function ($) {
+  "use strict";
+
+  $('.search-container.search-container--small form input[name="q"]').removeAttr('tabindex');
+  $('.search-container.search-container--small form button[type="submit"]').removeAttr('tabindex');
+});
+
+/***/ }),
+
+/***/ 25:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -26,7 +97,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 18 */
+
+/***/ 21:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -35,7 +107,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 19 */
+
+/***/ 22:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -44,7 +117,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 20 */
+
+/***/ 19:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -53,7 +127,232 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 21 */
+
+/***/ 24:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ 20:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ 28:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ 27:
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   CaGovBackToTop: () => (/* binding */ CaGovBackToTop)
+/* harmony export */ });
+var styles = "/* Back to top button */\ncagov-back-to-top .back-to-top {\n  position: fixed;\n  z-index: 99999;\n  right: -100px;\n  font-size: var(--font-size-2, 1.125rem);\n  padding: 10px 10px 10px 10px;\n  bottom: 50px;\n  opacity: 0;\n  visibility: hidden;\n  color: var(--primary-700, #004abc);\n  border: 1px solid var(--primary-700, #004abc);\n  border-radius: 5px 0px 0px 5px;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.5s ease;\n  background-color: #fff;\n}\n@media (max-width: 767px) {\n  cagov-back-to-top .back-to-top {\n    font-size: var(--font-size-1, 1rem);\n    padding: 8px 8px 8px 8px;\n  }\n}\ncagov-back-to-top .back-to-top:hover {\n  color: var(--primary-900, #003484);\n  border: 1px solid var(--primary-900, #003484);\n  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);\n}\ncagov-back-to-top .back-to-top:hover svg path {\n  fill: var(--primary-900, #003484);\n}\ncagov-back-to-top .back-to-top:focus {\n  outline: 2px solid var(--accent2-500, #ac8227);\n}\ncagov-back-to-top .back-to-top svg {\n  width: 16px;\n  position: relative;\n  top: 3px;\n}\ncagov-back-to-top .back-to-top svg path {\n  fill: var(--primary-700, #004abc);\n}\ncagov-back-to-top .back-to-top.is-visible {\n  opacity: 1;\n  visibility: visible;\n  display: inline;\n  right: 0;\n}\n\n/*# sourceMappingURL=index.css.map */\n";
+
+class CaGovBackToTop extends window.HTMLElement {
+  static get observedAttributes() {
+    return ['data-hide-after', 'data-label'];
+  }
+
+  constructor() {
+    super();
+    // Support additional options
+    const defaultOptions = {
+      parentSelector: 'cagov-back-to-top',
+      onLoadSelector: 'body',
+      scrollBottomThreshold: 10,
+      scrollAfterHeight: 400, // Pixel height (after which, go-to-top behavior will start)
+    };
+    this.options = {
+      ...defaultOptions,
+      label: this.dataset.label || 'Back to top',
+      hideAfter: Number(this.dataset.hideAfter) || 7000, // 7 second initial display. (milliseconds)
+    };
+    this.state = {
+      lastScrollTop: 0,
+      timer: null,
+    };
+
+    if (!document.querySelector('#cagov-back-to-top-styles')) {
+      const style = document.createElement('style');
+      style.id = 'cagov-back-to-top-styles';
+      style.textContent = styles;
+      document.querySelector('head').appendChild(style);
+    }
+  }
+
+  connectedCallback() {
+    // Load go-to-top button
+    document.querySelector(this.options.onLoadSelector).onload =
+      this.addGoToTopButton();
+
+    // If a user scrolls down the page for more than the "scrollAfterHeight" (example: 400px),
+    // activate back to top button. Otherwise, keep it invisible.
+    window.addEventListener(
+      'scroll',
+      CaGovBackToTop.debounce(() => {
+        // 1 second debounce delay
+        this.scrollToTopHandler();
+      }, 200),
+      false,
+    );
+
+    // Reaching botton of the screen
+    window.onscroll = CaGovBackToTop.debounce(() => {
+      this.checkScrolledToBottom();
+    }, 200);
+  }
+
+  checkScrolledToBottom() {
+    const { timer } = this.state;
+    const returnTopButton = document.querySelector('.back-to-top');
+    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      returnTopButton.classList.add('is-visible');
+      returnTopButton.removeAttribute('aria-hidden');
+      returnTopButton.removeAttribute('tabindex');
+      clearTimeout(timer);
+    }
+  }
+
+  // Returns a function, that, as long as it continues to be invoked, will not
+  // be triggered. The function will be called after it stops being called for
+  // N milliseconds. If `immediate` is passed, trigger the function on the
+  // leading edge, instead of the trailing.
+  static debounce(func, wait, immediate) {
+    let timeout;
+    return (...args) => {
+      const context = this;
+      const later = () => {
+        timeout = null;
+        if (!immediate) func.apply(context, ...args);
+      };
+      const callNow = immediate && !timeout;
+      clearTimeout(timeout);
+      timeout = setTimeout(later, wait);
+      if (callNow) func.apply(context, ...args);
+    };
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'data-hide-after') {
+      this.options.hideAfter = Number(newValue);
+    }
+    if (name === 'data-label') {
+      this.options.label = newValue;
+      if (document.querySelector('.back-to-top') !== null) {
+        document.querySelector('.back-to-top').innerHTML = this.options.label;
+      }
+    }
+  }
+
+  scrollToTopHandler() {
+    const container = document.querySelector(this.options.parentSelector);
+    const { lastScrollTop } = this.state;
+    let { timer } = this.state;
+    const returnTopButton = document.querySelector('.back-to-top');
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (scrollTop > lastScrollTop) {
+      // Downscroll code
+      returnTopButton.classList.remove('is-visible');
+      returnTopButton.setAttribute('aria-hidden', 'true');
+      returnTopButton.setAttribute('tabindex', '-1');
+    } else if (
+      container.scrollTop >= this.options.scrollAfterHeight ||
+      document.documentElement.scrollTop >= this.options.scrollAfterHeight
+    ) {
+      // Upscroll code
+      if (timer !== null) {
+        clearTimeout(timer);
+      }
+      returnTopButton.classList.add('is-visible');
+      returnTopButton.removeAttribute('aria-hidden');
+      returnTopButton.removeAttribute('tabindex');
+
+      timer = setTimeout(() => {
+        returnTopButton.classList.remove('is-visible');
+        returnTopButton.setAttribute('aria-hidden', 'true');
+        returnTopButton.setAttribute('tabindex', '-1');
+      }, this.options.hideAfter); // Back to top removes itself after 2 sec of inactivity
+    } else {
+      // Bottom of the page
+      returnTopButton.classList.remove('is-visible');
+      returnTopButton.setAttribute('aria-hidden', 'true');
+      returnTopButton.setAttribute('tabindex', '-1');
+    }
+
+    this.state.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
+  }
+
+  // Insert swg icon
+  static addStyle(element) {
+    const svg = document.createElement('span');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.innerHTML = `
+      <svg version="1.1" x="0px" y="0px" width="21px" height="16px" viewBox="0 0 21 16" style="enable-background:new 0 0 21 16;" xml:space="preserve"><path d="M5.2,10.8l5.3-5.3l5.3,5.3c0.4,0.4,0.9,0.4,1.3,0c0.4-0.4,0.4-0.9,0-1.3l-5.9-5.9c-0.2-0.2-0.4-0.3-0.6-0.3S10,3.5,9.8,3.6 L3.9,9.5c-0.4,0.4-0.4,0.9,0,1.3C4.3,11.2,4.8,11.2,5.2,10.8z"/></svg> 
+      `;
+    element.insertBefore(svg, element.firstChild);
+  }
+
+  // Create go-to-top button
+  addGoToTopButton() {
+    // Create a new go-to-top span element with class "back-to-top"
+    const container = document.querySelector(this.options.parentSelector);
+
+    const returnTop = document.createElement('button');
+    returnTop.classList.add('back-to-top');
+    // returnTop.classList.add(options.classes);
+    // Does not need to be accessible.
+    // Screen Reader users have other options to get to the top.
+    returnTop.setAttribute('aria-hidden', 'true');
+    returnTop.setAttribute('tabindex', '-1');
+    // Add some text to the go-to-top button
+    const returnContent = document.createTextNode(this.options.label);
+
+    // Append text to the go-to-top span
+    returnTop.appendChild(returnContent);
+    CaGovBackToTop.addStyle(returnTop);
+    // Add the newly created element and its content into main tag
+    container.append(returnTop);
+
+    // Add on-click event
+    returnTop.addEventListener('click', () => this.goToTopFunction());
+  }
+
+  goToTopFunction() {
+    document.querySelector(this.options.onLoadSelector).scrollTop = 0; // For Safari
+    // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+    window.scroll({ top: 0, behavior: 'smooth' });
+  }
+}
+
+window.customElements.define('cagov-back-to-top', CaGovBackToTop);
+
+
+
+
+/***/ }),
+
+/***/ 23:
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -342,313 +641,9 @@ class CAGovSiteNavigation extends window.HTMLElement {
 window.customElements.define('cagov-site-navigation', CAGovSiteNavigation);
 
 
-/***/ }),
-/* 22 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 23 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 24 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   linkAnnotator: () => (/* binding */ linkAnnotator),
-/* harmony export */   placePdfIcons: () => (/* binding */ placePdfIcons)
-/* harmony export */ });
-var styles = "/* PDF Icon */\n.pdf-link-icon {\n  display: inline-block;\n  outline: 1px solid;\n  outline-offset: -2px;\n  padding: 0;\n  position: relative;\n  left: 1px;\n  top: -3px;\n  line-height: 0.9rem;\n  text-decoration: none;\n}\n.pdf-link-icon svg path {\n  fill: var(--primary-700, #004abc);\n}\n\n/* External link icon */\n.external-link-icon {\n  display: inline-block;\n  padding: 0;\n  position: relative;\n  left: 3px;\n  margin-right: 2px;\n  top: 1px;\n  text-decoration: none;\n  width: 0.8em;\n}\n.external-link-icon svg path {\n  fill: var(--primary-700, #004abc);\n}\n\nmain a:hover .external-link-icon svg path,\n.site-footer a:hover .external-link-icon svg path,\n.agency-footer a:hover .external-link-icon svg path {\n  fill: var(--primary-900, #003484);\n}\n\nfooter a .external-link-icon svg path {\n  fill: var(--black, #000);\n}\n\n/* External link icon exceptions */\n.cagov-card .external-link-icon,\n.wp-block-button__link .external-link-icon,\n.footer-social-links a .external-link-icon,\nimg ~ .external-link-icon,\nsvg ~ .external-link-icon,\n.pdf-link-icon ~ .external-link-icon {\n  display: none;\n}\n\n.sr-only {\n  height: unset !important;\n  text-indent: -10000px;\n  width: unset !important;\n  clip: rect(0, 0, 0, 0) !important;\n  border: 0 !important;\n  margin: -1px !important;\n  overflow: hidden !important;\n  padding: 0 !important;\n  position: absolute !important;\n  white-space: nowrap !important;\n}\n\n/*# sourceMappingURL=index.css.map */\n";
-
-/* PDF ICON */
-
-if (!document.querySelector('#cagov-link-icon-styles')) {
-  const style = document.createElement('style');
-  style.id = 'cagov-link-icon-styles';
-  style.textContent = styles;
-  document.querySelector('head').appendChild(style);
-}
-
-function placePdfIcons() {
-  // pdf-icon component svg icon
-  const pdf =
-    '<span class="pdf-link-icon" aria-hidden="true"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"width="25.1px" height="13.6px" viewBox="0 0 25.1 13.6" style="enable-background:new 0 0 25.1 13.6;" xml:space="preserve"><path d="M11.7,9.9h1.5c1.7,0,3.1-1.4,3.1-3.1s-1.4-3.1-3.1-3.1h-1.5c-0.3,0-0.6,0.3-0.6,0.6v4.9c0,0.2,0.1,0.3,0.2,0.4C11.4,9.9,11.6,9.9,11.7,9.9L11.7,9.9z M12.3,5h0.9c1,0,1.8,0.8,1.8,1.8s-0.8,1.8-1.8,1.8h-0.9V5z"/><path d="M17.8,9.9c0.2,0,0.3-0.1,0.4-0.2c0.1-0.1,0.2-0.3,0.2-0.4V7.5h1.2c0.3,0,0.6-0.3,0.6-0.6c0-0.3-0.3-0.6-0.6-0.6h-1.2V5h2.1c0.3,0,0.6-0.3,0.6-0.6c0-0.3-0.3-0.6-0.6-0.6h-2.8c-0.3,0-0.6,0.3-0.6,0.6v4.9c0,0.2,0.1,0.3,0.2,0.4C17.5,9.9,17.7,9.9,17.8,9.9L17.8,9.9z"/><path d="M6.2,9.9c0.2,0,0.3-0.1,0.4-0.2c0.1-0.1,0.2-0.3,0.2-0.4V8.1H8c1.2,0,2.1-1,2.1-2.1c0-1.2-1-2.1-2.1-2.1H6.2c-0.3,0-0.6,0.3-0.6,0.6v4.9c0,0.2,0.1,0.3,0.2,0.4C5.9,9.9,6,9.9,6.2,9.9L6.2,9.9z M9,6c0,0.3-0.1,0.5-0.2,0.7C8.5,6.8,8.3,6.9,8,6.9H6.8V5H8c0.2,0,0.5,0.1,0.7,0.2C8.9,5.5,9,5.7,9,6L9,6z"/></svg></span><span class="sr-only"> (this is a pdf file)</span>';
-
-  // selector is looking for links with pdf extension in the href
-  const pdfLink = document.querySelectorAll("a[href*='.pdf']");
-  for (let i = 0; i < pdfLink.length; i += 1) {
-    pdfLink[i].innerHTML += pdf; // += concatenates to pdf links
-    // Fixing search results PDF links
-    if (pdfLink[i].innerHTML.indexOf('*PDF (this is a pdf file)*') !== -1) {
-      pdfLink[i].innerHTML += pdf.replace(/PDF (this is a pdf file)]/g, ''); // += concatenates to pdf links
-    }
-  }
-}
-placePdfIcons();
-
-/* EXTERNAL LINK ICON */
-function linkAnnotator() {
-  const ext =
-    '<span class="external-link-icon" aria-hidden="true"><svg version="1.1" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve"><path d="M1.4,13.3c0-1.9,0-3.8,0-5.7c0-2.3,1.3-3.6,3.7-3.7c2,0,3.9,0,5.9,0c0.9,0,1.4,0.4,1.4,1.1c0,0.7-0.5,1.1-1.5,1.1 c-2,0-3.9,0-5.9,0c-1.1,0-1.4,0.3-1.4,1.5c0,3.8,0,7.6,0,11.3c0,1.1,0.4,1.5,1.5,1.5c3.8,0,7.6,0,11.3,0c1.1,0,1.4-0.3,1.4-1.5 c0-1.9,0-3.9,0-5.8c0-1,0.4-1.5,1.1-1.5c0.7,0,1.1,0.5,1.1,1.5c0,2,0,4,0,6.1c0,2-1.4,3.4-3.4,3.4c-4,0-7.9,0-11.9,0 c-2.1,0-3.4-1.4-3.4-3.4C1.4,17.2,1.4,15.2,1.4,13.3L1.4,13.3z"/><path d="M19.6,2.8c-1.3,0-2.5,0-3.6,0c-0.9,0-1.4-0.4-1.4-1.1c0.1-0.8,0.6-1.1,1.3-1.1c2.1,0,4.2,0,6.2,0c0.8,0,1.2,0.5,1.2,1.3 c0,2,0,4.1,0,6.2c0,0.9-0.4,1.4-1.1,1.4c-0.7,0-1.1-0.5-1.1-1.4c0-1.1,0-2.3,0-3.6c-0.3,0.3-0.6,0.5-0.8,0.7c-3,3-6,6-8.9,8.9 c-0.2,0.2-0.3,0.3-0.5,0.5c-0.5,0.5-1.1,0.5-1.6,0c-0.5-0.5-0.4-1,0-1.5c0.1-0.2,0.3-0.3,0.5-0.5c3-3,6-6,8.9-8.9 C19,3.4,19.2,3.2,19.6,2.8L19.6,2.8z"/></svg></span>';
-
-  // Check if link is external function
-  function linkIsExternal(linkElement) {
-    return window.location.host.indexOf(linkElement.host) > -1;
-  }
-
-  // Looping thru all links inside of the main content body, agency footer and statewide footer
-  const externalLink = document.querySelectorAll(
-    'main a, .agency-footer a, .site-footer a, footer a',
-  );
-  externalLink.forEach((element) => {
-    const anchorLink = element.href.indexOf('#') === 0;
-    const localHost = element.href.indexOf('localhost') > -1;
-    const localEmail = element.href.indexOf('@') > -1;
-    const linkElement = element;
-    if (
-      linkIsExternal(linkElement) === false &&
-      !anchorLink &&
-      !localEmail &&
-      !localHost
-    ) {
-      linkElement.innerHTML += ext; // += concatenates to external links
-    }
-  });
-}
-
-linkAnnotator();
-
-
-
-
-/***/ }),
-/* 25 */
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   CaGovBackToTop: () => (/* binding */ CaGovBackToTop)
-/* harmony export */ });
-var styles = "/* Back to top button */\ncagov-back-to-top .back-to-top {\n  position: fixed;\n  z-index: 99999;\n  right: -100px;\n  font-size: var(--font-size-2, 1.125rem);\n  padding: 10px 10px 10px 10px;\n  bottom: 50px;\n  opacity: 0;\n  visibility: hidden;\n  color: var(--primary-700, #004abc);\n  border: 1px solid var(--primary-700, #004abc);\n  border-radius: 5px 0px 0px 5px;\n  text-decoration: none;\n  cursor: pointer;\n  transition: all 0.5s ease;\n  background-color: #fff;\n}\n@media (max-width: 767px) {\n  cagov-back-to-top .back-to-top {\n    font-size: var(--font-size-1, 1rem);\n    padding: 8px 8px 8px 8px;\n  }\n}\ncagov-back-to-top .back-to-top:hover {\n  color: var(--primary-900, #003484);\n  border: 1px solid var(--primary-900, #003484);\n  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);\n}\ncagov-back-to-top .back-to-top:hover svg path {\n  fill: var(--primary-900, #003484);\n}\ncagov-back-to-top .back-to-top:focus {\n  outline: 2px solid var(--accent2-500, #ac8227);\n}\ncagov-back-to-top .back-to-top svg {\n  width: 16px;\n  position: relative;\n  top: 3px;\n}\ncagov-back-to-top .back-to-top svg path {\n  fill: var(--primary-700, #004abc);\n}\ncagov-back-to-top .back-to-top.is-visible {\n  opacity: 1;\n  visibility: visible;\n  display: inline;\n  right: 0;\n}\n\n/*# sourceMappingURL=index.css.map */\n";
-
-class CaGovBackToTop extends window.HTMLElement {
-  static get observedAttributes() {
-    return ['data-hide-after', 'data-label'];
-  }
-
-  constructor() {
-    super();
-    // Support additional options
-    const defaultOptions = {
-      parentSelector: 'cagov-back-to-top',
-      onLoadSelector: 'body',
-      scrollBottomThreshold: 10,
-      scrollAfterHeight: 400, // Pixel height (after which, go-to-top behavior will start)
-    };
-    this.options = {
-      ...defaultOptions,
-      label: this.dataset.label || 'Back to top',
-      hideAfter: Number(this.dataset.hideAfter) || 7000, // 7 second initial display. (milliseconds)
-    };
-    this.state = {
-      lastScrollTop: 0,
-      timer: null,
-    };
-
-    if (!document.querySelector('#cagov-back-to-top-styles')) {
-      const style = document.createElement('style');
-      style.id = 'cagov-back-to-top-styles';
-      style.textContent = styles;
-      document.querySelector('head').appendChild(style);
-    }
-  }
-
-  connectedCallback() {
-    // Load go-to-top button
-    document.querySelector(this.options.onLoadSelector).onload =
-      this.addGoToTopButton();
-
-    // If a user scrolls down the page for more than the "scrollAfterHeight" (example: 400px),
-    // activate back to top button. Otherwise, keep it invisible.
-    window.addEventListener(
-      'scroll',
-      CaGovBackToTop.debounce(() => {
-        // 1 second debounce delay
-        this.scrollToTopHandler();
-      }, 200),
-      false,
-    );
-
-    // Reaching botton of the screen
-    window.onscroll = CaGovBackToTop.debounce(() => {
-      this.checkScrolledToBottom();
-    }, 200);
-  }
-
-  checkScrolledToBottom() {
-    const { timer } = this.state;
-    const returnTopButton = document.querySelector('.back-to-top');
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-      returnTopButton.classList.add('is-visible');
-      returnTopButton.removeAttribute('aria-hidden');
-      returnTopButton.removeAttribute('tabindex');
-      clearTimeout(timer);
-    }
-  }
-
-  // Returns a function, that, as long as it continues to be invoked, will not
-  // be triggered. The function will be called after it stops being called for
-  // N milliseconds. If `immediate` is passed, trigger the function on the
-  // leading edge, instead of the trailing.
-  static debounce(func, wait, immediate) {
-    let timeout;
-    return (...args) => {
-      const context = this;
-      const later = () => {
-        timeout = null;
-        if (!immediate) func.apply(context, ...args);
-      };
-      const callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, ...args);
-    };
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (name === 'data-hide-after') {
-      this.options.hideAfter = Number(newValue);
-    }
-    if (name === 'data-label') {
-      this.options.label = newValue;
-      if (document.querySelector('.back-to-top') !== null) {
-        document.querySelector('.back-to-top').innerHTML = this.options.label;
-      }
-    }
-  }
-
-  scrollToTopHandler() {
-    const container = document.querySelector(this.options.parentSelector);
-    const { lastScrollTop } = this.state;
-    let { timer } = this.state;
-    const returnTopButton = document.querySelector('.back-to-top');
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (scrollTop > lastScrollTop) {
-      // Downscroll code
-      returnTopButton.classList.remove('is-visible');
-      returnTopButton.setAttribute('aria-hidden', 'true');
-      returnTopButton.setAttribute('tabindex', '-1');
-    } else if (
-      container.scrollTop >= this.options.scrollAfterHeight ||
-      document.documentElement.scrollTop >= this.options.scrollAfterHeight
-    ) {
-      // Upscroll code
-      if (timer !== null) {
-        clearTimeout(timer);
-      }
-      returnTopButton.classList.add('is-visible');
-      returnTopButton.removeAttribute('aria-hidden');
-      returnTopButton.removeAttribute('tabindex');
-
-      timer = setTimeout(() => {
-        returnTopButton.classList.remove('is-visible');
-        returnTopButton.setAttribute('aria-hidden', 'true');
-        returnTopButton.setAttribute('tabindex', '-1');
-      }, this.options.hideAfter); // Back to top removes itself after 2 sec of inactivity
-    } else {
-      // Bottom of the page
-      returnTopButton.classList.remove('is-visible');
-      returnTopButton.setAttribute('aria-hidden', 'true');
-      returnTopButton.setAttribute('tabindex', '-1');
-    }
-
-    this.state.lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // For Mobile or negative scrolling
-  }
-
-  // Insert swg icon
-  static addStyle(element) {
-    const svg = document.createElement('span');
-    svg.setAttribute('aria-hidden', 'true');
-    svg.innerHTML = `
-      <svg version="1.1" x="0px" y="0px" width="21px" height="16px" viewBox="0 0 21 16" style="enable-background:new 0 0 21 16;" xml:space="preserve"><path d="M5.2,10.8l5.3-5.3l5.3,5.3c0.4,0.4,0.9,0.4,1.3,0c0.4-0.4,0.4-0.9,0-1.3l-5.9-5.9c-0.2-0.2-0.4-0.3-0.6-0.3S10,3.5,9.8,3.6 L3.9,9.5c-0.4,0.4-0.4,0.9,0,1.3C4.3,11.2,4.8,11.2,5.2,10.8z"/></svg> 
-      `;
-    element.insertBefore(svg, element.firstChild);
-  }
-
-  // Create go-to-top button
-  addGoToTopButton() {
-    // Create a new go-to-top span element with class "back-to-top"
-    const container = document.querySelector(this.options.parentSelector);
-
-    const returnTop = document.createElement('button');
-    returnTop.classList.add('back-to-top');
-    // returnTop.classList.add(options.classes);
-    // Does not need to be accessible.
-    // Screen Reader users have other options to get to the top.
-    returnTop.setAttribute('aria-hidden', 'true');
-    returnTop.setAttribute('tabindex', '-1');
-    // Add some text to the go-to-top button
-    const returnContent = document.createTextNode(this.options.label);
-
-    // Append text to the go-to-top span
-    returnTop.appendChild(returnContent);
-    CaGovBackToTop.addStyle(returnTop);
-    // Add the newly created element and its content into main tag
-    container.append(returnTop);
-
-    // Add on-click event
-    returnTop.addEventListener('click', () => this.goToTopFunction());
-  }
-
-  goToTopFunction() {
-    document.querySelector(this.options.onLoadSelector).scrollTop = 0; // For Safari
-    // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-    window.scroll({ top: 0, behavior: 'smooth' });
-  }
-}
-
-window.customElements.define('cagov-back-to-top', CaGovBackToTop);
-
-
-
-
-/***/ }),
-/* 26 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 27 */
-/***/ (() => {
-
-/* Custom Javascript */
-jQuery(document).ready(function ($) {
-  "use strict";
-
-  $('.search-container.search-container--small form input[name="q"]').removeAttr('tabindex');
-  $('.search-container.search-container--small form button[type="submit"]').removeAttr('tabindex');
-});
-
 /***/ })
-/******/ 	]);
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -730,17 +725,17 @@ __webpack_require__.r(__webpack_exports__);
 (() => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _cagov_ds_skip_to_content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(17);
-/* harmony import */ var _cagov_ds_statewide_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(18);
-/* harmony import */ var _cagov_ds_site_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(19);
-/* harmony import */ var _cagov_ds_site_navigation_dist_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(20);
-/* harmony import */ var _cagov_ds_site_navigation_dist_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(21);
-/* harmony import */ var _cagov_ds_statewide_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(22);
-/* harmony import */ var _cagov_ds_site_footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(23);
-/* harmony import */ var _cagov_ds_link_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(24);
-/* harmony import */ var _cagov_ds_back_to_top__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(25);
-/* harmony import */ var _styles_frontend_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(26);
-/* harmony import */ var _scripts_custom_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(27);
+/* harmony import */ var _cagov_ds_skip_to_content__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(19);
+/* harmony import */ var _cagov_ds_statewide_header__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20);
+/* harmony import */ var _cagov_ds_site_header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(21);
+/* harmony import */ var _cagov_ds_site_navigation_dist_index_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(22);
+/* harmony import */ var _cagov_ds_site_navigation_dist_index_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(23);
+/* harmony import */ var _cagov_ds_statewide_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(24);
+/* harmony import */ var _cagov_ds_site_footer__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(25);
+/* harmony import */ var _cagov_ds_link_icon__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(26);
+/* harmony import */ var _cagov_ds_back_to_top__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(27);
+/* harmony import */ var _styles_frontend_scss__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(28);
+/* harmony import */ var _scripts_custom_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(29);
 /* harmony import */ var _scripts_custom_js__WEBPACK_IMPORTED_MODULE_10___default = /*#__PURE__*/__webpack_require__.n(_scripts_custom_js__WEBPACK_IMPORTED_MODULE_10__);
 /**
  * Design System Structural Packages

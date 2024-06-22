@@ -19,7 +19,9 @@ let entries = {
     '@cagovweb/go-site-footer/src/images/share-instagram.svg',
     '@cagovweb/go-site-footer/src/images/share-tiktok.svg',
     '@cagovweb/go-site-footer/src/images/share-twitter-X.svg',
-    '@cagovweb/go-site-footer/src/images/share-youtube.svg'
+    '@cagovweb/go-site-footer/src/images/share-youtube.svg',
+    '@cagovweb/go-site-alerts/build/index.css',
+    '@cagovweb/go-site-alerts/build/index.js'
   ]
 };
 

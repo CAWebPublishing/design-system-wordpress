@@ -19,6 +19,8 @@ $cagov_design_system_logo_alt_text = ! empty( get_option( 'header_ca_branding_al
 /* Navigation */
 $cagov_design_system_menu_style = get_option( 'ca_default_navigation_menu', 'singlelevel' );
 $cagov_design_system_nav_home_link = ! is_front_page() && get_option( 'ca_home_nav_link', true );
+
+cagov_design_system_render_alerts();
 ?>
 
 
