@@ -92,8 +92,6 @@ __nested_webpack_require_727__.r(__nested_webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 __nested_webpack_require_1068__.r(__nested_webpack_exports__);
 /* harmony import */ var _styles_variables_css__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1068__(1);
 /* harmony import */ var _styles_fonts_css__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1068__(2);
@@ -103,9 +101,6 @@ __nested_webpack_require_1068__.r(__nested_webpack_exports__);
 
 
 
-
-
-})();
 
 /******/ })()
 ;
@@ -181,6 +176,7 @@ window.addEventListener("load", () => {
   });
   const closeCaGovMenu = () => {
     sidebarToggle.classList.add("ca-gov-svg");
+    sidebarToggle.ariaLabel = "Open the CA.gov menu";
     sidebarToggle.classList.remove("ca-gov-close-icon");
     animatedCaGovIcon.style.display = "block";
     sidebar.style.display = "none";
@@ -197,11 +193,13 @@ window.addEventListener("load", () => {
     }
     if (sidebarToggle.classList.contains("ca-gov-svg")) {
       sidebarToggle.classList.add("ca-gov-close-icon");
+      sidebarToggle.ariaLabel = "Close the CA.gov menu";
       sidebarToggle.classList.remove("ca-gov-svg");
       animatedCaGovIcon.style.display = "none";
     } else {
       sidebarToggle.classList.remove("ca-gov-close-icon");
       sidebarToggle.classList.add("ca-gov-svg");
+      sidebarToggle.ariaLabel = "Open the CA.gov menu";
       animatedCaGovIcon.style.display = "block";
     }
     sidebar.style.display = sidebar.style.display !== "block" ? "block" : "none";
@@ -225,9 +223,9 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 2 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3692__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3859__) => {
 
-__nested_webpack_require_3692__.r(__nested_webpack_exports__);
+__nested_webpack_require_3859__.r(__nested_webpack_exports__);
 /* eslint-disable yoda */
 window.addEventListener("load", () => {
   const doc = document.documentElement;
@@ -250,13 +248,13 @@ window.addEventListener("load", () => {
   // Use compacted style if not at top of page
   if (prevScroll !== 0) {
     mainheader.classList.add("transparent-bg", "remove-box-shadow", "compacted");
-    logo.classList.add("hidden");
+    logo?.classList.add("hidden");
     navigation?.classList.add("hidden");
-    caGovToggle.classList.add("hidden");
+    caGovToggle?.classList.add("hidden");
   }
   //If mobile
   if (window.innerWidth < 1080) {
-    mainheader.classList.add("mobile", "gray-bg");
+    mainheader?.classList.add("mobile", "gray-bg");
     navigation?.classList.add("hidden");
   }
 
@@ -270,37 +268,46 @@ window.addEventListener("load", () => {
   };
   const closeHamburgerMenu = () => {
     document.body.style.overflow = "auto";
-    navigation.classList.add("hidden");
-    navToggle.ariaExpanded = "false";
+    navigation?.classList.add("hidden");
+    if (navToggle) {
+      navToggle.ariaExpanded = "false";
+      navToggle.ariaLabel = "Open the navigation menu";
+    }
   };
   const hideMobileHeader = () => {
-    mainheader.classList.remove("gray-bg");
-    mainheader.classList.add("transparent-bg", "remove-box-shadow");
-    logo.classList.add("hidden");
-    caGovToggle.classList.add("hidden");
+    mainheader?.classList.remove("gray-bg");
+    mainheader?.classList.add("transparent-bg", "remove-box-shadow");
+    logo?.classList.add("hidden");
+    caGovToggle?.classList.add("hidden");
   };
   const showMobileHeader = () => {
-    mainheader.classList.add("gray-bg");
-    mainheader.classList.remove("transparent-bg", "remove-box-shadow");
-    logo.classList.remove("hidden");
-    caGovToggle.classList.remove("hidden");
+    mainheader?.classList.add("gray-bg");
+    mainheader?.classList.remove("transparent-bg", "remove-box-shadow");
+    logo?.classList.remove("hidden");
+    caGovToggle?.classList.remove("hidden");
   };
   const hideDesktopHeader = () => {
-    navToggle.ariaExpanded = "false";
-    caGovToggle.classList.add("hidden");
-    mainheader.classList.add("transparent-bg", "remove-box-shadow", "compacted");
-    logo.classList.add("hidden");
-    navigation.classList.add("hidden");
-    sidebar.classList.add("sidebar-mobile");
+    if (navToggle) {
+      navToggle.ariaExpanded = "false";
+      navToggle.ariaLabel = "Open the navigation menu";
+    }
+    caGovToggle?.classList.add("hidden");
+    mainheader?.classList.add("transparent-bg", "remove-box-shadow", "compacted");
+    logo?.classList.add("hidden");
+    navigation?.classList.add("hidden");
+    sidebar?.classList.add("sidebar-mobile");
   };
   const showDesktopHeader = () => {
-    navToggle.ariaExpanded = "false";
-    caGovToggle.classList.remove("hidden");
-    mainheader.classList.remove("transparent-bg", "remove-box-shadow", "compacted");
-    sidebar.classList.remove("sidebar-mobile");
-    logo.classList.remove("hidden");
-    caGovToggle.classList.remove("hidden");
-    navigation.classList.remove("hidden");
+    if (navToggle) {
+      navToggle.ariaExpanded = "false";
+      navToggle.ariaLabel = "Open the navigation menu";
+    }
+    caGovToggle?.classList.remove("hidden");
+    mainheader?.classList.remove("transparent-bg", "remove-box-shadow", "compacted");
+    sidebar?.classList.remove("sidebar-mobile");
+    logo?.classList.remove("hidden");
+    caGovToggle?.classList.remove("hidden");
+    navigation?.classList.remove("hidden");
   };
   if (!mainheader) return;
 
@@ -355,6 +362,7 @@ window.addEventListener("load", () => {
       if ("true" === this.ariaExpanded) {
         mainheader.classList.remove("transparent-bg", "remove-box-shadow");
         caGovToggle.classList.remove("hidden");
+        navToggle.ariaLabel = "Close the navigation menu";
 
         // Mobile only
         if (window.innerWidth < 1080) {
@@ -480,9 +488,9 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 3 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_12846__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_13350__) => {
 
-__nested_webpack_require_12846__.r(__nested_webpack_exports__);
+__nested_webpack_require_13350__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const searchSVG = document.querySelector("header .search-svg");
   const searchInput = document.querySelector("header #search-box");
@@ -504,15 +512,16 @@ window.addEventListener("load", () => {
   searchInput.addEventListener("focusout", () => {
     if (window.innerWidth > 1080) {
       searchInput.classList.remove("focus-search-box");
+      searchInput.value = "";
     }
   });
 });
 
 /***/ }),
 /* 4 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_13772__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_14306__) => {
 
-__nested_webpack_require_13772__.r(__nested_webpack_exports__);
+__nested_webpack_require_14306__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
@@ -523,7 +532,7 @@ __nested_webpack_require_13772__.r(__nested_webpack_exports__);
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_14113__(moduleId) {
+/******/ 	function __nested_webpack_require_14647__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -537,7 +546,7 @@ __nested_webpack_require_13772__.r(__nested_webpack_exports__);
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14113__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14647__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -547,7 +556,7 @@ __nested_webpack_require_13772__.r(__nested_webpack_exports__);
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_14113__.r = (exports) => {
+/******/ 		__nested_webpack_require_14647__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -557,21 +566,17 @@ __nested_webpack_require_13772__.r(__nested_webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-__nested_webpack_require_14113__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14113__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14113__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_14113__(3);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_14113__(4);
+__nested_webpack_require_14647__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14647__(1);
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14647__(2);
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_14647__(3);
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_14647__(4);
 // Scripts
 
 
 
 
 // Styles
-
-})();
 
 /******/ })()
 ;
@@ -641,13 +646,9 @@ __nested_webpack_require_172__.r(__nested_webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
 __nested_webpack_require_513__.r(__nested_webpack_exports__);
 /* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_513__(1);
 // Styles
-
-})();
 
 /******/ })()
 ;
@@ -687,6 +688,98 @@ module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
+
+/***/ }),
+/* 15 */
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+/* 16 */
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_184__) => {
+
+__nested_webpack_require_184__.r(__nested_webpack_exports__);
+window.addEventListener("load", () => {
+  const alertClose = document.querySelectorAll("#cagov-alerts .ca-gov-close-icon");
+  alertClose.forEach(closeIcon => {
+    closeIcon.addEventListener("click", e => {
+      var alert_id = e.target.dataset.alert;
+      document.cookie = 'cagov-alert-' + alert_id + '=false;path=/';
+      e.target.parentElement.parentElement.remove();
+    });
+  });
+});
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_720__) => {
+
+__nested_webpack_require_720__.r(__nested_webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_1061__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_1061__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nested_webpack_require_1061__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __nested_webpack_exports__ = {};
+__nested_webpack_require_1061__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_alert_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1061__(1);
+/* harmony import */ var _styles_alert_css__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1061__(2);
+// Scripts
+
+
+// Styles
+
+/******/ })()
+;
 
 /***/ })
 /******/ 	]);
@@ -729,7 +822,7 @@ module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "./";
+/******/ 		__webpack_require__.p = "/";
 /******/ 	})();
 /******/ 	
 /************************************************************************/
@@ -748,7 +841,9 @@ module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
 /******/ 	__webpack_require__(11);
 /******/ 	__webpack_require__(12);
 /******/ 	__webpack_require__(13);
-/******/ 	var __webpack_exports__ = __webpack_require__(14);
+/******/ 	__webpack_require__(14);
+/******/ 	__webpack_require__(15);
+/******/ 	var __webpack_exports__ = __webpack_require__(16);
 /******/ 	
 /******/ })()
 ;
