@@ -40,10 +40,9 @@ if ( ! empty( $cagov_design_system_social_media ) ):
 				title="<?php print esc_attr( $cagov_design_system_social_title ); ?>"
 				target="<?php print esc_attr( $cagov_design_system_social_target ); ?>"
 			>
-			<?php if ( ! empty( $cagov_design_system_option ) ) : ?>
-					<img src="<?php printf('%1$s/build/fonts/share-%2$s.svg', CAGOV_DESIGN_SYSTEM_URL, 'twitter' === $cagov_design_system_icon ? "$cagov_design_system_icon-X" : $cagov_design_system_icon ) ?>" />
+				<?php if ( ! empty( $cagov_design_system_option ) ) : ?>
+					<img src="<?php printf('%1$s/build/fonts/share-%2$s.svg', CAGOV_DESIGN_SYSTEM_URL, 'twitter' === $cagov_design_system_icon ? "$cagov_design_system_icon-X" : $cagov_design_system_icon ) ?>" alt="<?php print esc_attr( $cagov_design_system_share ); ?>"/>
 				<?php endif; ?>
-				<span class="sr-only"><?php print esc_attr( $cagov_design_system_share ); ?></span>
 			</a>
 			</li>
 	<?php endif; ?>
