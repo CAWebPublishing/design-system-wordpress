@@ -519,9 +519,80 @@ window.addEventListener("load", () => {
 
 /***/ }),
 /* 4 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_14306__) => {
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_14318__) => {
 
-__nested_webpack_require_14306__.r(__nested_webpack_exports__);
+__nested_webpack_require_14318__.r(__nested_webpack_exports__);
+window.addEventListener("DOMContentLoaded", () => {
+  /* eslint-disable no-lonely-if */
+  const returnTop = document.querySelector(".return-top");
+
+  // Add on-click event
+  returnTop.addEventListener("click", goToTopFunction);
+});
+function goToTopFunction() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+
+  // document.body.scrollTop = 0; // For Safari
+  // document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+// If an user scrolls down the page for more than 400px activate back to top button
+// othervise keep it invisible
+let timer;
+let lastScrollTop = 0;
+window.addEventListener("scroll", () => {
+  const returnTopButton = document.querySelector(".return-top");
+  const st = window.pageYOffset || document.documentElement.scrollTop;
+  if (st > lastScrollTop) {
+    // downscroll code
+    returnTopButton.classList.remove("is-visible");
+  } else {
+    // upscroll code
+    console.log(`Srolltop: ${document.body.scrollTop}`);
+    if (document.body.scrollTop >= 400 || document.documentElement.scrollTop >= 400) {
+      if (timer != "undefined") {
+        clearTimeout(timer);
+      }
+      returnTopButton.classList.add("is-visible");
+      timer = setTimeout(() => {
+        returnTopButton.classList.remove("is-visible");
+      }, 2000); //Back to top removes itself after 2 sec of inactivity
+    }
+    // bottom of the page
+    else {
+      returnTopButton.classList.remove("is-visible");
+    }
+  }
+  lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+}, false);
+
+// Hittin' rock bottom
+window.onscroll = function () {
+  const returnTopButton = document.querySelector(".return-top");
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    returnTopButton.classList.add("is-visible");
+  }
+};
+
+// Back to top link in the global footer
+const backToTop = document.querySelector("a[href='#skip-to-content']");
+if (backToTop) {
+  backToTop.addEventListener("click", backToTopFunction);
+}
+const backToTopFunction = event => {
+  event.preventDefault();
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+};
+
+/***/ }),
+/* 5 */
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_16629__) => {
+
+__nested_webpack_require_16629__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
@@ -532,7 +603,7 @@ __nested_webpack_require_14306__.r(__nested_webpack_exports__);
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_14647__(moduleId) {
+/******/ 	function __nested_webpack_require_16970__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -546,7 +617,7 @@ __nested_webpack_require_14306__.r(__nested_webpack_exports__);
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_14647__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_16970__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -556,7 +627,7 @@ __nested_webpack_require_14306__.r(__nested_webpack_exports__);
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_14647__.r = (exports) => {
+/******/ 		__nested_webpack_require_16970__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -566,12 +637,14 @@ __nested_webpack_require_14306__.r(__nested_webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-__nested_webpack_require_14647__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_14647__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_14647__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_14647__(3);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_14647__(4);
+__nested_webpack_require_16970__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_16970__(1);
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_16970__(2);
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_16970__(3);
+/* harmony import */ var _scripts_return_to_top_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_16970__(4);
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_16970__(5);
 // Scripts
+
 
 
 
@@ -657,40 +730,34 @@ __nested_webpack_require_513__.r(__nested_webpack_exports__);
 /* 9 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "images/gov-seal.png";
+module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
 
 /***/ }),
 /* 10 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
+module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
 
 /***/ }),
 /* 11 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
+module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
 
 /***/ }),
 /* 12 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
+module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 
 /***/ }),
 /* 13 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
-
-/***/ }),
-/* 14 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
 module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -698,7 +765,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -842,8 +909,7 @@ __nested_webpack_require_1061__.r(__nested_webpack_exports__);
 /******/ 	__webpack_require__(12);
 /******/ 	__webpack_require__(13);
 /******/ 	__webpack_require__(14);
-/******/ 	__webpack_require__(15);
-/******/ 	var __webpack_exports__ = __webpack_require__(16);
+/******/ 	var __webpack_exports__ = __webpack_require__(15);
 /******/ 	
 /******/ })()
 ;
