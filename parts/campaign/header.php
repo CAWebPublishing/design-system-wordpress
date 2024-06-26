@@ -282,4 +282,8 @@ cagov_design_system_render_alerts();
     </div>
   </div>
   <!-- END CAgov Offical -->
+  <button class="return-top">
+        <span>Back to top</span>
+        <span class="sr-only">Back to top</span>
+      </button>
 </header>
