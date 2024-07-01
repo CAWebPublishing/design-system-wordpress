@@ -27,7 +27,7 @@ $mode = get_option('cagov_design_system_mode', 'default');
 <footer role="contentinfo">
   <section class="footer-primary">
   <div>
-      <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>build/images/gov-seal.png" alt="Governor's Seal" />
+      <img src="<?php print esc_url( CAGOV_DESIGN_SYSTEM_URL ); ?>build/fonts/gov-seal.svg" alt="Governor's Seal" />
   </div>
   <?php
 	if ( has_nav_menu( 'footer-menu-utility' ) ) :
