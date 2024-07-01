@@ -551,7 +551,6 @@ window.addEventListener("scroll", () => {
     returnTopButton.classList.remove("is-visible");
   } else {
     // upscroll code
-    console.log(`Srolltop: ${document.body.scrollTop}`);
     if (document.body.scrollTop >= 400 || document.documentElement.scrollTop >= 400) {
       if (timer != "undefined") {
         clearTimeout(timer);
@@ -590,9 +589,9 @@ const backToTopFunction = event => {
 
 /***/ }),
 /* 5 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_16629__) => {
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_16572__) => {
 
-__nested_webpack_require_16629__.r(__nested_webpack_exports__);
+__nested_webpack_require_16572__.r(__nested_webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
@@ -603,7 +602,7 @@ __nested_webpack_require_16629__.r(__nested_webpack_exports__);
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_16970__(moduleId) {
+/******/ 	function __nested_webpack_require_16913__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -617,7 +616,7 @@ __nested_webpack_require_16629__.r(__nested_webpack_exports__);
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_16970__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_16913__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -627,7 +626,7 @@ __nested_webpack_require_16629__.r(__nested_webpack_exports__);
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_16970__.r = (exports) => {
+/******/ 		__nested_webpack_require_16913__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -637,12 +636,12 @@ __nested_webpack_require_16629__.r(__nested_webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-__nested_webpack_require_16970__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_16970__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_16970__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_16970__(3);
-/* harmony import */ var _scripts_return_to_top_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_16970__(4);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_16970__(5);
+__nested_webpack_require_16913__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_16913__(1);
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_16913__(2);
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_16913__(3);
+/* harmony import */ var _scripts_return_to_top_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_16913__(4);
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_16913__(5);
 // Scripts
 
 
@@ -730,34 +729,40 @@ __nested_webpack_require_513__.r(__nested_webpack_exports__);
 /* 9 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
+module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
 
 /***/ }),
 /* 10 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
+module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
 
 /***/ }),
 /* 11 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
+module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
 
 /***/ }),
 /* 12 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
+module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
 
 /***/ }),
 /* 13 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
+module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
 
 /***/ }),
 /* 14 */
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
+
+/***/ }),
+/* 15 */
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -765,7 +770,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -909,7 +914,8 @@ __nested_webpack_require_1061__.r(__nested_webpack_exports__);
 /******/ 	__webpack_require__(12);
 /******/ 	__webpack_require__(13);
 /******/ 	__webpack_require__(14);
-/******/ 	var __webpack_exports__ = __webpack_require__(15);
+/******/ 	__webpack_require__(15);
+/******/ 	var __webpack_exports__ = __webpack_require__(16);
 /******/ 	
 /******/ })()
 ;

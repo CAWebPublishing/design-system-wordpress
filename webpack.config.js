@@ -14,7 +14,7 @@ let entries = {
     '@cagovweb/go-site-header/build/index.js',
     '@cagovweb/go-site-footer/build/index.css',
     '@cagovweb/go-site-footer/build/index.js',
-    '@cagovweb/go-site-footer/src/images/gov-seal.png',
+    '@cagovweb/go-site-footer/src/images/gov-seal.svg',
     '@cagovweb/go-site-footer/src/images/share-facebook.svg',
     '@cagovweb/go-site-footer/src/images/share-instagram.svg',
     '@cagovweb/go-site-footer/src/images/share-tiktok.svg',
