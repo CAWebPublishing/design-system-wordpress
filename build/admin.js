@@ -1,7 +1,10 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/scripts/admin/options/hidden.js":
+/*!*********************************************!*\
+  !*** ./src/scripts/admin/options/hidden.js ***!
+  \*********************************************/
 /***/ (() => {
 
 jQuery(document).ready(function ($) {
@@ -63,7 +66,11 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ }),
-/* 2 */
+
+/***/ "./src/scripts/admin/options/mode.js":
+/*!*******************************************!*\
+  !*** ./src/scripts/admin/options/mode.js ***!
+  \*******************************************/
 /***/ (() => {
 
 jQuery(document).ready(function ($) {
@@ -105,7 +112,8 @@ jQuery(document).ready(function ($) {
 });
 
 /***/ })
-/******/ 	]);
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -177,10 +185,13 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
+/*!************************************!*\
+  !*** ./src/scripts/admin/index.js ***!
+  \************************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _options_hidden_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _options_hidden_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./options/hidden.js */ "./src/scripts/admin/options/hidden.js");
 /* harmony import */ var _options_hidden_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_options_hidden_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _options_mode_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(2);
+/* harmony import */ var _options_mode_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./options/mode.js */ "./src/scripts/admin/options/mode.js");
 /* harmony import */ var _options_mode_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_options_mode_js__WEBPACK_IMPORTED_MODULE_1__);
 // CAWeb Options not supported by the Design System are hidden.
 
@@ -191,3 +202,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
+//# sourceMappingURL=admin.js.map

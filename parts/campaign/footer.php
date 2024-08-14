@@ -66,7 +66,8 @@ $mode = get_option('cagov_design_system_mode', 'default');
 
 				?>
   </section>
-  <section id="publishing" aria-desctiption="website publishing information">
+  <section id="publishing" aria-labelledby="website-publishing-information">
+	<h3 id="website-publishing-information" class="sr-only">Website Publishing Information</h3>
       <?php if ( $cagov_design_system_is_caweb_plugin_active ) : ?>
         <p>Powered by: CAWeb Publishing Service</p>
       <?php endif; ?>

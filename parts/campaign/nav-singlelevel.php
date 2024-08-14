@@ -63,12 +63,13 @@ $cagov_design_system_google_trans_icon = get_option( 'ca_google_trans_icon', '' 
 		?>
 		<li class="search">
 			<!-- Search -->
-			<form class="search-container"  id="search-form" autocomplete="off" action="<?php print esc_url( site_url( 'serp' ) ); ?>">
-				<input id="search-box" type="text" class="search-box search-svg" name="q" value="<?php print esc_attr( $cagov_design_system_keyword ); ?>">
-				<label for="search-box">
-					<span class="sr-only">Search</span>
-				</label>
-				<input type="submit" id="search-submit">
+			<form class="search-container"  id="search-form" autocomplete="off" action="<?php print esc_url( site_url( 'serp' ) ); ?>" role="search">
+				<button id="close_search"  class="ca-gov-close-icon-small" aria-label="Close the search box"></button>
+                <label for="search-box" id="label_search-box">
+                  <span class="sr-only">To search the site, enter a search term</span>
+                </label>
+                <input id="search-box" type="text" class="search-box search-svg" name="q" value="<?php print esc_attr( $cagov_design_system_keyword ); ?>"/>
+                <button type="submit" class="search-submit-icon" id="search-submit" aria-label="Submit the search form"></button>
 			</form>
 		</li>
 
