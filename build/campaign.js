@@ -1,10 +1,11 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */,
-/* 2 */,
-/* 3 */
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./node_modules/@cagovweb/go-site-alerts/build/index.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-alerts/build/index.css ***!
+  \***************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -12,7 +13,195 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 4 */
+
+/***/ "./node_modules/@cagovweb/go-site-base-css/build/index.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-base-css/build/index.css ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/build/index.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/build/index.css ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-header/build/index.css":
+/*!***************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-header/build/index.css ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/src/images/gov-seal.svg":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/src/images/gov-seal.svg ***!
+  \***********************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/src/images/share-facebook.svg":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/src/images/share-facebook.svg ***!
+  \*****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/src/images/share-instagram.svg":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/src/images/share-instagram.svg ***!
+  \******************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/src/images/share-tiktok.svg":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/src/images/share-tiktok.svg ***!
+  \***************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/src/images/share-twitter-X.svg":
+/*!******************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/src/images/share-twitter-X.svg ***!
+  \******************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-footer/src/images/share-youtube.svg":
+/*!****************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/src/images/share-youtube.svg ***!
+  \****************************************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-alerts/build/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-alerts/build/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ([
+/* 0 */,
+/* 1 */
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_184__) => {
+
+__nested_webpack_require_184__.r(__nested_webpack_exports__);
+window.addEventListener("load", () => {
+  const alertClose = document.querySelectorAll("#cagov-alerts .ca-gov-close-icon");
+  alertClose.forEach(closeIcon => {
+    closeIcon.addEventListener("click", e => {
+      const alert_id = e.target.dataset.alert;
+      document.cookie = `cagov-alert-${alert_id}=false;path=/`;
+      e.target.parentElement.parentElement.remove();
+    });
+  });
+});
+
+/***/ }),
+/* 2 */
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_717__) => {
+
+__nested_webpack_require_717__.r(__nested_webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+/******/ 	]);
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_1058__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_1058__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nested_webpack_require_1058__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __nested_webpack_exports__ = {};
+__nested_webpack_require_1058__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_alert_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1058__(1);
+/* harmony import */ var _styles_alert_css__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1058__(2);
+// Scripts
+
+
+// Styles
+
+/******/ })()
+;
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-base-css/build/index.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-base-css/build/index.js ***!
+  \****************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -106,26 +295,113 @@ __nested_webpack_require_1068__.r(__nested_webpack_exports__);
 ;
 
 /***/ }),
-/* 5 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 6 */
+/***/ "./node_modules/@cagovweb/go-site-footer/build/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-footer/build/index.js ***!
+  \**************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_184__) => {
+/******/ 	var __webpack_modules__ = ({
 
-__nested_webpack_require_184__.r(__nested_webpack_exports__);
+/***/ "./src/styles/footer.css":
+/*!*******************************!*\
+  !*** ./src/styles/footer.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_299__) => {
+
+__nested_webpack_require_299__.r(__nested_webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __nested_webpack_require_641__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_641__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__nested_webpack_require_641__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+var __nested_webpack_exports__ = {};
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+__nested_webpack_require_641__.r(__nested_webpack_exports__);
+/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_641__(/*! ./styles/footer.css */ "./src/styles/footer.css");
+// Styles
+
+/******/ })()
+;
+//# sourceMappingURL=index.js.map
+
+/***/ }),
+
+/***/ "./node_modules/@cagovweb/go-site-header/build/index.js":
+/*!**************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-header/build/index.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/******/ (() => { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/styles/header.css":
+/*!*******************************!*\
+  !*** ./src/styles/header.css ***!
+  \*******************************/
+/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_299__) => {
+
+__nested_webpack_require_299__.r(__nested_webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
+/***/ }),
+
+/***/ "./src/scripts/ca-gov-toggle.js":
+/*!**************************************!*\
+  !*** ./src/scripts/ca-gov-toggle.js ***!
+  \**************************************/
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_660__) => {
+
+__nested_webpack_require_660__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
   const sidebarToggle = document.querySelector("header #caGov");
   const caGovMenu = document.getElementById("ca_gov_sidebar");
@@ -139,10 +415,10 @@ window.addEventListener("load", () => {
   if (!sidebar || !sidebarToggle) return;
   sidebarToggle.addEventListener("keydown", e => {
     if (13 === e.keyCode) {
-      toggleCaGovMenu;
+      toggleCaGovMenu();
     }
     if (32 === e.keyCode) {
-      toggleCaGovMenu;
+      toggleCaGovMenu();
     }
   });
 
@@ -222,10 +498,14 @@ window.addEventListener("load", () => {
 });
 
 /***/ }),
-/* 2 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_3859__) => {
 
-__nested_webpack_require_3859__.r(__nested_webpack_exports__);
+/***/ "./src/scripts/mobile.js":
+/*!*******************************!*\
+  !*** ./src/scripts/mobile.js ***!
+  \*******************************/
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_4475__) => {
+
+__nested_webpack_require_4475__.r(__nested_webpack_exports__);
 /* eslint-disable yoda */
 window.addEventListener("load", () => {
   const doc = document.documentElement;
@@ -316,7 +596,11 @@ window.addEventListener("load", () => {
     if (navigation.classList.contains("navigation-mobile") && !navigation.classList.contains("hidden")) {
       if (e.key === "Escape") {
         e.stopPropagation();
-        closeHamburgerMenu();
+        if (searchBox.value.length > 0) {
+          searchBox.value = "";
+        } else {
+          closeHamburgerMenu();
+        }
       }
 
       // only if navToggle is focused and nav is open and tab key is pressed and shift is not pressed
@@ -487,41 +771,14 @@ window.addEventListener("load", () => {
 });
 
 /***/ }),
-/* 3 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_13350__) => {
 
-__nested_webpack_require_13350__.r(__nested_webpack_exports__);
-window.addEventListener("load", () => {
-  const searchSVG = document.querySelector("header .search-svg");
-  const searchInput = document.querySelector("header #search-box");
-  if (!searchInput) return;
-  searchSVG.addEventListener("click", () => {
-    searchInput.focus();
-    if (window.innerWidth > 1080) {
-      if (!searchInput.classList.contains("focus-search-box")) {
-        searchInput.classList.add("focus-search-box");
-      }
-    }
-  });
-  searchInput.addEventListener("focus", () => {
-    searchInput.focus();
-    if (window.innerWidth > 1080) {
-      searchInput.classList.add("focus-search-box");
-    }
-  });
-  searchInput.addEventListener("focusout", () => {
-    if (window.innerWidth > 1080) {
-      searchInput.classList.remove("focus-search-box");
-      searchInput.value = "";
-    }
-  });
-});
+/***/ "./src/scripts/return-to-top.js":
+/*!**************************************!*\
+  !*** ./src/scripts/return-to-top.js ***!
+  \**************************************/
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_14233__) => {
 
-/***/ }),
-/* 4 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_14318__) => {
-
-__nested_webpack_require_14318__.r(__nested_webpack_exports__);
+__nested_webpack_require_14233__.r(__nested_webpack_exports__);
 window.addEventListener("DOMContentLoaded", () => {
   /* eslint-disable no-lonely-if */
   const returnTop = document.querySelector(".return-top");
@@ -588,227 +845,188 @@ const backToTopFunction = event => {
 };
 
 /***/ }),
-/* 5 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_16572__) => {
 
-__nested_webpack_require_16572__.r(__nested_webpack_exports__);
-// extracted by mini-css-extract-plugin
+/***/ "./src/scripts/search.js":
+/*!*******************************!*\
+  !*** ./src/scripts/search.js ***!
+  \*******************************/
+/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_16635__) => {
 
-
-/***/ })
-/******/ 	]);
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nested_webpack_require_16913__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_16913__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_16913__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __nested_webpack_exports__ = {};
-__nested_webpack_require_16913__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_16913__(1);
-/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_16913__(2);
-/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_16913__(3);
-/* harmony import */ var _scripts_return_to_top_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_16913__(4);
-/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_16913__(5);
-// Scripts
-
-
-
-
-
-// Styles
-
-/******/ })()
-;
-
-/***/ }),
-/* 7 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 8 */
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_172__) => {
-
-__nested_webpack_require_172__.r(__nested_webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ })
-/******/ 	]);
-/************************************************************************/
-/******/ 	// The module cache
-/******/ 	var __webpack_module_cache__ = {};
-/******/ 	
-/******/ 	// The require function
-/******/ 	function __nested_webpack_require_513__(moduleId) {
-/******/ 		// Check if module is in cache
-/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
-/******/ 		if (cachedModule !== undefined) {
-/******/ 			return cachedModule.exports;
-/******/ 		}
-/******/ 		// Create a new module (and put it into the cache)
-/******/ 		var module = __webpack_module_cache__[moduleId] = {
-/******/ 			// no module.id needed
-/******/ 			// no module.loaded needed
-/******/ 			exports: {}
-/******/ 		};
-/******/ 	
-/******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_513__);
-/******/ 	
-/******/ 		// Return the exports of the module
-/******/ 		return module.exports;
-/******/ 	}
-/******/ 	
-/************************************************************************/
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_513__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
-/************************************************************************/
-var __nested_webpack_exports__ = {};
-__nested_webpack_require_513__.r(__nested_webpack_exports__);
-/* harmony import */ var _styles_footer_css__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_513__(1);
-// Styles
-
-/******/ })()
-;
-
-/***/ }),
-/* 9 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "fonts/gov-seal.svg";
-
-/***/ }),
-/* 10 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "fonts/share-facebook.svg";
-
-/***/ }),
-/* 11 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "fonts/share-instagram.svg";
-
-/***/ }),
-/* 12 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "fonts/share-tiktok.svg";
-
-/***/ }),
-/* 13 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "fonts/share-twitter-X.svg";
-
-/***/ }),
-/* 14 */
-/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
-
-module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
-
-/***/ }),
-/* 15 */
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
-/***/ }),
-/* 16 */
-/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */
-/***/ ((__unused_webpack___webpack_module__, __nested_webpack_exports__, __nested_webpack_require_184__) => {
-
-__nested_webpack_require_184__.r(__nested_webpack_exports__);
+__nested_webpack_require_16635__.r(__nested_webpack_exports__);
 window.addEventListener("load", () => {
-  const alertClose = document.querySelectorAll("#cagov-alerts .ca-gov-close-icon");
-  alertClose.forEach(closeIcon => {
-    closeIcon.addEventListener("click", e => {
-      var alert_id = e.target.dataset.alert;
-      document.cookie = 'cagov-alert-' + alert_id + '=false;path=/';
-      e.target.parentElement.parentElement.remove();
-    });
+  const searchForm = document.querySelector("#search-form");
+  const searchSVG = document.querySelector("header .search-svg");
+  const searchInput = document.querySelector("header #search-box");
+  const resetInputButton = document.querySelector(".ca-gov-close-icon-small");
+  const submitInputButton = document.querySelector(".search-submit-icon");
+  const submitButton = document.querySelector("#search-submit");
+
+  // Set appropriate icon if search input has a search term
+  const updateSearchBox = () => {
+    if (searchInput?.value === "") {
+      submitInputButton?.classList.remove("search-submit-icon");
+      submitInputButton?.classList.add("search-svg-small-icon");
+    } else {
+      submitInputButton?.classList.remove("search-svg-small-icon");
+      submitInputButton?.classList.add("search-submit-icon");
+    }
+  };
+
+  // Close search box and hide search term
+  const closeSearchBox = () => {
+    searchInput?.classList.remove("focus-search-box");
+    searchInput.placeholder = "";
+    searchInput.style.color = "transparent";
+  };
+
+  // Open search box and display search term
+  const openSearchBox = () => {
+    searchInput?.classList.add("focus-search-box");
+    searchInput.style.color = "#000000";
+    searchInput.placeholder = "Search";
+  };
+
+  // Clears search term and resets placeholder text
+  const clearSearchBox = () => {
+    searchInput.value = "";
+    searchInput.placeholder = "Search";
+  };
+  if (!searchInput) return;
+
+  // Always keep placeholder text for mobile
+  if (window.innerWidth < 1080) {
+    searchInput.placeholder = "Search";
+  }
+
+  // Fire update on search box expansion
+  searchSVG.addEventListener("click", () => {
+    updateSearchBox();
+  });
+
+  // Fire update on keyup
+  document.addEventListener("keyup", () => {
+    updateSearchBox();
+  });
+
+  // Clear search term on pressing ESC
+  searchForm.addEventListener("keyup", e => {
+    if (e.key === "Escape") {
+      e.preventDefault();
+      clearSearchBox();
+      updateSearchBox();
+    }
+  });
+
+  // Keydown behavior for search elements
+  // Pressing Enter on the X button:
+  // -Desktop = close search box, hide search term
+  // -Mobile = clear search term
+  // Pressing Enter on the Submit button:
+  // Only submit if search term is present
+  searchForm.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      if (e.target.id === "close_search") {
+        if (window.innerWidth > 1080) {
+          closeSearchBox();
+        } else {
+          clearSearchBox();
+        }
+        updateSearchBox();
+        e.preventDefault();
+        return false;
+      }
+      if (e.target.id === "search-submit" && searchInput.value.length > 0) {
+        e.preventDefault();
+        searchForm.submit();
+      }
+      if (searchInput.value.length <= 0) {
+        console.log(searchInput.value);
+        e.preventDefault();
+        return false;
+      } else {
+        e.preventDefault();
+        searchForm.submit();
+      }
+    }
+  });
+
+  // Close search box and hide search term on desktop click
+  // Clear search term on mobile click
+  resetInputButton.addEventListener("click", e => {
+    if (window.innerWidth > 1080) {
+      closeSearchBox();
+    } else {
+      clearSearchBox();
+    }
+    updateSearchBox();
+    e.preventDefault();
+  });
+
+  // Submit form on click only if search term is present
+  submitButton.addEventListener("click", e => {
+    console.log(e.target);
+    if (searchInput.value.length <= 0) {
+      console.log(searchInput.value);
+      e.preventDefault();
+      return false;
+    } else {
+      e.preventDefault();
+      searchForm.submit();
+    }
+  });
+
+  // Open search box and set placeholder on magnifying glass icon click
+  searchSVG.addEventListener("click", e => {
+    updateSearchBox();
+    searchInput?.focus();
+    if (window.innerWidth > 1080) {
+      if (!searchInput.classList.contains("focus-search-box")) {
+        openSearchBox();
+      }
+    }
+    e.preventDefault();
+  });
+
+  // Open search box and set placeholder on search input focus
+  searchInput.addEventListener("focus", () => {
+    updateSearchBox();
+    searchInput.focus();
+    if (window.innerWidth > 1080) {
+      openSearchBox();
+    }
+  });
+
+  // Close search box, remove placeholder, and remove value on search input focusout
+  searchInput.addEventListener("focusout", e => {
+    if (window.innerWidth > 1080 && e.target?.nodeName !== "INPUT") {
+      closeSearchBox();
+    }
+  });
+
+  // Close search box, remove placeholder, and remove value on reset button focusout
+  resetInputButton.addEventListener("focusout", e => {
+    if (window.innerWidth > 1080 && e.relatedTarget?.nodeName !== "INPUT") {
+      closeSearchBox();
+    }
+  });
+
+  // Close search box, remove placeholder, and remove value on submit button focusout
+  submitInputButton.addEventListener("focusout", e => {
+    if (window.innerWidth > 1080 && e.relatedTarget?.nodeName !== "INPUT") {
+      closeSearchBox();
+    }
   });
 });
 
-/***/ }),
-/* 2 */
-/***/ ((__unused_webpack_module, __nested_webpack_exports__, __nested_webpack_require_720__) => {
-
-__nested_webpack_require_720__.r(__nested_webpack_exports__);
-// extracted by mini-css-extract-plugin
-
-
 /***/ })
-/******/ 	]);
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
 /******/ 	
 /******/ 	// The require function
-/******/ 	function __nested_webpack_require_1061__(moduleId) {
+/******/ 	function __nested_webpack_require_21883__(moduleId) {
 /******/ 		// Check if module is in cache
 /******/ 		var cachedModule = __webpack_module_cache__[moduleId];
 /******/ 		if (cachedModule !== undefined) {
@@ -822,7 +1040,7 @@ __nested_webpack_require_720__.r(__nested_webpack_exports__);
 /******/ 		};
 /******/ 	
 /******/ 		// Execute the module function
-/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_1061__);
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __nested_webpack_require_21883__);
 /******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
@@ -832,7 +1050,7 @@ __nested_webpack_require_720__.r(__nested_webpack_exports__);
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
-/******/ 		__nested_webpack_require_1061__.r = (exports) => {
+/******/ 		__nested_webpack_require_21883__.r = (exports) => {
 /******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
 /******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
 /******/ 			}
@@ -842,19 +1060,30 @@ __nested_webpack_require_720__.r(__nested_webpack_exports__);
 /******/ 	
 /************************************************************************/
 var __nested_webpack_exports__ = {};
-__nested_webpack_require_1061__.r(__nested_webpack_exports__);
-/* harmony import */ var _scripts_alert_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_1061__(1);
-/* harmony import */ var _styles_alert_css__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_1061__(2);
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+__nested_webpack_require_21883__.r(__nested_webpack_exports__);
+/* harmony import */ var _scripts_ca_gov_toggle_js__WEBPACK_IMPORTED_MODULE_0__ = __nested_webpack_require_21883__(/*! ./scripts/ca-gov-toggle.js */ "./src/scripts/ca-gov-toggle.js");
+/* harmony import */ var _scripts_mobile_js__WEBPACK_IMPORTED_MODULE_1__ = __nested_webpack_require_21883__(/*! ./scripts/mobile.js */ "./src/scripts/mobile.js");
+/* harmony import */ var _scripts_search_js__WEBPACK_IMPORTED_MODULE_2__ = __nested_webpack_require_21883__(/*! ./scripts/search.js */ "./src/scripts/search.js");
+/* harmony import */ var _scripts_return_to_top_js__WEBPACK_IMPORTED_MODULE_3__ = __nested_webpack_require_21883__(/*! ./scripts/return-to-top.js */ "./src/scripts/return-to-top.js");
+/* harmony import */ var _styles_header_css__WEBPACK_IMPORTED_MODULE_4__ = __nested_webpack_require_21883__(/*! ./styles/header.css */ "./src/styles/header.css");
 // Scripts
+
+
+
 
 
 // Styles
 
 /******/ })()
 ;
+//# sourceMappingURL=index.js.map
 
 /***/ })
-/******/ 	]);
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -881,6 +1110,18 @@ __nested_webpack_require_1061__.r(__nested_webpack_exports__);
 /******/ 	}
 /******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/global */
+/******/ 	(() => {
+/******/ 		__webpack_require__.g = (function() {
+/******/ 			if (typeof globalThis === 'object') return globalThis;
+/******/ 			try {
+/******/ 				return this || new Function('return this')();
+/******/ 			} catch (e) {
+/******/ 				if (typeof window === 'object') return window;
+/******/ 			}
+/******/ 		})();
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -894,28 +1135,47 @@ __nested_webpack_require_1061__.r(__nested_webpack_exports__);
 /******/ 	
 /******/ 	/* webpack/runtime/publicPath */
 /******/ 	(() => {
-/******/ 		__webpack_require__.p = "/";
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript)
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
 /******/ 	})();
 /******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__(3);
-/******/ 	__webpack_require__(4);
-/******/ 	__webpack_require__(5);
-/******/ 	__webpack_require__(6);
-/******/ 	__webpack_require__(7);
-/******/ 	__webpack_require__(8);
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-base-css/build/index.css");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-base-css/build/index.js");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/build/index.css");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/build/index.js");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/build/index.css");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/build/index.js");
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	__webpack_require__(9);
-/******/ 	__webpack_require__(10);
-/******/ 	__webpack_require__(11);
-/******/ 	__webpack_require__(12);
-/******/ 	__webpack_require__(13);
-/******/ 	__webpack_require__(14);
-/******/ 	__webpack_require__(15);
-/******/ 	var __webpack_exports__ = __webpack_require__(16);
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/gov-seal.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/share-facebook.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/share-instagram.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/share-tiktok.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/share-twitter-X.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/share-youtube.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-alerts/build/index.css");
+/******/ 	var __webpack_exports__ = __webpack_require__("./node_modules/@cagovweb/go-site-alerts/build/index.js");
 /******/ 	
 /******/ })()
 ;
+//# sourceMappingURL=campaign.js.map

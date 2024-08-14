@@ -35,10 +35,10 @@
     "@cagov/ds-skip-to-content": "^2.0.1",
     "@cagov/ds-statewide-footer": "^2.0.1",
     "@cagov/ds-statewide-header": "^2.0.1",
-    "@cagovweb/go-site-alerts": "^0.0.36",
+    "@cagovweb/go-site-alerts": "^0.0.37",
     "@cagovweb/go-site-base-css": "^0.0.9",
-    "@cagovweb/go-site-footer": "^0.0.21",
-    "@cagovweb/go-site-header": "^0.0.39",
-    "@caweb/cli": "^1.4.2"
+    "@cagovweb/go-site-footer": "^0.0.22",
+    "@cagovweb/go-site-header": "^0.0.42",
+    "@caweb/cli": "^1.6.5"
   }
 }

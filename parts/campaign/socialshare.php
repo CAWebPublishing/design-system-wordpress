@@ -17,7 +17,8 @@ $cagov_design_system_social_links = '';
 
 if ( ! empty( $cagov_design_system_social_media ) ):
 ?>
-<nav role="navigation" aria-describedby="social media links">
+<nav role="navigation" aria-labelledby="footer-social-media-links">
+	<h3 id="footer-social-media-links" class="sr-only">Footer Social Media Links</h3>
 	<ul class="flex">
 <?php foreach ( $cagov_design_system_social_media as $cagov_design_system_share => $cagov_design_system_option ) : 
 		$cagov_design_system_share_email  = 'ca_social_email' === $cagov_design_system_option ? true : false;
