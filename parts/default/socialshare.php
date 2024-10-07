@@ -29,9 +29,9 @@ if ( ! empty( $cagov_design_system_social_media ) ):
 			$cagov_design_system_social_url = $cagov_design_system_share_email ? $cagov_design_system_mailto : get_option( $cagov_design_system_option );
 
 			$cagov_design_system_social_default_title = "Share via $cagov_design_system_share";
-			$cagov_design_system_social_title         = get_option( "${cagov_design_system_option}_hover_text", $cagov_design_system_social_default_title );
+			$cagov_design_system_social_title         = get_option( "{$cagov_design_system_option}_hover_text", $cagov_design_system_social_default_title );
 			$cagov_design_system_icon                 = str_replace( '_', '-', substr( $cagov_design_system_option, 10 ) );
-			$cagov_design_system_social_target        = get_option( "${cagov_design_system_option}_new_window", true ) ? '_blank' : '_self';
+			$cagov_design_system_social_target        = get_option( "{$cagov_design_system_option}_new_window", true ) ? '_blank' : '_self';
 ?>
 			<a 
 				class="no-underline font-size-3 p-y-1 m-a-1 m-l-0 m-y-0"
