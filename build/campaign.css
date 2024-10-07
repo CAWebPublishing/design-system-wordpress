@@ -2,6 +2,10 @@
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-base-css/build/index.css ***!
   \*************************************************************************************************************************************************************************************************************/
 @import url(https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400..700&display=swap);
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-header/build/index.css ***!
+  \***********************************************************************************************************************************************************************************************************/
+@import url(https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400..700&display=swap);
 /*!*****************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-base-css/build/index.css (1) ***!
   \*****************************************************************************************************************************************************************************************************************/
@@ -235,12 +239,248 @@ p {
 }
 
 
-/*!***********************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-header/build/index.css ***!
-  \***********************************************************************************************************************************************************************************************************/
-/*!*******************************************************************************************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/@wordpress/scripts/node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/@wordpress/scripts/node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/styles/header.css ***!
-  \*******************************************************************************************************************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-header/build/index.css (1) ***!
+  \***************************************************************************************************************************************************************************************************************/
+/*!*************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-base-css/build/index.css ***!
+  \*************************************************************************************************************************************************************************************************************/
+/*!*****************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./node_modules/@cagovweb/go-site-base-css/build/index.css (1) ***!
+  \*****************************************************************************************************************************************************************************************************************/
+:root {
+  /** Palate colors **/
+  --brand-primary: #20367c;
+  --brand-secondary: #1b499b;
+  --banner-light: #d5d9de;
+  --banner-dark: #071645;
+  --brand-hover-light: #009ed3;
+  --brand-hover-dark: #0073a5;
+  --navigation-hover-light: #004972;
+  --navigation-hover-dark: #03334f;
+  --background-primary-light: #fafafa;
+  --background-secondary-light: #f5f3eb;
+  --background-primary-dark: #43433f;
+  --background-secondary-dark: #65645f;
+  --action-primary: #f5821f;
+  --action-secondary: #fdbc5b;
+  --action-alt: #f26522;
+
+  /** Global colors **/
+  --main-white: #fff;
+  --main-dark: #242424;
+  --navigation-submenu-light: #dbdbdb;
+  --navigation-submenu-dark: #6b6b6b;
+  --utility-dark: #111111;
+  --text-dark: #323232;
+  --text-white: #fff;
+  --hyperlink-light: #0057ad;
+  --hyperlink-activated-light: #8a0071;
+  --hyperlink-dark: #87cefa;
+  --hyperlink-activated-dark: #f692b9;
+
+  /** Greys **/
+  --grey: #cccccc;
+  --grey-text: #323232;
+  --grey-background: #eeeeee;
+
+  /** Tokens **/
+  --gutter-gap: 1.674vw;
+  --flow-space: 1rem;
+  --radius: 1rem;
+  --shadow: 0.2rem 0.2rem 0.5em 0 rgba(0, 0, 0, 0.25);
+  --shadow-focus: 0.1rem 0.1rem 0.25em 0 rgba(0, 0, 0, 0.1);
+  --shadow-active: 0.2rem 0.2rem 0.5em 0 rgba(0, 0, 0, 0.6);
+  --background-light: #d5d4c6;
+  --background-dark: #13394b;
+  --action-hover: #278fc0;
+  --action-active: #13394b;
+  --go-brand-golden-state-yellow: #fdbc5b;
+  --go-brand-tahoe-blue: #20367c;
+  --go-brand-radial-gradient: radial-gradient(
+    103.56% 84.2% at 9.9% 25.98%,
+    #20367c 0%,
+    #385ed6 100%
+  );
+
+  /* Change this for overall font size */
+  --fontSize: 1rem;
+  --font-size: 1rem;
+
+  /* Font characteristics */
+  --ratio: 1.24;
+  --s0: calc(var(--fontSize) - 0.3rem) + 0.2vw;
+
+  /* Typography calculations, please do not change */
+
+  /* Small-text to allow for more control */
+  --st: calc(var(--s0) * var(--ratio));
+
+  /* The font size of standard paragraph text */
+  --base: calc(var(--st) * var(--ratio));
+
+  /* ()Lead-text to allow for more control */
+  --lt: calc(var(--base) * var(--ratio));
+  --h6: calc(var(--s0) * var(--ratio));
+  --h5: calc(var(--h6) * var(--ratio));
+  --h4: calc(var(--h5) * var(--ratio));
+  --h3: calc(var(--h4) * var(--ratio));
+  --h2: calc(var(--h3) * var(--ratio));
+  --h1: calc(var(--h2) * var(--ratio) * var(--ratio));
+}
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+
+  & li {
+    margin-block-start: calc(var(--flow-space) + 0.25rem);
+  }
+}
+
+/** BEGIN Main body **/
+body {
+  min-height: 100vh;
+  font-size: clamp(1rem, var(--base), 5rem);
+  flex-direction: column;
+  color: var(--grey-text);
+
+  /* the last font listed is the one used */
+  font-family: "Noto Sans", "Roboto", "Inter", sans-serif;
+  letter-spacing: 0.02rem;
+  line-height: 1.5rem;
+  font-weight: 400;
+}
+
+blockquote {
+  border-left: rgba(0, 0, 0, 0.12) 2px solid;
+  margin-left: 0;
+  padding-left: calc(2ch + 0.5rem);
+}
+
+/* Focus Styles | thanks Stephanie Eckles */
+:is(a, button, input, textarea, summary) {
+  --outline-size: max(2px, 0.08em);
+  --outline-style: solid;
+  --outline-color: currentColor;
+
+  &:focus {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+
+    &:not(:focus-visible) {
+      outline: none;
+    }
+  }
+
+  &:focus-visible {
+    outline: var(--outline-size) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset, var(--outline-size));
+  }
+}
+
+/** BEGIN Accessibility backward compatibility **/
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/** END Accessibility backward compatibility **/
+
+/** Run-in List CSS **/
+.run-in,
+.run-in li {
+  padding: 0;
+  background: none;
+  display: inline;
+  margin-right: 1rem;
+}
+.run-in li::after {
+  content: "";
+}
+
+.run-in li:last-child::after {
+  content: "";
+}
+
+/** TABLET PORTRAIT UP **/
+@media (min-width: 600px) {
+}
+/** TABLET LANDSCAPE UP **/
+@media (min-width: 900px) {
+}
+/** DESKTOP UP **/
+@media (min-width: 1200px) {
+}
+/** TABLET BIG-DESKTOP UP **/
+@media (min-width: 1800px) {
+}
+
+article > header ~ * {
+  margin-top: 0.15rem;
+}
+
+/**** Sets rule for lead text ****/
+h1 + p {
+  font-size: calc(var(--lt) - 0.02rem);
+  line-height: 1.5;
+}
+
+h1 {
+  font-weight: 600;
+  font-size: var(--h1);
+  line-height: 1.619;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: var(--h2);
+  line-height: 1.619;
+}
+
+h3 {
+  font-weight: 600;
+  font-size: var(--h3);
+  line-height: 1.619;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: var(--h4);
+  line-height: 1.619;
+}
+
+h5 {
+  font-weight: 500;
+  font-size: var(--h5);
+}
+
+li + li {
+  margin-top: 0.5rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+
+/*!***************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./src/styles/header.css ***!
+  \***************************************************************************************************************************************************************************/
 /* These need to go in the base css */
 .gray-bg {
   background: var(--grey-background, #eee);
@@ -250,7 +490,7 @@ p {
   background: var(--background-primary-light, #fafafa);
   box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   display: none;
-  font-family: "Noto Sans";
+  font-family: 'Noto Sans';
   height: 90vh;
   line-height: normal;
   overflow-y: auto;
@@ -258,7 +498,7 @@ p {
   position: absolute;
   right: 0px;
   text-align: start;
-  top: 88px;
+  top: 104px;
   transition: all 0.3s ease;
   width: 15rem;
 }
@@ -400,7 +640,7 @@ header nav li.search {
   text-align: right;
   height: 43px;
 }
-header nav li.search .search-container input[type="submit"] {
+header nav li.search .search-container input[type='submit'] {
   display: block;
 }
 header nav li.search .search-close-icon {
@@ -538,24 +778,24 @@ header .cagov {
   align-self: center;
   background: var(--grey-background, #eee);
   cursor: pointer;
-  width: 3rem;
+  width: 4rem;
   z-index: calc(infinity);
 }
 header .cagov button {
   cursor: pointer;
 }
-.ca-gov-close-icon {
-  background-image: url("data:image/svg+xml,<svg width=\"56\" height=\"56\" viewBox=\"0 0 64 64\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"56\" height=\"56\" transform=\"matrix%28-1 0 0 1 56 0%29\" fill=\"%2320367C\"/><path d=\"M16.2672 17.34C15.2167 16.2051 16.0216 14.3633 17.568 14.3633V14.3633C18.0619 14.3633 18.5334 14.5693 18.8688 14.9317L40.2443 38.0233C41.2948 39.1581 40.4899 41 38.9434 41V41C38.4496 41 37.9781 40.794 37.6426 40.4316L16.2672 17.34Z\" fill=\"url%28%23paint0_linear_3737_31818%29\"/><path d=\"M40.2445 17.34C41.295 16.2051 40.4901 14.3633 38.9437 14.3633V14.3633C38.4498 14.3633 37.9784 14.5693 37.6429 14.9317L16.2675 38.0233C15.2169 39.1581 16.0218 41 17.5683 41V41C18.0621 41 18.5336 40.794 18.8691 40.4316L40.2445 17.34Z\" fill=\"white\"/><defs><linearGradient id=\"paint0_linear_3737_31818\" x1=\"15.1398\" y1=\"14.3633\" x2=\"34.7915\" y2=\"43.647\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"white\"/><stop offset=\"0.424604\" stop-color=\"%2320367C\"/><stop offset=\"0.621848\" stop-color=\"%2320367C\"/><stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0.95935\"/></linearGradient></defs></svg>");
+header .ca-gov-close-icon {
+  background-image: url("data:image/svg+xml,<svg width=\"64\" height=\"64\" viewBox=\"0 0 64 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"64\" height=\"64\" transform=\"matrix%28-1 0 0 1 56 0%29\" fill=\"%2320367C\"/><path d=\"M16.2672 17.34C15.2167 16.2051 16.0216 14.3633 17.568 14.3633V14.3633C18.0619 14.3633 18.5334 14.5693 18.8688 14.9317L40.2443 38.0233C41.2948 39.1581 40.4899 41 38.9434 41V41C38.4496 41 37.9781 40.794 37.6426 40.4316L16.2672 17.34Z\" fill=\"url%28%23paint0_linear_3737_31818%29\"/><path d=\"M40.2445 17.34C41.295 16.2051 40.4901 14.3633 38.9437 14.3633V14.3633C38.4498 14.3633 37.9784 14.5693 37.6429 14.9317L16.2675 38.0233C15.2169 39.1581 16.0218 41 17.5683 41V41C18.0621 41 18.5336 40.794 18.8691 40.4316L40.2445 17.34Z\" fill=\"white\"/><defs><linearGradient id=\"paint0_linear_3737_31818\" x1=\"15.1398\" y1=\"14.3633\" x2=\"34.7915\" y2=\"43.647\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"white\"/><stop offset=\"0.424604\" stop-color=\"%2320367C\"/><stop offset=\"0.621848\" stop-color=\"%2320367C\"/><stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0.95935\"/></linearGradient></defs></svg>");
   border: 0;
   display: block;
-  height: 3rem;
+  height: 4rem;
   transition: all 0.3s ease;
-  width: 3rem;
+  width: 4rem;
 }
-.ca-gov-close-icon:hover {
-  background-image: url("data:image/svg+xml,<svg width=\"56\" height=\"56\" viewBox=\"0 0 64 64\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g filter=\"url%28%23filter0_d_3687_5665%29\"><rect width=\"56\" height=\"56\" transform=\"matrix%28-1 0 0 1 56 0%29\" fill=\"%236D6D6D\"/><path d=\"M13.6281 16.1417C12.3912 14.8054 13.3389 12.6367 15.1598 12.6367C15.7412 12.6367 16.2964 12.8793 16.6914 13.306L41.8597 40.4951C43.0967 41.8313 42.149 44 40.3281 44C39.7466 44 39.1915 43.7574 38.7965 43.3307L13.6281 16.1417Z\" fill=\"url%28%23paint0_linear_3687_5665%29\"/><path d=\"M41.86 16.1417C43.097 14.8054 42.1493 12.6367 40.3284 12.6367C39.7469 12.6367 39.1918 12.8793 38.7968 13.306L13.6284 40.4951C12.3915 41.8313 13.3392 44 15.1601 44C15.7415 44 16.2967 43.7574 16.6917 43.3307L41.86 16.1417Z\" fill=\"white\"/></g><defs><filter id=\"filter0_d_3687_5665\" x=\"0\" y=\"0\" width=\"64\" height=\"64\" filterUnits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\"><feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/><feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/><feOffset dx=\"4\" dy=\"4\"/><feGaussianBlur stdDeviation=\"2\"/><feComposite in2=\"hardAlpha\" operator=\"out\"/><feColorMatrix type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0\"/><feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_3687_5665\"/><feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_3687_5665\" result=\"shape\"/></filter><linearGradient id=\"paint0_linear_3687_5665\" x1=\"12.3007\" y1=\"12.6367\" x2=\"35.4394\" y2=\"47.1167\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"white\"/><stop offset=\"0.424604\" stop-color=\"%236D6D6D\"/><stop offset=\"0.621848\" stop-color=\"%236D6D6D\"/><stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0.95935\"/></linearGradient></defs></svg>");
+header .ca-gov-close-icon:hover {
+  background-image: url("data:image/svg+xml,<svg width=\"64\" height=\"64\" viewBox=\"0 0 64 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><g filter=\"url%28%23filter0_d_3687_5665%29\"><rect width=\"64\" height=\"64\" transform=\"matrix%28-1 0 0 1 56 0%29\" fill=\"%236D6D6D\"/><path d=\"M13.6281 16.1417C12.3912 14.8054 13.3389 12.6367 15.1598 12.6367C15.7412 12.6367 16.2964 12.8793 16.6914 13.306L41.8597 40.4951C43.0967 41.8313 42.149 44 40.3281 44C39.7466 44 39.1915 43.7574 38.7965 43.3307L13.6281 16.1417Z\" fill=\"url%28%23paint0_linear_3687_5665%29\"/><path d=\"M41.86 16.1417C43.097 14.8054 42.1493 12.6367 40.3284 12.6367C39.7469 12.6367 39.1918 12.8793 38.7968 13.306L13.6284 40.4951C12.3915 41.8313 13.3392 44 15.1601 44C15.7415 44 16.2967 43.7574 16.6917 43.3307L41.86 16.1417Z\" fill=\"white\"/></g><defs><filter id=\"filter0_d_3687_5665\" x=\"0\" y=\"0\" width=\"64\" height=\"64\" filterUnits=\"userSpaceOnUse\" color-interpolation-filters=\"sRGB\"><feFlood flood-opacity=\"0\" result=\"BackgroundImageFix\"/><feColorMatrix in=\"SourceAlpha\" type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0\" result=\"hardAlpha\"/><feOffset dx=\"4\" dy=\"4\"/><feGaussianBlur stdDeviation=\"2\"/><feComposite in2=\"hardAlpha\" operator=\"out\"/><feColorMatrix type=\"matrix\" values=\"0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0\"/><feBlend mode=\"normal\" in2=\"BackgroundImageFix\" result=\"effect1_dropShadow_3687_5665\"/><feBlend mode=\"normal\" in=\"SourceGraphic\" in2=\"effect1_dropShadow_3687_5665\" result=\"shape\"/></filter><linearGradient id=\"paint0_linear_3687_5665\" x1=\"12.3007\" y1=\"12.6367\" x2=\"35.4394\" y2=\"47.1167\" gradientUnits=\"userSpaceOnUse\"><stop stop-color=\"white\"/><stop offset=\"0.424604\" stop-color=\"%236D6D6D\"/><stop offset=\"0.621848\" stop-color=\"%236D6D6D\"/><stop offset=\"1\" stop-color=\"white\" stop-opacity=\"0.95935\"/></linearGradient></defs></svg>");
 }
-.ca-gov-close-icon-small {
+header .ca-gov-close-icon-small {
   /* background-image: url('data:image/svg+xml,<svg width="39" height="35" viewBox="0 0 92 77" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="56" height="56" transform="matrix(-1 0 0 1 56 0)" fill="%2320367C"/><path d="M16.2672 17.34C15.2167 16.2051 16.0216 14.3633 17.568 14.3633V14.3633C18.0619 14.3633 18.5334 14.5693 18.8688 14.9317L40.2443 38.0233C41.2948 39.1581 40.4899 41 38.9434 41V41C38.4496 41 37.9781 40.794 37.6426 40.4316L16.2672 17.34Z" fill="url(%23paint0_linear_3737_31818)"/><path d="M40.2445 17.34C41.295 16.2051 40.4901 14.3633 38.9437 14.3633V14.3633C38.4498 14.3633 37.9784 14.5693 37.6429 14.9317L16.2675 38.0233C15.2169 39.1581 16.0218 41 17.5683 41V41C18.0621 41 18.5336 40.794 18.8691 40.4316L40.2445 17.34Z" fill="white"/><defs><linearGradient id="paint0_linear_3737_31818" x1="15.1398" y1="14.3633" x2="34.7915" y2="43.647" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="0.424604" stop-color="%2320367C"/><stop offset="0.621848" stop-color="%2320367C"/><stop offset="1" stop-color="white" stop-opacity="0.95935"/></linearGradient></defs></svg>'); */
   background-image: url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"14\" viewBox=\"0 0 14 13\" fill=\"none\"><path d=\"M2.15527 0.984375L12.8178 12.2422\" stroke=\"%2320367C\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M13.1152 1.20703L1.85742 12.0237\" stroke=\"%2320367C\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>");
   background-repeat: no-repeat;
@@ -565,7 +805,7 @@ header .cagov button {
   transition: background-image 0.3s ease;
   width: 1rem;
 }
-.ca-gov-close-icon-small:hover {
+header .ca-gov-close-icon-small:hover {
   /* background-image: url('data:image/svg+xml,<svg width="39" height="35" viewBox="0 0 92 77" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(%23filter0_d_3687_5665)"><rect width="56" height="56" transform="matrix(-1 0 0 1 56 0)" fill="%236D6D6D"/><path d="M13.6281 16.1417C12.3912 14.8054 13.3389 12.6367 15.1598 12.6367C15.7412 12.6367 16.2964 12.8793 16.6914 13.306L41.8597 40.4951C43.0967 41.8313 42.149 44 40.3281 44C39.7466 44 39.1915 43.7574 38.7965 43.3307L13.6281 16.1417Z" fill="url(%23paint0_linear_3687_5665)"/><path d="M41.86 16.1417C43.097 14.8054 42.1493 12.6367 40.3284 12.6367C39.7469 12.6367 39.1918 12.8793 38.7968 13.306L13.6284 40.4951C12.3915 41.8313 13.3392 44 15.1601 44C15.7415 44 16.2967 43.7574 16.6917 43.3307L41.86 16.1417Z" fill="white"/></g><defs><filter id="filter0_d_3687_5665" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dx="4" dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3687_5665"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_3687_5665" result="shape"/></filter><linearGradient id="paint0_linear_3687_5665" x1="12.3007" y1="12.6367" x2="35.4394" y2="47.1167" gradientUnits="userSpaceOnUse"><stop stop-color="white"/><stop offset="0.424604" stop-color="%236D6D6D"/><stop offset="0.621848" stop-color="%236D6D6D"/><stop offset="1" stop-color="white" stop-opacity="0.95935"/></linearGradient></defs></svg>'); */
   background-image: url("data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"15\" height=\"14\" viewBox=\"0 0 14 13\" fill=\"none\"><path d=\"M2.15527 1.37109L12.8178 12.6289\" stroke=\"%230073A5\" stroke-width=\"2\" stroke-linecap=\"round\"/><path d=\"M13.1152 1.59375L1.85742 12.4104\" stroke=\"%230073A5\" stroke-width=\"2\" stroke-linecap=\"round\"/></svg>");
   background-repeat: no-repeat;
@@ -597,6 +837,32 @@ header .cagov button {
 }
 header .cagov .ca-gov-svg {
   border: 0;
+}
+/* New Icons */
+header .ca-gov-svg.desktop-icon {
+  background-color: var(--grey-background, #eee);
+  background-image: url(fonts/cagov-logo-flag-gradient-container.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 4rem;
+  width: 4rem;
+}
+header .ca-gov-svg.desktop-icon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  background-image: url(fonts/cagov-logo-flag-gradient-container-hover.svg);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s ease;
+}
+header .ca-gov-svg.mobile-icon {
+  background-color: var(--grey-background, #eee);
+  background-image: url(fonts/cagov-icon-newsom-gradient.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 4rem;
+  width: 4rem;
+}
+header .ca-gov-svg.mobile-icon {
+  transition: all 0.3s ease;
 }
 header #translate {
   color: var(--go-brand-tahoe-blue, #20367c);
@@ -688,8 +954,8 @@ header .mobile .nav-toggle {
 header .mobile .nav-toggle path {
   transition: d 0.3s;
 }
-header .mobile .nav-toggle[aria-expanded="true"] .menu-icon path {
-  d: path("M3,3 29,29  M3,29 29,3");
+header .mobile .nav-toggle[aria-expanded='true'] .menu-icon path {
+  d: path('M3,3 29,29  M3,29 29,3');
 }
 header.mobile {
   flex: 1;
@@ -781,7 +1047,7 @@ header.mobile .navigation-mobile nav ul li.google-translate a {
 }
 
 .return-top::before {
-  font-family: "Noto Sans";
+  font-family: 'Noto Sans';
   font-size: 1.3rem;
   font-weight: 900;
   padding-right: 3px;
