@@ -133,6 +133,7 @@ function cagov_design_system_options(){
 			<select id="cagov_design_system_mode" name="cagov_design_system_mode" class="w-50 form-control">
 				<option value="default"<?php print 'default' === $mode ? ' selected' : '' ?>>Default</option>
 				<option value="campaign"<?php print 'campaign' === $mode ? ' selected' : '' ?>>Campaign</option>
+				<option value="eureka"<?php print 'eureka' === $mode ? ' selected' : '' ?>>Eureka</option>
 			</select>
 		</div>
 	</div>
