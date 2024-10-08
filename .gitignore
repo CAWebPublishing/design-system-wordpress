@@ -75,6 +75,7 @@ typings/
 .env
 .env.test
 .wp-env.override.json
+.wp-env.json
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

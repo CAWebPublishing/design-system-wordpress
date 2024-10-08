@@ -25,10 +25,13 @@ let entries = {
     '@cagovweb/go-site-footer/src/images/share-youtube.svg',
     '@cagovweb/go-site-alerts/build/index.css',
     '@cagovweb/go-site-alerts/build/index.js'
+  ],
+  "eureka": [
+    './src/eureka.js'
   ]
 };
 
-fs.readdirSync('./node_modules/@cagov/ds-base-css/dist/themes/').filter(file => file.toString().endsWith('.css') ).forEach((color) => {
+fs.readdirSync('./node_modules/@cagov/ds-base-css/dist/themes/').filter(file => file.toString().endsWith('.css')).forEach((color) => {
   var scheme = color.substring(0, color.indexOf('.')).replace(' ', '');
 
   entries[`${scheme}`] = [
