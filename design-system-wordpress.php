@@ -43,6 +43,10 @@ define( 'CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS', array(
 	'cdt-ds-cards',
 ) );
 
+define( 'CAGOV_DESIGN_SYSTEM_EUREKA_BLOCKS', array(
+	
+) );
+
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
 
 add_action( 'init', 'cagov_design_system_init' );
@@ -62,6 +66,14 @@ add_action( 'get_footer', 'cagov_design_system_get_footer' );
 function cagov_design_system_plugins_loaded() {
 	$mode = get_option('cagov_design_system_mode', 'default');
 
+	// only add blocks for the corresponding mode
+	$blocks = array(
+		'default' => CAGOV_DESIGN_SYSTEM_DEFAULT_BLOCKS,
+		'campaign' => CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS,
+		'eureka' => CAGOV_DESIGN_SYSTEM_EUREKA_BLOCKS,
+	);
+	$allowed_blocks = $blocks[$mode];
+
 	/* Include Functionality */
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/core/*.php' ) as $file ) {
 		require_once $file;
@@ -70,9 +82,6 @@ function cagov_design_system_plugins_loaded() {
 	// Add Gutenberg blocks.
 	foreach ( glob( CAGOV_DESIGN_SYSTEM_DIR . '/blocks/*' ) as $file ) {
 		$block_slug = basename( $file );
-		
-		// only add blocks for the corresponding mode
-		$allowed_blocks = 'default' === $mode ? CAGOV_DESIGN_SYSTEM_DEFAULT_BLOCKS : CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS;
 
 		if(  in_array( $block_slug, $allowed_blocks, true ) ){
 			require_once sprintf( '%1$s/blocks/%2$s/%2$s.php', CAGOV_DESIGN_SYSTEM_DIR, $block_slug );
