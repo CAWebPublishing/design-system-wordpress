@@ -81,6 +81,9 @@ function cagov_design_system_nav_menu_types( $mode = 'all' ) {
 		),
 		'campaign' => array(
 			'singlelevel'  => 'Single Level',
+		),
+		'eureka' => array(
+			'singlelevel'  => 'Single Level',
 		)
 	);
 

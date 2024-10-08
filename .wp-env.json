@@ -1,0 +1,27 @@
+{
+    "core": "WordPress/WordPress#6.6.2",
+    "phpVersion": "8.2",
+    "config": {
+        "FS_METHOD": "direct",
+        "WP_DEBUG": true,
+        "WP_DEBUG_LOG": true,
+        "WP_DEBUG_DISPLAY": false,
+        "WP_MEMORY_LIMIT": "256M",
+        "WP_MAX_MEMORY_LIMIT": "512M",
+        "WP_PERMALINK": "/%year%/%monthnum%/%postname%/",
+        "ADMIN_COOKIE_PATH": "/",
+        "COOKIE_DOMAIN": "",
+        "COOKIEPATH": "",
+        "SITECOOKIEPATH": "",
+        "CONCATENATE_SCRIPTS": false,
+        "WP_ALLOW_MULTISITE": true,
+        "WP_DEFAULT_THEME": "CAWeb"
+    },
+    "plugins": [
+        "CAWebPublishing/caweb-dev",
+        "."
+    ],
+    "themes": [
+        "CAWebPublishing/CAWeb"
+    ]
+}
