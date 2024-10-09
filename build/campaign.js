@@ -110,33 +110,33 @@ module.exports = __webpack_require__.p + "fonts/share-youtube.svg";
 
 /***/ }),
 
-/***/ "./node_modules/@cagovweb/go-site-header/src/images/cagov-icon-newsom-gradient.svg":
-/*!*****************************************************************************************!*\
-  !*** ./node_modules/@cagovweb/go-site-header/src/images/cagov-icon-newsom-gradient.svg ***!
-  \*****************************************************************************************/
+/***/ "./node_modules/@cagovweb/go-site-header/src/images/cagov-icon-newsom-gradient-container.png":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-header/src/images/cagov-icon-newsom-gradient-container.png ***!
+  \***************************************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/cagov-icon-newsom-gradient.svg";
+module.exports = __webpack_require__.p + "images/cagov-icon-newsom-gradient-container.png";
 
 /***/ }),
 
-/***/ "./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-flag-gradient-container-hover.svg":
-/*!*******************************************************************************************************!*\
-  !*** ./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-flag-gradient-container-hover.svg ***!
-  \*******************************************************************************************************/
+/***/ "./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-newsom-gradient-container-hover.svg":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-newsom-gradient-container-hover.svg ***!
+  \*********************************************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/cagov-logo-flag-gradient-container-hover.svg";
+module.exports = __webpack_require__.p + "fonts/cagov-logo-newsom-gradient-container-hover.svg";
 
 /***/ }),
 
-/***/ "./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-flag-gradient-container.svg":
-/*!*************************************************************************************************!*\
-  !*** ./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-flag-gradient-container.svg ***!
-  \*************************************************************************************************/
+/***/ "./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-newsom-gradient-container.svg":
+/*!***************************************************************************************************!*\
+  !*** ./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-newsom-gradient-container.svg ***!
+  \***************************************************************************************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-module.exports = __webpack_require__.p + "fonts/cagov-logo-flag-gradient-container.svg";
+module.exports = __webpack_require__.p + "fonts/cagov-logo-newsom-gradient-container.svg";
 
 /***/ }),
 
@@ -1228,9 +1228,9 @@ __nested_webpack_require_22466__.r(__nested_webpack_exports__);
 /******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/build/index.css");
 /******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/build/index.js");
 /******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/src/images/cagov-icon-newsom-gradient.svg");
-/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-flag-gradient-container.svg");
-/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-flag-gradient-container-hover.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/src/images/cagov-icon-newsom-gradient-container.png");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-newsom-gradient-container.svg");
+/******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-header/src/images/cagov-logo-newsom-gradient-container-hover.svg");
 /******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/build/index.css");
 /******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/build/index.js");
 /******/ 	__webpack_require__("./node_modules/@cagovweb/go-site-footer/src/images/gov-seal.svg");
