@@ -36,7 +36,7 @@ define( 'CAGOV_DESIGN_SYSTEM_DEFAULT_BLOCKS', array(
 	'ds-link-grid',
 	'link-grid-card',
 	'ds-ds-page-alert',
-	'ds-page-navigation'
+	'ds-page-navigation',
 ) );
 
 define( 'CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS', array(
@@ -44,7 +44,7 @@ define( 'CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS', array(
 ) );
 
 define( 'CAGOV_DESIGN_SYSTEM_EUREKA_BLOCKS', array(
-	
+	'curvy'
 ) );
 
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );
