@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "caweb/card",
+	"version": "1.3.0",
+	"title": "Card",
+	"category": "cagov-design-system",
+	"icon": "index-card",
+	"description": "Card Gutenberg Block",
+	"example": {
+		"attributes": {}
+	},
+	"supports": {
+		"html": false
+	},
+	"attributes": {
+		"cardType": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string"
+		},
+		"mediaID": {
+			"type": "number"
+		},
+		"mediaURL": {
+			"type": "string"
+		},
+		"mediaAlt": {
+			"type": "string"
+		},
+		"mediaWidth": {
+			"type": "string"
+		},
+		"mediaHeight": {
+			"type": "string"
+		}
+	},
+	"textdomain": "caweb",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php",
+	"viewScript": "file:./frontend.js"
+}

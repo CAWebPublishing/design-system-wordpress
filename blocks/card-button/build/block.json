@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "caweb/card-button",
+  "version": "1.3.0",
+  "title": "Card Button",
+  "category": "cagov-design-system",
+  "icon": "format-aside",
+  "description": "A button to go in the Card block",
+  "example": {
+    "attributes": {}
+  },
+  "attributes": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "caweb",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "parent": [
+    "caweb/card"
+  ],
+  "viewScript": "file:./frontend.js"
+}
