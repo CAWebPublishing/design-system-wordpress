@@ -213,7 +213,7 @@ article > header ~ * {
     font-size: var(--h3);
   }
 
-  > li {
+  li {
     margin-block-start: 0;
     border-radius: var(--radius);
     border-style: solid;
@@ -277,11 +277,11 @@ backdrop-filter: blur(8.9px);
   }
   
   &[data-orientation^="media-"] {
-  > li {
+   li {
     display: block;
   }
 
-  > li {
+   li {
     display: flex;
     flex-direction: row;
     height: 100%;
@@ -305,7 +305,7 @@ backdrop-filter: blur(8.9px);
 
   &[data-orientation="media-end"] {
     
-   > li {
+    li {
     flex-direction: row-reverse;
   }
 
@@ -322,7 +322,7 @@ backdrop-filter: blur(8.9px);
 }
 
   &[data-action="interactive"] {
-  > li {
+   li {
     box-shadow: var(--shadow);
     cursor: pointer;
     transition: all 0.3s ease-out;
@@ -340,7 +340,7 @@ backdrop-filter: blur(8.9px);
   left: 0px;
   z-index: 3000; /*for Chrome and Edge to allow anchor over the img*/
   }
-    >li:focus-within {
+    li:focus-within {
        --outline-size: max(2px, 0.08em);
         --outline-style: solid;
             outline: var(--outline-size) var(--outline-style) var(--brand-primary);
@@ -364,7 +364,7 @@ backdrop-filter: blur(8.9px);
        margin-block-start: unset;  
     }
     
-  > li > a {
+   li > a {
     display: block;
     color: currentColor;
     text-decoration: none;
@@ -373,8 +373,8 @@ backdrop-filter: blur(8.9px);
     --outline-color: var(--brand-primary);
   }
 
-  > li:hover,
-  > li:focus {
+   li:hover,
+   li:focus {
     transform: scale(1.04);
     box-shadow: var(--shadow-focus);
 
@@ -383,7 +383,7 @@ backdrop-filter: blur(8.9px);
     }
   }
 
-  > li:active {
+   li:active {
     transform: scale(1.02);
   }
 
@@ -400,7 +400,7 @@ backdrop-filter: blur(8.9px);
     grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
     grid-gap: var(--gutter-gap);
 
-    > li {
+     li {
       height: 100%;
     }
   }

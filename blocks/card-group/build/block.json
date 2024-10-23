@@ -1,0 +1,28 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "caweb/card-group",
+  "version": "1.3.0",
+  "title": "Card Group",
+  "category": "cagov-design-system",
+  "icon": "format-aside",
+  "description": "Card-group Gutenberg Block",
+  "example": {
+    "attributes": {}
+  },
+  "attributes": {
+    "cardType": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "supports": {
+    "html": true
+  },
+  "textdomain": "card-group",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewScript": "file:./frontend.js"
+}

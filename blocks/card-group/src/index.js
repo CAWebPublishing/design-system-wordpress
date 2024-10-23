@@ -22,42 +22,19 @@ import './editor.scss';
 import Edit from './edit';
 import save from './save';
 import metadata from './block.json';
-import icon from './assets/icon.svg';
 
 /**
  * Every block starts by registering a new block type definition.
  *
- * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
+ * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType(metadata.name, {
+registerBlockType( metadata.name, {
 	/**
 	 * @see ./edit.js
 	 */
 	edit: Edit,
-
 	/**
 	 * @see ./save.js
 	 */
 	save,
-	icon: <img src={icon} />,
-	transforms: {
-		from: [{
-			type: "block",
-			blocks: ['core/paragraph'],
-			transform: (attributes) => {
-				return createBlock("caweb/curvy", {}, [
-					createBlock("core/paragraph", attributes)
-				])
-			}
-		}, {
-			type: "block",
-			blocks: ['core/heading'],
-			transform: (attributes) => {
-				return createBlock("caweb/curvy", {}, [
-					createBlock("core/heading", attributes)
-				])
-			}
-		}]
-	}
-});
-
+} );

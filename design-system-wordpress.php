@@ -46,7 +46,8 @@ define( 'CAGOV_DESIGN_SYSTEM_CAMPAIGN_BLOCKS', array(
 define( 'CAGOV_DESIGN_SYSTEM_EUREKA_BLOCKS', array(
 	'curvy',
 	'card',
-	'card-button'
+	'card-button',
+	'card-group',
 ) );
 
 add_action( 'plugins_loaded', 'cagov_design_system_plugins_loaded' );

@@ -14,10 +14,6 @@
     "html": false
   },
   "attributes": {
-    "cardType": {
-      "type": "string",
-      "default": ""
-    },
     "title": {
       "type": "string"
     },

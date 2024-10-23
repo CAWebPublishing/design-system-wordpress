@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+
+
 /**
  * Retrieves the translation of text.
  *
@@ -31,7 +34,6 @@ import { PanelBody, ToggleControl, SelectControl, Button, Flex, FlexBlock, FlexI
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
-import metadata from './block.json';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -44,81 +46,61 @@ import metadata from './block.json';
 export default function Edit(props) {
 	let {
 		setAttributes,
-		attributes: {
-			title,
-			mediaID,
-			mediaURL,
-			mediaAlt,
-			mediaWidth,
-			mediaHeight,
-		},
+		attributes: { cardType },
 	} = props;
 
 	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps();
+	const ALLOWED_BLOCKS = ['caweb/card'];
 
-	const ALLOWED_BLOCKS = ['caweb/card-button', 'core/paragraph'];
-	const PARAGRAPH_ONLY = ['core/paragraph'];
+	const onChangeCardType = newCardType => {
+		setAttributes({ cardType: newCardType });
+	}
 
-	const onChangeTitle = (newTitle) => {
-		setAttributes({ title: newTitle });
-	};
+	useEffect(() => {
+		const cardButtonList = document.querySelectorAll('button.action');
+		// const cardList = document.querySelectorAll('.cards');
 
-	const onSelectImage = function (media) {
-		return setAttributes({
-			mediaURL: media.url,
-			mediaID: media.id,
-			mediaAlt: media.alt,
-			mediaWidth: media.width,
-			mediaHeight: media.height,
+		console.log(cardButtonList);
+		// console.log(cardList);
+
+		console.log('What is cardType: ', cardType);
+
+
+
+
+		cardButtonList.forEach((button, idx) => {
+			if (button && cardType === 'interactive') {
+				button.style.display = 'none';
+			} else {
+				button.style.display = 'block';
+			}
 		});
-	};
+	}, [cardType]);
 
 	return (
 		<>
-			<li {...blockProps}>
-				<div className="card-text">
-					<RichText
-						tagName="h2"
-						placeholder={__('Write title…', metadata.textdomain)}
-						value={title}
-						onChange={onChangeTitle}
+			<ul
+				{...blockProps}
+				className={'cards'}
+				data-orientation={cardType === 'interactive' ? "media-" : null}
+				data-action={cardType === 'interactive' ? cardType : null}
+			>
+				<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
+			</ul>
+			<InspectorControls>
+				<PanelBody title={'Card Type'}>
+					<SelectControl
+						label={'Type'}
+						value={cardType}
+						options={[
+							{ value: '', label: 'Select a Card type', disabled: true },
+							{ value: 'default', label: 'Default' },
+							{ value: 'interactive', label: 'Interactive' }
+						]}
+						onChange={onChangeCardType}
 					/>
-
-					<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
-
-				</div>
-				<MediaUpload
-					onSelect={onSelectImage}
-					allowedTypes={['image']}
-					value={mediaID}
-					labels={{
-						title: __('Feature Card Image', metadata.textdomain),
-					}}
-					render={({ open }) => {
-						return (
-							<div>
-								{mediaID && (
-									<img
-										className="cagov-featured-image"
-										src={mediaURL}
-										alt={mediaAlt}
-										width={mediaWidth}
-										height={mediaHeight}
-									/>
-								)
-								}
-								<Button
-									variant="primary"
-									onClick={open}
-								>
-									{__('Change image', metadata.textdomain)}
-								</Button>
-							</div>
-						);
-					}}
-				/>
-			</li>
+				</PanelBody>
+			</InspectorControls>
 		</>
 	);
 }
