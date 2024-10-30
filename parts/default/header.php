@@ -29,7 +29,7 @@ $cagov_design_system_google_search_id = get_option( 'ca_google_search_id', '' );
 		<div class="container">
 			<div class="official-logo">
 					<a class="cagov-logo" href="https://ca.gov" title="ca.gov" target="_blank" rel="noopener">
-						<?php print wp_kses( cagov_design_system_state_logo(), 'post' ); ?>
+						<?php print cagov_design_system_state_logo(); ?>
 					</a>
 				<p class="official-tag"><span class="desktop-only">Official website of the&nbsp;</span>State of California</p>
 			</div> <!-- official-logo -->

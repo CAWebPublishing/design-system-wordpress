@@ -841,7 +841,7 @@ header .cagov .ca-gov-svg {
 /* New Icons */
 header .ca-gov-svg.desktop-icon {
   background-color: var(--grey-background, #eee);
-  background-image: url(fonts/cagov-logo-newsom-gradient-container.svg);
+  background-image: url(fonts/cagov-logo.svg);
   background-position: center;
   background-repeat: no-repeat;
   height: 4rem;
@@ -849,13 +849,13 @@ header .ca-gov-svg.desktop-icon {
 }
 header .ca-gov-svg.desktop-icon:hover {
   background-color: rgba(255, 255, 255, 0.5);
-  background-image: url(fonts/cagov-logo-newsom-gradient-container-hover.svg);
+  background-image: url(fonts/cagov-logo-hover.svg);
   box-shadow: -4px 4px 4px 0px rgba(0, 0, 0, 0.25);
   transition: all 0.3s ease;
 }
 header .ca-gov-svg.mobile-icon {
   background-color: var(--grey-background, #eee);
-  background-image: url(images/cagov-icon-newsom-gradient-container.png);
+  background-image: url(images/cagov-icon.png);
   background-position: center;
   background-repeat: no-repeat;
   height: 4rem;

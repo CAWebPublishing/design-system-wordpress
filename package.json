@@ -38,7 +38,7 @@
     "@cagovweb/go-site-alerts": "^0.0.37",
     "@cagovweb/go-site-base-css": "^0.0.9",
     "@cagovweb/go-site-footer": "^0.0.22",
-    "@cagovweb/go-site-header": "^0.0.50",
-    "@caweb/cli": "^1.6.24"
+    "@cagovweb/go-site-header": "^0.0.51",
+    "@caweb/cli": "^1.6.28"
   }
 }
