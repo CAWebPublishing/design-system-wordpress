@@ -85,7 +85,9 @@ export default function Edit(props) {
 						onChange={onChangeTitle}
 					/>
 
-					<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
+					<div className={'card-body-content'}>
+						<InnerBlocks allowedBlocks={ALLOWED_BLOCKS} />
+					</div>
 
 				</div>
 				<MediaUpload
@@ -97,24 +99,26 @@ export default function Edit(props) {
 					}}
 					render={({ open }) => {
 						return (
-							<div>
+							<>
 								{mediaID && (
 									<img
-										className="cagov-featured-image"
+										className={'card-image'}
 										src={mediaURL}
 										alt={mediaAlt}
 										width={mediaWidth}
 										height={mediaHeight}
+										key={mediaURL}
 									/>
 								)
 								}
 								<Button
 									variant="primary"
 									onClick={open}
+									className={'card-image-change-button'}
 								>
 									{__('Change image', metadata.textdomain)}
 								</Button>
-							</div>
+							</>
 						);
 					}}
 				/>

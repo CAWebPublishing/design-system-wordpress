@@ -1,15 +1,13 @@
-<?php
-/**
- * Card Group Dynamic Renderer Functions
- *
- * @package caweb
- *
- * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
- *
- * @param array         $attributes Block attributes.
- * @param string        $content    Block content.
- * @param  WP_Block_Type $block Current Block Type.
- */
- ?>
- 
-<p>Render Block Output</p>
+<? 
+  $block_wrapper_attributes = get_block_wrapper_attributes();
+  $cardType = isset( $attributes['cardType'] ) ? $attributes['cardType'] : '';
+  $imageLocation = isset( $attributes['imageLocation'] ) ? $attributes['imageLocation'] : '';
+?>
+
+<ul class='cards'
+  <? echo $block_wrapper_attributes; ?>
+  <?php echo $cardType === 'interactive' ? ' data-action="interactive"' : '' ?>
+  <?php echo $cardType === 'interactive' ? " data-orientation=\"media-\"" : '';?>
+>
+    <? echo $content; ?>
+</ul>

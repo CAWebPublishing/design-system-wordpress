@@ -181,9 +181,9 @@ article > header ~ * {
   padding: 0;
   font-size: 0.85em;
   --card-spacing: 1.5rem;
-  :has(.action:focus) img,
-  :has(.action:hover) img,
-  :has(.card-text:focus) img {
+  & li:has(.action:focus) img,
+  & li:has(.action:hover) img,
+  & li:has(.card-text:focus) img {
     filter: saturate(100%);
   }
 
@@ -224,11 +224,10 @@ article > header ~ * {
     flex-direction: column;
     justify-content: space-between;
     background: rgba(255, 255, 255, 0.65);
-border-radius: var(--radius);
-box-shadow: var(--shadow);
-backdrop-filter: blur(8.9px);
--webkit-backdrop-filter: blur(8.9px);
-
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(8.9px);
+    -webkit-backdrop-filter: blur(8.9px);
   }
 
   .card-text {
@@ -293,7 +292,7 @@ backdrop-filter: blur(8.9px);
     border-end-start-radius: var(--radius);
     border-end-end-radius: 0;
     max-block-size: 100%;
-    max-inline-size: 33%;
+    max-inline-size: 50%;
   }
 
   li:only-child {
@@ -415,6 +414,20 @@ backdrop-filter: blur(8.9px);
     display: block;
     max-width: 120ch;
   }
+}
+
+.card-image-change-button {
+  border-start-start-radius: var(--radius);
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.cards[data-orientation^=media-] img.image-on-right {
+  border-end-end-radius: var(--radius);
+  border-end-start-radius: 0;
+  border-start-end-radius: var(--radius);
+  border-start-start-radius: 0;
 }
 
 @media (prefers-reduced-motion) {

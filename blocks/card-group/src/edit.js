@@ -46,7 +46,7 @@ import './editor.scss';
 export default function Edit(props) {
 	let {
 		setAttributes,
-		attributes: { cardType },
+		attributes: { cardType, imageLocation },
 	} = props;
 
 	const blockProps = useBlockProps();
@@ -56,17 +56,38 @@ export default function Edit(props) {
 		setAttributes({ cardType: newCardType });
 	}
 
+	const onChangeImageLocation = newImageLocation => {
+		setAttributes({ imageLocation: newImageLocation });
+	}
+
+	const setCardImageLocation = (location) => {
+		const cardList = document.querySelectorAll('.cards .card-text');
+		const imageList = document.querySelectorAll('.cards img');
+
+		cardList.forEach((card, idx) => {
+			if (cardType === 'interactive') {
+				if (location === 'right') {
+					card.style.order = 1;
+					imageList[idx].classList.add('image-on-right');
+				}
+				if (location === 'left') {
+					card.style.order = 2;
+					imageList[idx].classList.remove('image-on-right');
+				}
+			} else {
+				card.style.order = 2;
+				imageList[idx].classList.remove('image-on-right');
+			}
+		});
+
+	}
+
 	useEffect(() => {
 		const cardButtonList = document.querySelectorAll('button.action');
 		// const cardList = document.querySelectorAll('.cards');
 
-		console.log(cardButtonList);
-		// console.log(cardList);
-
 		console.log('What is cardType: ', cardType);
-
-
-
+		console.log('What is imageLocation: ', imageLocation);
 
 		cardButtonList.forEach((button, idx) => {
 			if (button && cardType === 'interactive') {
@@ -75,7 +96,9 @@ export default function Edit(props) {
 				button.style.display = 'block';
 			}
 		});
-	}, [cardType]);
+
+		setCardImageLocation(imageLocation);
+	}, [cardType, imageLocation]);
 
 	return (
 		<>
@@ -94,10 +117,21 @@ export default function Edit(props) {
 						value={cardType}
 						options={[
 							{ value: '', label: 'Select a Card type', disabled: true },
-							{ value: 'default', label: 'Default' },
+							{ value: 'default', label: 'Static' },
 							{ value: 'interactive', label: 'Interactive' }
 						]}
 						onChange={onChangeCardType}
+					/>
+					<SelectControl
+						label={'Image Location'}
+						value={imageLocation}
+						options={[
+							{ value: '', label: 'Select an image location', disabled: true },
+							{ value: 'top', label: 'Top' },
+							{ value: 'right', label: 'Right' },
+							{ value: 'left', label: 'Left' }
+						]}
+						onChange={onChangeImageLocation}
 					/>
 				</PanelBody>
 			</InspectorControls>

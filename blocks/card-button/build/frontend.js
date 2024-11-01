@@ -1,0 +1,1 @@
+(()=>{const e=document.querySelectorAll("ul.cards"),c=document.querySelectorAll("ul.cards .action");e.forEach((e=>{"interactive"===e.dataset.action&&c.forEach((e=>{e.style.display="none"}))}))})();

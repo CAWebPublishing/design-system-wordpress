@@ -1,5 +1,14 @@
+ul.cards[data-type='caweb/card-group'][data-title='Card Group']{
+  max-width: unset;
+}
+
 [data-type='caweb/card-group']{
   > div > div.block-editor-block-list__layout {
-    display: flex;
+    // display: flex;
+    // gap: var(--gutter-gap);
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+    grid-gap: var(--gutter-gap);
   }
 }

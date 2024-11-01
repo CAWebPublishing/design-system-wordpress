@@ -41,11 +41,25 @@ import metadata from './block.json';
  * @return {WPElement} Element to render.
  */
 export default function Edit(props) {
+	let {
+		setAttributes,
+		attributes: {
+			buttonText,
+		},
+	} = props;
+
+	const onChangeButtonText = (newButtonText) => {
+		console.log('newButtonText: ', newButtonText);
+
+		setAttributes({ buttonText: newButtonText });
+	};
 
 	return (
 		<button className={'action'}>
 			<RichText
 				placeholder={__('Call to action', metadata.textdomain)}
+				value={buttonText}
+				onChange={onChangeButtonText}
 			/>
 		</button>
 	)

@@ -1,15 +1,17 @@
-<?php
-/**
- * Card Dynamic Renderer Functions
- *
- * @package caweb
- *
- * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
- *
- * @param array         $attributes Block attributes.
- * @param string        $content    Block content.
- * @param  WP_Block_Type $block Current Block Type.
- */
- ?>
- 
-<p>Render Block Output</p>
+<? 
+  $block_wrapper_attributes = get_block_wrapper_attributes();
+  $image_uri = wp_get_attachment_image_url($attributes['mediaID'] ?? 0, "large");
+  $title = isset( $attributes['title'] ) ? $attributes['title'] : '';
+?>
+
+<li <? echo $block_wrapper_attributes; ?>>
+<img src="<? echo $image_uri; ?>" />
+  <div class='card-text'>
+    <h2>
+      <? echo $title; ?>
+    </h2>
+    <div class='card-body-content'>
+      <? echo $content; ?>
+    </div>
+  </div>
+</li>

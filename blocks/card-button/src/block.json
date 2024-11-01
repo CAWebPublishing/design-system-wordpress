@@ -10,7 +10,17 @@
 	"example": {
 		"attributes": {}
 	},
-	"attributes": {},
+	"attributes": {
+		"buttonText": {
+			"type": "string"
+		},
+		"cardType": {
+			"type": "string"
+		}
+	},
+	"usesContext": [
+		"card-group/cardType"
+	],
 	"supports": {
 		"html": false
 	},

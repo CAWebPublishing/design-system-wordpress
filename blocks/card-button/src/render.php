@@ -1,15 +1,16 @@
-<?php
-/**
- * Card Button Dynamic Renderer Functions
- *
- * @package caweb
- *
- * @see https://developer.wordpress.org/block-editor/how-to-guides/block-tutorial/creating-dynamic-blocks/
- *
- * @param array         $attributes Block attributes.
- * @param string        $content    Block content.
- * @param  WP_Block_Type $block Current Block Type.
- */
- ?>
- 
-<p>Render Block Output</p>
+<? 
+  $block_wrapper_attributes = get_block_wrapper_attributes();
+  $buttonText = isset( $attributes['buttonText'] ) ? $attributes['buttonText'] : '';
+  $cardType = isset( $attributes['cardType'] ) ? $block->context['card-group/cardType'] : '';
+  echo $cardType;
+  // var_dump($block);
+  // print_r($block);
+?>
+
+<div <? echo $block_wrapper_attributes; ?>>
+  <?php  if($buttonText):  ?>
+		<button class='action'>
+      <?php echo $buttonText ?>
+    </button>
+  <?php endif; ?>
+</div>
