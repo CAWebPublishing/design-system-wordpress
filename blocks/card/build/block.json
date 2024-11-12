@@ -38,5 +38,8 @@
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css",
   "render": "file:./render.php",
-  "viewScript": "file:./frontend.js"
+  "viewScript": "file:./frontend.js",
+  "parent": [
+    "caweb/card-group"
+  ]
 }

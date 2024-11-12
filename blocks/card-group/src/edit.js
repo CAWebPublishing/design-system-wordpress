@@ -60,19 +60,42 @@ export default function Edit(props) {
 		setAttributes({ imageLocation: newImageLocation });
 	}
 
+	const imageOnRight = (card, image, li) => {
+		card.style.order = 1;
+		image.classList.add('image-on-right');
+		image.classList.remove('image-on-top');
+		li.classList.remove('image-on-top');
+	}
+
+	const imageOnLeft = (card, image, li) => {
+		card.style.order = 2;
+		image.classList.remove('image-on-right');
+		image.classList.remove('image-on-top');
+		li.classList.remove('image-on-top');
+	}
+
+	const imageOnTop = (card, image, li) => {
+		card.style.order = 2;
+		image.classList.remove('image-on-right');
+		image.classList.add('image-on-top');
+		li.classList.add('image-on-top');
+	}
+
 	const setCardImageLocation = (location) => {
 		const cardList = document.querySelectorAll('.cards .card-text');
+		const cardListItem = document.querySelectorAll('.cards li');
 		const imageList = document.querySelectorAll('.cards img');
 
 		cardList.forEach((card, idx) => {
 			if (cardType === 'interactive') {
 				if (location === 'right') {
-					card.style.order = 1;
-					imageList[idx].classList.add('image-on-right');
+					imageOnRight(card, imageList[idx], cardListItem[idx]);
 				}
 				if (location === 'left') {
-					card.style.order = 2;
-					imageList[idx].classList.remove('image-on-right');
+					imageOnLeft(card, imageList[idx], cardListItem[idx]);
+				}
+				if (location === 'top') {
+					imageOnTop(card, imageList[idx], cardListItem[idx]);
 				}
 			} else {
 				card.style.order = 2;

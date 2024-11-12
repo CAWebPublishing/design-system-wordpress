@@ -430,6 +430,20 @@ article > header ~ * {
   border-start-start-radius: 0;
 }
 
+// Image on top
+.cards[data-action=interactive] li.image-on-top {
+  flex-direction: column;
+  
+  & img {
+    border-start-start-radius: var(--radius);
+    border-start-end-radius: var(--radius);
+    border-end-end-radius: 0;
+  border-end-start-radius: 0;
+    max-inline-size: 100%;
+  }
+  
+}
+
 @media (prefers-reduced-motion) {
   *,
   *::before,
