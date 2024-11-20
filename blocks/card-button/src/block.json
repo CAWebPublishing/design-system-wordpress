@@ -2,35 +2,52 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "caweb/card-button",
-	"version": "1.3.0",
+	"version": "0.1.0",
 	"title": "Card Button",
 	"category": "cagov-design-system",
-	"icon": "format-aside",
-	"description": "A button to go in the Card block",
-	"example": {
-		"attributes": {}
-	},
-	"attributes": {
-		"buttonText": {
-			"type": "string"
+	"icon": "smiley",
+	"description": "A call to action that links to a particular post or page rather than hardcoding the destination URL.",
+	"supports": {
+		"html": false,
+		"color": {
+			"background": true,
+			"text": true,
+			"link": false,
+			"gradients": true,
+			"enableContrastChecker": true
 		},
-		"cardType": {
-			"type": "string"
+		"spacing": {
+			"padding": true
 		}
 	},
-	"usesContext": [
-		"card-group/cardType"
-	],
-	"supports": {
-		"html": false
+	"attributes": {
+		"postType": {
+			"type": "string",
+			"default": ""
+		},
+		"linkedPost": {
+			"type": "number"
+		},
+		"labelText": {
+			"type": "string",
+			"default": ""
+		},
+		"externalUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"visibleUrl": {
+			"type": "string",
+			"default": ""
+		}
 	},
-	"textdomain": "caweb",
+	"textdomain": "eureka",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
 	"parent": [
-		"caweb/card"
+		"eureka/card"
 	],
 	"viewScript": "file:./frontend.js"
 }
